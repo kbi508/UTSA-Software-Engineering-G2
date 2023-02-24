@@ -4,13 +4,11 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 @app.route('/')
-def index():
-    return render_template('index.html', utc_dt=datetime.datetime.utcnow())
+def main():
+    return render_template('main.html', utc_dt=datetime.datetime.utcnow())
+    
+@app.route('/about/')
+def account():
+    return render_template('account.html')
 
 app.run(host='0.0.0.0', port=81)
-'''
-def index():
-    return 'Hello World'
-
-app.run(host='0.0.0.0', port=81)
-'''
