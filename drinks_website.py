@@ -7,7 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:r00t4[m3]98@localhost/site.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:r00t4[m3]98@localhost/site_db'
 
 @app.route('/')
 def main():
