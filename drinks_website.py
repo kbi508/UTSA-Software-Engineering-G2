@@ -20,12 +20,14 @@ class User(db.Model):
         return f"User('{self.username}', '{self.email}')"
 
 # DB Testing:
-new_user = User(username='Broham', email='bubba@lolzers', password='password')
-db.session.add(new_user)
-db.session.commit()
+with app.app_context():
+    User.query.filter_by(username='Broham').delete()
+    new_user = User(username='Broham', email='bubba@lolzers', password='password')
+    db.session.add(new_user)
+    db.session.commit()
 
-for user in User.query.all():
-    print(user)
+    for user in User.query.all():
+        print(user)
 
 
 @app.route('/')
