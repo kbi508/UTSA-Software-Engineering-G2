@@ -26,8 +26,9 @@ with app.app_context():
     db.session.add(new_user)
     db.session.commit()
 
+    users = []
     for user in User.query.all():
-        print(user)
+        users.append(user)
 
 
 @app.route('/')
@@ -37,6 +38,10 @@ def main():
 @app.route('/about/')
 def account():
     return render_template('account.html')
+
+@app.route('/helloworld')
+def helloworld():
+    return render_template('helloworld.html', _users=users)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=81)
