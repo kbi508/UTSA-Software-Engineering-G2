@@ -6,7 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:r00t4[m3]98@localhost/site_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:r00t4[m3]@localhost/site_db'
 db = SQLAlchemy(app)
 
 # DB creation:
