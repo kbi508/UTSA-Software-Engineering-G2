@@ -7,6 +7,7 @@ function App() {
     <div className="App">
       <Router>
         <Navbar />
+        <div>Test</div>
         <Routes>
           <Route path="/" />
           <Route path="/bargins" />
