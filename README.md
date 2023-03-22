@@ -4,6 +4,9 @@ OneStopPopShop is an all in one place to quench your soda thirst. Customers can 
 
 # How to run:
 Make sure you have node.js installed, which comes with npm (node package manager).
-Using the terminal, navigate to onestoppopshop and run: 
+
+Using the terminal, navigate to onestoppopshop and run:
+
 	npm start
+
 This should open your localhost at port 3000, displaying the site.
