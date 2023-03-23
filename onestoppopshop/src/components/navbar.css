@@ -64,7 +64,7 @@ button:hover {
 }
 
 .right-wrapper-nav {
-    margin-left: 3%;
+    margin-left: auto;
 }
 
 button .login-button, .cart-button {
