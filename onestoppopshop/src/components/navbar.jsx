@@ -17,7 +17,9 @@
       <div className='right-wrapper-nav'>
         <button className='login-button'>Login</button>
         <button className='cart-button'>
-          <ShoppingCart className='cart-comp' size='32' />
+          <Link to='/cart'>
+            <ShoppingCart className='cart-comp' size='32' />
+          </Link>
         </button>
       </div>
     </header>
