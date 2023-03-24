@@ -39,8 +39,10 @@
 
 .addToCartBttn {
     background-color: transparent;
+    font-size: 15px;
+    color: black;
     border: 2px solid black;
-    min-width: 100px;
+    min-width: 50px;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 5px;
@@ -49,7 +51,7 @@
 }
 
 .addToCartBttn:hover {
-    background-color: black;
+    background-color: rgb(255, 127, 127);
     color: white;
     cursor: pointer;
 }
