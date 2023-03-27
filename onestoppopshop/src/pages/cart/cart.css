@@ -30,6 +30,11 @@
     text-align: center;
     font-weight: bolder;
   }
+
+  .countHandler button {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
   
   .checkout button {
     width: 150px;
