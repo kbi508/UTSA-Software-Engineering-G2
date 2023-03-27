@@ -4,7 +4,7 @@ import _12ozAWRootbeerCan from './assets/12oza&wrootbeercan.jpeg'
 import _12ozDrPepperCan from './assets/12ozdrpeppercan.jpeg'
 import _12ozSpriteCan from './assets/12ozspritecan.jpg'
 import _12ozFantaCan from './assets/12ozfantacan.webp'
-import _12ozBigRedCan from './assets/12ozbigredcan.webp'
+import _12ozBigRedCan from './assets/12ozbigredcan.jpg'
 
 export const PRODUCTS = [
     {
