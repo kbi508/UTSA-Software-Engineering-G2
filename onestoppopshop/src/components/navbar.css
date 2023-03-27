@@ -6,7 +6,7 @@
     padding: 0;
 }
 
-a, button {
+a, .nav-bttn {
     font-family: "Fasthand", sans-serif;
     font-weight: 500;
     font-size: 32px;
@@ -50,7 +50,7 @@ nav {
     color:rgb(255, 127, 127);
 }
 
-button {
+.nav-bttn {
     padding:9px 25px;
     background-color: rgb(224, 161, 26);
     border: none;
@@ -59,7 +59,7 @@ button {
     transition: all 0.3s ease 0s;
 }
 
-button:hover {
+.nav-bttn:hover {
     background-color: rgb(255, 127, 127);
 }
 
@@ -67,7 +67,7 @@ button:hover {
     margin-left: auto;
 }
 
-button .login-button, .cart-button {
+.nav-bttn .login-button, .cart-button {
     margin: 3px;
 }
 

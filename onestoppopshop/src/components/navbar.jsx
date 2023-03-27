@@ -15,8 +15,8 @@
         </ul>
       </nav>
       <div className='right-wrapper-nav'>
-        <button className='login-button'>Login</button>
-        <button className='cart-button'>
+        <button className='login-button nav-bttn'>Login</button>
+        <button className='cart-button nav-bttn'>
           <Link to='/cart'>
             <ShoppingCart className='cart-comp' size='32' />
           </Link>
