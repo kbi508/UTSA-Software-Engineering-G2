@@ -2,7 +2,7 @@
  import { Link } from 'react-router-dom'
  import { ShoppingCart } from 'phosphor-react'
  import './navbar.css'
- import logo from '../assets/logo.svg'
+ import logo from '../assets/oneStopPopShop_logo.svg'
 
  export const Navbar = () => {
    return (
