@@ -2,12 +2,12 @@
  import { Link } from 'react-router-dom'
  import { ShoppingCart } from 'phosphor-react'
  import './navbar.css'
- import logo from '../assets/onePopStopShop_logo_small.svg'
+ import logo from '../assets/onePopStopShop_logo_v2.svg'
 
  export const Navbar = () => {
    return (
     <header>
-      <img className='logo' src={logo} alt='Logo'/>
+      <img className='logo' src={logo} alt='Logo' />
       <nav>
         <ul className='nav_links'>
           <li><Link className='page-link' to="/"> Shop </Link></li>
