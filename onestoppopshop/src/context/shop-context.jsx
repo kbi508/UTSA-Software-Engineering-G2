@@ -14,6 +14,8 @@ const getDefaultCart = () => {
 
 export const ShopContextProvider = (props) => {
     const [cartItems, setCartItems] = useState(getDefaultCart())
+    const [isOpen, setIsOpen] = useState(false)
+
 
     const getTotalCartAmount = () => {
         let totalAmount = 0
@@ -41,7 +43,11 @@ export const ShopContextProvider = (props) => {
         setCartItems((prev) => ({...prev, [itemId]: newAmount}))
     }
 
-    const contextValue = {cartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount}
+    const toggleOpen = () => {
+        setIsOpen(!isOpen)
+    }
+
+    const contextValue = {cartItems, isOpen, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen}
 
     return (
         <ShopContext.Provider value={contextValue}>
