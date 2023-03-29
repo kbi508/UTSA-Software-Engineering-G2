@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { ShoppingCart } from 'phosphor-react'
 import './navbar.css'
@@ -6,7 +6,7 @@ import logo from '../assets/onePopStopShop_logo_v2.svg'
 import { ShopContext } from '../context/shop-context'
 
 export const Navbar = () => {
-  const {isOpen, toggleOpen} = useContext(ShopContext)
+  const {toggleOpen} = useContext(ShopContext)
 
   return (
   <header>

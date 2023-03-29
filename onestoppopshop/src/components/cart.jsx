@@ -8,11 +8,6 @@ export const Cart = (props) => {
   const { cartItems, getTotalCartAmount, toggleOpen, isOpen } = useContext(ShopContext)
   const totalAmount = getTotalCartAmount().toFixed(2)
 
-  useEffect(() => {
-    const panel = document.querySelector('.cart')
-    panel.classList.toggle('active')
-  }, [isOpen])
-
 
   return (
     <div className='cart'>
