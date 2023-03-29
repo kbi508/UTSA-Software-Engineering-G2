@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Navbar } from "./components/navbar"
 import { Shop } from './pages/shop/shop'
 import { Bargins } from './pages/bargins/bargins'
-import { Cart } from './pages/cart/cart'
+import { Cart } from './components/cart'
 import { ShopContextProvider } from './context/shop-context';
 
 function App() {
