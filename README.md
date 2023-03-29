@@ -7,6 +7,7 @@ Make sure you have node.js installed, which comes with npm (node package manager
 
 Using the terminal, navigate to onestoppopshop and run:
 
+	npm i
 	npm start
 
 This should open your localhost at port 3000, displaying the site.
