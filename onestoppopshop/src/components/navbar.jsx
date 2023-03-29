@@ -2,7 +2,7 @@
  import { Link } from 'react-router-dom'
  import { ShoppingCart } from 'phosphor-react'
  import './navbar.css'
- import logo from '../assets/logo.svg'
+ import logo from '../assets/oneStopPopShop_logo.svg'
 
  export const Navbar = () => {
    return (
@@ -15,9 +15,11 @@
         </ul>
       </nav>
       <div className='right-wrapper-nav'>
-        <button className='login-button'>Login</button>
-        <button className='cart-button'>
-          <ShoppingCart className='cart-comp' size='32' />
+        <button className='login-button nav-bttn'>Login</button>
+        <button className='cart-button nav-bttn'>
+          <Link to='/cart'>
+            <ShoppingCart className='cart-comp' size='32' />
+          </Link>
         </button>
       </div>
     </header>
