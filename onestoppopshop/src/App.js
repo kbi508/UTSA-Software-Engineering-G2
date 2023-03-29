@@ -15,7 +15,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Shop />} />
             <Route path="/bargins" element={<Bargins />} />
-            <Route path="/cart" element={<Cart />} />
           </Routes>
         </Router>
       </ShopContextProvider>

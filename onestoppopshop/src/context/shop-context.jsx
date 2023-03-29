@@ -44,6 +44,7 @@ export const ShopContextProvider = (props) => {
     }
 
     const toggleOpen = () => {
+        console.log('Toggled to ' + isOpen)
         setIsOpen(!isOpen)
     }
 

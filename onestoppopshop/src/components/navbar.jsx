@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { ShoppingCart } from 'phosphor-react'
 import './navbar.css'
@@ -19,10 +19,8 @@ export const Navbar = () => {
     </nav>
     <div className='right-wrapper-nav'>
       <button className='login-button nav-bttn'>Login</button>
-      <button className='cart-button nav-bttn'>
-        <button onClick={toggleOpen}>
+      <button className='cart-button nav-bttn' onClick={toggleOpen}>
           <ShoppingCart className='cart-comp' size='32' />
-        </button>
       </button>
     </div>
   </header>
