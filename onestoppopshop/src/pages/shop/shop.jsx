@@ -27,7 +27,7 @@ export const Shop = () => {
     <div className='shop'>
       <div className='shop-content'>
         <div className='shopTitle'>
-          <h1>Welcome to the PopShop!</h1>
+          <h1>Welcome to the PopShop my brubba!</h1>
         </div>
         <div className='products'>
           {/* Need tp change into using back-end once setup.*/}
