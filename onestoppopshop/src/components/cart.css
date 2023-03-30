@@ -1,0 +1,43 @@
+.cart {
+    height: 100vh;
+    width: 0%;
+    right: 0;
+    background-color: bisque;
+    position: sticky;
+    top: 0;
+    bottom: 0;
+    display:flex;
+    overflow-y: auto;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.5);
+    transform: translateX(102%);
+    transition: all 0.3s ease-out;
+}
+
+.cart.active {
+    width: 25%;
+    transform: translateX(0%);
+}
+
+.x-bttn {
+    position: absolute;
+    border-color: rgb(0, 0, 0);
+    border-style: none;
+    font-size: 250%;
+    text-align: center;
+    align-items: center;
+    top: 0;
+    right: 0;
+    height: 5%;
+    width: 10%;
+}
+
+.x-bttn:hover {
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
+}
+
+.checkout{
+    align-self: flex-end;
+    clear: right;
+}
