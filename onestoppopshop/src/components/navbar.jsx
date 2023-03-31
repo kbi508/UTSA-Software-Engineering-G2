@@ -14,7 +14,8 @@ export const Navbar = () => {
     <nav>
       <ul className='nav_links'>
         <li><Link className='page-link' to="/"> Shop </Link></li>
-        <li><Link className='page-link' to="/bargins"> Today's Bargins </Link></li>
+        <li><Link className='page-link' to="/checkout"> Checkout </Link></li>
+        <li><Link className='page-link' to="/account"> Account </Link></li>
       </ul>
     </nav>
     <div className='right-wrapper-nav'>
