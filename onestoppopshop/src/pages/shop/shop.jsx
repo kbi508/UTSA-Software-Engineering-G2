@@ -13,21 +13,13 @@ export const Shop = () => {
     const shop = document.querySelector('.shop-content')
 
     cart.classList.toggle('active')
-
-    /*if (cart.classList.contains('active'))
-    {
-      shop.style.flexBasis = '70%'
-    }
-    else
-      shop.style.flexBasis = '100%'*/
-
   }, [isOpen])
 
   return (
     <div className='shop'>
       <div className='shop-content'>
         <div className='shopTitle'>
-          <h1>Welcome to the PopShop my brubba!</h1>
+          <h1>Welcome to the PopShop!</h1>
         </div>
         <div className='products'>
           {/* Need tp change into using back-end once setup.*/}
