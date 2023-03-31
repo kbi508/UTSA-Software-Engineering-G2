@@ -54,7 +54,7 @@
 
 .cart-bttn {
     font-family: "Fasthand", sans-serif;
-    font-weight: bold;
+    /* font-weight: bold; */
     font-size: 1.5rem;
     border-radius: 1rem;
     border-style: none;
