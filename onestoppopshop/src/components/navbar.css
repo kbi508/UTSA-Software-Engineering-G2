@@ -49,12 +49,12 @@ nav {
 }
 
 .nav_links li a:hover {
-    color:rgb(255, 127, 127);
+    color:#329885;
 }
 
 .nav-bttn {
     padding:9px 25px;
-    background-color: rgb(224, 161, 26);
+    background-color: #FCC68F;
     border: none;
     border-radius: 50px;
     cursor: pointer;
@@ -62,7 +62,7 @@ nav {
 }
 
 .nav-bttn:hover {
-    background-color: rgb(255, 127, 127);
+    background-color: #329885;
 }
 
 .right-wrapper-nav {

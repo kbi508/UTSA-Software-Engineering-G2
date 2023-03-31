@@ -1,14 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Fasthand&display=swap');
+
 .cart {
     width: 0%;
     height: 41.5rem;
     right: 0;
-    background-color: bisque;
+    background-color: #FCC68F;
     position: sticky;
     top: 8rem;
     display:flex;
+    flex-direction: column;
     overflow-y: auto;
     overflow-x: hidden;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.5);
     transform: translateX(102%);
@@ -21,14 +24,10 @@
 }
 
 .x-bttn {
-    position: absolute;
-    border-color: rgb(0, 0, 0);
-    border-style: none;
-    font-size: 250%;
+    align-self: flex-end;
+    margin-right: .5rem;
+    font-size: 210%;
     text-align: center;
-    align-items: center;
-    top: 0;
-    right: 0;
     height: 5%;
     width: 10%;
 }
@@ -38,6 +37,55 @@
 }
 
 .checkout{
-    align-self: flex-end;
-    clear: right;
+    font-family: "Fasthand", sans-serif;
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: white;
+    background-color: #24252A;
+    width: 100%;
+    align-self: flex-start;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+.cart-bttn {
+    font-family: "Fasthand", sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    border-style: none;
+    color: white;
+    padding: .2rem .6rem .2rem .2rem;
+    background-color: #FCC68F;
+}
+
+.cart-bttn:hover {
+    background-color: #329885;
+    transition: background-color 0.3s ease;
+}
+
+.checkout-bttn {
+    margin-right: .5rem;
+}
+
+/*For cart-item/s: 
+|
+|
+V
+*/
+.cart-items {
+    flex-grow: 1;
+    overflow-y: auto;
+
+}
+
+.cart-item {
+    display: flex;
+
+}
+
+.cart-item > img {
+    width: 15%;
+    height: 25%;
 }
