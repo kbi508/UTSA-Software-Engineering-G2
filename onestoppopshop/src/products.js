@@ -22,7 +22,7 @@ export const PRODUCTS = [
         productImage: _12ozCokeCan,
         weightAmount: 12,
         weightType: 'oz',
-        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        descript: 'A carbonated soft drink flavored with vanilla, cinnamon, citrus oils and other flavorings.',
         star1Rate: 0,
         star2Rate: 0,
         star3Rate: 0,
@@ -37,26 +37,26 @@ export const PRODUCTS = [
         productImage: _12ozAWRootbeerCan,
         weightAmount: 12,
         weightType: 'oz',
-        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        descript: 'Caffeine free, and its made with aged vanilla for a sweet and smooth taste that has become the standard in root beer soft drinks. ',
         star1Rate: 0,
         star2Rate: 0,
         star3Rate: 0,
         star4Rate: 0,
         star5Rate: 0,
-        tags: []
+        tags: ['#rootbeer', '#soda', '#americanmade', '#authentic']
     },
     {
         id: 3,
         productName: '12oz Dr.Pepper',
         price: 0.95,
         productImage: _12ozDrPepperCan,
-        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        descript: 'A refreshing soda with a sweet and savory flavor, with subtle notes of cherry and caramel.',
         star1Rate: 0,
         star2Rate: 0,
         star3Rate: 0,
         star4Rate: 0,
         star5Rate: 0,
-        tags: []
+        tags: ['#drpepper', '#soda', '#sweets', '#mrsfreshley']
     },
     {
         id: 4,
@@ -65,13 +65,13 @@ export const PRODUCTS = [
         productImage: _12ozSpriteCan,
         weightAmount: 12,
         weightType: 'oz',
-        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        descript: 'Crisp, refreshing, clean-tasiting, lemon-lime flavored soda.',
         star1Rate: 0,
         star2Rate: 0,
         star3Rate: 0,
         star4Rate: 0,
         star5Rate: 0,
-        tags: []
+        tags: ['#sprite', '#pixel', '#spriteart', '#drinks']
     },
 
     {
@@ -81,13 +81,13 @@ export const PRODUCTS = [
         productImage: _12ozFantaCan,
         weightAmount: 12,
         weightType: 'oz',
-        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        descript: 'A soft drink with a tingly, fruity taste, made with 2 percent juice and contains no artificial colours or flavours',
         star1Rate: 0,
         star2Rate: 0,
         star3Rate: 0,
         star4Rate: 0,
         star5Rate: 0,
-        tags: []
+        tags: ['#fanta', '#raresoda', '#love', '#pop']
     },
 
     {
@@ -97,13 +97,13 @@ export const PRODUCTS = [
         productImage: _12ozBigRedCan,
         weightAmount: 12,
         weightType: 'oz',
-        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        descript: 'A soda known for its Red color, and unique flavor which is a mix of emon and orange oils, topped off by a pure vanilla that offers a creamy aftertaste.',
         star1Rate: 0,
         star2Rate: 0,
         star3Rate: 0,
         star4Rate: 0,
         star5Rate: 0,
-        tags: []
+        tags: ['#bigred', '#red', '#hsmtmts', '#redbytheshed']
     },
 
     {
@@ -113,13 +113,13 @@ export const PRODUCTS = [
         productImage: _12ozMountainDewCan,
         weightAmount: 12,
         weightType: 'oz',
-        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        descript: 'A citrus flavored soda, unique due to the fact that it includes a small amount of orange juice.',
         star1Rate: 0,
         star2Rate: 0,
         star3Rate: 0,
         star4Rate: 0,
         star5Rate: 0,
-        tags: []
+        tags: ['#mountaindew', '#mountains', '#mountainlove', '#refreshing']
     },
 
     {
@@ -129,13 +129,13 @@ export const PRODUCTS = [
         productImage: _12ozCrushGrapeCan,
         weightAmount: 12,
         weightType: 'oz',
-        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        descript: 'A refreashing carbonated beverage full of fresh grape flavor that finishes strongon your tongue.',
         star1Rate: 0,
         star2Rate: 0,
         star3Rate: 0,
         star4Rate: 0,
         star5Rate: 0,
-        tags: []
+        tags: ['#crushgrape', '#crush', '#purple', '#grape']
     },
     {
         id: 9,
@@ -144,13 +144,13 @@ export const PRODUCTS = [
         productImage: _20ozPepsiBottle,
         weightAmount: 20,
         weightType: 'oz',
-        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        descript: 'Pepsi is slightly sweeter, has less carbonation and has a slight hint of grapefruit-lemon-cinnamon flavor.',
         star1Rate: 0,
         star2Rate: 0,
         star3Rate: 0,
         star4Rate: 0,
         star5Rate: 0,
-        tags: []
+        tags: ['#pepsi', '#pepsicola', '#vintage', '#drinks']
     },
     {
         id: 10,
@@ -159,12 +159,12 @@ export const PRODUCTS = [
         productImage: _12ozSierraMistCan,
         weightAmount: 20,
         weightType: 'oz',
-        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        descript: 'Crisp, refreshing, clean-tasiting, lemon-lime flavored soda.',
         star1Rate: 0,
         star2Rate: 0,
         star3Rate: 0,
         star4Rate: 0,
         star5Rate: 0,
-        tags: []
+        tags: ['#sierramist', '#nature', '#refresshing', '#lemonlime']
     }
 ]
