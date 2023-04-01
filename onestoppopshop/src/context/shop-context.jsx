@@ -48,7 +48,7 @@ export const ShopContextProvider = (props) => {
         setIsOpen(!isOpen)
     }
 
-    const contextValue = {cartItems, isOpen, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen}
+    const contextValue = {cartItems, isOpen, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, getDefaultCart}
 
     return (
         <ShopContext.Provider value={contextValue}>

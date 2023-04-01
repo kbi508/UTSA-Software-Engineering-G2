@@ -3,9 +3,10 @@ import { PRODUCTS } from '../products'
 import { CartItem } from './cartItem'
 import {ShopContext} from '../context/shop-context'
 import styles from './cart.module.css'
+import { Link } from 'react-router-dom'
 
 export const Cart = (props) => {
-  const { cartItems, getTotalCartAmount, toggleOpen } = useContext(ShopContext)
+  const { cartItems, setCartItems, getTotalCartAmount, toggleOpen, getDefaultCart } = useContext(ShopContext)
   const totalAmount = getTotalCartAmount().toFixed(2)
   const cart = useRef(null)
 
@@ -30,8 +31,8 @@ export const Cart = (props) => {
 
         <div className={styles.checkout}>
             <p>Subtotal: ${totalAmount}</p>
-            <button className={`${styles.checkoutBttn} ${styles.cartBttn}`}> Checkout </button>
-            <button className={`${styles.clearBttn} ${styles.cartBttn}`}> Clear Cart </button>
+            <button className={`${styles.checkoutBttn} ${styles.cartBttn}`}> <Link className={styles.checkoutLink} to='/checkout'> Checkout</Link> </button>
+            <button className={`${styles.clearBttn} ${styles.cartBttn}`} onClick={() => {setCartItems(getDefaultCart())}}> Clear Cart </button>
         </div>
     </div>
   )
