@@ -35,7 +35,7 @@ export const Cart = (props) => {
         </div>
 
         <div className={styles.checkout}>
-            <p>Subtotal: ${totalAmount}</p>
+            <p>Subtotal: ${Number(totalAmount).toFixed(2)}</p>
             <button className={`${styles.checkoutBttn} ${styles.cartBttn}`}> <Link className={styles.checkoutLink} to='/checkout'> Checkout</Link> </button>
             <button className={`${styles.clearBttn} ${styles.cartBttn}`} onClick={resetCart}> Clear Cart </button>
         </div>

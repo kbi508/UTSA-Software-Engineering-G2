@@ -15,7 +15,7 @@ export const CheckoutCartItem = (props) => {
         <input value={cartItems[id]} onChange={(e) => updateCartItemCount(Number(e.target.value), id)}></input>
         <button onClick={() => addToCart(id)}>+</button>
       </div>
-      <p className={styles.price}>x ${price}</p>
+      <p className={styles.price}>x ${Number(price).toFixed(2)}</p>
     </div>
   )
 }
