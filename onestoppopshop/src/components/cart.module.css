@@ -3,11 +3,12 @@
 .cart {
     width: 35%;
     margin-left: -35%;
-    height: 41.5rem;
+    height: 84vh;
     right: 0;
     background-color: #FCC68F;
     position: sticky;
-    top: 8rem;
+    top: 0;
+    bottom: 0;
     display:flex;
     flex-direction: column;
     overflow-y: auto;

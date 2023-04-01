@@ -9,7 +9,7 @@ export const Navbar = () => {
   const {toggleOpen} = useContext(ShopContext)
 
   return (
-  <header className={styles.navbar}>
+  <header className={styles.navbar} id='navbar'>
     <img className={styles.logo} src={logo} alt='Logo' />
     <nav className={styles.nav}>
       <ul className={styles.nav_links}>

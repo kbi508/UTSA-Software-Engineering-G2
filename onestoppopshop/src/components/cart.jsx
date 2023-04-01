@@ -22,6 +22,13 @@ export const Cart = (props) => {
     setCartItems(temp)
   }
 
+  if (cart.current)
+  {
+    const navbar = document.getElementById('navbar')
+    cart.current.style.top = (navbar.offsetHeight) + 'px'
+    // cart.current.style.height = 'calc(100vh - ' + navbar.offsetHeight + ')'
+  }
+
 
   return (
     <div ref={cart} className={styles.cart}>
@@ -31,6 +38,7 @@ export const Cart = (props) => {
             {PRODUCTS.map((product) => {
                 if (cartItems[product.id] > 0)
                   return <CartItem data={product}/>
+                return <></>
             })}
         </div>
 
