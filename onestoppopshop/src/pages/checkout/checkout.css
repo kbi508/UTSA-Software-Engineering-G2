@@ -1,11 +1,84 @@
 @import url('https://fonts.googleapis.com/css2?family=Fasthand&display=swap');
 
-.separator {
-    height: 2px;
-    border: 2px solid #329885;
-}
 
 .checkout-page {
     display: grid;
     grid-template-columns: 6fr 4fr;
+}
+
+.order-panel {
+    font-family: "Fasthand", sans-serif;
+    padding-right: 2rem;
+    padding-left: 2rem;
+}
+
+.order-panel > p{
+    font-size: clamp(3rem, 4rem, 5rem);
+    margin-top: -2rem;
+}
+
+.account {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.login-prompt {
+    font-size: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.login-prompt > input {
+    width: 2rem;
+    height: 2rem;
+}
+
+.email {
+    align-self: center;
+    width: 100%;
+    margin-top: 1rem;
+    height: 3rem;
+    font-size: 3rem;
+}
+
+.shipping-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+}
+
+.shipping-inputs > img {
+    width: 30%;
+    height: 30%;
+    grid-column: 1 / -1;
+}
+
+.shipping-inputs p {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    font-size: 2rem;
+}
+
+.shipping-inputs input {
+    height: 3rem;
+}
+
+.country {
+    grid-column: 1 / -1;
+}
+
+.street-add {
+    grid-column: 1 / -1;
+}
+
+.separator {
+    height: 2px;
+    border: 2px solid #329885;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
