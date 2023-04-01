@@ -28,15 +28,20 @@
 
 .xBttn {
     align-self: flex-end;
+    margin-top: .5rem;
     margin-right: .5rem;
-    font-size: 210%;
+    border-radius: 10px;
+    padding-bottom: .5rem;
+    font-size: 200%;
     text-align: center;
     height: 5%;
     width: 10%;
+    color: white;
+    background-color: #24252A;
 }
 
 .xBttn:hover {
-    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
+    background-color: #329885;
 }
 
 .cartItems {

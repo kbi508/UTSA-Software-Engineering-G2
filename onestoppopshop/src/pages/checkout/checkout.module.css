@@ -3,6 +3,7 @@
 .checkoutPage {
     display: grid;
     grid-template-columns: 6fr 4fr;
+    overflow-y: scroll;
 }
 
 .orderPanel {
