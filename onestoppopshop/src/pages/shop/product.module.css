@@ -40,11 +40,11 @@
 }
 
 .addToCartBttn {
-    background-color: transparent;
+    background-color: #FCC68F;
     font-family: "Fasthand", sans-serif;
     font-size: 15px;
-    color: black;
-    border: 2px solid black;
+    color: white;
+    border: none;
     min-width: 50px;
     padding-left: 10px;
     padding-right: 10px;
@@ -54,7 +54,7 @@
 }
 
 .addToCartBttn:hover {
-    background-color: rgb(255, 127, 127);
+    background-color: #329885;
     color: white;
     cursor: pointer;
 }
