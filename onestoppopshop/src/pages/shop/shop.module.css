@@ -15,7 +15,7 @@
 }
 
 
-.shop-content {
+.shopContent {
     display:inline;
     width: 100%;
     padding-left: 5%;
@@ -52,7 +52,7 @@
     height: 200px;
 }
 
-.prod-desc {
+.prodDesc {
     text-align: center;
 }
 

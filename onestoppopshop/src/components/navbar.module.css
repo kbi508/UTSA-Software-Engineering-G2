@@ -6,7 +6,7 @@
     padding: 0;
 }
 
-a, .nav-bttn {
+.pageLink, .navBttn {
     font-family: "Fasthand", sans-serif;
     font-weight: 500;
     font-size: 32px;
@@ -14,7 +14,7 @@ a, .nav-bttn {
     text-decoration: none;
 }
 
-header {
+.navbar {
     position: sticky;
     top: 0;
     display: flex;
@@ -24,7 +24,7 @@ header {
     background-color: #24252A;
 }
 
-nav {
+.nav {
     padding-left: 18%;
     padding-right: 25%;
 }
@@ -52,7 +52,7 @@ nav {
     color:#329885;
 }
 
-.nav-bttn {
+.navBttn {
     padding:9px 25px;
     background-color: #FCC68F;
     border: none;
@@ -61,18 +61,18 @@ nav {
     transition: all 0.3s ease 0s;
 }
 
-.nav-bttn:hover {
+.navBttn:hover {
     background-color: #329885;
 }
 
-.right-wrapper-nav {
+.rightWrapperNav {
     margin-left: auto;
 }
 
-.nav-bttn .login-button, .cart-button {
+.navBttn .loginButton, .cartButton {
     margin: 3px;
 }
 
-.cart-comp {
+.cartComp {
     padding-top: 20%;
 }

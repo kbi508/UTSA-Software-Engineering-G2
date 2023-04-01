@@ -1,29 +1,37 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import { PRODUCTS } from '../products'
 import { CartItem } from './cartItem'
 import {ShopContext} from '../context/shop-context'
-import './cart.css'
+import styles from './cart.module.css'
 
 export const Cart = (props) => {
   const { cartItems, getTotalCartAmount, toggleOpen } = useContext(ShopContext)
   const totalAmount = getTotalCartAmount().toFixed(2)
+  const cart = useRef(null)
+
+  const { isOpen } = useContext(ShopContext)
+
+  useEffect(() => {
+    if(cart.current)
+      cart.current.classList.toggle(styles.active)
+  }, [isOpen])
 
 
   return (
-    <div className='cart'>
-        <div className='x-bttn' onClick={toggleOpen}>X</div>
+    <div ref={cart} className={styles.cart}>
+        <div className={styles.xBttn} onClick={toggleOpen}>X</div>
 
-        <div className='cart-items'>
+        <div className={styles.cartItems}>
             {PRODUCTS.map((product) => {
                 if (cartItems[product.id] > 0)
                   return <CartItem data={product}/>
             })}
         </div>
 
-        <div className='checkout'>
+        <div className={styles.checkout}>
             <p>Subtotal: ${totalAmount}</p>
-            <button className='checkout-bttn cart-bttn'> Checkout </button>
-            <button className='clear-bttn cart-bttn'> Clear Cart </button>
+            <button className={`${styles.checkoutBttn} ${styles.cartBttn}`}> Checkout </button>
+            <button className={`${styles.clearBttn} ${styles.cartBttn}`}> Clear Cart </button>
         </div>
     </div>
   )

@@ -1,11 +1,11 @@
-.cart-items {
+.cartItems {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     overflow-y: auto;
 }
 
-.cart-item {
+.cartItem {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: .7rem;
@@ -13,12 +13,12 @@
     margin-left: 1rem;
 }
 
-.cart-item > img {
+.cartItem > img {
     width: 100%;
     height: 100%;
 }
 
-.descript-text {
+.descriptText {
     font-size: clamp(.75rem, 1rem, 1.2rem);
 }
 

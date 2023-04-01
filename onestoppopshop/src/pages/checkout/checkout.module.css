@@ -1,22 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Fasthand&display=swap');
 
-.checkout-page {
+.checkoutPage {
     display: grid;
     grid-template-columns: 6fr 4fr;
 }
 
-.order-panel {
+.orderPanel {
     font-family: "Fasthand", sans-serif;
     padding-right: 2rem;
     padding-left: 2rem;
 }
 
-.order-panel > p{
+.orderPanel > p{
     font-size: clamp(3rem, 4rem, 5rem);
     margin-top: -2rem;
 }
 
-.order-panel > img {
+.orderPanel > img {
     width: 33%;
     height: 33%;
     margin-left: 33%;
@@ -28,7 +28,7 @@
     align-items: flex-end;
 }
 
-.login-prompt {
+.loginPrompt {
     font-size: 2rem;
     display: flex;
     flex-direction: row;
@@ -36,7 +36,7 @@
     gap: 1rem;
 }
 
-.login-prompt > input {
+.loginPrompt > input {
     width: 2rem;
     height: 2rem;
 }
@@ -58,19 +58,19 @@
     padding-left: 2rem;
 }
 
-.shipping-inputs {
+.shippingInputs {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
 }
 
-.shipping-inputs p {
+.shippingInputs p {
     grid-column: 1 / -1;
     grid-row: 1 / -1;
     font-size: 2rem;
 }
 
-.shipping-inputs input {
+.shippingInputs input {
     height: 3rem;
     width: 100%;
     font-size: 2rem;
@@ -78,7 +78,7 @@
     border-style: solid;
 }
 
-.shipping-inputs input::placeholder{
+.shippingInputs input::placeholder{
     color: gray;
     font-family: "Fasthand", sans-serif;
     font-size: 1.5rem;

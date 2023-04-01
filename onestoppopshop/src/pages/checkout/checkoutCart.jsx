@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { PRODUCTS } from '../../products'
 import { CheckoutCartItem } from './checkoutCartItem'
 import {ShopContext} from '../../context/shop-context'
-import './checkoutCart.css'
+import styles from './checkoutCart.module.css'
 
 export const CheckoutCart = (props) => {
   const { cartItems, getTotalCartAmount, toggleOpen } = useContext(ShopContext)
@@ -16,8 +16,8 @@ export const CheckoutCart = (props) => {
 
 
   return (
-    <div className='checkout-cart'>
-        <div className='cart-items'>
+    <div className={styles.checkoutCart}>
+        <div className={styles.cartItems}>
             {PRODUCTS.map((product) => {
                 if (cartItems[product.id] > 0)
                   return <CheckoutCartItem data={product} />
@@ -25,11 +25,11 @@ export const CheckoutCart = (props) => {
             })}
         </div>
 
-        <div className='checkout'>
+        <div className={styles.checkout}>
             <p>Subtotal: ${totalAmount}</p>
             <p>Credit: {tempCred} - ${totalAmount} = {tempCred-totalAmount}</p>
-            <button className='order-bttn cart-bttn' > Place Order </button>
-            {/* <button className='cancel-bttn cart-bttn'> Cancel </button> */}
+            <button className={`${styles.orderBttn} ${styles.cartBttn}`} > Place Order </button>
+            {/* <button className={`${styles.cancelBttn} ${styles.cartBttn}`}> Cancel </button> */}
         </div>
     </div>
   )

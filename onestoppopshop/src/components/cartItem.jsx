@@ -1,21 +1,22 @@
 import React, { useContext } from 'react'
 import {ShopContext} from '../context/shop-context'
-import './cartItem.css'
+// import './cartItem.css'
+import styles from './cartItem.module.css'
 
 export const CartItem = (props) => {
   const {id, productName, price, productImage, descript, star1Rate, star2Rate, star3Rate, star4Rate, star5Rate, tags} = props.data
   const { cartItems, addToCart, removeFromCart, updateCartItemCount } = useContext(ShopContext)
 
   return (
-    <div className='cart-item'>
+    <div className={styles.cartItem}>
       <img src={productImage} alt={productName}/>
-      <p className='descript-text'><b>{productName}</b></p>
-      <div className='countHandler'>
+      <p className={styles.descriptText}><b>{productName}</b></p>
+      <div className={styles.countHandler}>
         <button onClick={() => removeFromCart(id)}>-</button>
         <input value={cartItems[id]} onChange={(e) => updateCartItemCount(Number(e.target.value), id)}></input>
         <button onClick={() => addToCart(id)}>+</button>
       </div>
-      <p className='price'>x ${price}</p>
+      <p className={styles.price}>x ${price}</p>
     </div>
   )
 }
