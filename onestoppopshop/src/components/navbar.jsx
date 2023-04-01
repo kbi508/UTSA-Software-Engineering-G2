@@ -14,7 +14,6 @@ export const Navbar = () => {
     <nav className={styles.nav}>
       <ul className={styles.nav_links}>
         <li><Link className={styles.pageLink} to="/"> Shop </Link></li>
-        <li><Link className={styles.pageLink} to="/checkout"> Checkout </Link></li>
         <li><Link className={styles.pageLink} to="/account"> Account </Link></li>
       </ul>
     </nav>
