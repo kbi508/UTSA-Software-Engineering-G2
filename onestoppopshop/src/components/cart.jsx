@@ -6,7 +6,7 @@ import styles from './cart.module.css'
 import { Link } from 'react-router-dom'
 
 export const Cart = (props) => {
-  const { cartItems, setCartItems, getTotalCartAmount, toggleOpen, getDefaultCart } = useContext(ShopContext)
+  const { cartItems, setCartItems, getTotalCartAmount, toggleOpen, getDefaultCart} = useContext(ShopContext)
   const totalAmount = getTotalCartAmount().toFixed(2)
   const cart = useRef(null)
 
@@ -16,6 +16,11 @@ export const Cart = (props) => {
     if(cart.current)
       cart.current.classList.toggle(styles.active)
   }, [isOpen])
+
+  const resetCart = () => {
+    const temp = getDefaultCart()
+    setCartItems(temp)
+  }
 
 
   return (
@@ -32,7 +37,7 @@ export const Cart = (props) => {
         <div className={styles.checkout}>
             <p>Subtotal: ${totalAmount}</p>
             <button className={`${styles.checkoutBttn} ${styles.cartBttn}`}> <Link className={styles.checkoutLink} to='/checkout'> Checkout</Link> </button>
-            <button className={`${styles.clearBttn} ${styles.cartBttn}`} onClick={() => {setCartItems(getDefaultCart())}}> Clear Cart </button>
+            <button className={`${styles.clearBttn} ${styles.cartBttn}`} onClick={resetCart}> Clear Cart </button>
         </div>
     </div>
   )
