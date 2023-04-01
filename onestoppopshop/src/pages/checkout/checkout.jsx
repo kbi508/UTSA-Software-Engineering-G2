@@ -20,17 +20,16 @@ export const Checkout = () => {
       </div>
       <div className='separator'></div>
       <div className='shipping-inputs'>
-      {!usingAcc ? 
+      {!usingAcc &&
           (<><p>Shipping Address</p>
           <input className='country'></input>
           <input className='street-add'></input>
           <input className='city'></input>
           <input className='state'></input>
           <input className='zip' type={'number'}></input></>)
-        :
-        (<img src={logo}/>)
       }
       </div>
+      {usingAcc && (<img src={logo}/>)}
       <div className='separator'></div>
     </div>
     <CheckoutCart />
