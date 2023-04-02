@@ -18,9 +18,7 @@ export const Navbar = () => {
   const handleClickOutside = (e) =>
   {
     if (!loginRef.current.contains(e.target))
-      console.log('Clicked outside...')
-    else
-      console.log('Clicked inside...')
+      toggleLogin()
   }
 
   useEffect(() => {
