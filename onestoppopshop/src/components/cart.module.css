@@ -2,7 +2,7 @@
 .cart {
     width: 35%;
     margin-left: -35%;
-    height: 84vh;
+    /* height: 75svh; */
     right: 0;
     background-color: #FCC68F;
     position: sticky;
@@ -59,6 +59,7 @@
     padding-left: 1rem;
     padding-bottom: 1rem;
     padding-top: 1rem;
+    padding-bottom: 2rem;
 }
 
 .cartBttn {
