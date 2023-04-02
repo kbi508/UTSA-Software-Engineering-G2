@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { ShoppingCart } from 'phosphor-react'
 import styles from './navbar.module.css'
 import logo from '../assets/onePopStopShop_logo_wide.svg'
@@ -10,6 +10,7 @@ export const Navbar = () => {
   const {toggleOpen} = useContext(ShopContext)
   const [showLogin, setShowLogin] = useState(false)
   const loginRef = useRef(null)
+  const location = useLocation()
   
   useEffect(() => {
     const handleClickOutside = (e) =>
@@ -33,12 +34,13 @@ export const Navbar = () => {
         <li><Link className={styles.pageLink} to="/account"> Account </Link></li>
       </ul>
     </nav>
-    <div className={styles.rightWrapperNav}>
+    {location.pathname === '/' &&
+    (<div className={styles.rightWrapperNav}>
       <button className={`${styles.loginButton} ${styles.navBttn}`} onClick={() => setShowLogin(!showLogin)}>Login</button>
       <button className={`${styles.cartButton} ${styles.navBttn}`} onClick={toggleOpen}>
           <ShoppingCart className={styles.cartComp} size='32' />
       </button>
-    </div>
+    </div>)}
     <div ref={loginRef} className='loginWrapper'>
      {showLogin && <Login />}
     </div>
