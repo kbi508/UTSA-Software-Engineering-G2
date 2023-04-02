@@ -29,6 +29,7 @@
 
 .inputs > input {
     height: 2rem;
+    width: 100%;
 }
 
 .bttns > button {
