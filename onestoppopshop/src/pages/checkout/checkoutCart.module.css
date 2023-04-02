@@ -25,6 +25,10 @@
     padding-top: 1rem;
 }
 
+.cartItems {
+    overflow-y: auto;
+}
+
 .cartBttn {
     font-family: "Fasthand", sans-serif;
     font-size: 1.5rem;
