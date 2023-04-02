@@ -43,3 +43,7 @@
 .checkoutBttn {
     margin-right: .5rem;
 }
+
+.cancelBttn {
+    margin-left: 1rem;
+}
