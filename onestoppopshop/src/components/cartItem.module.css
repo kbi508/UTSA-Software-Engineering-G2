@@ -1,0 +1,48 @@
+.cartItems {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.cartItem {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: .7rem;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.cartItem > img {
+    width: 100%;
+    height: 100%;
+}
+
+.descriptText {
+    font-size: clamp(.75rem, 1rem, 1.2rem);
+}
+
+.price {
+    font-weight: bold;
+    font-size: clamp(.7rem, 1.5rem, 2rem);
+    white-space: nowrap;
+}
+
+.countHandler {
+    white-space: nowrap;
+}
+
+.countHandler > *{
+    width:fit-content;
+    color: white;
+    background-color: #24252A;
+}
+
+.countHandler > button {
+    padding-left: .3rem;
+    padding-right: .3rem;
+}
+
+.countHandler > input {
+    width: 2rem;
+}

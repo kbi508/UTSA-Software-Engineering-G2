@@ -1,27 +1,48 @@
-import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useState, useEffect, useRef } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { ShoppingCart } from 'phosphor-react'
-import './navbar.css'
-import logo from '../assets/onePopStopShop_logo_v2.svg'
+import styles from './navbar.module.css'
+import logo from '../assets/onePopStopShop_logo_wide.svg'
 import { ShopContext } from '../context/shop-context'
+import { Login } from './login'
 
 export const Navbar = () => {
   const {toggleOpen} = useContext(ShopContext)
+  const [showLogin, setShowLogin] = useState(false)
+  const loginRef = useRef(null)
+  const location = useLocation()
+  
+  useEffect(() => {
+    const handleClickOutside = (e) =>
+    {
+      if (!loginRef.current.contains(e.target))
+        setShowLogin(false)
+    }
+    
+    document.addEventListener('mousedown', handleClickOutside)
+
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [showLogin])
 
   return (
-  <header>
-    <img className='logo' src={logo} alt='Logo' />
-    <nav>
-      <ul className='nav_links'>
-        <li><Link className='page-link' to="/"> Shop </Link></li>
-        <li><Link className='page-link' to="/bargins"> Today's Bargins </Link></li>
+  <header className={styles.navbar} id='navbar'>
+    <Link to="/">
+      <img className={styles.logo} src={logo} alt='Logo' />
+    </Link>
+    <nav className={styles.nav}>
+      <ul className={styles.nav_links}>
+        <li><Link className={styles.pageLink} to="/account"> Account </Link></li>
       </ul>
     </nav>
-    <div className='right-wrapper-nav'>
-      <button className='login-button nav-bttn'>Login</button>
-      <button className='cart-button nav-bttn' onClick={toggleOpen}>
-          <ShoppingCart className='cart-comp' size='32' />
+    {location.pathname === '/' &&
+    (<div className={styles.rightWrapperNav}>
+      <button className={`${styles.loginButton} ${styles.navBttn}`} onClick={() => setShowLogin(!showLogin)}>Login</button>
+      <button className={`${styles.cartButton} ${styles.navBttn}`} onClick={toggleOpen}>
+          <ShoppingCart className={styles.cartComp} size='32' />
       </button>
+    </div>)}
+    <div ref={loginRef} className='loginWrapper'>
+     {showLogin && <Login />}
     </div>
   </header>
   )

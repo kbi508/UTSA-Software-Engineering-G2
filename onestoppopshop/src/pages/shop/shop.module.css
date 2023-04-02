@@ -1,12 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Fasthand&display=swap');
 
 .shop {
     display: flex;
-    height: 100%;
 }
 
 .shopTitle {
-    margin-top: 10%px;
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -15,11 +13,13 @@
 }
 
 
-.shop-content {
+.shopContent {
     display:inline;
     width: 100%;
+    height: 84vh;
     padding-left: 5%;
     padding-right: 5%;
+    overflow-y: scroll;
 }
 
 .products {
@@ -52,7 +52,7 @@
     height: 200px;
 }
 
-.prod-desc {
+.prodDesc {
     text-align: center;
 }
 
