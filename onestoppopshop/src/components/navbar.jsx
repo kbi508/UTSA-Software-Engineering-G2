@@ -10,28 +10,18 @@ export const Navbar = () => {
   const {toggleOpen} = useContext(ShopContext)
   const [showLogin, setShowLogin] = useState(false)
   const loginRef = useRef(null)
-
-  const toggleLogin = () => {
-    setShowLogin(!showLogin)
-  }
   
-  const handleClickOutside = (e) =>
-  {
-    console.log('Clicked')
-    if (loginRef.current && !loginRef.current.contains(e.target))
-    {
-      console.log('Clicked outside')
-      toggleLogin()
-    }
-    else
-      console.log('Clicked inside')
-  }
   useEffect(() => {
+    const handleClickOutside = (e) =>
+    {
+      if (!loginRef.current.contains(e.target))
+        setShowLogin(false)
+    }
     
-    document.addEventListener('click', handleClickOutside, true)
+    document.addEventListener('mousedown', handleClickOutside)
 
-    return () => document.removeEventListener('click', handleClickOutside, true)
-  }, [])
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [showLogin])
 
   return (
   <header className={styles.navbar} id='navbar'>
@@ -44,7 +34,7 @@ export const Navbar = () => {
       </ul>
     </nav>
     <div className={styles.rightWrapperNav}>
-      <button className={`${styles.loginButton} ${styles.navBttn}`} onClick={toggleLogin}>Login</button>
+      <button className={`${styles.loginButton} ${styles.navBttn}`} onClick={() => setShowLogin(!showLogin)}>Login</button>
       <button className={`${styles.cartButton} ${styles.navBttn}`} onClick={toggleOpen}>
           <ShoppingCart className={styles.cartComp} size='32' />
       </button>
