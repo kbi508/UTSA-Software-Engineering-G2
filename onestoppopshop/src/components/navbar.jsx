@@ -14,14 +14,15 @@ export const Navbar = () => {
   const toggleLogin = () => {
     setShowLogin(!showLogin)
   }
-
-  const handleClickOutside = (e) =>
-  {
-    if (!loginRef.current.contains(e.target))
-      toggleLogin()
-  }
-
+  
   useEffect(() => {
+    const handleClickOutside = (e) =>
+    {
+      if (loginRef.current && !loginRef.current.contains(e.target))
+      toggleLogin()
+    }
+    
+    
     document.addEventListener('click', handleClickOutside, true)
 
     return () => document.removeEventListener('click', handleClickOutside, true)
@@ -29,12 +30,11 @@ export const Navbar = () => {
 
   return (
   <header className={styles.navbar} id='navbar'>
-    <Link className={styles.pageLink} to="/">
+    <Link to="/">
       <img className={styles.logo} src={logo} alt='Logo' />
     </Link>
     <nav className={styles.nav}>
       <ul className={styles.nav_links}>
-        {/* <li><Link className={styles.pageLink} to="/"> Shop </Link></li> */}
         <li><Link className={styles.pageLink} to="/account"> Account </Link></li>
       </ul>
     </nav>
