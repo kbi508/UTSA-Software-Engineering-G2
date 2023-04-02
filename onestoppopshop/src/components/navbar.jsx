@@ -24,7 +24,7 @@ export const Navbar = () => {
   useEffect(() => {
     document.addEventListener('click', handleClickOutside, true)
 
-    return () => document.removeEventListener('click', handleClickOutside)
+    return () => document.removeEventListener('click', handleClickOutside, true)
   }, [])
 
   return (
