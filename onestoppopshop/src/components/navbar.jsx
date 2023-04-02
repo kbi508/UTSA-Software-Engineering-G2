@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { ShoppingCart } from 'phosphor-react'
 import styles from './navbar.module.css'
-import logo from '../assets/onePopStopShop_logo_v2.svg'
+import logo from '../assets/onePopStopShop_logo_wide.svg'
 import { ShopContext } from '../context/shop-context'
 import { Login } from './login'
 
