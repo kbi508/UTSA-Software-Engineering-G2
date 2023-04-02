@@ -2,14 +2,14 @@
 .checkoutPage {
     display: grid;
     grid-template-columns: 6fr 4fr;
-    overflow-y: scroll;
 }
 
 .orderPanel {
     font-family: "Fasthand", sans-serif;
     padding-right: 2rem;
     padding-left: 2rem;
-    overflow-y: scroll;
+    overflow-y: auto;
+    height: 85vh;
 }
 
 .orderPanel > p{
