@@ -1,19 +1,11 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {PRODUCTS} from '../../products'
 import { Product } from './product'
 import { Cart } from '../../components/cart'
-import { ShopContext } from '../../context/shop-context'
 import styles from './shop.module.css'
 
 
 export const Shop = () => {
-  // useEffect(() => {
-  //   document.body.style.overflowY = 'hidden'
-
-  //   return () => {
-  //     document.body.style.overflowY = 'auto'
-  //   }
-  // }, [])
 
   return (
     <div className={styles.shop}>
