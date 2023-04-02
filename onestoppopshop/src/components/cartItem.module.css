@@ -25,6 +25,7 @@
 .price {
     font-weight: bold;
     font-size: clamp(.7rem, 1.5rem, 2rem);
+    white-space: nowrap;
 }
 
 .countHandler {
