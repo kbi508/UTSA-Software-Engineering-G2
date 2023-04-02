@@ -15,6 +15,7 @@
 
 .navbar {
     position: sticky;
+    z-index: 100;
     top: 0;
     /* height: 300px; */
     display: flex;
