@@ -15,13 +15,18 @@ export const Navbar = () => {
     setShowLogin(!showLogin)
   }
   
-  useEffect(() => {
-    const handleClickOutside = (e) =>
+  const handleClickOutside = (e) =>
+  {
+    console.log('Clicked')
+    if (loginRef.current && !loginRef.current.contains(e.target))
     {
-      if (loginRef.current && !loginRef.current.contains(e.target))
+      console.log('Clicked outside')
       toggleLogin()
     }
-    
+    else
+      console.log('Clicked inside')
+  }
+  useEffect(() => {
     
     document.addEventListener('click', handleClickOutside, true)
 
