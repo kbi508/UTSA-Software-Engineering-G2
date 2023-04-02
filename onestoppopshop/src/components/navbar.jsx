@@ -29,10 +29,12 @@ export const Navbar = () => {
 
   return (
   <header className={styles.navbar} id='navbar'>
-    <img className={styles.logo} src={logo} alt='Logo' />
+    <Link className={styles.pageLink} to="/">
+      <img className={styles.logo} src={logo} alt='Logo' />
+    </Link>
     <nav className={styles.nav}>
       <ul className={styles.nav_links}>
-        <li><Link className={styles.pageLink} to="/"> Shop </Link></li>
+        {/* <li><Link className={styles.pageLink} to="/"> Shop </Link></li> */}
         <li><Link className={styles.pageLink} to="/account"> Account </Link></li>
       </ul>
     </nav>
