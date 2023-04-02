@@ -4,7 +4,7 @@ import logo from '../../assets/onePopStopShop_logo_small.svg'
 import styles from './checkout.module.css'
 
 export const Checkout = () => {
-  const [isLogged, setIsLogged] = useState(false) /*This is a temp value for testing. Needs to be dependant on DB and authentication*/
+  const [isLogged, setIsLogged] = useState(true) /*This is a temp value for testing. Needs to be dependant on DB and authentication*/
   const [usingAcc, setUsingAcc] = useState(false)
 
   return (
@@ -19,16 +19,24 @@ export const Checkout = () => {
         {!usingAcc && <input className={styles.email} type={'email'} placeholder='Email'></input>}
       </div>
       <div className={styles.separator}></div>
-      <div className={styles.shippingInputs}>
+      <div className={styles.sub}>
+        
+      </div>
       {!usingAcc &&
-          (<><p>Shipping Address</p>
+          (<>
+      <span className={styles.sub}>
+        <p className={styles.shipTitle}>Shipping Address</p>
+        <p>Make this a Subscription?</p>
+        <input type={'checkbox'} />
+      </span>
+      <div className={styles.shippingInputs}>
           <input className={styles.country} placeholder='Country'></input>
           <input className={styles.streetAdd} placeholder='Address'></input>
           <input className={styles.city} placeholder='City'></input>
           <input className={styles.state} placeholder='State'></input>
-          <input className={styles.zip} type={'number'} placeholder='Zip'></input></>)
+          <input className={styles.zip} type={'number'} placeholder='Zip'></input>
+      </div></>)
       }
-      </div>
       {usingAcc && (<img src={logo}/>)}
       <div className={styles.separator}></div>
     </div>

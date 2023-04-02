@@ -2,13 +2,14 @@
 .checkoutPage {
     display: grid;
     grid-template-columns: 6fr 4fr;
-    overflow-y: scroll;
 }
 
 .orderPanel {
     font-family: "Fasthand", sans-serif;
     padding-right: 2rem;
     padding-left: 2rem;
+    overflow-y: auto;
+    height: 85vh;
 }
 
 .orderPanel > p{
@@ -59,6 +60,27 @@
     transform: translateY(-15%);
 }
 
+.sub {
+    font-size: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sub > p {
+    white-space: nowrap;
+}
+
+.sub .shipTitle {
+    margin-right: auto;
+}
+
+.sub > input {
+    width: 2rem;
+    height: 2rem;
+}
+
 .shippingInputs {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -91,7 +113,7 @@
     grid-column: 1 / -1;
 }
 
-.street-add {
+.streetAdd {
     grid-column: 1 / -1;
 }
 
