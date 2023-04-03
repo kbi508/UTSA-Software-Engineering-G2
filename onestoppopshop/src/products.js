@@ -1,14 +1,73 @@
 // This is spoofed data, later to be loaded into the DB
 import _12ozCokeCan from './assets/12ozcokecan.jpeg'
+import _12ozCokeCherryVanillaCan from './assets/12ozcokecherryvanilla.png'
+import _12ozCokeEnergyDrink from './assets/12ozcokeenergydrink.avif'
+import _12ozCokeVanilaWithCoffee from './assets/12ozcokevanillawithcoffee.jpg'
+import _12ozCokeVanillaZeroSugarCan from './assets/12ozcokezerosugarvanilla.png'
 import _12ozAWRootbeerCan from './assets/12oza&wrootbeercan.jpeg'
+import _12ozBarqsFrenchVanillaCreamSoda from './assets/12ozbarqsfrenchvanillacremesoda.png'
+import _12ozBarqsRedCreamSoda from './assets/12ozbarqsredcremesoda.png'
+import _12ozBarqsRootBeer from './assets/12ozbarqsrootbeer.jpg'
+import _12ozBarqsZeroSugarRootBeer from './assets/12ozbarqszerosugarrootbeer.webp'
 import _12ozDrPepperCan from './assets/12ozdrpeppercan.jpeg'
 import _12ozSpriteCan from './assets/12ozspritecan.jpg'
 import _12ozFantaCan from './assets/12ozfantacan.webp'
+import _12ozFantaBerrySoda from './assets/12ozfantaberrysoda.png'
+import _12ozFantaPineappleSoda from './assets/12ozfantapineapplesoda.jpg'
+import _12ozFantaGrapeSoda from './assets/12ozfantagrapesoda.webp'
+import _12ozFantaStrawberrySoda from './assets/12ozfantastrawberrysoda.webp'
 import _12ozBigRedCan from './assets/12ozbigredcan.jpg'
+import _12ozBigBlueCan from './assets/12ozbigbluecan.jpg'
 import _12ozMountainDewCan from './assets/12ozmountaindewcan.jpeg'
 import _12ozCrushGrapeCan from './assets/12ozcrushgrapecan.webp'
+import _12ozCrushGrapefruitSoda from './assets/12ozcrushgrapefruitsoda.jpg'
+import _12ozCrushLimeSoda from './assets/12ozcrushlimesoda.webp'
+import _12ozCrushOrangeSoda from './assets/12ozcrushorangesoda.jpg'
+import _12ozCrushPineappleSoda from './assets/12ozcrushpineapplesoda.webp'
+import _12ozCrushStrawberrySoda from './assets/12ozcrushstrawberrysoda.webp'
+import _12ozCrushWatermelonSoda from './assets/12ozcrushwatermelonsoda.jpg'
 import _20ozPepsiBottle from './assets/20ozpepsibottle.webp'
 import _12ozSierraMistCan from './assets/12ozsierramistcan.jpeg'
+import _12ozStarryLemonLimeSoda from './assets/12ozstarrylemonlimesoda.jpg'
+import _12oz7upLemonLimeSoda from './assets/12oz7uplemonlimecherry.jpeg'
+import _12ozPoppiBlueberrySoda from './assets/12ozpoppiblueberrysoda.webp'
+import _12ozPoppiCherryLimeade from './assets/12ozpoppicherrylimeadesoda.jpg'
+import _12ozPoppiClassicSoda from './assets/12ozpoppiclassiccolasoda.jpg'
+import _12ozPoppiDocPopSoda from './assets/12ozpoppidocpopoda.png'
+import _12ozPoppiGingerLimeSoda from './assets/12ozpoppigingerlimesoda.jpg'
+import _12ozPoppiOrangeSoda from './assets/12ozpoppiorangesoda.jpeg'
+import _12ozPoppiRaspberryRoseSoda from './assets/12ozpoppiraspberryrosesoda.jpg'
+import _12ozPoppiRootBeerSoda from './assets/12ozpoppirootbeersoda.webp'
+import _12ozPoppiStrawberryLemonSoda from './assets/12ozpoppistrawberrylemonsoda.webp'
+import _12ozPoppiWatermelonSoda from './assets/12ozpoppiwatermelonsoda.jpeg'
+import _12ozSunkistGrapeSoda from './assets/12ozsunkistgrape.avif'
+import _12ozSunkistLemonSoda from './assets/12ozsunkistlemonade.jpg'
+import _12ozSunkistStrawberrySoda from './assets/12ozsunkiststrawberrylemonade.webp'
+import _12ozSunkistCherryLimeadeSoda from './assets/12ozsunksitcherrylimeade.webp'
+import _16ozSunkistOrangeSoda from './assets/16ozsunkistmangoorange.jpeg'
+import _16ozSunkistBerryLimeadeSoda from './assets/16ozsunkistberrylemonade.jpeg'
+import _12ozZeviaCherryColaSoda from './assets/12ozzeviacherrycolasoda.jpg'
+import _12ozZeviaColaSoda from './assets/12ozzeviacolasoda.webp'
+import _12ozZeviaCreamSoda from './assets/12ozzeviacreamsoda.webp'
+import _12ozZeviaCreamyRootBeerSoda from './assets/12ozzeviacreamyrootbeer.webp'
+import _12ozZeviaGrapefruiSoda from './assets/12ozzeviagrapefruitcitrus.jpg'
+import _12ozZeviaGrapeSoda from './assets/12ozzeviagrapesoda.webp'
+import _12ozZeviaLemonLimeSoda from './assets/12ozzevialemonlimetwist.webp'
+import _12ozZeviaOrangeCreamSoda from './assets/12ozzeviaorangecreamsoda.webp'
+import _12ozZeviaOrangeSoda from './assets/12ozzeviaorangesoda.webp'
+import _12ozZeviaRootBeerSoda from './assets/12ozzeviarootbeersoda.jpg'
+import _12ozZeviaStrawberrySoda from './assets/12ozzeviastrawberrysoda.webp'
+import _20ozDietPepsiSoda from './assets/12ozdietpepsisoda.JPG'
+import _12ozSeagramGingerAle from './assets/12ozseagramsgingerale.png'
+import _12ozCanadaDryClubSoda from './assets/12ozcanadadryclubsoda.jpg'
+import _12ozHelloKittyFizzyPopCans from './assets/2-12ozhellokittyfizzypopcans.jpg'
+import _12ozFaygoOriginalRedPop from './assets/12ozfaygooriginalredpop.webp'
+import _12ozJonesGingerBreadSoda from './assets/12ozjonesgingerbreadsoda.jpg'
+import _12ozJumboFruitPunchSoda from './assets/12ozjumbofruitpunchsoda.webp'
+import _12ozSangariaGrapeSoda from './assets/12ozsangariagrapesoda.png'
+import _12ozSangariaMelonSoda from './assets/12ozsangariamelonsoda.webp'
+import _12ozSangariaOrangeSoda from './assets/12ozsangariaorangesoda.webp'
+import _12ozSangariaRamuneSoda from './assets/12ozsangariaramunesoda.jpg'
 
 
 
@@ -30,8 +89,68 @@ export const PRODUCTS = [
         star5Rate: 0,
         tags: ["#vintage", "#cola", "#good", "#soda"]
     },
-    {
+	{
         id: 2,
+        productName: '12oz Coca-cola Cherry Vanilla',
+        price: 1.15,
+        productImage: _12ozCokeCherryVanillaCan,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: ["#vintage", "#cola", "#good", "#soda"]
+    },
+	{
+        id: 3,
+        productName: '12oz Coca-cola Energy Drink',
+        price: 1.15,
+        productImage: _12ozCokeEnergyDrink,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: ["#vintage", "#cola", "#good", "#soda"]
+    },
+	{
+        id: 4,
+        productName: '12oz Coca-cola Vanilla with Coffee',
+        price: 1.15,
+        productImage: _12ozCokeVanilaWithCoffee,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: ["#vintage", "#cola", "#good", "#soda"]
+    },
+	{
+        id: 5,
+        productName: '12oz Coca-cola Vanilla Zero Sugar',
+        price: 1.15,
+        productImage: _12ozCokeVanillaZeroSugarCan,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: ["#vintage", "#cola", "#good", "#soda"]
+    },
+    {
+        id: 6,
         productName: '12oz A&W Rootbeer',
         price: 1.35,
         productImage: _12ozAWRootbeerCan,
@@ -45,8 +164,68 @@ export const PRODUCTS = [
         star5Rate: 0,
         tags: []
     },
+	{
+        id: 7,
+        productName: '12oz Barq\'s French Vanilla Cream Soda',
+        price: 1.35,
+        productImage: _12ozBarqsFrenchVanillaCreamSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 8,
+        productName: '12oz Barq\'s Red Cream Soda',
+        price: 1.35,
+        productImage: _12ozBarqsRedCreamSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 9,
+        productName: '12oz Barq\'s Root Beer',
+        price: 1.35,
+        productImage: _12ozBarqsRootBeer,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 10,
+        productName: '12oz Barq\'s Zero Sugar Root Beer',
+        price: 1.35,
+        productImage: _12ozBarqsZeroSugarRootBeer,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
     {
-        id: 3,
+        id: 11,
         productName: '12oz Dr.Pepper',
         price: 0.95,
         productImage: _12ozDrPepperCan,
@@ -59,7 +238,7 @@ export const PRODUCTS = [
         tags: []
     },
     {
-        id: 4,
+        id: 12,
         productName: '12oz Sprite',
         price: 1.95,
         productImage: _12ozSpriteCan,
@@ -73,10 +252,9 @@ export const PRODUCTS = [
         star5Rate: 0,
         tags: []
     },
-
     {
-        id: 5,
-        productName: '12oz Fanta',
+        id: 13,
+        productName: '12oz Orange Fanta',
         price: 3.50,
         productImage: _12ozFantaCan,
         weightAmount: 12,
@@ -89,9 +267,68 @@ export const PRODUCTS = [
         star5Rate: 0,
         tags: []
     },
-
+	{
+        id: 14,
+        productName: '12oz Berry Fanta',
+        price: 3.50,
+        productImage: _12ozFantaBerrySoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 15,
+        productName: '12oz Pineapple Fanta',
+        price: 3.50,
+        productImage: _12ozFantaPineappleSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 5,
+        productName: '12oz Grape Fanta',
+        price: 3.50,
+        productImage: _12ozFantaGrapeSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 16,
+        productName: '12oz Strawberry Fanta',
+        price: 3.50,
+        productImage: _12ozFantaStrawberrySoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
     {
-        id: 6,
+        id: 17,
         productName: '12oz Big Red',
         price: 1.50,
         productImage: _12ozBigRedCan,
@@ -105,9 +342,23 @@ export const PRODUCTS = [
         star5Rate: 0,
         tags: []
     },
-
+	{
+        id: 18,
+        productName: '12oz Big Blue',
+        price: 1.50,
+        productImage: _12ozBigBlueCan,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
     {
-        id: 7,
+        id: 19,
         productName: '12oz Mountain Dew',
         price: 2.75,
         productImage: _12ozMountainDewCan,
@@ -121,9 +372,8 @@ export const PRODUCTS = [
         star5Rate: 0,
         tags: []
     },
-
     {
-        id: 8,
+        id: 20,
         productName: '12oz Crush Grape',
         price: 1.32,
         productImage: _12ozCrushGrapeCan,
@@ -137,8 +387,113 @@ export const PRODUCTS = [
         star5Rate: 0,
         tags: []
     },
+	{
+        id: 21,
+        productName: '12oz Crush Grapefruit',
+        price: 1.32,
+        productImage: _12ozCrushGrapefruitSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 22,
+        productName: '12oz Crush Lime',
+        price: 1.32,
+        productImage: _12ozCrushLimeSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 23,
+        productName: '12oz Crush Orange',
+        price: 1.32,
+        productImage: _12ozCrushOrangeSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 24,
+        productName: '12oz Crush Pineapple',
+        price: 1.32,
+        productImage: _12ozCrushPineappleSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 25,
+        productName: '12oz Crush Strawberyy',
+        price: 1.32,
+        productImage: _12ozCrushStrawberrySoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 26,
+        productName: '12oz Crush Watermelon',
+        price: 1.32,
+        productImage: _12ozCrushWatermelonSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 27,
+        productName: '20oz Diet Pepsi',
+        price: 2.43,
+        productImage: _20ozDietPepsiSoda,
+        weightAmount: 20,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
     {
-        id: 9,
+        id: 28,
         productName: '20oz Pepsi',
         price: 2.43,
         productImage: _20ozPepsiBottle,
@@ -153,11 +508,596 @@ export const PRODUCTS = [
         tags: []
     },
     {
-        id: 10,
+        id: 29,
         productName: '12oz Sierra Mist',
         price: 2.43,
         productImage: _12ozSierraMistCan,
         weightAmount: 20,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 30,
+        productName: '12oz Starry Lemon Lime',
+        price: 2.43,
+        productImage: _12ozStarryLemonLimeSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 31,
+        productName: '12oz 7up Lemon Lime',
+        price: 2.43,
+        productImage: _12oz7upLemonLimeSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 32,
+        productName: '12oz Poppi Blueberry Soda',
+        price: 2.43,
+        productImage: _12ozPoppiBlueberrySoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 33,
+        productName: '12oz Poppi Cherry Limeade',
+        price: 2.43,
+        productImage: _12ozPoppiCherryLimeade,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 34,
+        productName: '12oz Poppi Classic Soda',
+        price: 2.43,
+        productImage: _12ozPoppiClassicSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 35,
+        productName: '12oz Poppi Doc Pop Soda',
+        price: 2.43,
+        productImage: _12ozPoppiDocPopSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 36,
+        productName: '12oz Poppi Ginger Lime Soda',
+        price: 2.43,
+        productImage: _12ozPoppiGingerLimeSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 37,
+        productName: '12oz Seagram Ginger Ale',
+        price: 2.43,
+        productImage: _12ozSeagramGingerAle,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 38,
+        productName: '12oz Poppi Orange Soda',
+        price: 2.43,
+        productImage: _12ozPoppiOrangeSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 39,
+        productName: '12oz Poppi Raspberry Rose Soda',
+        price: 2.43,
+        productImage: _12ozPoppiRaspberryRoseSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 40,
+        productName: '12oz Poppi Root Beer Soda',
+        price: 2.43,
+        productImage: _12ozPoppiRootBeerSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 41,
+        productName: '12oz Poppi Strawberry Lemon Soda',
+        price: 2.43,
+        productImage: _12ozPoppiStrawberryLemonSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 42,
+        productName: '12oz Poppi Watermelon Soda',
+        price: 2.43,
+        productImage: _12ozPoppiWatermelonSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 43,
+        productName: '12oz Grape Sunkist',
+        price: 2.43,
+        productImage: _12ozSunkistGrapeSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 44,
+        productName: '12oz Lemon Sunkist',
+        price: 2.43,
+        productImage: _12ozSunkistLemonSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 45,
+        productName: '12oz Strawberry Sunkist',
+        price: 2.43,
+        productImage: _12ozSunkistStrawberrySoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 46,
+        productName: '12oz Cherry Limeade Sunkist',
+        price: 2.43,
+        productImage: _12ozSunkistCherryLimeadeSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 47,
+        productName: '16oz Orange Sunkist',
+        price: 2.43,
+        productImage: _16ozSunkistOrangeSoda,
+        weightAmount: 16,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 48,
+        productName: '16oz Berry Limeade Sunkist',
+        price: 2.43,
+        productImage: _16ozSunkistBerryLimeadeSoda,
+        weightAmount: 16,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 49,
+        productName: '12oz Zevia Cherry Cola',
+        price: 2.43,
+        productImage: _12ozZeviaCherryColaSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 50,
+        productName: '12oz Zevia Cola Soda',
+        price: 2.43,
+        productImage: _12ozZeviaColaSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 51,
+        productName: '12oz Zevia Cream Soda',
+        price: 2.43,
+        productImage: _12ozZeviaCreamSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 52,
+        productName: '12oz Zevia Creamy Root Beer',
+        price: 2.43,
+        productImage: _12ozZeviaCreamyRootBeerSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 53,
+        productName: '12oz Zevia Grapefruit Soda',
+        price: 2.43,
+        productImage: _12ozZeviaGrapefruiSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 54,
+        productName: '12oz Zevia Grape Soda',
+        price: 2.43,
+        productImage: _12ozZeviaGrapeSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 55,
+        productName: '12oz Zevia Lemon-Lime Soda',
+        price: 2.43,
+        productImage: _12ozZeviaLemonLimeSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 56,
+        productName: '12oz Zevia Orange Cream Soda',
+        price: 2.43,
+        productImage: _12ozZeviaOrangeCreamSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 57,
+        productName: '12oz Zevia Orange Soda',
+        price: 2.43,
+        productImage: _12ozZeviaOrangeSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 58,
+        productName: '12oz Zevia Root Beer',
+        price: 2.43,
+        productImage: _12ozZeviaRootBeerSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 59,
+        productName: '12oz Zevia Strawberry Soda',
+        price: 2.43,
+        productImage: _12ozZeviaStrawberrySoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 60,
+        productName: '12oz Canada Dry Club Soda',
+        price: 2.43,
+        productImage: _12ozCanadaDryClubSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 61,
+        productName: '2 12oz Hello Kitty Fizzy Pop',
+        price: 2.43,
+        productImage: _12ozHelloKittyFizzyPopCans,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 62,
+        productName: '12oz Faygo Original Red Pop',
+        price: 2.43,
+        productImage: _12ozFaygoOriginalRedPop,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 63,
+        productName: '12oz Jones Ginger Bread Soda',
+        price: 2.43,
+        productImage: _12ozJonesGingerBreadSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 64,
+        productName: '12oz Jumbo Fruit Punch Soda',
+        price: 2.43,
+        productImage: _12ozJumboFruitPunchSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 65,
+        productName: '12oz Sangaria Grape Soda',
+        price: 2.43,
+        productImage: _12ozSangariaGrapeSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 66,
+        productName: '12oz Sangaria Melon Soda',
+        price: 2.43,
+        productImage: _12ozSangariaMelonSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 67,
+        productName: '12oz Sangaria Orange Soda',
+        price: 2.43,
+        productImage: _12ozSangariaOrangeSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 68,
+        productName: '12oz Sangaria Ramune Soda',
+        price: 2.43,
+        productImage: _12ozSangariaRamuneSoda,
+        weightAmount: 12,
         weightType: 'oz',
         descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
         star1Rate: 0,
