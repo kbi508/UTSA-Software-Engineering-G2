@@ -26,7 +26,7 @@ export const Navbar = () => {
 
   return (
     <>
-    {location.pathname != '/checkout' ?
+    {location.pathname !== '/checkout' ?
       (
         <header className={styles.navbar} id='navbar'>
           <Link to="/">
