@@ -15,7 +15,7 @@ export const Navbar = () => {
   useEffect(() => {
     const handleClickOutside = (e) =>
     {
-      if (!loginRef.current.contains(e.target))
+      if (loginRef.current && !loginRef.current.contains(e.target))
         setShowLogin(false)
     }
     
