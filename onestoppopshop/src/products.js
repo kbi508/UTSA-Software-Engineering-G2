@@ -28,7 +28,8 @@ export const PRODUCTS = [
         star3Rate: 0,
         star4Rate: 0,
         star5Rate: 0,
-        tags: ["#vintage", "#cola", "#good", "#soda"]
+        tags: ["#vintage", "#cola", "#good", "#soda"],
+        quantity: 7
     },
     {
         id: 2,
@@ -43,7 +44,8 @@ export const PRODUCTS = [
         star3Rate: 0,
         star4Rate: 0,
         star5Rate: 0,
-        tags: []
+        tags: [],
+        quantity: 7
     },
     {
         id: 3,
@@ -56,7 +58,8 @@ export const PRODUCTS = [
         star3Rate: 0,
         star4Rate: 0,
         star5Rate: 0,
-        tags: []
+        tags: [],
+        quantity: 7
     },
     {
         id: 4,
@@ -71,7 +74,8 @@ export const PRODUCTS = [
         star3Rate: 0,
         star4Rate: 0,
         star5Rate: 0,
-        tags: []
+        tags: [],
+        quantity: 7
     },
 
     {
@@ -87,7 +91,8 @@ export const PRODUCTS = [
         star3Rate: 0,
         star4Rate: 0,
         star5Rate: 0,
-        tags: []
+        tags: [],
+        quantity: 7
     },
 
     {
@@ -103,7 +108,8 @@ export const PRODUCTS = [
         star3Rate: 0,
         star4Rate: 0,
         star5Rate: 0,
-        tags: []
+        tags: [],
+        quantity: 7
     },
 
     {
@@ -119,7 +125,8 @@ export const PRODUCTS = [
         star3Rate: 0,
         star4Rate: 0,
         star5Rate: 0,
-        tags: []
+        tags: [],
+        quantity: 7
     },
 
     {
@@ -135,7 +142,8 @@ export const PRODUCTS = [
         star3Rate: 0,
         star4Rate: 0,
         star5Rate: 0,
-        tags: []
+        tags: [],
+        quantity: 7
     },
     {
         id: 9,
@@ -150,7 +158,8 @@ export const PRODUCTS = [
         star3Rate: 0,
         star4Rate: 0,
         star5Rate: 0,
-        tags: []
+        tags: [],
+        quantity: 7
     },
     {
         id: 10,
@@ -165,6 +174,7 @@ export const PRODUCTS = [
         star3Rate: 0,
         star4Rate: 0,
         star5Rate: 0,
-        tags: []
+        tags: [],
+        quantity: 7
     }
 ]
