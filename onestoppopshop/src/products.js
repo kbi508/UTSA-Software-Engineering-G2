@@ -224,16 +224,16 @@ export const PRODUCTS = [
     },
     {
         id: 11,
-        productName: '12oz Dr.Pepper',
+        productName: '12oz Barq\'s Zero Sugar Root Beer',
         price: 0.95,
-        productImage: _12ozDrPepperCan,
-        descript: 'A refreshing soda with a sweet and savory flavor, with subtle notes of cherry and caramel.',
+        productImage: _12ozBarqsZeroSugarRootBeer,
+        descript: '',
         star1Rate: 0,
         star2Rate: 0,
         star3Rate: 0,
         star4Rate: 0,
         star5Rate: 0,
-        tags: ['#drpepper', '#soda', '#sweets', '#mrsfreshley']
+        tags: []
     },
     {
         id: 12,
@@ -1081,6 +1081,21 @@ export const PRODUCTS = [
         productName: '12oz Sangaria Ramune Soda',
         price: 2.43,
         productImage: _12ozSangariaRamuneSoda,
+        weightAmount: 12,
+        weightType: 'oz',
+        descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
+        star1Rate: 0,
+        star2Rate: 0,
+        star3Rate: 0,
+        star4Rate: 0,
+        star5Rate: 0,
+        tags: []
+    },
+	{
+        id: 69,
+        productName: '12oz Fanta Strawberry Soda',
+        price: 3.50,
+        productImage: _12ozFantaStrawberrySoda,
         weightAmount: 12,
         weightType: 'oz',
         descript: 'Aliquip sit minim fugiat id ut consectetur commodo eu esse cupidatat mollit. Officia elit consectetur elit ullamco incididunt nostrud eu proident amet dolore. Ullamco irure quis mollit laboris ad occaecat reprehenderit. Minim quis cillum in nostrud elit Lorem irure fugiat est quis. Fugiat aliquip ullamco do exercitation elit aute voluptate. Lorem consequat eu sint dolor aute deserunt id ut ea.',
