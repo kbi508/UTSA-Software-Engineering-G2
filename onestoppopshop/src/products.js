@@ -150,7 +150,7 @@ export const PRODUCTS = [
         tags: ["#vintage", "#cola", "#good", "#soda"]
     },
     {
-        id: 2,
+        id: 6,
         productName: '12oz A&W Rootbeer',
         price: 1.35,
         productImage: _12ozAWRootbeerCan,
@@ -210,7 +210,7 @@ export const PRODUCTS = [
         tags: ['#rootbeer', '#soda', '#americanmade', '#authentic']
     },
     {
-        id: 3,
+        id: 10,
         productName: '12oz Dr.Pepper',
         price: 0.95,
         productImage: _12ozDrPepperCan,
@@ -296,7 +296,7 @@ export const PRODUCTS = [
         tags: ['#sprite', '#pixel', '#spriteart', '#drinks']
     },
 	{
-        id: 5,
+        id: 16,
         productName: '12oz Grape Fanta',
         price: 3.50,
         productImage: _12ozFantaGrapeSoda,
@@ -311,21 +311,6 @@ export const PRODUCTS = [
         tags: ['#fanta', '#raresoda', '#love', '#pop']
     },
 
-    {
-        id: 17,
-        productName: '12oz Big Red',
-        price: 1.50,
-        productImage: _12ozBigRedCan,
-        weightAmount: 12,
-        weightType: 'oz',
-        descript: 'A soda known for its Red color, and unique flavor which is a mix of emon and orange oils, topped off by a pure vanilla that offers a creamy aftertaste.',
-        star1Rate: 0,
-        star2Rate: 0,
-        star3Rate: 0,
-        star4Rate: 0,
-        star5Rate: 0,
-        tags: ['#bigred', '#red', '#hsmtmts', '#redbytheshed']
-    },
     {
         id: 17,
         productName: '12oz Big Red',
