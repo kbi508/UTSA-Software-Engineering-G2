@@ -71,6 +71,7 @@
     color: white;
     padding: .2rem .6rem .2rem .2rem;
     background-color: #FCC68F;
+    transition: background-color 0.3s ease;
 }
 
 .cartBttn:hover {
@@ -80,6 +81,10 @@
 
 .checkoutBttn {
     margin-right: .5rem;
+}
+
+.checkoutBttn[disabled] {
+    background-color: gray;
 }
 
 .checkoutLink {

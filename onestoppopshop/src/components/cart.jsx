@@ -6,21 +6,15 @@ import styles from './cart.module.css'
 import { Link } from 'react-router-dom'
 
 export const Cart = (props) => {
-  const { cartItems, setCartItems, getTotalCartAmount, toggleOpen, getDefaultCart} = useContext(ShopContext)
+  const { cartItems, numCartItems, getTotalCartAmount, toggleOpen, resetCart, isOpen} = useContext(ShopContext)
   const totalAmount = getTotalCartAmount().toFixed(2)
   const cart = useRef(null)
 
-  const { isOpen } = useContext(ShopContext)
 
   useEffect(() => {
     if(cart.current)
       cart.current.classList.toggle(styles.active)
   }, [isOpen])
-
-  const resetCart = () => {
-    const temp = getDefaultCart()
-    setCartItems(temp)
-  }
 
   if (cart.current)
   {
@@ -28,7 +22,6 @@ export const Cart = (props) => {
     cart.current.style.top = (navbar.offsetHeight) + 'px'
     // cart.current.style.height = 'calc(100vh - ' + navbar.offsetHeight + ')'
   }
-
 
   return (
     <div ref={cart} className={styles.cart}>
@@ -44,7 +37,9 @@ export const Cart = (props) => {
 
         <div className={styles.checkout}>
             <p>Subtotal: ${Number(totalAmount).toFixed(2)}</p>
-            <button className={`${styles.checkoutBttn} ${styles.cartBttn}`}> <Link className={styles.checkoutLink} to='/checkout'> Checkout</Link> </button>
+            <button className={`${styles.checkoutBttn} ${styles.cartBttn}`} disabled={numCartItems === 0 ? true : false}>
+              {numCartItems === 0 ? 'Checkout' : (<Link className={styles.checkoutLink} to='/checkout'> Checkout </Link>)}
+            </button>
             <button className={`${styles.clearBttn} ${styles.cartBttn}`} onClick={resetCart}> Clear Cart </button>
         </div>
     </div>

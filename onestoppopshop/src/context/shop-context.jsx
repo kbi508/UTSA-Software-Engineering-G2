@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react'
+import React, { createContext, useState } from 'react'
 import { PRODUCTS } from '../products';
 
 export const ShopContext = createContext(null);
@@ -14,9 +14,8 @@ const getDefaultCart = () => {
 
 export const ShopContextProvider = (props) => {
     const [cartItems, setCartItems] = useState(getDefaultCart())
+    let [numCartItems, setNumCartItems] = useState(0)
     const [isOpen, setIsOpen] = useState(false)
-
-    useEffect(() => {console.log(cartItems)}, [cartItems])
 
 
     const getTotalCartAmount = () => {
@@ -35,10 +34,12 @@ export const ShopContextProvider = (props) => {
 
     const addToCart = (itemId) => {
         setCartItems((prev) => ({...prev, [itemId]: prev[itemId]+1}))
+        setNumCartItems(numCartItems + 1)
     }
 
     const removeFromCart = (itemId) => {
         setCartItems((prev) => ({...prev, [itemId]: prev[itemId]-1}))
+        setNumCartItems(numCartItems - 1)
     }
 
     const updateCartItemCount = (newAmount, itemId) => {
@@ -50,7 +51,12 @@ export const ShopContextProvider = (props) => {
         setIsOpen(!isOpen)
     }
 
-    const contextValue = {cartItems, setCartItems, isOpen, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, getDefaultCart}
+    const resetCart = () => {
+        setCartItems(getDefaultCart())
+        setNumCartItems(0)
+    }
+
+    const contextValue = {cartItems, setCartItems, isOpen, numCartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, resetCart}
 
     return (
         <ShopContext.Provider value={contextValue}>

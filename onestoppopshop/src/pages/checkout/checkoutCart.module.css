@@ -44,8 +44,9 @@
     transition: background-color 0.3s ease;
 }
 
-.checkoutBttn {
-    margin-right: .5rem;
+.orderBttn[disabled] {
+    background-color: gray;
+    transition: background-color 0.3s ease;
 }
 
 .cancelBttn {

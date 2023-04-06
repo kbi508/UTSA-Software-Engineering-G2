@@ -14,7 +14,7 @@ export const Shop = () => {
           <h1>Welcome to the PopShop!</h1>
         </div>
         <div className={styles.products}>
-          {/* Need tp change into using back-end once setup.*/}
+          {/* Need to change into using back-end once setup.*/}
           {PRODUCTS.map((product) => (<Product data={product}/>))}
         </div>
       </div>
