@@ -35,6 +35,7 @@ export const Navbar = () => {
           <nav className={styles.nav}>
             <ul className={styles.nav_links}>
               <li><Link className={styles.pageLink} to="/account"> Account </Link></li>
+              <li><Link className={styles.pageLink} to="/admin"> Admin </Link></li>
             </ul>
           </nav>
           {location.pathname === '/' &&
