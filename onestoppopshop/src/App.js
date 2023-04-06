@@ -5,7 +5,7 @@ import { Shop } from './pages/shop/shop'
 import { Checkout } from './pages/checkout/checkout'
 import { Account } from './pages/account/account'
 import { Admin } from './pages/admin/admin'
-import { ShopContextProvider } from './context/shop-context';
+import { ShopContextProvider } from './context/shop-context'
 
 function App() {
   return (
