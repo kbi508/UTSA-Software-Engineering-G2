@@ -78,7 +78,6 @@ function addQuantityField(data) {
     }
     return data;
   }
-addQuantityField(PRODUCTS);  
 
 
 export const PRODUCTS = [
@@ -1088,3 +1087,4 @@ export const PRODUCTS = [
         "tags": ["#strawberry", "#soda", "#refreshing", "#beverage", "#summer", "#Fanta"]
     }    
 ]
+addQuantityField(PRODUCTS);  
