@@ -44,7 +44,7 @@ export const Account = () => {
         {curTab === 1 && (<div className={styles.tabOrders}>
           <div className={styles.orderHeader}><span>Order Number</span> <span>Total</span> <span>Date</span></div>
           <ul>
-            {accountOrders.map((order) => <li><span className={styles.idSpan}>{order.id}</span> <span className={styles.totalSpan}>${Number(order.total).toFixed(2)}</span> <span className={styles.dateSpan}>{order.date}</span></li>)}
+            {accountOrders.map((order) => <li key={order.id}><span className={styles.idSpan}>{order.id}</span> <span className={styles.totalSpan}>${Number(order.total).toFixed(2)}</span> <span className={styles.dateSpan}>{order.date}</span></li>)}
           </ul>
         </div>)}
         {curTab === 2 && (<div className={styles.tabSubscripts}>
