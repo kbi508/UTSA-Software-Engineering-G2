@@ -1,16 +1,39 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useRef, useEffect } from 'react'
 import { CheckoutCart } from './checkoutCart'
 import logo from '../../assets/onePopStopShop_logo_small.svg'
 import styles from './checkout.module.css'
+import { ShopContext } from '../../context/shop-context'
+import { CheckoutLogin } from './checkoutLogin'
 
 export const Checkout = () => {
-  const [isLogged, setIsLogged] = useState(true) /*This is a temp value for testing. Needs to be dependant on DB and authentication*/
   const [usingAcc, setUsingAcc] = useState(false)
+  const [showLogin, setShowLogin] = useState(false)
+  const { authUser } = useContext(ShopContext)
+
+  const loginRef = useRef(null)
+  
+  useEffect(() => {
+    const handleClickOutside = (e) =>
+    {
+      if (loginRef.current && !loginRef.current.contains(e.target))
+        setShowLogin(false)
+      console.log(loginRef.current)
+    }
+    
+    document.addEventListener('mousedown', handleClickOutside)
+
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [showLogin])
+
+  // Hide login splash if logged in.
+  useEffect(() => {
+    if (authUser) setShowLogin(false)
+  }, [authUser])
 
   return (
   <div className={styles.checkoutPage}>
     <div className={styles.orderPanel}>
-      <div className={styles.separator}></div>
+      <div className={styles.separator} />
       <div className={styles.orderPanelHeader}>
         <h1>Order Info</h1>        
         <p>Make this a Subscription?</p>
@@ -18,29 +41,28 @@ export const Checkout = () => {
       </div>
       <div className={styles.account}>
         <div className={styles.loginPrompt}>
-          {isLogged ? (<><p>{!usingAcc ? 'Use Account Info?' : 'Using Account'}</p><input type={'checkbox'} onChange={(e) => {setUsingAcc(e.target.checked)}} /></>) : (<p>Login to use Account info</p>)}
+          {!authUser && (<p className={styles.loginBttn} onClick={() => setShowLogin(!showLogin)}>Login?</p>)}
+          {showLogin && <div style={{width: "0%"}} ref={loginRef}><CheckoutLogin /></div>}
         </div>
-        {!usingAcc && <input className={styles.email} type={'email'} placeholder='Email'></input>}
+        {!authUser ? (<input className={styles.email} type={'email'} placeholder='Email' />) : (<h1>{authUser.email}</h1>)}
       </div>
-      <div className={styles.separator}></div>
+      <div className={styles.separator} />
       <div className={styles.sub}>
         
       </div>
-      {!usingAcc &&
-          (<>
       <span className={styles.sub}>
         <p className={styles.shipTitle}>Shipping Address</p>
+        <p>{!usingAcc ? 'Use Account Info?' : 'Using Account Info'}</p>
+        <input type={'checkbox'} onChange={(e) => {setUsingAcc(e.target.checked)}} />
       </span>
       <div className={styles.shippingInputs}>
-          <input className={styles.country} placeholder='Country'></input>
-          <input className={styles.streetAdd} placeholder='Address'></input>
-          <input className={styles.city} placeholder='City'></input>
-          <input className={styles.state} placeholder='State'></input>
-          <input className={styles.zip} type={'number'} placeholder='Zip'></input>
-      </div></>)
-      }
-      {usingAcc && (<img src={logo}/>)}
-      <div className={styles.separator}></div>
+          <input className={styles.country} placeholder='Country' />
+          <input className={styles.streetAdd} placeholder='Address' />
+          <input className={styles.city} placeholder='City' />
+          <input className={styles.state} placeholder='State' />
+          <input className={styles.zip} type={'number'} placeholder='Zip' />
+      </div>
+      <div className={styles.separator} />
     </div>
     <CheckoutCart />
   </div>
