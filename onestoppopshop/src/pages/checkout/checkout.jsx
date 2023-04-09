@@ -11,7 +11,11 @@ export const Checkout = () => {
   <div className={styles.checkoutPage}>
     <div className={styles.orderPanel}>
       <div className={styles.separator}></div>
-      <p>Order Info</p>
+      <div className={styles.orderPanelHeader}>
+        <h1>Order Info</h1>        
+        <p>Make this a Subscription?</p>
+        <input type={'checkbox'} />
+      </div>
       <div className={styles.account}>
         <div className={styles.loginPrompt}>
           {isLogged ? (<><p>{!usingAcc ? 'Use Account Info?' : 'Using Account'}</p><input type={'checkbox'} onChange={(e) => {setUsingAcc(e.target.checked)}} /></>) : (<p>Login to use Account info</p>)}
@@ -26,8 +30,6 @@ export const Checkout = () => {
           (<>
       <span className={styles.sub}>
         <p className={styles.shipTitle}>Shipping Address</p>
-        <p>Make this a Subscription?</p>
-        <input type={'checkbox'} />
       </span>
       <div className={styles.shippingInputs}>
           <input className={styles.country} placeholder='Country'></input>

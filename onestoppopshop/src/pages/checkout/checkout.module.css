@@ -23,6 +23,29 @@
     margin-left: 33%;
 }
 
+.orderPanelHeader {
+    display: grid;
+    grid-template-columns: 12fr 1fr 1fr;
+    align-items: center;
+    margin-top: -2rem;
+}
+
+.orderPanelHeader > h1 {
+    font-size: 4.5rem;
+    margin-right: auto;
+}
+
+.orderPanelHeader > p {
+    white-space: nowrap;
+    font-size: 2rem;
+    margin-right: 1rem;
+}
+
+.orderPanelHeader > input {
+    width: 2rem;
+    height: 2rem;
+}
+
 .account {
     display: flex;
     flex-direction: column;
