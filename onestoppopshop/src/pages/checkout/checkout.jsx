@@ -44,7 +44,7 @@ export const Checkout = () => {
           {!authUser && (<p className={styles.loginBttn} onClick={() => setShowLogin(!showLogin)}>Login?</p>)}
           {showLogin && <div style={{width: "0%"}} ref={loginRef}><CheckoutLogin /></div>}
         </div>
-        {!authUser ? (<input className={styles.email} type={'email'} placeholder='Email' />) : (<h1>{authUser.email}</h1>)}
+        {!authUser ? (<input className={styles.email} type={'email'} placeholder='Email' />) : (<h1>Logged in as {authUser.email}</h1>)}
       </div>
       <div className={styles.separator} />
       <div className={styles.sub}>

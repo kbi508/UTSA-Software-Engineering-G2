@@ -33,6 +33,7 @@
 .error > p {
     color: red;
     font-weight: bold;
+    font-size: 1.5rem;
     margin-top: 1rem;
 }
 
