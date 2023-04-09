@@ -15,10 +15,12 @@ const getDefaultCart = () => {
 }
 
 export const ShopContextProvider = (props) => {
+    // Shop vars:
     const [cartItems, setCartItems] = useState(getDefaultCart())
     const [isOpen, setIsOpen] = useState(false)
     const [numCartItems, setNumCartItems] = useState(0)
 
+    // Authentication vars:
     const [authUser, setAuthUser] = useState(null)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')

@@ -32,14 +32,15 @@ export const Navbar = () => {
           <Link to="/">
             <img className={styles.logo} src={logo} alt='Logo' />
           </Link>
+          {authUser && (
           <nav className={styles.nav}>
             <ul className={styles.nav_links}>
-              <li><Link className={styles.pageLink} to="/account"> Account </Link></li>
+              <li><Link className={styles.pageLink} to="/account"> {authUser.email} </Link></li>
             </ul>
-          </nav>
+          </nav>)}
           {location.pathname === '/' &&
           (<div className={styles.rightWrapperNav}>
-            <button className={`${styles.loginButton} ${styles.navBttn}`} onClick={authUser!==null ? userLogOut : () => setShowLogin(!showLogin)}>{authUser!==null ? 'Logout' : 'Login'}</button>
+            <button className={`${styles.loginButton} ${styles.navBttn}`} onClick={authUser ? userLogOut : () => setShowLogin(!showLogin)}>{authUser ? 'Logout' : 'Login'}</button>
             <button className={`${styles.cartButton} ${styles.navBttn}`} onClick={toggleOpen}>
                 <ShoppingCart className={styles.cartComp} size='32' />
             </button>
