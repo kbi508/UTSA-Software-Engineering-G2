@@ -14,8 +14,8 @@ const getDefaultCart = () => {
 
 export const ShopContextProvider = (props) => {
     const [cartItems, setCartItems] = useState(getDefaultCart())
-    let [numCartItems, setNumCartItems] = useState(0)
     const [isOpen, setIsOpen] = useState(false)
+    const [numCartItems, setNumCartItems] = useState(0)
 
 
     const getTotalCartAmount = () => {
