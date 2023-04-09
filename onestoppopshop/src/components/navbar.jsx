@@ -24,6 +24,11 @@ export const Navbar = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [showLogin])
 
+  // Hide login splash if logged in.
+  useEffect(() => {
+    if (authUser) setShowLogin(false)
+  }, [authUser])
+
   return (
     <>
     {location.pathname !== '/checkout' ?
