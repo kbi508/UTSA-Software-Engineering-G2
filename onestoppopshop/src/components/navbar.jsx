@@ -7,7 +7,7 @@ import { ShopContext } from '../context/shop-context'
 import { Login } from './login'
 
 export const Navbar = () => {
-  const {toggleOpen} = useContext(ShopContext)
+  const {authUser, userLogOut, toggleOpen} = useContext(ShopContext)
   const [showLogin, setShowLogin] = useState(false)
   const loginRef = useRef(null)
   const location = useLocation()
@@ -39,13 +39,13 @@ export const Navbar = () => {
           </nav>
           {location.pathname === '/' &&
           (<div className={styles.rightWrapperNav}>
-            <button className={`${styles.loginButton} ${styles.navBttn}`} onClick={() => setShowLogin(!showLogin)}>Login</button>
+            <button className={`${styles.loginButton} ${styles.navBttn}`} onClick={authUser ? () => userLogOut : () => setShowLogin(!showLogin)}>{authUser ? 'Logout' : 'Login'}</button>
             <button className={`${styles.cartButton} ${styles.navBttn}`} onClick={toggleOpen}>
                 <ShoppingCart className={styles.cartComp} size='32' />
             </button>
           </div>)}
           <div ref={loginRef} className='loginWrapper'>
-          {showLogin && <Login />}
+            {showLogin && <Login />}
           </div>
         </header>
       )

@@ -1,7 +1,9 @@
-import React, { createContext, useState } from 'react'
-import { PRODUCTS } from '../products';
+import React, { createContext, useState, useEffect } from 'react'
+import { PRODUCTS } from '../products'
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth'
+import { auth } from '../firebase'
 
-export const ShopContext = createContext(null);
+export const ShopContext = createContext(null)
 
 const getDefaultCart = () => {
     let cart = {}
@@ -16,6 +18,43 @@ export const ShopContextProvider = (props) => {
     const [cartItems, setCartItems] = useState(getDefaultCart())
     const [isOpen, setIsOpen] = useState(false)
     const [numCartItems, setNumCartItems] = useState(0)
+
+    const [authUser, setAuthUser] = useState(null)
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const signIn = (e) => {
+        e.preventDefault()
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {console.log('Success!' + userCredential)})
+        .catch((error) => {console.log('Failure!' + error)})
+    }
+
+    const signUp = (e) => {
+        e.preventDefault()
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {console.log('Success!' + userCredential)})
+        .catch((error) => {console.log('Failure!' + error)})
+    }
+
+    const userLogOut = () => {
+        signOut(auth)
+        .then(() => console.log('Success!'))
+        .catch((error) => console.log(error))
+    }
+
+
+    useEffect(() => {
+        const listen = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setAuthUser(user)
+            }
+            else 
+                setAuthUser(null)
+        })
+
+        return () => listen()
+    }, [])
 
 
     const getTotalCartAmount = () => {
@@ -56,7 +95,7 @@ export const ShopContextProvider = (props) => {
         setNumCartItems(0)
     }
 
-    const contextValue = {cartItems, setCartItems, isOpen, numCartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, resetCart}
+    const contextValue = {cartItems, authUser, isOpen, numCartItems, email, password, setEmail, setPassword, setCartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, resetCart, signIn, signUp, userSignOut: userLogOut}
 
     return (
         <ShopContext.Provider value={contextValue}>

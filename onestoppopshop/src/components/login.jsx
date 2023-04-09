@@ -1,47 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth'
+import React, { useState, useEffect, useContext } from 'react'
 import styles from './login.module.css'
-import { auth } from '../firebase'
-import {AuthDetails} from './authdetails'
+import { ShopContext } from '../context/shop-context'
 
 export const Login = () => {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
     const [isCreating, setIsCreating] = useState(false)
-    const [authUser, setAuthUser] = useState(null)
-
-    const signIn = (e) => {
-        e.preventDefault()
-        signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {})
-        .catch((error) => {console.log('Failure!' + error)})
-    }
-
-    const signUp = (e) => {
-        e.preventDefault()
-        createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {console.log('Success!' + userCredential)})
-        .catch((error) => {console.log('Failure!' + error)})
-    }
-
-    const userSignOut = () => {
-        signOut(auth)
-        .then(() => console.log('Success!'))
-        .catch((error) => console.log(error))
-    }
-
-
-    useEffect(() => {
-        const listen = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setAuthUser(user)
-            }
-            else 
-                setAuthUser(null)
-        })
-
-        return () => listen()
-    }, [])
+    const {authUser, signIn, signUp, userSignOut, email, password, setEmail, setPassword} = useContext(ShopContext)
 
     return (
     <div className={styles.loginSplash}>
