@@ -1,6 +1,5 @@
 import React, { useState, useContext, useRef, useEffect } from 'react'
 import { CheckoutCart } from './checkoutCart'
-import logo from '../../assets/onePopStopShop_logo_small.svg'
 import styles from './checkout.module.css'
 import { ShopContext } from '../../context/shop-context'
 import { CheckoutLogin } from './checkoutLogin'
