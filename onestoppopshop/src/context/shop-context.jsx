@@ -24,19 +24,20 @@ export const ShopContextProvider = (props) => {
     const [authUser, setAuthUser] = useState(null)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [loginError, setLoginError] = useState(null)
 
     const signIn = (e) => {
         e.preventDefault()
         signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {console.log('Success!' + userCredential)})
-        .catch((error) => {console.log('Failure!' + error)})
+        .then((userCredential) => {setLoginError(null)})
+        .catch((error) => {setLoginError(error)})
     }
 
     const signUp = (e) => {
         e.preventDefault()
         createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {console.log('Success!' + userCredential)})
-        .catch((error) => {console.log('Failure!' + error)})
+        .then((userCredential) => {setLoginError(null)})
+        .catch((error) => {setLoginError(error)})
     }
 
     const userLogOut = () => {
@@ -97,7 +98,7 @@ export const ShopContextProvider = (props) => {
         setNumCartItems(0)
     }
 
-    const contextValue = {cartItems, authUser, isOpen, numCartItems, email, password, setEmail, setPassword, setCartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, resetCart, signIn, signUp, userLogOut}
+    const contextValue = {cartItems, authUser, isOpen, numCartItems, email, password, loginError,setEmail, setPassword, setCartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, resetCart, signIn, signUp, userLogOut}
 
     return (
         <ShopContext.Provider value={contextValue}>

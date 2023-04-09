@@ -32,6 +32,12 @@
     width: 100%;
 }
 
+.error > p {
+    color: red;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
 .bttns {
     display: flex;
     flex-direction: column;
