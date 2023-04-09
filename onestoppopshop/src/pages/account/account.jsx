@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import styles from './account.module.css'
+import { ShopContext } from '../../context/shop-context'
 
 export const Account = () => {
   const [curTab, setCurTab] = useState(1)
-  const accountName = 'Test'
-  const accountEmail = 'notreal@email.com'
+  const { email } = useContext(ShopContext)
+
   const accountOrders = [
     {
       id: 1,
@@ -31,16 +32,15 @@ export const Account = () => {
 
   return (
     <div className={styles.accPage}>
-      <div className={styles.accInfo}>
-        <p>{accountName}</p>
-        <p className={styles.accEmail}>{accountEmail}</p>
-      </div>
       <div className={styles.tabBttns}>
         <button className={styles.orderBttn} onClick={() => setCurTab(1)}>Orders</button>
         <button className={styles.subBttn}   onClick={() => setCurTab(2)}>Subscriptions</button>
         <button className={styles.shipBttn}  onClick={() => setCurTab(3)}>Account Info</button>
       </div>
       <div className={styles.tabs}>
+        <div className={styles.accInfo}>
+          <p className={styles.accEmail}>{email}</p>
+        </div>
         {curTab === 1 && (<div className={styles.tabOrders}>
           <div className={styles.orderHeader}><span>Order Number</span> <span>Total</span> <span>Date</span></div>
           <ul>
