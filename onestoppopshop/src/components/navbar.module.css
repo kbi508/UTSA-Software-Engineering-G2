@@ -18,11 +18,12 @@
     height: 15vh;
     z-index: 100;
     top: 0;
-    display: flex;
+    
     justify-content: flex-start;
     align-items: center;
-    padding: 1% 0% 1% 2%;
+    padding: 4% 6.5% 5% 0%;
     background-color: #24252A;
+    display: flex;
 }
 
 .nav {
@@ -31,7 +32,7 @@
 }
 
 .logo {
-    width:120%;
+    width:34%;
     cursor: pointer;
 }
 
@@ -41,10 +42,10 @@
 }
 
 .navBttn {
-    padding:9px 25px;
+    padding:0px 28px;
     background-color: #FCC68F;
     border: none;
-    border-radius: 50px;
+    border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
 }
@@ -58,9 +59,10 @@
 }
 
 .navBttn .loginButton, .cartButton {
-    margin: 3px;
+    position: absolute;
+    margin-left: 15px;
 }
 
 .cartComp {
-    padding-top: 20%;
+    padding-top: 18%;
 }
