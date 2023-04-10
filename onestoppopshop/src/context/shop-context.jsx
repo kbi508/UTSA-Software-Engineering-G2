@@ -38,7 +38,6 @@ export const ShopContextProvider = (props) => {
     const [userCity, setUserCity] = useState('')
     const [userState, setUserState] = useState('')
     const [userZip, setUserZip] = useState('')
-    const [userID, setUserID] = useState(null)
 
     const signIn = (e) => {
         e.preventDefault()

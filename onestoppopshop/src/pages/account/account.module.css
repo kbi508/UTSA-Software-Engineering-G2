@@ -10,7 +10,8 @@
     flex-direction: column;
     align-self: flex-start;
     margin-top: 1rem;
-    padding-left: 3rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     font-family: "Fasthand", sans-serif;
     font-weight: bold;
     font-size: 2.5rem;
@@ -140,6 +141,7 @@
 }
 
 .tabShippingInfo > p {
+    font-family: "Fasthand", sans-serif;
     grid-column: 1 / -1;
 }
 

@@ -15,7 +15,7 @@
     gap: 1rem;
     top: 27vh;
     left: 27vw;
-    height: 50%;
+    height: fit-content;
     width: 50%;
     background-color: #FCC68F;
     border: .5rem solid #24252A;
