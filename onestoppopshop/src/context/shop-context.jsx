@@ -32,7 +32,6 @@ export const ShopContextProvider = (props) => {
     const [loginError, setLoginError] = useState(null)
 
     // User data vars:
-    const [userCredit, setUserCredit] = useState(0)
     const [userCountry, setUserCountry] = useState('')
     const [userAddress, setUserAddress] = useState('')
     const [userCity, setUserCity] = useState('')
@@ -83,7 +82,6 @@ export const ShopContextProvider = (props) => {
             country:'',
             state: '',
             email: userCredential.user.email,
-            credit: 200
         })
         .catch((error) => console.log(error))
         console.log("Initialization complete.")
@@ -112,7 +110,6 @@ export const ShopContextProvider = (props) => {
                 if (snapshot.exists()) {
                     console.log("Successful retrieval!")
                     const data = snapshot.val()
-                    setUserCredit(data.credit)
                     setUserAddress(data.address)
                     setUserCountry(data.country)
                     setUserCity(data.city)
@@ -124,7 +121,6 @@ export const ShopContextProvider = (props) => {
         }
         else
         {
-            setUserCredit('')
             setUserAddress('')
             setUserCountry('')
             setUserCity('')
@@ -173,7 +169,7 @@ export const ShopContextProvider = (props) => {
         setNumCartItems(0)
     }
 
-    const contextValue = {cartItems, authUser, isOpen, numCartItems, email, password, loginError, userAddress, userCity, userCountry, userState, userZip, userCredit, deleteAccount, updateUserInfo, setEmail, setPassword, setCartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, resetCart, signIn, signUp, userLogOut}
+    const contextValue = {cartItems, authUser, isOpen, numCartItems, email, password, loginError, userAddress, userCity, userCountry, userState, userZip, deleteAccount, updateUserInfo, setEmail, setPassword, setCartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, resetCart, signIn, signUp, userLogOut}
 
     return (
         <ShopContext.Provider value={contextValue}>
