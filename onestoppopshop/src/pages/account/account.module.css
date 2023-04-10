@@ -10,6 +10,7 @@
     flex-direction: column;
     align-self: flex-start;
     margin-top: 1rem;
+    margin-bottom: 1rem;
     padding-left: 2rem;
     padding-right: 2rem;
     font-family: "Fasthand", sans-serif;
@@ -37,12 +38,6 @@
 .deleteBttn:hover {
     background-color: #329885;
     transition: all 0.3s ease;
-}
-
-.topWrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .tabBttns {

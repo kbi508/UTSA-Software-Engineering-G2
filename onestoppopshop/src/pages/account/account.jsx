@@ -9,7 +9,7 @@ export const Account = () => {
   const [curTab, setCurTab] = useState(1)
   const [showConfirmation, setShowConfirmation] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
-  const { authUser, userAddress, userCity, userCountry, userState, userZip, userCredit, updateUserInfo, deleteAccount } = useContext(ShopContext)
+  const { authUser, userAddress, userCity, userCountry, userState, userZip, updateUserInfo } = useContext(ShopContext)
 
   // Capture updated address values:
   const [updateCountry, setUpdateCountry] = useState(userCountry)
@@ -68,12 +68,9 @@ export const Account = () => {
       </div>
       <div className={styles.tabs}>
         <div className={styles.accInfo}>
-          <div className={styles.topWrapper}>
-            <p className={styles.accEmail}>{authUser.email}</p>
-            <button className={styles.deleteBttn} onClick={() => setShowLogin(!showLogin)}>Delete Account</button>
-            {showLogin && <AccountLogin setShowLogin={setShowLogin}/>}
-          </div>
-          <p>Credit Balance: ${Number(userCredit).toFixed(2)}</p>
+          <p className={styles.accEmail}>{authUser.email}</p>
+          <button className={styles.deleteBttn} onClick={() => setShowLogin(!showLogin)}>Delete Account</button>
+          {showLogin && <AccountLogin setShowLogin={setShowLogin}/>}
         </div>
         {curTab === 1 && (<div className={styles.tabOrders}>
           <div className={styles.orderHeader}><span>Order Number</span> <span>Total</span> <span>Date</span></div>
