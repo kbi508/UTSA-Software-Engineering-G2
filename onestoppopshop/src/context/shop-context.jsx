@@ -1,7 +1,9 @@
 import React, { createContext, useState, useEffect } from 'react'
 import { PRODUCTS } from '../products'
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth'
-import { auth } from '../firebase'
+import { auth, database } from '../firebase'
+import { ref, get, set } from 'firebase/database'
+
 
 export const ShopContext = createContext(null)
 
@@ -25,6 +27,14 @@ export const ShopContextProvider = (props) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [loginError, setLoginError] = useState(null)
+
+    // User data vars:
+    const [userCredit, setUserCredit] = useState(0)
+    const [userCountry, setUserCountry] = useState('')
+    const [userAddress, setUserAddress] = useState('')
+    const [userCity, setUserCity] = useState('')
+    const [userState, setUserState] = useState('')
+    const [userZip, setUserZip] = useState(0)
 
     const signIn = (e) => {
         e.preventDefault()
@@ -58,6 +68,29 @@ export const ShopContextProvider = (props) => {
 
         return () => listen()
     }, [])
+
+    // Load in user details when logged in:
+    useEffect(() => {
+        if (authUser) 
+        {
+          console.log("Starting database retreval...")
+          const userRef = ref(database, "users/user1")
+          get(userRef).then((snapshot) => {
+            if (snapshot.exists()) {
+                console.log("Successful retrieval!")
+                const data = snapshot.val()
+                setUserCredit(data.credits)
+                setUserAddress(data.address)
+                setUserCountry(data.country)
+                setUserCity(data.city)
+                setUserState(data.state)
+                setUserZip(data.zip)
+            }
+          })
+          .catch((error) => console.log(error))
+        }
+    
+    }, [authUser])
 
 
     const getTotalCartAmount = () => {
@@ -98,7 +131,7 @@ export const ShopContextProvider = (props) => {
         setNumCartItems(0)
     }
 
-    const contextValue = {cartItems, authUser, isOpen, numCartItems, email, password, loginError,setEmail, setPassword, setCartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, resetCart, signIn, signUp, userLogOut}
+    const contextValue = {cartItems, authUser, isOpen, numCartItems, email, password, loginError, userAddress, userCity, userCountry, userState, userZip, userCredit, setEmail, setPassword, setCartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, resetCart, signIn, signUp, userLogOut}
 
     return (
         <ShopContext.Provider value={contextValue}>

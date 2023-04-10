@@ -3,11 +3,13 @@ import { CheckoutCart } from './checkoutCart'
 import styles from './checkout.module.css'
 import { ShopContext } from '../../context/shop-context'
 import { CheckoutLogin } from './checkoutLogin'
+import { auth, database } from '../../firebase'
 
 export const Checkout = () => {
   const [usingAcc, setUsingAcc] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
-  const { authUser } = useContext(ShopContext)
+
+  const { authUser, userAddress, userCity, userCountry, userState, userZip } = useContext(ShopContext)
 
   const loginRef = useRef(null)
   
@@ -24,9 +26,13 @@ export const Checkout = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [showLogin])
 
-  // Hide login splash if logged in.
   useEffect(() => {
-    if (authUser) setShowLogin(false)
+    if (authUser) 
+    {
+      // Hide login splash if logged in:
+      setShowLogin(false)
+    }
+
   }, [authUser])
 
   return (
@@ -51,15 +57,27 @@ export const Checkout = () => {
       </div>
       <span className={styles.sub}>
         <p className={styles.shipTitle}>Shipping Address</p>
+        {authUser && <>
         <p>{!usingAcc ? 'Use Account Info?' : 'Using Account Info'}</p>
         <input type={'checkbox'} onChange={(e) => {setUsingAcc(e.target.checked)}} />
+        </>} 
       </span>
       <div className={styles.shippingInputs}>
-          <input className={styles.country} placeholder='Country' />
-          <input className={styles.streetAdd} placeholder='Address' />
-          <input className={styles.city} placeholder='City' />
-          <input className={styles.state} placeholder='State' />
-          <input className={styles.zip} type={'number'} placeholder='Zip' />
+          {(authUser && usingAcc) ? 
+          (<>
+            <input className={styles.country} placeholder='Country' value={userCountry} />
+            <input className={styles.streetAdd} placeholder='Address' value={userAddress} />
+            <input className={styles.city} placeholder='City' value={userCity} />
+            <input className={styles.state} placeholder='State' value={userState} />
+            <input className={styles.zip} type={'number'} placeholder='Zip' value={userZip} /></>)
+          :
+          (<>
+            <input className={styles.country} placeholder='Country' value={''} />
+            <input className={styles.streetAdd} placeholder='Address' value={''} />
+            <input className={styles.city} placeholder='City' value={''} />
+            <input className={styles.state} placeholder='State' value={''} />
+            <input className={styles.zip} type={'number'} placeholder='Zip' value={''} /></>)
+          } 
       </div>
       <div className={styles.separator} />
     </div>
