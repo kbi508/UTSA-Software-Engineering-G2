@@ -68,16 +68,57 @@ import _12ozSangariaGrapeSoda from './assets/12ozsangariagrapesoda.png'
 import _12ozSangariaMelonSoda from './assets/12ozsangariamelonsoda.webp'
 import _12ozSangariaOrangeSoda from './assets/12ozsangariaorangesoda.webp'
 import _12ozSangariaRamuneSoda from './assets/12ozsangariaramunesoda.jpg'
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, set, push, remove } from "firebase/database";
 
 
 
+// function addQuantityField(data) {
+//     for (let i = 0; i < data.length; i++) {
+//       data[i].quantity = Math.floor(Math.random() * 50) + 1;
+//     }
+//     return data;
+//   }
 
-function addQuantityField(data) {
-    for (let i = 0; i < data.length; i++) {
-      data[i].quantity = Math.floor(Math.random() * 50) + 1;
-    }
-    return data;
+  const firebaseConfig = {
+    databaseURL: "https://onestoppopshop-cffc9-default-rtdb.firebaseio.com",
+  };
+  
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  //function to add products to database
+  function writeProductData(prodId, name, price, imageUrl, weightAmount, weightType, descript, star1Rate, star2Rate, star3Rate, star4Rate, star5Rate, tags) {
+    const database = getDatabase(app);
+    const reference = ref(database, 'products/' + prodId);
+  
+  
+    set(reference, {
+      name: name,
+      price: price,
+      product_Image : imageUrl,
+      weight_Amount : weightAmount,
+      weight_Type : weightType,
+      prod_description: descript,
+      num_1_Stars: star1Rate,
+      num_2_Stars: star2Rate,
+      num_3_Stars: star3Rate,
+      num_4_Stars: star4Rate,
+      num_5_Stars: star5Rate,
+      hastags: tags
+  
+    })
   }
+  //Function to remove products from database
+  function removeProductData(prodId) {
+    const database = getDatabase(app);
+    const reference = ref(database, 'products/' + prodId);
+    remove(reference);
+  }
+ //writeProductData("2", "12oz Sprite", "1.15", "./assets/12ozcokecan.jpeg", "12", "oz", "something else", 1, 2, 3, 4, 5, 7);
+
+//removeProductData("2");
+  
+
 
 
 export const PRODUCTS = [
@@ -1087,4 +1128,25 @@ export const PRODUCTS = [
         "tags": ["#strawberry", "#soda", "#refreshing", "#beverage", "#summer", "#Fanta"]
     }    
 ]
-addQuantityField(PRODUCTS);  
+
+//Function to populate database with products.
+PRODUCTS.forEach(function(product){
+    writeProductData(
+        product.id,
+        product.productName,
+        product.price,
+        product.productImage,
+        product.weightAmount,
+        product.weightType,
+        product.descript,
+        product.star1Rate,
+        product.star2Rate,
+        product.star3Rate,
+        product.star4Rate,
+        product.star5Rate,
+        product.tags
+ 
+    );
+});
+//addQuantityField(PRODUCTS);  
+//populateFirebaseDatabase(PRODUCTS);
