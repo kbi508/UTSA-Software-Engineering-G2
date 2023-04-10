@@ -65,17 +65,11 @@ import _12ozFaygoOriginalRedPop from './assets/12ozfaygooriginalredpop.png'
 import _12ozJonesGingerBreadSoda from './assets/12ozjonesgingerbreadsoda.png'
 import _12ozJumboFruitPunchSoda from './assets/12ozjumbofruitpunchsoda.png'
 import _12ozSangariaGrapeSoda from './assets/12ozsangariagrapesoda.png'
-<<<<<<< HEAD
 import _12ozSangariaMelonSoda from './assets/12ozsangariamelonsoda.webp'
 import _12ozSangariaOrangeSoda from './assets/12ozsangariaorangesoda.webp'
 import _12ozSangariaRamuneSoda from './assets/12ozsangariaramunesoda.jpg'
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set, push, remove } from "firebase/database";
-=======
-import _12ozSangariaMelonSoda from './assets/12ozsangariamelonsoda.png'
-import _12ozSangariaOrangeSoda from './assets/12ozsangariaorangesoda.png'
-import _12ozSangariaRamuneSoda from './assets/12ozsangariaramunesoda.png'
->>>>>>> 4c1eff768d2a74c10438e6bdc2132f003173a25f
 
 
 
