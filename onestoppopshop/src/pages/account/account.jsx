@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import styles from './account.module.css'
 import { ShopContext } from '../../context/shop-context'
 import { database } from '../../firebase'
@@ -6,6 +6,7 @@ import { update, ref, child } from 'firebase/database'
 
 export const Account = () => {
   const [curTab, setCurTab] = useState(1)
+  const [showConfirmation, setShowConfirmation] = useState(false)
   const { authUser, userAddress, userCity, userCountry, userState, userZip, userCredit, updateUserInfo } = useContext(ShopContext)
 
   // Capture updated address values:
@@ -14,6 +15,18 @@ export const Account = () => {
   const [updateCity, setUpdateCity] = useState(userCity)
   const [updateState, setUpdateState] = useState(userState)
   const [updateZip, setUpdateZip] = useState(userZip)
+
+  // Country Selector:
+  const [countries, setCountries] = useState([])
+
+  useEffect(() => {
+    fetch('https://restcountries.com/v3.1/all')
+      .then(response => response.json())
+      .then(data => {
+        const countryNames = data.map(country => country.name.common)
+        setCountries(countryNames.sort())
+      })
+  }, [])
 
   const accountOrders = [
     {
@@ -52,6 +65,8 @@ export const Account = () => {
       })
       updateUserInfo()
     }
+    setShowConfirmation(true)
+    setTimeout(() => {setShowConfirmation(false)}, 3000)
   }
 
   return (
@@ -85,6 +100,7 @@ export const Account = () => {
           <input className={styles.city} placeholder='City' defaultValue={userCity} onChange={(e) => setUpdateCity(e.target.value)} />
           <input className={styles.state} placeholder='State' defaultValue={userState} onChange={(e) => setUpdateState(e.target.value)} />
           <input className={styles.zip} type={'number'} placeholder='Zip' defaultValue={userZip} onChange={(e) => setUpdateZip(e.target.value)} />
+          {showConfirmation && <p>Address updated!</p>}
           <button className={styles.updateBttn} onClick={saveUpdatesToAddress}>Update</button>
         </div>)}
       </div>

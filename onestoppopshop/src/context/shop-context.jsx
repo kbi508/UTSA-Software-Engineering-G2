@@ -69,10 +69,12 @@ export const ShopContextProvider = (props) => {
             credit: 200
         })
         .catch((error) => console.log(error))
+        console.log("Initialization complete.")
     }
 
     useEffect(() => {
         const listen = onAuthStateChanged(auth, (user) => {
+            console.log("Detected auth change...")
             if (user) {
                 setAuthUser(user)
             }
@@ -103,8 +105,17 @@ export const ShopContextProvider = (props) => {
             })
             .catch((error) => console.log(error))
         }
+        else
+        {
+            setUserCredit('')
+            setUserAddress('')
+            setUserCountry('')
+            setUserCity('')
+            setUserState('')
+            setUserZip('')
+        }
     }
-    useEffect(() => updateUserInfo, [authUser])
+    useEffect(() => {updateUserInfo()}, [authUser])
 
 
     const getTotalCartAmount = () => {
