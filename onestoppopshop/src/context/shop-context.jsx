@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { PRODUCTS } from '../products'
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut, deleteUser, reauthenticateWithCredential, EmailAuthProvider } from 'firebase/auth'
 import { auth, database } from '../firebase'
-import { ref, get, set, remove } from 'firebase/database'
+import { ref, get, set, remove, push } from 'firebase/database'
 
 
 export const ShopContext = createContext(null)
@@ -19,6 +19,8 @@ const getDefaultCart = () => {
 
 export const ShopContextProvider = (props) => {
     const navigator = useNavigate()
+
+    const taxRate = 0.0825
 
     // Shop vars:
     const [cartItems, setCartItems] = useState(getDefaultCart())
@@ -146,7 +148,12 @@ export const ShopContextProvider = (props) => {
     }
 
     const processCheckout = () => {
-        
+        const ordersRef = ref(database, 'orders')
+        const newOrderRef = push(ordersRef)
+        console.log(newOrderRef.key)
+        set(newOrderRef, {
+            amount: total
+        })
     }
 
     const addToCart = (itemId) => {
@@ -173,7 +180,7 @@ export const ShopContextProvider = (props) => {
         setNumCartItems(0)
     }
 
-    const contextValue = {cartItems, authUser, isOpen, numCartItems, email, password, loginError, userAddress, userCity, userCountry, userState, userZip, processCheckout, deleteAccount, updateUserInfo, setEmail, setPassword, setCartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, resetCart, signIn, signUp, userLogOut}
+    const contextValue = {cartItems, authUser, isOpen, numCartItems, email, password, loginError, userAddress, userCity, userCountry, userState, userZip, taxRate, processCheckout, deleteAccount, updateUserInfo, setEmail, setPassword, setCartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, resetCart, signIn, signUp, userLogOut}
 
     return (
         <ShopContext.Provider value={contextValue}>
