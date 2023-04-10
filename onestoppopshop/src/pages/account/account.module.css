@@ -127,6 +127,7 @@
 
 .tabShippingInfo > input {
     height: 3rem;
+    font-size: 2rem;
 }
 
 .tabShippingInfo > input::placeholder {

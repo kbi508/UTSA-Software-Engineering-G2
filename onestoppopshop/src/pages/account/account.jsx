@@ -4,7 +4,7 @@ import { ShopContext } from '../../context/shop-context'
 
 export const Account = () => {
   const [curTab, setCurTab] = useState(1)
-  const { email } = useContext(ShopContext)
+  const { authUser, userAddress, userCity, userCountry, userState, userZip, userCredit } = useContext(ShopContext)
 
   const accountOrders = [
     {
@@ -39,7 +39,8 @@ export const Account = () => {
       </div>
       <div className={styles.tabs}>
         <div className={styles.accInfo}>
-          <p className={styles.accEmail}>{email}</p>
+          <p className={styles.accEmail}>{authUser.email}</p>
+          <p>Credit Balance: ${Number(userCredit).toFixed(2)}</p>
         </div>
         {curTab === 1 && (<div className={styles.tabOrders}>
           <div className={styles.orderHeader}><span>Order Number</span> <span>Total</span> <span>Date</span></div>
@@ -52,13 +53,14 @@ export const Account = () => {
             {accountSubs.map((sub) => <div>{sub}</div>)}
           </ul>
         </div>)}
-        {curTab === 3 && (<div className={styles.tabShippingInfo}>
+        {curTab === 3 && (
+        <div className={styles.tabShippingInfo}>
           <p>Shipping Address</p>
-          <input className={styles.country} placeholder='Country'></input>
-          <input className={styles.streetAdd} placeholder='Address'></input>
-          <input className={styles.city} placeholder='City'></input>
-          <input className={styles.state} placeholder='State'></input>
-          <input className={styles.zip} type={'number'} placeholder='Zip'></input>
+          <input className={styles.country} placeholder='Country' value={userCountry} />
+          <input className={styles.streetAdd} placeholder='Address' value={userAddress} />
+          <input className={styles.city} placeholder='City' value={userCity} />
+          <input className={styles.state} placeholder='State' value={userState} />
+          <input className={styles.zip} type={'number'} placeholder='Zip' value={userZip} />
         </div>)}
       </div>
     </div>
