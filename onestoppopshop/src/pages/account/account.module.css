@@ -133,3 +133,20 @@
 .tabShippingInfo > input::placeholder {
     font-size: 1rem;
 }
+
+.updateBttn {
+    border-radius: 1rem;
+    border-style: none;
+    background-color: #FCC68F;
+    color: white;
+    height: 4rem;
+    width: 50%;
+    font-family: "Fasthand", sans-serif;
+    font-size: 2rem;
+    transition: all 0.3s ease;
+}
+
+.updateBttn:hover {
+    background-color: #329885;
+    transition: all 0.3s ease;
+}

@@ -61,6 +61,7 @@ export const Account = () => {
           <input className={styles.city} placeholder='City' value={userCity} />
           <input className={styles.state} placeholder='State' value={userState} />
           <input className={styles.zip} type={'number'} placeholder='Zip' value={userZip} />
+          <button className={styles.updateBttn}>Update</button>
         </div>)}
       </div>
     </div>
