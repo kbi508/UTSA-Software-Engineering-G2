@@ -35,6 +35,7 @@ export const ShopContextProvider = (props) => {
     const [userCity, setUserCity] = useState('')
     const [userState, setUserState] = useState('')
     const [userZip, setUserZip] = useState('')
+    const [userID, setUserID] = useState(null)
 
     const signIn = (e) => {
         e.preventDefault()
@@ -46,7 +47,7 @@ export const ShopContextProvider = (props) => {
     const signUp = (e) => {
         e.preventDefault()
         createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {setLoginError(null)})
+        .then((userCredential) => {setLoginError(null); initializeNewUser(userCredential)})
         .catch((error) => {setLoginError(error)})
     }
 
@@ -56,6 +57,19 @@ export const ShopContextProvider = (props) => {
         .catch((error) => console.log(error))
     }
 
+    const initializeNewUser = (userCredential) => {
+        console.log("Starting user " + userCredential.user.email + " DB creation...")
+        const newUserRef = ref(database, "users/" + userCredential.user.uid)
+        set(newUserRef, {
+            address:'',
+            city: '',
+            country:'',
+            state: '',
+            email: userCredential.user.email,
+            credit: 200
+        })
+        .catch((error) => console.log(error))
+    }
 
     useEffect(() => {
         const listen = onAuthStateChanged(auth, (user) => {
@@ -73,21 +87,21 @@ export const ShopContextProvider = (props) => {
     const updateUserInfo = () => {
         if (authUser) 
         {
-          console.log("Starting database retreval...")
-          const userRef = ref(database, "users/user1")
-          get(userRef).then((snapshot) => {
-            if (snapshot.exists()) {
-                console.log("Successful retrieval!")
-                const data = snapshot.val()
-                setUserCredit(data.credits)
-                setUserAddress(data.address)
-                setUserCountry(data.country)
-                setUserCity(data.city)
-                setUserState(data.state)
-                setUserZip(data.zip)
-            }
-          })
-          .catch((error) => console.log(error))
+            console.log("Starting database retreval...")
+            const userRef = ref(database, "users/" + authUser.uid)
+            get(userRef).then((snapshot) => {
+                if (snapshot.exists()) {
+                    console.log("Successful retrieval!")
+                    const data = snapshot.val()
+                    setUserCredit(data.credit)
+                    setUserAddress(data.address)
+                    setUserCountry(data.country)
+                    setUserCity(data.city)
+                    setUserState(data.state)
+                    setUserZip(data.zip)
+                }
+            })
+            .catch((error) => console.log(error))
         }
     }
     useEffect(() => updateUserInfo, [authUser])

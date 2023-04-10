@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import styles from './account.module.css'
 import { ShopContext } from '../../context/shop-context'
 import { database } from '../../firebase'
-import { set, ref, child } from 'firebase/database'
+import { update, ref, child } from 'firebase/database'
 
 export const Account = () => {
   const [curTab, setCurTab] = useState(1)
@@ -42,15 +42,14 @@ export const Account = () => {
   const saveUpdatesToAddress = () => {
     if (userAddress !== updateAddress || userCity !== updateCity || userCountry !== updateCountry || userState !== updateState || userZip !== updateZip)
     {
-      const usersRef = ref(database, "users")
-      const userRef = child(usersRef, "user1")
-      set(userRef, {
-                    address: updateAddress, 
-                    city: updateCity,
-                    country: updateCountry,
-                    state: updateState,
-                    zip: updateZip
-                  })
+      const userRef = ref(database, "users/" + authUser.uid)
+      update(userRef, {
+        address: updateAddress, 
+        city: updateCity,
+        country: updateCountry,
+        state: updateState,
+        zip: updateZip
+      })
       updateUserInfo()
     }
   }

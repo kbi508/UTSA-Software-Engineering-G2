@@ -18,7 +18,6 @@ export const Checkout = () => {
     {
       if (loginRef.current && !loginRef.current.contains(e.target))
         setShowLogin(false)
-      console.log(loginRef.current)
     }
     
     document.addEventListener('mousedown', handleClickOutside)
@@ -65,18 +64,18 @@ export const Checkout = () => {
       <div className={styles.shippingInputs}>
           {(authUser && usingAcc) ? 
           (<>
-            <input className={styles.country} placeholder='Country' value={userCountry} />
-            <input className={styles.streetAdd} placeholder='Address' value={userAddress} />
-            <input className={styles.city} placeholder='City' value={userCity} />
-            <input className={styles.state} placeholder='State' value={userState} />
-            <input className={styles.zip} type={'number'} placeholder='Zip' value={userZip} /></>)
+            <input className={styles.country} placeholder='Country' defaultValue={userCountry} />
+            <input className={styles.streetAdd} placeholder='Address' defaultValue={userAddress} />
+            <input className={styles.city} placeholder='City' defaultValue={userCity} />
+            <input className={styles.state} placeholder='State' defaultValue={userState} />
+            <input className={styles.zip} type={'number'} placeholder='Zip' defaultValue={userZip} /></>)
           :
           (<>
-            <input className={styles.country} placeholder='Country' value={''} />
-            <input className={styles.streetAdd} placeholder='Address' value={''} />
-            <input className={styles.city} placeholder='City' value={''} />
-            <input className={styles.state} placeholder='State' value={''} />
-            <input className={styles.zip} type={'number'} placeholder='Zip' value={''} /></>)
+            <input className={styles.country} placeholder='Country' defaultValue={''} />
+            <input className={styles.streetAdd} placeholder='Address' defaultValue={''} />
+            <input className={styles.city} placeholder='City' defaultValue={''} />
+            <input className={styles.state} placeholder='State' defaultValue={''} />
+            <input className={styles.zip} type={'number'} placeholder='Zip' defaultValue={''} /></>)
           } 
       </div>
       <div className={styles.separator} />
