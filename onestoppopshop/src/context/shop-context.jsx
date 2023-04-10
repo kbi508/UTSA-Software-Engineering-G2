@@ -34,7 +34,7 @@ export const ShopContextProvider = (props) => {
     const [userAddress, setUserAddress] = useState('')
     const [userCity, setUserCity] = useState('')
     const [userState, setUserState] = useState('')
-    const [userZip, setUserZip] = useState(0)
+    const [userZip, setUserZip] = useState('')
 
     const signIn = (e) => {
         e.preventDefault()
@@ -70,7 +70,7 @@ export const ShopContextProvider = (props) => {
     }, [])
 
     // Load in user details when logged in:
-    useEffect(() => {
+    const updateUserInfo = () => {
         if (authUser) 
         {
           console.log("Starting database retreval...")
@@ -89,8 +89,8 @@ export const ShopContextProvider = (props) => {
           })
           .catch((error) => console.log(error))
         }
-    
-    }, [authUser])
+    }
+    useEffect(() => updateUserInfo, [authUser])
 
 
     const getTotalCartAmount = () => {
@@ -131,7 +131,7 @@ export const ShopContextProvider = (props) => {
         setNumCartItems(0)
     }
 
-    const contextValue = {cartItems, authUser, isOpen, numCartItems, email, password, loginError, userAddress, userCity, userCountry, userState, userZip, userCredit, setEmail, setPassword, setCartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, resetCart, signIn, signUp, userLogOut}
+    const contextValue = {cartItems, authUser, isOpen, numCartItems, email, password, loginError, userAddress, userCity, userCountry, userState, userZip, userCredit, updateUserInfo, setEmail, setPassword, setCartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, resetCart, signIn, signUp, userLogOut}
 
     return (
         <ShopContext.Provider value={contextValue}>

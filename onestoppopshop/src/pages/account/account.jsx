@@ -1,10 +1,19 @@
 import React, { useContext, useState } from 'react'
 import styles from './account.module.css'
 import { ShopContext } from '../../context/shop-context'
+import { database } from '../../firebase'
+import { set, ref, child } from 'firebase/database'
 
 export const Account = () => {
   const [curTab, setCurTab] = useState(1)
-  const { authUser, userAddress, userCity, userCountry, userState, userZip, userCredit } = useContext(ShopContext)
+  const { authUser, userAddress, userCity, userCountry, userState, userZip, userCredit, updateUserInfo } = useContext(ShopContext)
+
+  // Capture updated address values:
+  const [updateCountry, setUpdateCountry] = useState(userCountry)
+  const [updateAddress, setUpdateAddress] = useState(userAddress)
+  const [updateCity, setUpdateCity] = useState(userCity)
+  const [updateState, setUpdateState] = useState(userState)
+  const [updateZip, setUpdateZip] = useState(userZip)
 
   const accountOrders = [
     {
@@ -29,6 +38,22 @@ export const Account = () => {
     'This is second subscript',
     'This is third subscript'
   ]
+
+  const saveUpdatesToAddress = () => {
+    if (userAddress !== updateAddress || userCity !== updateCity || userCountry !== updateCountry || userState !== updateState || userZip !== updateZip)
+    {
+      const usersRef = ref(database, "users")
+      const userRef = child(usersRef, "user1")
+      set(userRef, {
+                    address: updateAddress, 
+                    city: updateCity,
+                    country: updateCountry,
+                    state: updateState,
+                    zip: updateZip
+                  })
+      updateUserInfo()
+    }
+  }
 
   return (
     <div className={styles.accPage}>
@@ -56,12 +81,12 @@ export const Account = () => {
         {curTab === 3 && (
         <div className={styles.tabShippingInfo}>
           <p>Shipping Address</p>
-          <input className={styles.country} placeholder='Country' value={userCountry} />
-          <input className={styles.streetAdd} placeholder='Address' value={userAddress} />
-          <input className={styles.city} placeholder='City' value={userCity} />
-          <input className={styles.state} placeholder='State' value={userState} />
-          <input className={styles.zip} type={'number'} placeholder='Zip' value={userZip} />
-          <button className={styles.updateBttn}>Update</button>
+          <input className={styles.country} placeholder='Country' defaultValue={userCountry} onChange={(e) => setUpdateCountry(e.target.value)} />
+          <input className={styles.streetAdd} placeholder='Address' defaultValue={userAddress} onChange={(e) => setUpdateAddress(e.target.value)} />
+          <input className={styles.city} placeholder='City' defaultValue={userCity} onChange={(e) => setUpdateCity(e.target.value)} />
+          <input className={styles.state} placeholder='State' defaultValue={userState} onChange={(e) => setUpdateState(e.target.value)} />
+          <input className={styles.zip} type={'number'} placeholder='Zip' defaultValue={userZip} onChange={(e) => setUpdateZip(e.target.value)} />
+          <button className={styles.updateBttn} onClick={saveUpdatesToAddress}>Update</button>
         </div>)}
       </div>
     </div>
