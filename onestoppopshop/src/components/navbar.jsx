@@ -7,7 +7,7 @@ import { ShopContext } from '../context/shop-context'
 import { Login } from './login'
 
 export const Navbar = () => {
-  const {toggleOpen} = useContext(ShopContext)
+  const {authUser, userLogOut, toggleOpen} = useContext(ShopContext)
   const [showLogin, setShowLogin] = useState(false)
   const loginRef = useRef(null)
   const location = useLocation()
@@ -24,6 +24,11 @@ export const Navbar = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [showLogin])
 
+  // Hide login splash if logged in.
+  useEffect(() => {
+    if (authUser) setShowLogin(false)
+  }, [authUser])
+
   return (
     <>
     {location.pathname !== '/checkout' ?
@@ -32,20 +37,17 @@ export const Navbar = () => {
           <Link to="/">
             <img className={styles.logo} src={logo} alt='Logo' />
           </Link>
-          <nav className={styles.nav}>
-            <ul className={styles.nav_links}>
-              <li><Link className={styles.pageLink} to="/account"> Account </Link></li>
-            </ul>
-          </nav>
           {location.pathname === '/' &&
-          (<div className={styles.rightWrapperNav}>
-            <button className={`${styles.loginButton} ${styles.navBttn}`} onClick={() => setShowLogin(!showLogin)}>Login</button>
+          (
+          <div className={styles.rightWrapperNav}>
+            {authUser && (<Link className={styles.pageLink} to="/account"> {authUser.email} </Link>)}
+            <button className={`${styles.loginButton} ${styles.navBttn}`} onClick={authUser ? userLogOut : () => setShowLogin(!showLogin)}>{authUser ? 'Logout' : 'Login'}</button>
             <button className={`${styles.cartButton} ${styles.navBttn}`} onClick={toggleOpen}>
                 <ShoppingCart className={styles.cartComp} size='32' />
             </button>
           </div>)}
           <div ref={loginRef} className='loginWrapper'>
-          {showLogin && <Login />}
+            {showLogin && <Login />}
           </div>
         </header>
       )

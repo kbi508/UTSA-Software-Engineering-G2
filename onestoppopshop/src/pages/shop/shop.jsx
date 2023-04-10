@@ -15,7 +15,7 @@ export const Shop = () => {
         </div>
         <div className={styles.products}>
           {/* Need to change into using back-end once setup.*/}
-          {PRODUCTS.map((product) => (<Product data={product}/>))}
+          {PRODUCTS.map((product) => (<Product key = {product.id} data={product}/>))}
         </div>
       </div>
       <Cart />

@@ -30,7 +30,7 @@ export const Cart = (props) => {
         <div className={styles.cartItems}>
             {PRODUCTS.map((product) => {
                 if (cartItems[product.id] > 0)
-                  return <CartItem data={product}/>
+                  return <CartItem key={product.id} data={product}/>
                 return <></>
             })}
         </div>

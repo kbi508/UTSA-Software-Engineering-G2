@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react'
-import styles from './login.module.css'
-import { ShopContext } from '../context/shop-context'
+import styles from './checkoutLogin.module.css'
+import { ShopContext } from '../../context/shop-context'
 
-export const Login = () => {
+export const CheckoutLogin = () => {
     const [isCreating, setIsCreating] = useState(false)
     const {signIn, signUp, email, password, loginError, setEmail, setPassword} = useContext(ShopContext)
 
