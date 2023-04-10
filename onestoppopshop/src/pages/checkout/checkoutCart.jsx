@@ -7,13 +7,15 @@ import { useNavigate } from 'react-router-dom'
 
 export const CheckoutCart = (props) => {
   const { cartItems, getTotalCartAmount, numCartItems, processCheckout, taxRate } = useContext(ShopContext)
+  const {country, add, city, state, zip, email} = props
   const totalAmount = getTotalCartAmount().toFixed(2)
   const navigator = useNavigate()
-  const {country, add, city, state, zip, email} = props
+  const [showConfirm, setShowConfirm] = useState(false)
+  const [message, setMessage] = useState('This is a test')
 
   const checkoutWrapper = (country, add, city, state, zip, email) => {
     const orderKey = processCheckout(country, add, city, state, zip, email)
-
+    setShowConfirm(true)
   }
 
   return (
@@ -33,6 +35,14 @@ export const CheckoutCart = (props) => {
             <button className={`${styles.orderBttn} ${styles.cartBttn}`} disabled={numCartItems === 0 ? true : false} onClick={() => checkoutWrapper(country, add, city, state, zip, email)}> Place Order </button>
             <button className={`${styles.cancelBttn} ${styles.cartBttn}`} onClick={() => navigator('/')}> Cancel </button>
         </div>
+
+        {showConfirm &&
+        <div className={styles.confirmationBackdrop}>
+          <div className={styles.confirmation}>
+            <p>{message}</p>
+            <button className={styles.confirmBttn} onClick={() => setShowConfirm(false)}>Confirm</button>
+          </div>
+        </div>}
     </div>
   )
 }
