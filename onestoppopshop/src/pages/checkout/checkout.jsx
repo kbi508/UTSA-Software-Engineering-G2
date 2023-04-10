@@ -12,18 +12,6 @@ export const Checkout = () => {
   const { authUser, userAddress, userCity, userCountry, userState, userZip } = useContext(ShopContext)
 
   const loginRef = useRef(null)
-
-  // Country Selector:
-  const [countries, setCountries] = useState([])
-
-  useEffect(() => {
-    fetch('https://restcountries.com/v3.1/all')
-      .then(response => response.json())
-      .then(data => {
-        const countryNames = data.map(country => country.name.common)
-        setCountries(countryNames.sort())
-      })
-  }, [])
   
   useEffect(() => {
     const handleClickOutside = (e) =>
@@ -89,6 +77,13 @@ export const Checkout = () => {
             <input className={styles.state} placeholder='State' defaultValue={''} />
             <input className={styles.zip} type={'number'} placeholder='Zip' defaultValue={''} /></>)
           } 
+      </div>
+      <div className={styles.separator} />
+      <div className={styles.ccInputs}>
+        <p>Payment</p>
+        <input className={styles.ccNum} type={'number'} placeholder='Card Number' defaultValue={''} />
+        <input className={styles.ccMonth} type={'month'} placeholder='Exp Date' defaultValue={''} />
+        <input className={styles.ccCcv} type={'number'} placeholder='CCV' defaultValue={''} />
       </div>
       <div className={styles.separator} />
     </div>
