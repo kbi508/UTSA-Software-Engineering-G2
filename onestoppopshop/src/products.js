@@ -65,11 +65,12 @@ import _12ozFaygoOriginalRedPop from './assets/12ozfaygooriginalredpop.png'
 import _12ozJonesGingerBreadSoda from './assets/12ozjonesgingerbreadsoda.png'
 import _12ozJumboFruitPunchSoda from './assets/12ozjumbofruitpunchsoda.png'
 import _12ozSangariaGrapeSoda from './assets/12ozsangariagrapesoda.png'
-import _12ozSangariaMelonSoda from './assets/12ozsangariamelonsoda.webp'
-import _12ozSangariaOrangeSoda from './assets/12ozsangariaorangesoda.webp'
-import _12ozSangariaRamuneSoda from './assets/12ozsangariaramunesoda.jpg'
-import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set, push, remove } from "firebase/database";
+import _12ozSangariaMelonSoda from './assets/12ozsangariamelonsoda.png'
+import _12ozSangariaOrangeSoda from './assets/12ozsangariaorangesoda.png'
+import _12ozSangariaRamuneSoda from './assets/12ozsangariaramunesoda.png'
+//import { initializeApp } from "firebase/app";
+import {database} from './firebase'
+import { ref, set, remove } from "firebase/database";
 
 
 
@@ -80,15 +81,13 @@ import { getDatabase, ref, set, push, remove } from "firebase/database";
 //     return data;
 //   }
 
-  const firebaseConfig = {
-    databaseURL: "https://onestoppopshop-cffc9-default-rtdb.firebaseio.com",
-  };
+
   
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
+
+
   //function to add products to database
-  function writeProductData(prodId, name, price, imageUrl, weightAmount, weightType, descript, star1Rate, star2Rate, star3Rate, star4Rate, star5Rate, tags) {
-    const database = getDatabase(app);
+  export function writeProductData(prodId, name, price, imageUrl, weightAmount, weightType, descript, star1Rate, star2Rate, star3Rate, star4Rate, star5Rate, tags) {
+   
     const reference = ref(database, 'products/' + prodId);
   
   
@@ -110,7 +109,6 @@ import { getDatabase, ref, set, push, remove } from "firebase/database";
   }
   //Function to remove products from database
   function removeProductData(prodId) {
-    const database = getDatabase(app);
     const reference = ref(database, 'products/' + prodId);
     remove(reference);
   }
