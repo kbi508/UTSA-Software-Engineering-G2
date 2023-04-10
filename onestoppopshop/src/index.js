@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set } from "firebase/database";
+import { getDatabase, ref, set, push } from "firebase/database";
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -41,6 +43,13 @@ function writeProductData(prodId, name, price, imageUrl, weightAmount, weightTyp
 
   })
 }
-writeProductData("1", "12oz Coca-cola", "1.15", "./assets/12ozcokecan.jpeg", "12", "oz", "something", 1, 2, 3, 4, 5, 7);
+// function populateFirebaseDatabase(jsonObjects) {
+//   const database = getDatabase(app);
+//   jsonObjects.forEach((jsonObject) => {
+//     database.ref().push(jsonObject);
+//   });
+// }
+//populateFirebaseDatabase(PRODUCTS);
+writeProductData("1", "12oz Coca-cola", "1.15", "./assets/12ozcokecan.jpeg", "12", "oz", "something else", 1, 2, 3, 4, 5, 7);
 //writeUserData("testtwo", "t2", "testtwo@gmail.com", "./assets/12ozbigredcan.jpg");
 
