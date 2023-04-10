@@ -1,8 +1,9 @@
 import React, { createContext, useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { PRODUCTS } from '../products'
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth'
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut, deleteUser, reauthenticateWithCredential, EmailAuthProvider } from 'firebase/auth'
 import { auth, database } from '../firebase'
-import { ref, get, set } from 'firebase/database'
+import { ref, get, set, remove } from 'firebase/database'
 
 
 export const ShopContext = createContext(null)
@@ -17,6 +18,8 @@ const getDefaultCart = () => {
 }
 
 export const ShopContextProvider = (props) => {
+    const navigator = useNavigate()
+
     // Shop vars:
     const [cartItems, setCartItems] = useState(getDefaultCart())
     const [isOpen, setIsOpen] = useState(false)
@@ -40,7 +43,7 @@ export const ShopContextProvider = (props) => {
     const signIn = (e) => {
         e.preventDefault()
         signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {setLoginError(null)})
+        .then(() => {setLoginError(null)})
         .catch((error) => {setLoginError(error)})
     }
 
@@ -53,8 +56,23 @@ export const ShopContextProvider = (props) => {
 
     const userLogOut = () => {
         signOut(auth)
-        .then(() => console.log('Success!'))
-        .catch((error) => console.log(error))
+        .then(() => {setLoginError(null)})
+        .catch((error) => {setLoginError(error)})
+        navigator('/')
+    }
+
+    const deleteAccount = (e) => {
+        e.preventDefault()
+        const credential = EmailAuthProvider.credential(email, password);
+        reauthenticateWithCredential(authUser, credential)
+        .then(() => {
+            const userRef = ref(database, "users/" + authUser.uid)
+            remove(userRef)
+            deleteUser(authUser).catch((error) => console.log(error))
+            navigator('/')
+            setLoginError(null)
+        })
+        .catch((error) => {setLoginError(error)})
     }
 
     const initializeNewUser = (userCredential) => {
@@ -156,7 +174,7 @@ export const ShopContextProvider = (props) => {
         setNumCartItems(0)
     }
 
-    const contextValue = {cartItems, authUser, isOpen, numCartItems, email, password, loginError, userAddress, userCity, userCountry, userState, userZip, userCredit, updateUserInfo, setEmail, setPassword, setCartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, resetCart, signIn, signUp, userLogOut}
+    const contextValue = {cartItems, authUser, isOpen, numCartItems, email, password, loginError, userAddress, userCity, userCountry, userState, userZip, userCredit, deleteAccount, updateUserInfo, setEmail, setPassword, setCartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, resetCart, signIn, signUp, userLogOut}
 
     return (
         <ShopContext.Provider value={contextValue}>

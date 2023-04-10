@@ -2,12 +2,14 @@ import React, { useContext, useState, useEffect } from 'react'
 import styles from './account.module.css'
 import { ShopContext } from '../../context/shop-context'
 import { database } from '../../firebase'
-import { update, ref, child } from 'firebase/database'
+import { update, ref } from 'firebase/database'
+import { AccountLogin } from './accountLogin'
 
 export const Account = () => {
   const [curTab, setCurTab] = useState(1)
   const [showConfirmation, setShowConfirmation] = useState(false)
-  const { authUser, userAddress, userCity, userCountry, userState, userZip, userCredit, updateUserInfo } = useContext(ShopContext)
+  const [showLogin, setShowLogin] = useState(false)
+  const { authUser, userAddress, userCity, userCountry, userState, userZip, userCredit, updateUserInfo, deleteAccount } = useContext(ShopContext)
 
   // Capture updated address values:
   const [updateCountry, setUpdateCountry] = useState(userCountry)
@@ -15,18 +17,6 @@ export const Account = () => {
   const [updateCity, setUpdateCity] = useState(userCity)
   const [updateState, setUpdateState] = useState(userState)
   const [updateZip, setUpdateZip] = useState(userZip)
-
-  // Country Selector:
-  const [countries, setCountries] = useState([])
-
-  useEffect(() => {
-    fetch('https://restcountries.com/v3.1/all')
-      .then(response => response.json())
-      .then(data => {
-        const countryNames = data.map(country => country.name.common)
-        setCountries(countryNames.sort())
-      })
-  }, [])
 
   const accountOrders = [
     {
@@ -78,7 +68,11 @@ export const Account = () => {
       </div>
       <div className={styles.tabs}>
         <div className={styles.accInfo}>
-          <p className={styles.accEmail}>{authUser.email}</p>
+          <div className={styles.topWrapper}>
+            <p className={styles.accEmail}>{authUser.email}</p>
+            <button className={styles.deleteBttn} onClick={() => setShowLogin(!showLogin)}>Delete Account</button>
+            {showLogin && <AccountLogin setShowLogin={setShowLogin}/>}
+          </div>
           <p>Credit Balance: ${Number(userCredit).toFixed(2)}</p>
         </div>
         {curTab === 1 && (<div className={styles.tabOrders}>
