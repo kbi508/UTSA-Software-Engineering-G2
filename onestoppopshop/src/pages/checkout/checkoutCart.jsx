@@ -11,6 +11,11 @@ export const CheckoutCart = (props) => {
   const navigator = useNavigate()
   const {country, add, city, state, zip, email} = props
 
+  const checkoutWrapper = (country, add, city, state, zip, email) => {
+    const orderKey = processCheckout(country, add, city, state, zip, email)
+
+  }
+
   return (
     <div className={styles.checkoutCart}>
         <div className={styles.cartItems}>
@@ -25,7 +30,7 @@ export const CheckoutCart = (props) => {
             <p>Subtotal: ${Number(totalAmount).toFixed(2)}</p>
             <p>Sales Tax Added ({Number(taxRate*100).toFixed(2)}%): ${Number(totalAmount*taxRate).toFixed(2)}</p>
             <p>Total: ${Number(totalAmount*(1+taxRate)).toFixed(2)}</p>
-            <button className={`${styles.orderBttn} ${styles.cartBttn}`} disabled={numCartItems === 0 ? true : false} onClick={() => processCheckout(country, add, city, state, zip, email)}> Place Order </button>
+            <button className={`${styles.orderBttn} ${styles.cartBttn}`} disabled={numCartItems === 0 ? true : false} onClick={() => checkoutWrapper(country, add, city, state, zip, email)}> Place Order </button>
             <button className={`${styles.cancelBttn} ${styles.cartBttn}`} onClick={() => navigator('/')}> Cancel </button>
         </div>
     </div>

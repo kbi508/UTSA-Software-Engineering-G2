@@ -185,6 +185,8 @@ export const ShopContextProvider = (props) => {
 
         console.log(order)
         set(newOrderRef, order)
+
+        return newOrderRef.key
     }
 
     const addToCart = (itemId) => {
