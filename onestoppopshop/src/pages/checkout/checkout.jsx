@@ -12,6 +12,14 @@ export const Checkout = () => {
   const { authUser, userAddress, userCity, userCountry, userState, userZip } = useContext(ShopContext)
 
   const loginRef = useRef(null)
+
+  // Save shipping input values:
+  const [country, setCountry] = useState('')
+  const [add, setAdd] = useState('')
+  const [city, setCity] = useState('')
+  const [state, setState] = useState('')
+  const [zip, setZip] = useState('')
+  const [email, setEmail] = useState('')
   
   useEffect(() => {
     const handleClickOutside = (e) =>
@@ -30,9 +38,29 @@ export const Checkout = () => {
     {
       // Hide login splash if logged in:
       setShowLogin(false)
+      setEmail(authUser.email)
     }
-
   }, [authUser])
+
+  const processUsingCheck = (e) => {
+    setUsingAcc(e.target.checked)
+    if (e.target.checked)
+    {
+      setAdd(userAddress)
+      setCountry(userCountry)
+      setCity(userCity)
+      setState(userState)
+      setZip(userZip)
+    }
+    else
+    {
+      setAdd('')
+      setCountry('')
+      setCity('')
+      setState('')
+      setZip('')
+    }
+  }
 
   return (
   <div className={styles.checkoutPage}>
@@ -48,34 +76,32 @@ export const Checkout = () => {
           {!authUser && (<p className={styles.loginBttn} onClick={() => setShowLogin(!showLogin)}>Login?</p>)}
           {showLogin && <div style={{width: "0%"}} ref={loginRef}><CheckoutLogin /></div>}
         </div>
-        {!authUser ? (<input className={styles.email} type={'email'} placeholder='Email' />) : (<h1>Logged in as {authUser.email}</h1>)}
+        {!authUser ? (<input className={styles.email} type={'email'} placeholder='Email' onChange={(e) => setEmail(e.target)}/>) : (<h1>Logged in as {authUser.email}</h1>)}
       </div>
       <div className={styles.separator} />
-      <div className={styles.sub}>
-        
-      </div>
       <span className={styles.sub}>
         <p className={styles.shipTitle}>Shipping Address</p>
         {authUser && <>
         <p>{!usingAcc ? 'Use Account Info?' : 'Using Account Info'}</p>
-        <input type={'checkbox'} onChange={(e) => {setUsingAcc(e.target.checked)}} />
+        {/* <input type={'checkbox'} onChange={(e) => {setUsingAcc(e.target.checked)}} /> */}
+        <input type={'checkbox'} onChange={(e) => processUsingCheck(e)} />
         </>} 
       </span>
       <div className={styles.shippingInputs}>
           {(authUser && usingAcc) ? 
           (<>
-            <input className={styles.country} placeholder='Country' defaultValue={userCountry} />
-            <input className={styles.streetAdd} placeholder='Address' defaultValue={userAddress} />
-            <input className={styles.city} placeholder='City' defaultValue={userCity} />
-            <input className={styles.state} placeholder='State' defaultValue={userState} />
-            <input className={styles.zip} type={'number'} placeholder='Zip' defaultValue={userZip} /></>)
+            <input className={styles.country} placeholder='Country' defaultValue={userCountry} onChange={(e) => setCountry(e.target.value)}/>
+            <input className={styles.streetAdd} placeholder='Address' defaultValue={userAddress} onChange={(e) => setAdd(e.target.value)} />
+            <input className={styles.city} placeholder='City' defaultValue={userCity} onChange={(e) => setCity(e.target.value)} />
+            <input className={styles.state} placeholder='State' defaultValue={userState} onChange={(e) => setState(e.target.value)} />
+            <input className={styles.zip} type={'number'} placeholder='Zip' defaultValue={userZip} onChange={(e) => setZip(e.target.value)} /></>)
           :
           (<>
-            <input className={styles.country} placeholder='Country' defaultValue={''} />
-            <input className={styles.streetAdd} placeholder='Address' defaultValue={''} />
-            <input className={styles.city} placeholder='City' defaultValue={''} />
-            <input className={styles.state} placeholder='State' defaultValue={''} />
-            <input className={styles.zip} type={'number'} placeholder='Zip' defaultValue={''} /></>)
+            <input className={styles.country} placeholder='Country' defaultValue={''} onChange={(e) => setCountry(e.target.value)} />
+            <input className={styles.streetAdd} placeholder='Address' defaultValue={''} onChange={(e) => setAdd(e.target.value)} />
+            <input className={styles.city} placeholder='City' defaultValue={''} onChange={(e) => setCity(e.target.value)} />
+            <input className={styles.state} placeholder='State' defaultValue={''} onChange={(e) => setState(e.target.value)} />
+            <input className={styles.zip} type={'number'} placeholder='Zip' defaultValue={''} onChange={(e) => setZip(e.target.value)} /></>)
           } 
       </div>
       <div className={styles.separator} />
@@ -87,7 +113,7 @@ export const Checkout = () => {
       </div>
       <div className={styles.separator} />
     </div>
-    <CheckoutCart />
+    <CheckoutCart country={country} add={add} city={city} state={state} zip={zip} email={email}/>
   </div>
   )
 }

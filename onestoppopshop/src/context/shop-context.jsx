@@ -147,13 +147,44 @@ export const ShopContextProvider = (props) => {
         return totalAmount
     }
 
-    const processCheckout = () => {
+    const processCheckout = (country, add, city, state, zip, email) => {
         const ordersRef = ref(database, 'orders')
         const newOrderRef = push(ordersRef)
         console.log(newOrderRef.key)
-        set(newOrderRef, {
-            amount: total
-        })
+
+        // Get the current date
+        const currentDate = new Date();
+
+        // Extract the components of the date (year, month, day)
+        const year = currentDate.getFullYear();
+        const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+        const day = String(currentDate.getDate()).padStart(2, '0');
+
+        // Assemble the date string in the desired format (e.g., "YYYY-MM-DD")
+        const dateString = `${year}-${month}-${day}`;
+
+        let order = {
+            amount: Number(getTotalCartAmount()*(1+taxRate)),
+            date: dateString,
+            country: country,
+            add: add,
+            city: city,
+            state: state,
+            zip: zip,
+            active: true
+        }
+
+        if (authUser){
+            order.uid = authUser.uid
+        }
+        order.email = email
+
+        // Need to add list of products ordered as well.
+
+        // Check for and set a subscription if it exists.
+
+        console.log(order)
+        set(newOrderRef, order)
     }
 
     const addToCart = (itemId) => {
