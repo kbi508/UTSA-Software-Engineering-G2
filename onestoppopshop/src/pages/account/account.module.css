@@ -6,16 +6,43 @@
 }
 
 .accInfo {
+    display: flex;
+    flex-direction: column;
     align-self: flex-start;
     margin-top: 1rem;
-    margin-left: 3rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     font-family: "Fasthand", sans-serif;
     font-weight: bold;
     font-size: 2.5rem;
+    width: 100%;
 }
 
 .accEmail {
     margin-top: -2rem;
+}
+
+.deleteBttn {
+    border-radius: 1rem;
+    border-style: none;
+    background-color: #FCC68F;
+    color: white;
+    height: 4rem;
+    width: 15%;
+    font-family: "Fasthand", sans-serif;
+    font-size: 2rem;
+    transition: all 0.3s ease;
+}
+
+.deleteBttn:hover {
+    background-color: #329885;
+    transition: all 0.3s ease;
+}
+
+.topWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .tabBttns {
@@ -114,6 +141,7 @@
 }
 
 .tabShippingInfo > p {
+    font-family: "Fasthand", sans-serif;
     grid-column: 1 / -1;
 }
 
@@ -127,8 +155,26 @@
 
 .tabShippingInfo > input {
     height: 3rem;
+    font-size: 2rem;
 }
 
 .tabShippingInfo > input::placeholder {
     font-size: 1rem;
+}
+
+.updateBttn {
+    border-radius: 1rem;
+    border-style: none;
+    background-color: #FCC68F;
+    color: white;
+    height: 4rem;
+    width: 50%;
+    font-family: "Fasthand", sans-serif;
+    font-size: 2rem;
+    transition: all 0.3s ease;
+}
+
+.updateBttn:hover {
+    background-color: #329885;
+    transition: all 0.3s ease;
 }
