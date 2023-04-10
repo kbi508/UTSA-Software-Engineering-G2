@@ -1,10 +1,12 @@
 .products {
+    position: absolute;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-auto-flow:dense;
     gap: 20px;
     width: auto;
     height: auto;
+    position: absolute;
 }
 
 .product {

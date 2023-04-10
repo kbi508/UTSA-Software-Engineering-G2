@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <Router>
         <ShopContextProvider>
-          <Navbar />
+          <Navbar/>
           <Routes>
             <Route path="/" element={<Shop />} />
             <Route path="/checkout" element={<Checkout />} />
