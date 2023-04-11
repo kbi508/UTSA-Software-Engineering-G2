@@ -20,6 +20,8 @@ export const Checkout = () => {
   const [state, setState] = useState('')
   const [zip, setZip] = useState('')
   const [email, setEmail] = useState('')
+
+  
   
   useEffect(() => {
     const handleClickOutside = (e) =>
@@ -62,6 +64,10 @@ export const Checkout = () => {
     }
   }
 
+  const handleEmailChange = (e) => {
+
+  }
+
   return (
   <div className={styles.checkoutPage}>
     <div className={styles.orderPanel}>
@@ -76,7 +82,7 @@ export const Checkout = () => {
           {!authUser && (<p className={styles.loginBttn} onClick={() => setShowLogin(!showLogin)}>Login?</p>)}
           {showLogin && <div style={{width: "0%"}} ref={loginRef}><CheckoutLogin /></div>}
         </div>
-        {!authUser ? (<input className={styles.email} type={'email'} placeholder='Email' onChange={(e) => setEmail(e.target)}/>) : (<h1>Logged in as {authUser.email}</h1>)}
+        {!authUser ? (<input className={styles.email} type={'email'} placeholder='Email' onChange={(e) => setEmail(e.target.value)}/>) : (<h1>Logged in as {authUser.email}</h1>)}
       </div>
       <div className={styles.separator} />
       <span className={styles.sub}>

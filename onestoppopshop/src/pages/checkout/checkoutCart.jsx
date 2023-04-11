@@ -11,11 +11,31 @@ export const CheckoutCart = (props) => {
   const totalAmount = getTotalCartAmount().toFixed(2)
   const navigator = useNavigate()
   const [showConfirm, setShowConfirm] = useState(false)
-  const [message, setMessage] = useState('This is a test')
+  const [message, setMessage] = useState('')
 
   const checkoutWrapper = (country, add, city, state, zip, email) => {
-    const orderKey = processCheckout(country, add, city, state, zip, email)
+    let canCheckout = true
+    if (email === '')
+    {
+      setMessage('Your email is not filled in. Please provide an email so we can reach out to you about your order!')
+      canCheckout = false
+    }
+    else if (country === '' || add === '' || city === '' || state === '' || zip === '')
+    {
+      setMessage('Your address is not fully filled in. Please fill in each field!')
+      canCheckout = false
+    }
+    if (canCheckout)
+    {
+      const orderKey = processCheckout(country, add, city, state, zip, email)
+      setMessage("Your Order (#" + orderKey +") has Been Processed! ")
+    }
     setShowConfirm(true)
+  }
+
+  const confirm = () => {
+    setShowConfirm(false)
+    setMessage('')
   }
 
   return (
@@ -40,7 +60,7 @@ export const CheckoutCart = (props) => {
         <div className={styles.confirmationBackdrop}>
           <div className={styles.confirmation}>
             <p>{message}</p>
-            <button className={styles.confirmBttn} onClick={() => setShowConfirm(false)}>Confirm</button>
+            <button className={styles.confirmBttn} onClick={() => confirm()}>Confirm</button>
           </div>
         </div>}
     </div>
