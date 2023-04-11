@@ -18,29 +18,6 @@ export const Account = () => {
   const [updateState, setUpdateState] = useState(userState)
   const [updateZip, setUpdateZip] = useState(userZip)
 
-  const accountOrders = [
-    {
-      id: 1,
-      date: '01/01/2020',
-      total: 36
-    },
-    {
-      id: 2,
-      date: '01/01/2020',
-      total: 12
-    },
-    {
-      id: 3,
-      date: '01/01/2020',
-      total: 230
-    }
-  ]
-
-  const accountSubs = [
-    'This is first subscript',
-    'This is second subscript',
-    'This is third subscript'
-  ]
 
   const saveUpdatesToAddress = () => {
     if (userAddress !== updateAddress || userCity !== updateCity || userCountry !== updateCountry || userState !== updateState || userZip !== updateZip)
@@ -63,8 +40,7 @@ export const Account = () => {
     <div className={styles.accPage}>
       <div className={styles.tabBttns}>
         <button className={styles.orderBttn} onClick={() => setCurTab(1)}>Orders</button>
-        <button className={styles.subBttn}   onClick={() => setCurTab(2)}>Subscriptions</button>
-        <button className={styles.shipBttn}  onClick={() => setCurTab(3)}>Account Info</button>
+        <button className={styles.shipBttn}  onClick={() => setCurTab(2)}>Account Info</button>
       </div>
       <div className={styles.tabs}>
         <div className={styles.accInfo}>
@@ -75,15 +51,10 @@ export const Account = () => {
         {curTab === 1 && (<div className={styles.tabOrders}>
           <div className={styles.orderHeader}><span>Order Number</span> <span>Total</span> <span>Date</span></div>
           <ul>
-            {accountOrders.map((order) => <li key={order.id}><span className={styles.idSpan}>{order.id}</span> <span className={styles.totalSpan}>${Number(order.total).toFixed(2)}</span> <span className={styles.dateSpan}>{order.date}</span></li>)}
+            {/* Query from DB and create <li></li> */}
           </ul>
         </div>)}
-        {curTab === 2 && (<div className={styles.tabSubscripts}>
-          <ul>
-            {accountSubs.map((sub) => <div>{sub}</div>)}
-          </ul>
-        </div>)}
-        {curTab === 3 && (
+        {curTab === 2 && (
         <div className={styles.tabShippingInfo}>
           <p>Shipping Address</p>
           <input className={styles.country} placeholder='Country' defaultValue={userCountry} onChange={(e) => setUpdateCountry(e.target.value)} />

@@ -74,8 +74,8 @@ export const Checkout = () => {
       <div className={styles.separator} />
       <div className={styles.orderPanelHeader}>
         <h1>Order Info</h1>        
-        <p>Make this a Subscription?</p>
-        <input type={'checkbox'} />
+        {/* <p>Make this a Subscription?</p>
+        <input type={'checkbox'} /> */}
       </div>
       <div className={styles.account}>
         <div className={styles.loginPrompt}>
