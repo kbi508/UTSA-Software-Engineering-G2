@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 
 export const CheckoutCart = (props) => {
   const { cartItems, getTotalCartAmount, numCartItems, processCheckout, taxRate } = useContext(ShopContext)
-  const {country, add, city, state, zip, email} = props
+  const {country, add, city, state, zip, email, ccNum, ccDate, ccv} = props
   const totalAmount = getTotalCartAmount().toFixed(2)
   const navigator = useNavigate()
   const [showConfirm, setShowConfirm] = useState(false)
@@ -25,6 +25,14 @@ export const CheckoutCart = (props) => {
       setMessage('Your address is not fully filled in. Please fill in each field!')
       canCheckout = false
     }
+    // Check that there are at least SOME CC dets:
+    console.log(ccNum)
+    if (ccNum === '' || ccDate === '' || ccv === '')
+    {
+      setMessage('You must enter in your Payment Details!')
+      canCheckout = false
+    }
+
     if (canCheckout)
     {
       const orderKey = processCheckout(country, add, city, state, zip, email)

@@ -21,7 +21,10 @@ export const Checkout = () => {
   const [zip, setZip] = useState('')
   const [email, setEmail] = useState('')
 
-  
+  // Save CC info:
+  const [ccNum, setCCNum] = useState('')
+  const [ccDate, setCCDate] = useState('')
+  const [ccv, setCCV] = useState('')
   
   useEffect(() => {
     const handleClickOutside = (e) =>
@@ -86,7 +89,6 @@ export const Checkout = () => {
         <p className={styles.shipTitle}>Shipping Address</p>
         {authUser && <>
         <p>{!usingAcc ? 'Use Account Info?' : 'Using Account Info'}</p>
-        {/* <input type={'checkbox'} onChange={(e) => {setUsingAcc(e.target.checked)}} /> */}
         <input type={'checkbox'} onChange={(e) => processUsingCheck(e)} />
         </>} 
       </span>
@@ -100,13 +102,13 @@ export const Checkout = () => {
       <div className={styles.separator} />
       <div className={styles.ccInputs}>
         <p>Payment</p>
-        <input className={styles.ccNum} type={'number'} placeholder='Card Number' defaultValue={''} />
-        <input className={styles.ccMonth} type={'month'} placeholder='Exp Date' defaultValue={''} />
-        <input className={styles.ccCcv} type={'number'} placeholder='CCV' defaultValue={''} />
+        <input className={styles.ccNum} type={'number'} placeholder='Card Number' value={ccNum} onChange={(e) => setCCNum(e.target.value)} />
+        <input className={styles.ccMonth} type={'month'} placeholder='Exp Date' value={ccDate} onChange={(e) => setCCDate(e.target.value)} />
+        <input className={styles.ccCcv} type={'number'} placeholder='CCV' value={ccv} onChange={(e) => setCCV(e.target.value)} />
       </div>
       <div className={styles.separator} />
     </div>
-    <CheckoutCart country={country} add={add} city={city} state={state} zip={zip} email={email}/>
+    <CheckoutCart country={country} add={add} city={city} state={state} zip={zip} email={email} ccNum={ccNum} ccDate={ccDate} ccv={ccv}/>
   </div>
   )
 }
