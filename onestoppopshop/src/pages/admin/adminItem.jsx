@@ -1,8 +1,12 @@
 import React from 'react'
 import styles from './adminItem.module.css'
 
-export const AdminItem = () => {
+export const AdminItem = (props) => {
   return (
-    <div>AdminItem</div>
+    <div className={styles.container}>
+        {Object.values(props.data).map((item) => {
+            return <span>{item}</span>
+        })}
+    </div>
   )
 }

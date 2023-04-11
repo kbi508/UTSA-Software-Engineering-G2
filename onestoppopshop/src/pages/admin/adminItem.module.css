@@ -1,0 +1,15 @@
+.container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    background-color: #329885;
+    color: white;
+    font-size: clamp(1rem, 2rem, 2.2rem);
+}
+
+.container > span {
+    flex: 1;
+}

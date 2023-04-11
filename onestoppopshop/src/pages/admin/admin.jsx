@@ -7,15 +7,16 @@ import { AdminItem } from './adminItem'
 export const Admin = () => {
   return (
     <div className={styles.adminPage}>
-        <div>
-            <div className={styles.curOrders}>
+        <div className={styles.orders}>
+            <div className={styles.orderItems}>
+                <div className={styles.orderHeader}></div>
                 {ORDERS.map((order) => {
                     if (order.active)
                         return <AdminItem data = {order}/>
                     return <></>
                 })}
             </div>
-            <div className={styles.pastOrders}>
+            <div className={styles.orderItems}>
 
             </div>
         </div>

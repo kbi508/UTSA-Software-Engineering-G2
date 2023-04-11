@@ -1,0 +1,10 @@
+.orders {
+    display: flex;
+    gap: 5rem;
+}
+
+.orderItems {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
