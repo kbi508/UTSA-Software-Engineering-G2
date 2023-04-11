@@ -6,11 +6,9 @@ import styles from './checkoutCart.module.css'
 import { useNavigate } from 'react-router-dom'
 
 export const CheckoutCart = (props) => {
-  const { cartItems, getTotalCartAmount, numCartItems } = useContext(ShopContext)
+  const { cartItems, getTotalCartAmount, numCartItems, userCredit } = useContext(ShopContext)
   const totalAmount = getTotalCartAmount().toFixed(2)
   const navigator = useNavigate()
-
-  const [tempCred, setTempCred] = useState(100)
 
   const chargeCredit = (amount) => {
 
@@ -28,7 +26,7 @@ export const CheckoutCart = (props) => {
 
         <div className={styles.checkout}>
             <p>Subtotal: ${Number(totalAmount).toFixed(2)}</p>
-            <p>Credit: ${Number(tempCred).toFixed(2)} - ${Number(totalAmount).toFixed(2)} = {Number(tempCred-totalAmount).toFixed(2)}</p>
+            <p>Credit: ${Number(userCredit).toFixed(2)} - ${Number(totalAmount).toFixed(2)} = {Number(userCredit-totalAmount).toFixed(2)}</p>
             <button className={`${styles.orderBttn} ${styles.cartBttn}`} disabled={numCartItems === 0 ? true : false}> Place Order </button>
             <button className={`${styles.cancelBttn} ${styles.cartBttn}`} onClick={() => navigator('/')}> Cancel </button>
         </div>

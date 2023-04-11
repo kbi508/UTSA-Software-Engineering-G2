@@ -6,10 +6,10 @@
 
 .orderPanel {
     font-family: "Fasthand", sans-serif;
-    padding-right: 2rem;
-    padding-left: 2rem;
+    padding-left: 20rem;
     overflow-y: auto;
-    height: 85vh;
+    height: auto;
+    width: auto;
 }
 
 .orderPanel > p{
@@ -23,23 +23,57 @@
     margin-left: 33%;
 }
 
+.orderPanelHeader {
+    display: grid;
+    grid-template-columns: 12fr 1fr 1fr;
+    align-items: center;
+    margin-top: -2rem;
+}
+
+.orderPanelHeader > h1 {
+    font-size: 4.5rem;
+    margin-right: auto;
+}
+
+.orderPanelHeader > p {
+    white-space: nowrap;
+    font-size: 2rem;
+    margin-right: 1rem;
+}
+
+.orderPanelHeader > input {
+    width: 2rem;
+    height: 2rem;
+}
+
 .account {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
+    font-size: 1.5rem;
 }
 
 .loginPrompt {
     font-size: 2rem;
+    text-align: center;
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 1rem;
+    align-self: flex-end;
 }
 
-.loginPrompt > input {
-    width: 2rem;
-    height: 2rem;
+.loginBttn {
+    text-decoration: underline;
+    transition: all 0.3s ease;
+    color: white;
+    background-color: purple;
+    border-radius: 1rem;
+    width: 100px;
+}
+
+.loginBttn:hover {
+    color: #329885;
+    transition: all 0.3s ease;
 }
 
 .email {

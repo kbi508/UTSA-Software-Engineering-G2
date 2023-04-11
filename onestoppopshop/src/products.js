@@ -1,75 +1,121 @@
 // This is spoofed data, later to be loaded into the DB
-import _12ozCokeCan from './assets/12ozcokecan.jpeg'
+import _12ozCokeCan from './assets/12ozcokecan.png'
 import _12ozCokeCherryVanillaCan from './assets/12ozcokecherryvanilla.png'
-import _12ozCokeEnergyDrink from './assets/12ozcokeenergydrink.avif'
-import _12ozCokeVanilaWithCoffee from './assets/12ozcokevanillawithcoffee.jpg'
+import _12ozCokeEnergyDrink from './assets/12ozcokeenergydrink.png'
+import _12ozCokeVanilaWithCoffee from './assets/12ozcokevanillawithcoffee.png'
 import _12ozCokeVanillaZeroSugarCan from './assets/12ozcokezerosugarvanilla.png'
-import _12ozAWRootbeerCan from './assets/12oza&wrootbeercan.jpeg'
+import _12ozAWRootbeerCan from './assets/12oza_wrootbeercan.png'
 import _12ozBarqsFrenchVanillaCreamSoda from './assets/12ozbarqsfrenchvanillacremesoda.png'
 import _12ozBarqsRedCreamSoda from './assets/12ozbarqsredcremesoda.png'
-import _12ozBarqsRootBeer from './assets/12ozbarqsrootbeer.jpg'
-import _12ozBarqsZeroSugarRootBeer from './assets/12ozbarqszerosugarrootbeer.webp'
-import _12ozDrPepperCan from './assets/12ozdrpeppercan.jpeg'
-import _12ozSpriteCan from './assets/12ozspritecan.jpg'
-import _12ozFantaCan from './assets/12ozfantacan.webp'
+import _12ozBarqsRootBeer from './assets/12ozbarqsrootbeer.png'
+import _12ozBarqsZeroSugarRootBeer from './assets/12ozbarqszerosugarrootbeer.png'
+import _12ozDrPepperCan from './assets/12ozdrpeppercan.png'
+import _12ozSpriteCan from './assets/12ozspritecan.png'
+import _12ozFantaCan from './assets/12ozfantacan.png'
 import _12ozFantaBerrySoda from './assets/12ozfantaberrysoda.png'
-import _12ozFantaPineappleSoda from './assets/12ozfantapineapplesoda.jpg'
-import _12ozFantaGrapeSoda from './assets/12ozfantagrapesoda.webp'
-import _12ozFantaStrawberrySoda from './assets/12ozfantastrawberrysoda.webp'
-import _12ozBigRedCan from './assets/12ozbigredcan.jpg'
-import _12ozBigBlueCan from './assets/12ozbigbluecan.jpg'
-import _12ozMountainDewCan from './assets/12ozmountaindewcan.jpeg'
-import _12ozCrushGrapeCan from './assets/12ozcrushgrapecan.webp'
-import _12ozCrushGrapefruitSoda from './assets/12ozcrushgrapefruitsoda.jpg'
-import _12ozCrushLimeSoda from './assets/12ozcrushlimesoda.webp'
-import _12ozCrushOrangeSoda from './assets/12ozcrushorangesoda.jpg'
-import _12ozCrushPineappleSoda from './assets/12ozcrushpineapplesoda.webp'
-import _12ozCrushStrawberrySoda from './assets/12ozcrushstrawberrysoda.webp'
-import _12ozCrushWatermelonSoda from './assets/12ozcrushwatermelonsoda.jpg'
-import _20ozPepsiBottle from './assets/20ozpepsibottle.webp'
-import _12ozSierraMistCan from './assets/12ozsierramistcan.jpeg'
-import _12ozStarryLemonLimeSoda from './assets/12ozstarrylemonlimesoda.jpg'
-import _12oz7upLemonLimeSoda from './assets/12oz7uplemonlimecherry.jpeg'
-import _12ozPoppiBlueberrySoda from './assets/12ozpoppiblueberrysoda.webp'
-import _12ozPoppiCherryLimeade from './assets/12ozpoppicherrylimeadesoda.jpg'
-import _12ozPoppiClassicSoda from './assets/12ozpoppiclassiccolasoda.jpg'
+import _12ozFantaPineappleSoda from './assets/12ozfantapineapplesoda.png'
+import _12ozFantaGrapeSoda from './assets/12ozfantagrapesoda.png'
+import _12ozFantaStrawberrySoda from './assets/12ozfantastrawberrysoda.png'
+import _12ozBigRedCan from './assets/12ozbigredcan.png'
+import _12ozBigBlueCan from './assets/12ozbigbluecan.png'
+import _12ozMountainDewCan from './assets/12ozmountaindewcan.png'
+import _12ozCrushGrapeCan from './assets/12ozcrushgrapecan.png'
+import _12ozCrushGrapefruitSoda from './assets/12ozcrushgrapefruitsoda.png'
+import _12ozCrushLimeSoda from './assets/12ozcrushlimesoda.png'
+import _12ozCrushOrangeSoda from './assets/12ozcrushorangesoda.png'
+import _12ozCrushPineappleSoda from './assets/12ozcrushpineapplesoda.png'
+import _12ozCrushStrawberrySoda from './assets/12ozcrushstrawberrysoda.png'
+import _12ozCrushWatermelonSoda from './assets/12ozcrushwatermelonsoda.png'
+import _20ozPepsiBottle from './assets/20ozpepsibottle.png'
+import _12ozSierraMistCan from './assets/12ozsierramistcan.png'
+import _12ozStarryLemonLimeSoda from './assets/12ozstarrylemonlimesoda.png'
+import _12oz7upLemonLimeSoda from './assets/12oz7uplemonlimecherry.png'
+import _12ozPoppiBlueberrySoda from './assets/12ozpoppiblueberrysoda.png'
+import _12ozPoppiCherryLimeade from './assets/12ozpoppicherrylimeadesoda.png'
+import _12ozPoppiClassicSoda from './assets/12ozpoppiclassiccolasoda.png'
 import _12ozPoppiDocPopSoda from './assets/12ozpoppidocpopoda.png'
-import _12ozPoppiGingerLimeSoda from './assets/12ozpoppigingerlimesoda.jpg'
-import _12ozPoppiOrangeSoda from './assets/12ozpoppiorangesoda.jpeg'
-import _12ozPoppiRaspberryRoseSoda from './assets/12ozpoppiraspberryrosesoda.jpg'
-import _12ozPoppiRootBeerSoda from './assets/12ozpoppirootbeersoda.webp'
-import _12ozPoppiStrawberryLemonSoda from './assets/12ozpoppistrawberrylemonsoda.webp'
-import _12ozPoppiWatermelonSoda from './assets/12ozpoppiwatermelonsoda.jpeg'
-import _12ozSunkistGrapeSoda from './assets/12ozsunkistgrape.avif'
-import _12ozSunkistLemonSoda from './assets/12ozsunkistlemonade.jpg'
-import _12ozSunkistStrawberrySoda from './assets/12ozsunkiststrawberrylemonade.webp'
-import _12ozSunkistCherryLimeadeSoda from './assets/12ozsunksitcherrylimeade.webp'
-import _16ozSunkistOrangeSoda from './assets/16ozsunkistmangoorange.jpeg'
-import _16ozSunkistBerryLimeadeSoda from './assets/16ozsunkistberrylemonade.jpeg'
-import _12ozZeviaCherryColaSoda from './assets/12ozzeviacherrycolasoda.jpg'
-import _12ozZeviaColaSoda from './assets/12ozzeviacolasoda.webp'
-import _12ozZeviaCreamSoda from './assets/12ozzeviacreamsoda.webp'
-import _12ozZeviaCreamyRootBeerSoda from './assets/12ozzeviacreamyrootbeer.webp'
-import _12ozZeviaGrapefruiSoda from './assets/12ozzeviagrapefruitcitrus.jpg'
-import _12ozZeviaGrapeSoda from './assets/12ozzeviagrapesoda.webp'
-import _12ozZeviaLemonLimeSoda from './assets/12ozzevialemonlimetwist.webp'
-import _12ozZeviaOrangeCreamSoda from './assets/12ozzeviaorangecreamsoda.webp'
-import _12ozZeviaOrangeSoda from './assets/12ozzeviaorangesoda.webp'
-import _12ozZeviaRootBeerSoda from './assets/12ozzeviarootbeersoda.jpg'
-import _12ozZeviaStrawberrySoda from './assets/12ozzeviastrawberrysoda.webp'
-import _20ozDietPepsiSoda from './assets/12ozdietpepsisoda.JPG'
+import _12ozPoppiGingerLimeSoda from './assets/12ozpoppigingerlimesoda.png'
+import _12ozPoppiOrangeSoda from './assets/12ozpoppiorangesoda.png'
+import _12ozPoppiRaspberryRoseSoda from './assets/12ozpoppiraspberryrosesoda.png'
+import _12ozPoppiRootBeerSoda from './assets/12ozpoppirootbeersoda.png'
+import _12ozPoppiStrawberryLemonSoda from './assets/12ozpoppistrawberrylemonsoda.png'
+import _12ozPoppiWatermelonSoda from './assets/12ozpoppiwatermelonsoda.png'
+import _12ozSunkistGrapeSoda from './assets/12ozsunkistgrape.png'
+import _12ozSunkistLemonSoda from './assets/12ozsunkistlemonade.png'
+import _12ozSunkistStrawberrySoda from './assets/12ozsunkiststrawberrylemonade.png'
+import _12ozSunkistCherryLimeadeSoda from './assets/12ozsunksitcherrylimeade.png'
+import _16ozSunkistOrangeSoda from './assets/16ozsunkistmangoorange.png'
+import _16ozSunkistBerryLimeadeSoda from './assets/16ozsunkistberrylemonade.png'
+import _12ozZeviaCherryColaSoda from './assets/12ozzeviacherrycolasoda.png'
+import _12ozZeviaColaSoda from './assets/12ozzeviacolasoda.png'
+import _12ozZeviaCreamSoda from './assets/12ozzeviacreamsoda.png'
+import _12ozZeviaCreamyRootBeerSoda from './assets/12ozzeviacreamyrootbeer.png'
+import _12ozZeviaGrapefruiSoda from './assets/12ozzeviagrapefruitcitrus.png'
+import _12ozZeviaGrapeSoda from './assets/12ozzeviagrapesoda.png'
+import _12ozZeviaLemonLimeSoda from './assets/12ozzevialemonlimetwist.png'
+import _12ozZeviaOrangeCreamSoda from './assets/12ozzeviaorangecreamsoda.png'
+import _12ozZeviaOrangeSoda from './assets/12ozzeviaorangesoda.png'
+import _12ozZeviaRootBeerSoda from './assets/12ozzeviarootbeersoda.png'
+import _12ozZeviaStrawberrySoda from './assets/12ozzeviastrawberrysoda.png'
+import _20ozDietPepsiSoda from './assets/12ozdietpepsisoda.png'
 import _12ozSeagramGingerAle from './assets/12ozseagramsgingerale.png'
-import _12ozCanadaDryClubSoda from './assets/12ozcanadadryclubsoda.jpg'
-import _12ozHelloKittyFizzyPopCans from './assets/2-12ozhellokittyfizzypopcans.jpg'
-import _12ozFaygoOriginalRedPop from './assets/12ozfaygooriginalredpop.webp'
-import _12ozJonesGingerBreadSoda from './assets/12ozjonesgingerbreadsoda.jpg'
-import _12ozJumboFruitPunchSoda from './assets/12ozjumbofruitpunchsoda.webp'
+import _12ozCanadaDryClubSoda from './assets/12ozcanadadryclubsoda.png'
+import _12ozHelloKittyFizzyPopCans from './assets/2-12ozhellokittyfizzypopcans.png'
+import _12ozFaygoOriginalRedPop from './assets/12ozfaygooriginalredpop.png'
+import _12ozJonesGingerBreadSoda from './assets/12ozjonesgingerbreadsoda.png'
+import _12ozJumboFruitPunchSoda from './assets/12ozjumbofruitpunchsoda.png'
 import _12ozSangariaGrapeSoda from './assets/12ozsangariagrapesoda.png'
-import _12ozSangariaMelonSoda from './assets/12ozsangariamelonsoda.webp'
-import _12ozSangariaOrangeSoda from './assets/12ozsangariaorangesoda.webp'
-import _12ozSangariaRamuneSoda from './assets/12ozsangariaramunesoda.jpg'
+import _12ozSangariaMelonSoda from './assets/12ozsangariamelonsoda.png'
+import _12ozSangariaOrangeSoda from './assets/12ozsangariaorangesoda.png'
+import _12ozSangariaRamuneSoda from './assets/12ozsangariaramunesoda.png'
+//import { initializeApp } from "firebase/app";
+import {database} from './firebase'
+import { ref, set, remove } from "firebase/database";
 
 
+
+// function addQuantityField(data) {
+//     for (let i = 0; i < data.length; i++) {
+//       data[i].quantity = Math.floor(Math.random() * 50) + 1;
+//     }
+//     return data;
+//   }
+
+
+  
+
+
+  //function to add products to database
+  export function writeProductData(prodId, name, price, imageUrl, weightAmount, weightType, descript, star1Rate, star2Rate, star3Rate, star4Rate, star5Rate, tags) {
+   
+    const reference = ref(database, 'products/' + prodId);
+  
+  
+    set(reference, {
+      name: name,
+      price: price,
+      product_Image : imageUrl,
+      weight_Amount : weightAmount,
+      weight_Type : weightType,
+      prod_description: descript,
+      num_1_Stars: star1Rate,
+      num_2_Stars: star2Rate,
+      num_3_Stars: star3Rate,
+      num_4_Stars: star4Rate,
+      num_5_Stars: star5Rate,
+      hastags: tags
+  
+    })
+  }
+  //Function to remove products from database
+  function removeProductData(prodId) {
+    const reference = ref(database, 'products/' + prodId);
+    remove(reference);
+  }
+ //writeProductData("2", "12oz Sprite", "1.15", "./assets/12ozcokecan.jpeg", "12", "oz", "something else", 1, 2, 3, 4, 5, 7);
+
+//removeProductData("2");
+  
 
 
 
@@ -154,6 +200,8 @@ export const PRODUCTS = [
         "productName": "12oz A&W Rootbeer",
         "price": 1.35,
         "productImage": _12ozAWRootbeerCan,
+        "weightAmount": 12,
+        "weightType": "oz",
         "descript": "Enjoy the classic flavor of our root beer, crafted with aged vanilla for a sweet and smooth taste that has become the standard in root beer soft drinks.",
         "star1Rate": 4,
         "star2Rate": 6,
@@ -169,7 +217,7 @@ export const PRODUCTS = [
         "productImage": _12ozBarqsFrenchVanillaCreamSoda,
         "weightAmount": 12,
         "weightType": "oz",
-        "description": "Indulge in the creamy and smooth flavor of French Vanilla in every sip with Barq's French Vanilla Cream Soda.",
+        "descript": "Indulge in the creamy and smooth flavor of French Vanilla in every sip with Barq's French Vanilla Cream Soda.",
         "star1Rate": 3,
         "star2Rate": 5,
         "star3Rate": 10,
@@ -184,7 +232,7 @@ export const PRODUCTS = [
         "productImage": _12ozBarqsRedCreamSoda,
         "weightAmount": 12,
         "weightType": "oz",
-        "description": "Get a bold and rich taste of red cream soda with every sip of Barq's Red Cream Soda.",
+        "descript": "Get a bold and rich taste of red cream soda with every sip of Barq's Red Cream Soda.",
         "star1Rate": 4,
         "star2Rate": 3,
         "star3Rate": 9,
@@ -199,7 +247,7 @@ export const PRODUCTS = [
         "productImage": _12ozBarqsRootBeer,
         "weightAmount": 12,
         "weightType": "oz",
-        "description": "Experience the authentic and classic taste of root beer with Barq's Root Beer, made with aged vanilla for a sweet and smooth flavor.",
+        "descript": "Experience the authentic and classic taste of root beer with Barq's Root Beer, made with aged vanilla for a sweet and smooth flavor.",
         "star1Rate": 8,
         "star2Rate": 4,
         "star3Rate": 2,
@@ -212,6 +260,8 @@ export const PRODUCTS = [
         "productName": "12oz Dr.Pepper",
         "price": 0.95,
         "productImage": _12ozDrPepperCan,
+        "weightAmount": 12,
+        "weightType": "oz",
         "descript": "A carbonated soft drink with a unique blend of 23 flavors, including cherry, caramel, and vanilla, for a one-of-a-kind taste.",
         "star1Rate": 7,
         "star2Rate": 2,
@@ -225,6 +275,8 @@ export const PRODUCTS = [
         "productName": "Barq's Zero Sugar Root Beer, 12oz can",
         "price": 0.95,
         "productImage": _12ozBarqsZeroSugarRootBeer,
+        "weightAmount": 12,
+        "weightType": "oz",
         "descript": "Enjoy the classic taste of Barq's Root Beer with no added sugar. This refreshing drink is perfect for any occasion.",
         "star1Rate": 5,
         "star2Rate": 3,
@@ -270,7 +322,7 @@ export const PRODUCTS = [
         "productImage": _12ozFantaBerrySoda,
         "weightAmount": 12,
         "weightType": "oz",
-        "description": "A refreshing soda bursting with juicy berry flavors.",
+        "descript": "A refreshing soda bursting with juicy berry flavors.",
         "star1Rate": 7,
         "star2Rate": 2,
         "star3Rate": 1,
@@ -285,7 +337,7 @@ export const PRODUCTS = [
         "productImage": _12ozFantaPineappleSoda,
         "weightAmount": 12,
         "weightType": "oz",
-        "description": "A tropical twist on a classic soda, with the sweet taste of juicy pineapple.",
+        "descript": "A tropical twist on a classic soda, with the sweet taste of juicy pineapple.",
         "star1Rate": 9,
         "star2Rate": 2,
         "star3Rate": 3,
@@ -300,7 +352,7 @@ export const PRODUCTS = [
         "productImage": _12ozFantaGrapeSoda,
         "weightAmount": 12,
         "weightType": "oz",
-        "description": "A delicious grape soda with a burst of fruity flavor.",
+        "descript": "A delicious grape soda with a burst of fruity flavor.",
         "star1Rate": 4,
         "star2Rate": 5,
         "star3Rate": 2,
@@ -330,8 +382,12 @@ export const PRODUCTS = [
         "productImage": _12ozBigBlueCan,
         "weightAmount": 12,
         "weightType": "oz",
-        "description": "A carbonated soda with a unique citrus flavor made with real orange juice.",
-        "starRate": 6,
+        "descript": "A carbonated soda with a unique citrus flavor made with real orange juice.",
+        "star1Rate": 2,
+        "star2Rate": 4,
+        "star3Rate": 3,
+        "star4Rate": 7,
+        "star5Rate": 8,
         "tags": ["#citrus", "#soda", "#refreshing", "#orangejuice", "#carbonated", "#unique"]
     },
     {
@@ -341,8 +397,12 @@ export const PRODUCTS = [
         "productImage": _12ozMountainDewCan,
         "weightAmount": 12,
         "weightType": "oz",
-        "description": "A classic citrus soda with a bold and refreshing taste.",
-        "starRate": 2,
+        "descript": "A classic citrus soda with a bold and refreshing taste.",
+        "star1Rate": 2,
+        "star2Rate": 4,
+        "star3Rate": 3,
+        "star4Rate": 7,
+        "star5Rate": 8,
         "tags": ["#mountaindew", "#citrus", "#soda", "#refreshing", "#classic", "#bold"]
     },
     {
@@ -352,8 +412,12 @@ export const PRODUCTS = [
         "productImage": _12ozCrushGrapeCan,
         "weightAmount": 12,
         "weightType": "oz",
-        "description": "A carbonated soda with a crisp grape flavor that finishes strong on your tongue.",
-        "starRate": 8,
+        "descript": "A carbonated soda with a crisp grape flavor that finishes strong on your tongue.",
+        "star1Rate": 2,
+        "star2Rate": 4,
+        "star3Rate": 3,
+        "star4Rate": 7,
+        "star5Rate": 8,
         "tags": ["#crushgrape", "#grape", "#soda", "#carbonated", "#crisp", "#refreshing"]
     },
     {
@@ -363,8 +427,12 @@ export const PRODUCTS = [
         "productImage": _12ozCrushGrapefruitSoda,
         "weightAmount": 12,
         "weightType": "oz",
-        "description": "A tart and tangy grapefruit flavored soda.",
-        "starRate": 3,
+        "descript": "A tart and tangy grapefruit flavored soda.",
+        "star1Rate": 1,
+        "star2Rate": 6,
+        "star3Rate": 4,
+        "star4Rate": 7,
+        "star5Rate": 9,
         "tags": ["#crushgrapefruit", "#soda", "#tart", "#tangy", "#citrus", "#refreshing"]
     },
     {
@@ -374,8 +442,12 @@ export const PRODUCTS = [
         "productImage": _12ozCrushLimeSoda,
         "weightAmount": 12,
         "weightType": "oz",
-        "description": "A carbonated soda with a bright and zesty lime flavor.",
-        "starRate": 5,
+        "descript": "A carbonated soda with a bright and zesty lime flavor.",
+        "star1Rate": 4,
+        "star2Rate": 6,
+        "star3Rate": 7,
+        "star4Rate": 5,
+        "star5Rate": 8,
         "tags": ["#crushlime", "#soda", "#carbonated", "#lime", "#bright", "#zesty"]
     },
     {
@@ -385,8 +457,12 @@ export const PRODUCTS = [
         "productImage": _12ozCrushOrangeSoda,
         "weightAmount": 12,
         "weightType": "oz",
-        "description": "A carbonated soda with a refreshing and tangy orange flavor.",
-        "starRate": 9,
+        "descript": "A carbonated soda with a refreshing and tangy orange flavor.",
+        "star1Rate": 5,
+        "star2Rate": 6,
+        "star3Rate": 4,
+        "star4Rate": 5,
+        "star5Rate": 6,
         "tags": ["#crushorange", "#soda", "#carbonated", "#refreshing", "#tangy", "#orange"]
     },
 	{
@@ -396,7 +472,7 @@ export const PRODUCTS = [
         "productImage": _12ozCrushPineappleSoda,
         "weightAmount": 12,
         "weightType": "oz",
-        "description": "A refreshing carbonated beverage with a tropical twist of pineapple flavor.",
+        "descript": "A refreshing carbonated beverage with a tropical twist of pineapple flavor.",
         "star1Rate": 5,
         "star2Rate": 6,
         "star3Rate": 4,
@@ -411,7 +487,7 @@ export const PRODUCTS = [
         "productImage": _12ozCrushStrawberrySoda,
         "weightAmount": 12,
         "weightType": "oz",
-        "description": "A sweet and refreshing carbonated beverage bursting with the flavor of ripe strawberries.",
+        "descript": "A sweet and refreshing carbonated beverage bursting with the flavor of ripe strawberries.",
         "star1Rate": 1,
         "star2Rate": 7,
         "star3Rate": 3,
@@ -426,7 +502,7 @@ export const PRODUCTS = [
         "productImage": _12ozCrushWatermelonSoda,
         "weightAmount": 12,
         "weightType": "oz",
-        "description": "A refreshing carbonated beverage with a juicy watermelon flavor that will quench your thirst on a hot day.",
+        "descript": "A refreshing carbonated beverage with a juicy watermelon flavor that will quench your thirst on a hot day.",
         "star1Rate": 9,
         "star2Rate": 8,
         "star3Rate": 7,
@@ -441,7 +517,7 @@ export const PRODUCTS = [
         "productImage": _20ozDietPepsiSoda,
         "weightAmount": 20,
         "weightType": "oz",
-        "description": "A low calorie alternative to regular Pepsi, with the same great taste.",
+        "descript": "A low calorie alternative to regular Pepsi, with the same great taste.",
         "star1Rate": 4,
         "star2Rate": 6,
         "star3Rate": 7,
@@ -591,7 +667,7 @@ export const PRODUCTS = [
         "productImage": _12ozSeagramGingerAle,
         "weightAmount": 12,
         "weightType": "oz",
-        "description": "A refreshing and spicy ginger ale drink perfect for any occasion.",
+        "descript": "A refreshing and spicy ginger ale drink perfect for any occasion.",
         "star1Rate": 2,
         "star2Rate": 5,
         "star3Rate": 7,
@@ -606,7 +682,7 @@ export const PRODUCTS = [
         "productImage": _12ozPoppiOrangeSoda,
         "weightAmount": 12,
         "weightType": "oz",
-        "description": "A tangy and sweet orange soda made with natural ingredients that are good for you.",
+        "descript": "A tangy and sweet orange soda made with natural ingredients that are good for you.",
         "star1Rate": 8,
         "star2Rate": 6,
         "star3Rate": 9,
@@ -621,7 +697,7 @@ export const PRODUCTS = [
         "productImage": _12ozPoppiRaspberryRoseSoda,
         "weightAmount": 12,
         "weightType": "oz",
-        "description": "A beautiful and elegant soda that combines the sweet taste of raspberries with the floral aroma of roses.",
+        "descript": "A beautiful and elegant soda that combines the sweet taste of raspberries with the floral aroma of roses.",
         "star1Rate": 3,
         "star2Rate": 6,
         "star3Rate": 8,
@@ -636,7 +712,7 @@ export const PRODUCTS = [
         "productImage": _12ozPoppiRootBeerSoda,
         "weightAmount": 12,
         "weightType": "oz",
-        "description": "A classic and flavorful root beer soda made with natural ingredients that are good for you.",
+        "descript": "A classic and flavorful root beer soda made with natural ingredients that are good for you.",
         "star1Rate": 5,
         "star2Rate": 8,
         "star3Rate": 9,
@@ -651,7 +727,7 @@ export const PRODUCTS = [
         "productImage": _12ozPoppiStrawberryLemonSoda,
         "weightAmount": 12,
         "weightType": "oz",
-        "description": "Refreshing and flavorful, this Poppi Strawberry Lemon Soda is the perfect thirst-quencher on a hot day. Made with real fruit juice and a hint of fizz, it's the perfect blend of sweet and tangy flavors.",
+        "descript": "Refreshing and flavorful, this Poppi Strawberry Lemon Soda is the perfect thirst-quencher on a hot day. Made with real fruit juice and a hint of fizz, it's the perfect blend of sweet and tangy flavors.",
         "star1Rate": 6,
         "star2Rate": 4,
         "star3Rate": 2,
@@ -666,7 +742,7 @@ export const PRODUCTS = [
         "productImage": _12ozPoppiWatermelonSoda,
         "weightAmount": 12,
         "weightType": "oz",
-        "description": "Beat the heat with this delicious Poppi Watermelon Soda! Made with real fruit juice and a splash of carbonation, this refreshing soda is the perfect way to cool down on a hot summer day.",
+        "descript": "Beat the heat with this delicious Poppi Watermelon Soda! Made with real fruit juice and a splash of carbonation, this refreshing soda is the perfect way to cool down on a hot summer day.",
         "star1Rate": 3,
         "star2Rate": 2,
         "star3Rate": 5,
@@ -681,7 +757,7 @@ export const PRODUCTS = [
         "productImage": _12ozSunkistGrapeSoda,
         "weightAmount": 12,
         "weightType": "oz",
-        "description": "Indulge in the sweet and delicious flavor of Sunkist Grape Soda. Made with real grape juice, this fizzy beverage is perfect for any grape-lover out there.",
+        "descript": "Indulge in the sweet and delicious flavor of Sunkist Grape Soda. Made with real grape juice, this fizzy beverage is perfect for any grape-lover out there.",
         "star1Rate": 2,
         "star2Rate": 4,
         "star3Rate": 5,
@@ -696,7 +772,7 @@ export const PRODUCTS = [
         "productImage": _12ozSunkistLemonSoda,
         "weightAmount": 12,
         "weightType": "oz",
-        "description": "Enjoy the zesty and refreshing taste of Sunkist Lemon Soda. Made with real lemon juice, this fizzy beverage is perfect for any lemon-lover out there.",
+        "descript": "Enjoy the zesty and refreshing taste of Sunkist Lemon Soda. Made with real lemon juice, this fizzy beverage is perfect for any lemon-lover out there.",
         "star1Rate": 3,
         "star2Rate": 2,
         "star3Rate": 6,
@@ -771,7 +847,7 @@ export const PRODUCTS = [
         "productImage": _12ozZeviaCherryColaSoda,
         "weightAmount": 12,
         "weightType": "oz",
-        "description": "A delicious and refreshing cherry cola soda made with all-natural ingredients.",
+        "descript": "A delicious and refreshing cherry cola soda made with all-natural ingredients.",
         "star1Rate": 8,
         "star2Rate": 2,
         "star3Rate": 5,
@@ -786,7 +862,7 @@ export const PRODUCTS = [
         "productImage": _12ozZeviaColaSoda,
         "weightAmount": 12,
         "weightType": "oz",
-        "description": "An classic and delicious cola soda made with all-natural ingredients.",
+        "descript": "An classic and delicious cola soda made with all-natural ingredients.",
         "star1Rate": 3,
         "star2Rate": 4,
         "star3Rate": 3,
@@ -801,7 +877,7 @@ export const PRODUCTS = [
         "productImage": _12ozZeviaCreamSoda,
         "weightAmount": 12,
         "weightType": "oz",
-        "description": "A creamy and smooth cream soda made with all-natural ingredients.",
+        "descript": "A creamy and smooth cream soda made with all-natural ingredients.",
         "star1Rate": 1,
         "star2Rate": 2,
         "star3Rate": 4,
@@ -816,7 +892,7 @@ export const PRODUCTS = [
         "productImage": _12ozZeviaCreamyRootBeerSoda,
         "weightAmount": 12,
         "weightType": "oz",
-        "description": "A creamy and delicious root beer made with all-natural ingredients.",
+        "descript": "A creamy and delicious root beer made with all-natural ingredients.",
         "star1Rate": 2,
         "star2Rate": 3,
         "star3Rate": 5,
@@ -1080,3 +1156,25 @@ export const PRODUCTS = [
         "tags": ["#strawberry", "#soda", "#refreshing", "#beverage", "#summer", "#Fanta"]
     }    
 ]
+
+//Function to populate database with products.
+PRODUCTS.forEach(function(product){
+    writeProductData(
+        product.id,
+        product.productName,
+        product.price,
+        product.productImage,
+        product.weightAmount,
+        product.weightType,
+        product.descript,
+        product.star1Rate,
+        product.star2Rate,
+        product.star3Rate,
+        product.star4Rate,
+        product.star5Rate,
+        product.tags
+ 
+    );
+});
+//addQuantityField(PRODUCTS);  
+//populateFirebaseDatabase(PRODUCTS);
