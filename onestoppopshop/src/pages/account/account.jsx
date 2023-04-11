@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useState } from 'react'
 import styles from './account.module.css'
 import { ShopContext } from '../../context/shop-context'
 import { database } from '../../firebase'
@@ -17,6 +17,14 @@ export const Account = () => {
   const [updateCity, setUpdateCity] = useState(userCity)
   const [updateState, setUpdateState] = useState(userState)
   const [updateZip, setUpdateZip] = useState(userZip)
+
+  // Get orders into a list:
+  const ordersRef = ref(database, 'orders')
+  get(ordersRef)
+  .then(
+    
+  )
+  .catch((error) => console.log(error))
 
 
   const saveUpdatesToAddress = () => {
@@ -38,7 +46,6 @@ export const Account = () => {
 
   return (
     <div className={styles.accPage}>
-      {/* <div className={styles.separator} /> */}
       <div className={styles.tabBttns}>
         <button className={styles.shipBttn}  onClick={() => setCurTab(2)}>Account Info</button>
         <button className={styles.orderBttn} onClick={() => setCurTab(1)}>Orders</button>
@@ -47,6 +54,7 @@ export const Account = () => {
         {curTab === 1 && (<div className={styles.tabOrders}>
           <ul>
             {/* Query from DB and create <li></li> */}
+            {}
           </ul>
         </div>)}
         {curTab === 2 && (
