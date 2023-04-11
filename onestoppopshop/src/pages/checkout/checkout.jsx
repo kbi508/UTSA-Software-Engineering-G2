@@ -48,6 +48,7 @@ export const Checkout = () => {
     setUsingAcc(e.target.checked)
     if (e.target.checked)
     {
+      console.log("Trying to use user data...")
       setAdd(userAddress)
       setCountry(userCountry)
       setCity(userCity)
@@ -62,10 +63,6 @@ export const Checkout = () => {
       setState('')
       setZip('')
     }
-  }
-
-  const handleEmailChange = (e) => {
-
   }
 
   return (
@@ -94,21 +91,11 @@ export const Checkout = () => {
         </>} 
       </span>
       <div className={styles.shippingInputs}>
-          {(authUser && usingAcc) ? 
-          (<>
-            <input className={styles.country} placeholder='Country' defaultValue={userCountry} onChange={(e) => setCountry(e.target.value)}/>
-            <input className={styles.streetAdd} placeholder='Address' defaultValue={userAddress} onChange={(e) => setAdd(e.target.value)} />
-            <input className={styles.city} placeholder='City' defaultValue={userCity} onChange={(e) => setCity(e.target.value)} />
-            <input className={styles.state} placeholder='State' defaultValue={userState} onChange={(e) => setState(e.target.value)} />
-            <input className={styles.zip} type={'number'} placeholder='Zip' defaultValue={userZip} onChange={(e) => setZip(e.target.value)} /></>)
-          :
-          (<>
-            <input className={styles.country} placeholder='Country' defaultValue={''} onChange={(e) => setCountry(e.target.value)} />
-            <input className={styles.streetAdd} placeholder='Address' defaultValue={''} onChange={(e) => setAdd(e.target.value)} />
-            <input className={styles.city} placeholder='City' defaultValue={''} onChange={(e) => setCity(e.target.value)} />
-            <input className={styles.state} placeholder='State' defaultValue={''} onChange={(e) => setState(e.target.value)} />
-            <input className={styles.zip} type={'number'} placeholder='Zip' defaultValue={''} onChange={(e) => setZip(e.target.value)} /></>)
-          } 
+          <input className={styles.country} placeholder='Country' value={country} onChange={(e) => setCountry(e.target.value)}/>
+          <input className={styles.streetAdd} placeholder='Address' value={add} onChange={(e) => setAdd(e.target.value)} />
+          <input className={styles.city} placeholder='City' value={city} onChange={(e) => setCity(e.target.value)} />
+          <input className={styles.state} placeholder='State' value={state} onChange={(e) => setState(e.target.value)} />
+          <input className={styles.zip} type={'number'} placeholder='Zip' value={zip} onChange={(e) => setZip(e.target.value)} />
       </div>
       <div className={styles.separator} />
       <div className={styles.ccInputs}>
