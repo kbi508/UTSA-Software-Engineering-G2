@@ -150,7 +150,6 @@ export const ShopContextProvider = (props) => {
     const processCheckout = (country, add, city, state, zip, email) => {
         const ordersRef = ref(database, 'orders')
         const newOrderRef = push(ordersRef)
-        console.log(newOrderRef.key)
 
         // Get the current date
         const currentDate = new Date();
@@ -179,13 +178,32 @@ export const ShopContextProvider = (props) => {
         }
         order.email = email
 
-        // Need to add list of products ordered as well.
+        const productsRef = ref(database, "products")
+        // Get the number of products:
+        let numProds = 0
+        get(productsRef)
+        .then((snapshot) => {
+            if (snapshot.exists()){
+                numProds = Object.keys(snapshot.val()).length
+                for (let i = 1; i <= numProds; i++)
+                {
+                    if (cartItems[i] > 0) // If this product is in the cart...
+                    {
+                        console.log("Item " + i + " is in cart.")
+                        if (!order.items) {
+                            order.items = {}; // Make sure order.items is defined
+                        }
+                        order.items[i] = cartItems[i]
+                    }
+                }
+                console.log(order)
+                set(newOrderRef, order)
+            }
+        })
+
 
         // Check for and set a subscription if it exists.
-
-        console.log(order)
-        set(newOrderRef, order)
-
+        
         return newOrderRef.key
     }
 
