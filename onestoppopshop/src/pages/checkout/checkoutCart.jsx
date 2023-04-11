@@ -6,12 +6,13 @@ import styles from './checkoutCart.module.css'
 import { useNavigate } from 'react-router-dom'
 
 export const CheckoutCart = (props) => {
-  const { cartItems, getTotalCartAmount, numCartItems, processCheckout, taxRate } = useContext(ShopContext)
+  const { cartItems, getTotalCartAmount, numCartItems, processCheckout, taxRate, resetCart } = useContext(ShopContext)
   const {country, add, city, state, zip, email, ccNum, ccDate, ccv} = props
   const totalAmount = getTotalCartAmount().toFixed(2)
-  const navigator = useNavigate()
   const [showConfirm, setShowConfirm] = useState(false)
   const [message, setMessage] = useState('')
+  const navigator = useNavigate()
+  const [orderSuccess, setOrderSuccess] = useState(false)
 
   const checkoutWrapper = (country, add, city, state, zip, email) => {
     let canCheckout = true
@@ -37,13 +38,21 @@ export const CheckoutCart = (props) => {
     {
       const orderKey = processCheckout(country, add, city, state, zip, email)
       setMessage("Your Order (#" + orderKey +") has Been Processed! ")
+      setOrderSuccess(true)
     }
     setShowConfirm(true)
   }
 
   const confirm = () => {
-    setShowConfirm(false)
-    setMessage('')
+    if (orderSuccess)
+    {
+      resetCart()
+      navigator('/')
+    }
+    else {
+      setMessage('')
+      setShowConfirm(false)
+    }
   }
 
   return (
