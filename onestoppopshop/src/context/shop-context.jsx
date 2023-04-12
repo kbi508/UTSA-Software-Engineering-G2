@@ -191,22 +191,24 @@ export const ShopContextProvider = (props) => {
 
         const productsRef = ref(database, "products")
         // Get the number of products:
+        console.log(cartItems)
         let numProds = 0
         get(productsRef)
         .then((snapshot) => {
             if (snapshot.exists()){
                 numProds = Object.keys(snapshot.val()).length
+                if (!order.items) {
+                    order.items = {}; // Make sure order.items is defined
+                }
                 for (let i = 1; i <= numProds; i++)
                 {
                     if (cartItems[i] > 0) // If this product is in the cart...
                     {
                         console.log("Item " + i + " is in cart.")
-                        if (!order.items) {
-                            order.items = {}; // Make sure order.items is defined
-                        }
                         order.items[i] = cartItems[i]
                     }
                 }
+                console.log(order.items)
                 set(newOrderRef, order)
             }
         })

@@ -32,13 +32,28 @@ export const Account = () => {
           const data = snapshot.val()
           const orderNumbers = Object.keys(data)
           const tempOrders = Object.values(data)
+          console.log("Raw orders:")
+          console.log(tempOrders)
           tempOrders.forEach((order, index) => {
             order.key = orderNumbers[index]
           })
           // Filter out orders that are not from this customer:
           const finalOrders = tempOrders.filter((order) => order.email === authUser.email)
 
+          // Firebase makes the items into a list/array rather than a JSON object, this converts it back:
+          finalOrders.forEach((order => {
+            const newItems = {}
+            order.items.forEach((item, index) => {
+              if (item) {
+                newItems[index] = item
+              }
+            })
+            order.items = newItems
+          }))
+          console.log("Final Orders:")
+          console.log(finalOrders)
           setOrders(finalOrders)
+          
         } else {
           return [] // Return an empty array if snapshot does not exist
         }
