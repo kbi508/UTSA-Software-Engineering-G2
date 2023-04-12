@@ -5,6 +5,14 @@ export const Orderbox = (props) => {
   return (
     <div className={styles.orderBox}>
         <p className={styles.orderNum}>Order # {props.data.key}</p>
+        {props.data.active ? 
+        (
+          <p className={styles.delivery}>Est. Delivery on {props.data.deliveryDate} </p>
+        )
+        :
+        (
+          <p className={`${styles.delivery} ${styles.delivered}`}>Delivered on {props.data.deliveryDate}</p>
+        )}
         <div>
             <p className={styles.date}><b>Date:</b> {props.data.date}</p>
             <p className={styles.total}><b>Total:</b> ${Number(props.data.amount).toFixed(2)}</p>

@@ -12,7 +12,16 @@
 .orderNum {
     font-size: clamp(1rem, 2vw, 3rem);
     font-weight: bold;
-    grid-column: -1/1;
+    grid-column: 1/3;
+}
+
+.delivery {
+    font-size: min(3rem, 2vw);
+    justify-self: center;
+}
+
+.delivered {
+    color: #329885;
 }
 
 /* .shipTo {
