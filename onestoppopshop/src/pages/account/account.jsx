@@ -9,7 +9,7 @@ import { Orderbox } from './orderbox'
 
 
 export const Account = () => {
-  const [curTab, setCurTab] = useState(1)
+  const [curTab, setCurTab] = useState(2)
   const [showConfirmation, setShowConfirmation] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
   const [orders, setOrders] = useState([])
@@ -75,11 +75,9 @@ export const Account = () => {
       <div className={styles.tabs}>
         {curTab === 1 && (
         <div className={styles.tabOrders}>
-          {/* <ul> */}
-            {orders.map((order) => {
-              return <Orderbox key={order.key} data={order}/>
-            })}
-          {/* </ul> */}
+          {orders.map((order) => {
+            return <Orderbox key={order.key} data={order}/>
+          })}
         </div>)}
         {curTab === 2 && (
         <div className={styles.tabShippingInfo}>

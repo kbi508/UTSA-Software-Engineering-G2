@@ -24,7 +24,7 @@
     /* font-size: clamp(1.6rem, 3vw, 4rem); */
     font-size: 4rem;
     background-color: #24252A;
-    flex-grow: 1;
+    flex: 1;
     border-style: none;
     color: white;
 }
