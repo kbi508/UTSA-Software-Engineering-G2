@@ -1,14 +1,18 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import styles from './account.module.css'
 import { ShopContext } from '../../context/shop-context'
 import { database } from '../../firebase'
-import { update, ref } from 'firebase/database'
+import { update, ref, get } from 'firebase/database'
 import { AccountLogin } from './accountLogin'
+import { Orderbox } from './orderbox'
+
+
 
 export const Account = () => {
   const [curTab, setCurTab] = useState(1)
   const [showConfirmation, setShowConfirmation] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
+  const [orders, setOrders] = useState([])
   const { authUser, userAddress, userCity, userCountry, userState, userZip, updateUserInfo } = useContext(ShopContext)
 
   // Capture updated address values:
@@ -19,12 +23,30 @@ export const Account = () => {
   const [updateZip, setUpdateZip] = useState(userZip)
 
   // Get orders into a list:
-  const ordersRef = ref(database, 'orders')
-  get(ordersRef)
-  .then(
-    
-  )
-  .catch((error) => console.log(error))
+  useEffect(() => {
+    const fetchOrders = async () => {
+      try {
+        const ordersRef = ref(database, 'orders')
+        const snapshot = await get(ordersRef)
+        if (snapshot.exists()) {
+          const data = snapshot.val()
+          const orderNumbers = Object.keys(data)
+          const tempOrders = Object.values(data)
+          tempOrders.forEach((order, index) => {
+            order.key = orderNumbers[index]
+          })          
+          setOrders(tempOrders)
+        } else {
+          return [] // Return an empty array if snapshot does not exist
+        }
+      } catch (error) {
+        console.log(error)
+        return [] // Return an empty array in case of an error
+      }
+    }
+
+    fetchOrders()
+  }, [])
 
 
   const saveUpdatesToAddress = () => {
@@ -51,11 +73,13 @@ export const Account = () => {
         <button className={styles.orderBttn} onClick={() => setCurTab(1)}>Orders</button>
       </div>
       <div className={styles.tabs}>
-        {curTab === 1 && (<div className={styles.tabOrders}>
-          <ul>
-            {/* Query from DB and create <li></li> */}
-            {}
-          </ul>
+        {curTab === 1 && (
+        <div className={styles.tabOrders}>
+          {/* <ul> */}
+            {orders.map((order) => {
+              return <Orderbox key={order.key} data={order}/>
+            })}
+          {/* </ul> */}
         </div>)}
         {curTab === 2 && (
         <div className={styles.tabShippingInfo}>

@@ -1,0 +1,25 @@
+.orderBox {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    color: #24252A;
+    font-family: "Fasthand", sans-serif;
+    font-size: 1.3rem;
+    border-radius: .7rem;
+    padding: 1rem;
+    background-color: #FCC68F;
+}
+
+.orderNum {
+    font-size: clamp(1rem, 2vw, 3rem);
+    font-weight: bold;
+    grid-column: -1/1;
+}
+
+/* .shipTo {
+    font-weight: bold;
+} */
+
+.add {
+    display: flex;
+    gap: 1rem;
+}
