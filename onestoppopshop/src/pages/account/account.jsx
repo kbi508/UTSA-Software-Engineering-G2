@@ -34,8 +34,11 @@ export const Account = () => {
           const tempOrders = Object.values(data)
           tempOrders.forEach((order, index) => {
             order.key = orderNumbers[index]
-          })          
-          setOrders(tempOrders)
+          })
+          // Filter out orders that are not from this customer:
+          const finalOrders = tempOrders.filter((order) => order.email === authUser.email)
+
+          setOrders(finalOrders)
         } else {
           return [] // Return an empty array if snapshot does not exist
         }
