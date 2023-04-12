@@ -21,6 +21,7 @@ export const ShopContextProvider = (props) => {
     const navigator = useNavigate()
 
     const taxRate = 0.0825
+    const deliveryTime = 7
 
     // Shop vars:
     const [cartItems, setCartItems] = useState(getDefaultCart())
@@ -152,19 +153,29 @@ export const ShopContextProvider = (props) => {
         const newOrderRef = push(ordersRef)
 
         // Get the current date
-        const currentDate = new Date();
+        const currentDate = new Date()
 
         // Extract the components of the date (year, month, day)
-        const year = currentDate.getFullYear();
-        const month = String(currentDate.getMonth() + 1).padStart(2, '0');
-        const day = String(currentDate.getDate()).padStart(2, '0');
+        let year = currentDate.getFullYear()
+        let month = String(currentDate.getMonth() + 1).padStart(2, '0')
+        let day = String(currentDate.getDate()).padStart(2, '0')
 
         // Assemble the date string in the desired format (e.g., "YYYY-MM-DD")
-        const dateString = `${year}-${month}-${day}`;
+        const dateString = `${year}-${month}-${day}`
+
+        // Get estimated delivery date:
+        let deliveryDate = new Date()
+        deliveryDate.setDate(deliveryDate.getDate() + deliveryTime) // Add delivery time (in days)
+        year  = deliveryDate.getFullYear()
+        month = String(deliveryDate.getMonth() + 1).padStart(2, '0')
+        day   = String(deliveryDate.getDate()).padStart(2, '0')
+        const deliveryString = `${year}-${month}-${day}`
+        console.log(deliveryString)
 
         let order = {
             amount: Number(getTotalCartAmount()*(1+taxRate)),
             date: dateString,
+            deliveryDate: deliveryString,
             country: country,
             add: add,
             city: city,
@@ -196,7 +207,6 @@ export const ShopContextProvider = (props) => {
                         order.items[i] = cartItems[i]
                     }
                 }
-                console.log(order)
                 set(newOrderRef, order)
             }
         })
