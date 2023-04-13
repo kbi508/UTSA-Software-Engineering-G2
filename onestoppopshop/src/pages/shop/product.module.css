@@ -1,18 +1,19 @@
 .product {
     border-radius: 15px;
-    padding-bottom: 1rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+    transition: all 0.1s ease-in;
 }
 .product:hover {
-    box-shadow: -3px 5px 2px #FCC68F;
-    transition: all 0.1s ease-in-out;
+    box-shadow: -3px 5px 0px #FCC68F;
+    transition: all 0.1s ease-out;
 }
 
 .product img {
-    width: 70%;
+    height: 45vh;
 }
 
 .prodDesc {
