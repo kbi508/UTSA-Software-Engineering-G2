@@ -5,6 +5,7 @@ import { database } from '../../firebase'
 import { update, ref, get } from 'firebase/database'
 import { AccountLogin } from './accountLogin'
 import { Orderbox } from './orderbox'
+import cloneDeep from 'lodash/cloneDeep'
 
 
 
@@ -30,6 +31,7 @@ export const Account = () => {
         const snapshot = await get(ordersRef)
         if (snapshot.exists()) {
           const data = snapshot.val()
+          
           const orderNumbers = Object.keys(data)
           const tempOrders = Object.values(data)
           console.log("Raw orders:")
@@ -39,16 +41,20 @@ export const Account = () => {
           })
           // Filter out orders that are not from this customer:
           const finalOrders = tempOrders.filter((order) => order.email === authUser.email)
-
+          // Remove empty items in finalOrders (possibly weird firebase thing)
           // Firebase makes the items into a list/array rather than a JSON object, this converts it back:
+          // Note that this only happens for SOME items, some are read as JSONs as intended, and thus don't need conversion.
           finalOrders.forEach((order => {
-            const newItems = {}
-            order.items.forEach((item, index) => {
-              if (item) {
-                newItems[index] = item
-              }
-            })
-            order.items = newItems
+            if (Array.isArray(order.items))
+            {
+              const newItems = {}
+              order.items.forEach((item, index) => {
+                if (item) {
+                  newItems[index] = item
+                }
+              })
+              order.items = newItems
+            }
           }))
           console.log("Final Orders:")
           console.log(finalOrders)
@@ -93,7 +99,7 @@ export const Account = () => {
       <div className={styles.tabs}>
         {curTab === 1 && (
         <div className={styles.tabOrders}>
-          {orders.map((order) => {
+          {orders && orders.map((order) => {
             return <Orderbox key={order.key} data={order}/>
           })}
         </div>)}

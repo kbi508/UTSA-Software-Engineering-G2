@@ -205,7 +205,7 @@ export const ShopContextProvider = (props) => {
                     if (cartItems[i] > 0) // If this product is in the cart...
                     {
                         console.log("Item " + i + " is in cart.")
-                        order.items[i] = cartItems[i]
+                        order.items[String(i)] = cartItems[i]
                     }
                 }
                 console.log(order.items)

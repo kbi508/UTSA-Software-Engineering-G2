@@ -28,6 +28,7 @@ export const Orderbox = (props) => {
           // Add the number of items as a value to each:
           setOrderItems(itemsInOrder)
         } else {
+          console.log("Snapshot failure...")
           return [] // Return an empty array if snapshot does not exist
         }
       } catch (error) {
@@ -63,11 +64,11 @@ export const Orderbox = (props) => {
           </div>
         </div>
         <div className={styles.items}>
-          {/* {orderItems.map((item) => {
-            // return <>
-            //   <p>{item.name} x {item.amount}</p>
-            // </>
-          })} */}
+          {orderItems && orderItems.map((item) => {
+            return <>
+              <p>{item.name} {item.price} x {item.numBought} = {Number(item.price*item.numBought).toFixed(2)}</p>
+            </>
+          })}
         </div>
     </div>
   )
