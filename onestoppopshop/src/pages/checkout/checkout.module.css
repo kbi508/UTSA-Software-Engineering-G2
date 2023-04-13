@@ -1,15 +1,15 @@
 
 .checkoutPage {
     display: grid;
-    grid-template-columns: 6fr 4fr;
+    grid-template-columns: 6fr 3fr;
 }
 
 .orderPanel {
     font-family: "Fasthand", sans-serif;
-    padding-left: 20rem;
     overflow-y: auto;
-    height: auto;
-    width: auto;
+    height: 85vh;
+    padding-left: 10rem;
+    padding-right: 10rem;
 }
 
 .orderPanel > p{
@@ -65,8 +65,7 @@
 .loginBttn {
     text-decoration: underline;
     transition: all 0.3s ease;
-    color: white;
-    background-color: purple;
+    color: #242424;
     border-radius: 1rem;
     width: 100px;
 }
