@@ -6,10 +6,10 @@
 
 .orderPanel {
     font-family: "Fasthand", sans-serif;
-    padding-right: 2rem;
-    padding-left: 2rem;
+    padding-left: 20rem;
     overflow-y: auto;
-    height: 85vh;
+    height: auto;
+    width: auto;
 }
 
 .orderPanel > p{
@@ -55,6 +55,7 @@
 
 .loginPrompt {
     font-size: 2rem;
+    text-align: center;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -64,6 +65,10 @@
 .loginBttn {
     text-decoration: underline;
     transition: all 0.3s ease;
+    color: white;
+    background-color: purple;
+    border-radius: 1rem;
+    width: 100px;
 }
 
 .loginBttn:hover {

@@ -4,6 +4,7 @@ import styles from './checkout.module.css'
 import { ShopContext } from '../../context/shop-context'
 import { CheckoutLogin } from './checkoutLogin'
 import { auth, database } from '../../firebase'
+import logo from '../../assets/onePopStopShop_logo_wide.png'
 
 export const Checkout = () => {
   const [usingAcc, setUsingAcc] = useState(false)

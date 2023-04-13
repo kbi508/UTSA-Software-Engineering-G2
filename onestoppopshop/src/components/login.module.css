@@ -41,8 +41,9 @@
 .bttns {
     display: flex;
     flex-direction: column;
-    gap: .3rem;
+    gap: 1rem;
     margin-top: 1rem;
+    align-items: center;
 }
 
 .bttns > button {
