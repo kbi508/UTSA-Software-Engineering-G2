@@ -64,11 +64,11 @@ export const Orderbox = (props) => {
           </div>
         </div>
         <div className={styles.items}>
-          {orderItems && orderItems.map((item) => {
-            return <>
-              <p>{item.name} {item.price} x {item.numBought} = {Number(item.price*item.numBought).toFixed(2)}</p>
-            </>
-          })}
+            {orderItems && orderItems.map((item) => {
+              return (
+                <><span>{item.name} ${Number(item.price).toFixed(2)}</span> <span className={styles.price}>x {item.numBought} = {Number(item.price*item.numBought).toFixed(2)}</span></>
+              )
+            })}
         </div>
     </div>
   )
