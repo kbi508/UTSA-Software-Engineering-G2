@@ -27,11 +27,12 @@
 }
 
 .logo {
-    width:34%;
+    height: 15vh;
     cursor: pointer;
 }
 
 .logoCheckout {
+    height: 15vh;
     cursor: default;
     margin-left: auto;
     margin-right: auto;
