@@ -23,6 +23,8 @@
     align-items: center;
     padding: 1% 0% 1% 2%;
     background-color: #24252A;
+    box-shadow: 2px 5px 5px black;
+
 }
 
 .nav {
