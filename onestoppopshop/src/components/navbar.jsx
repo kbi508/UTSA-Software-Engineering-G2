@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { ShoppingCart } from 'phosphor-react'
 import styles from './navbar.module.css'
 import logo from '../assets/onePopStopShop_logo_wide.png'
+import logoSmall from '../assets/onePopStopShop_logo_small.svg'
 import { ShopContext } from '../context/shop-context'
 import { Login } from './login'
 
@@ -54,7 +55,7 @@ export const Navbar = () => {
       :
       (
         <header className={styles.navbar} id='navbar'>
-          <img className={styles.logo} src={logo} alt='Logo' style={{height: 70 + '%'}}/>
+          <img className={styles.logoCheckout} src={logoSmall} alt='Logo' style={{height: 70 + '%'}}/>
         </header>
       )
     }

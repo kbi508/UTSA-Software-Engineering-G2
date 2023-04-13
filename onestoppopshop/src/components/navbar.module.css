@@ -31,6 +31,12 @@
     cursor: pointer;
 }
 
+.logoCheckout {
+    cursor: default;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .pageLink:hover {
     transition: all 0.3s ease 0s;
     color:#329885;
