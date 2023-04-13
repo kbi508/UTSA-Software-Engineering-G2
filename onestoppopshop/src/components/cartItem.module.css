@@ -44,8 +44,16 @@
     text-align: center;
     padding-left: .3rem;
     padding-right: .3rem;
+    transition: all 0.3s ease;
+    /* border-style: none; */
+}
+
+.countHandler > button:hover {
+    background-color: #329885;
+    transition: all 0.3s ease;
 }
 
 .countHandler > input {
+    /* border-style: none; */
     width: 2rem;
 }
