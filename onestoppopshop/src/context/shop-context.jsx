@@ -33,6 +33,7 @@ export const ShopContextProvider = (props) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [loginError, setLoginError] = useState(null)
+    const [authIsAdmin, setAuthIsAdmin] = useState(false)
 
     // User data vars:
     const [userCountry, setUserCountry] = useState('')
@@ -44,7 +45,9 @@ export const ShopContextProvider = (props) => {
     const signIn = (e) => {
         e.preventDefault()
         signInWithEmailAndPassword(auth, email, password)
-        .then(() => {setLoginError(null)})
+        .then(() => {
+            setLoginError(null)
+        })
         .catch((error) => {setLoginError(error)})
     }
 
@@ -96,6 +99,18 @@ export const ShopContextProvider = (props) => {
             console.log("Detected auth change...")
             if (user) {
                 setAuthUser(user)
+                const userRef = ref(database, 'users/' + user.uid)
+                get(userRef)
+                .then((snapshot) => {
+                    if (snapshot.exists())
+                    {
+                        const data = snapshot.val()
+                        console.log(data)
+                        setAuthIsAdmin(data.admin)
+                        console.log(data.admin)
+                    }
+                })
+                .catch((error) => console.log(error))
             }
             else 
                 setAuthUser(null)
@@ -244,7 +259,7 @@ export const ShopContextProvider = (props) => {
         setNumCartItems(0)
     }
 
-    const contextValue = {cartItems, authUser, isOpen, numCartItems, email, password, loginError, userAddress, userCity, userCountry, userState, userZip, taxRate, processCheckout, deleteAccount, updateUserInfo, setEmail, setPassword, setCartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, resetCart, signIn, signUp, userLogOut}
+    const contextValue = {cartItems, authIsAdmin, authUser, isOpen, numCartItems, email, password, loginError, userAddress, userCity, userCountry, userState, userZip, taxRate, processCheckout, deleteAccount, updateUserInfo, setEmail, setPassword, setCartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, resetCart, signIn, signUp, userLogOut}
 
     return (
         <ShopContext.Provider value={contextValue}>
