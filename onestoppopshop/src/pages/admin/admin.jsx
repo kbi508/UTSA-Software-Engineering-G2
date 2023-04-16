@@ -12,7 +12,7 @@ export const Admin = () => {
   const [orders, setOrders] = useState([])
   const [selected, setSelected] = useState(null)
   const [activeOnly, setActiveOnly] = useState(false)
-  const { authUser } = useContext(ShopContext)
+  const { authIsAdmin } = useContext(ShopContext)
 
   const selectUser = (selUid) => {
     if (selUid === selected)
@@ -80,6 +80,10 @@ export const Admin = () => {
 
   return (
     <div className={styles.adminPage}>
+        {!authIsAdmin ? 
+        (<div>Unauthorized Account!</div>) 
+        : 
+        (<>
         <div className={styles.topTitles}>
             <div className={styles.title}>Users</div>
             <div className={styles.title}>Orders</div>
@@ -135,6 +139,7 @@ export const Admin = () => {
         <div className={styles.discountCodes}>
 
         </div>
+        </>)}
     </div>
   )
 }
