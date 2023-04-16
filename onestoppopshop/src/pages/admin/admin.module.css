@@ -1,8 +1,27 @@
+.adminPage {
+    padding: 2rem;
+}
+
+.top {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    height: 30rem;
+    background-color: #24252A;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
 .users {
-    background-color: #242424;
+    flex: 1;
+    background-color: #24252A;
+    overflow-y: auto;
 }
 
 .orders {
+    overflow-y: auto;
     display: flex;
-    gap: 5rem;
+    flex-direction: column;
+    flex: 1;
+    gap: 1rem;
 }
