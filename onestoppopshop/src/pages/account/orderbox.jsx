@@ -23,8 +23,8 @@ export const Orderbox = (props) => {
           })
           // Filter items that are in this order:
           const itemsInOrder = totalProducts.filter((product) => product.numBought = props.data.items[product.key])
-          console.log("Total items in this order:")
-          console.log(itemsInOrder)
+          // console.log("Total items in this order:")
+          // console.log(itemsInOrder)
           // Add the number of items as a value to each:
           setOrderItems(itemsInOrder)
         } else {

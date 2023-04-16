@@ -84,7 +84,7 @@ export const Admin = () => {
             <div className={styles.users}>
                 <button className={activeOnly ? (`${styles.activeBttn} ${styles.activeBttnClcked}`) : (styles.activeBttn)} onClick={() => setActiveOnly(!activeOnly)}>Active Only</button>
                 {Object.keys(users).map((uid) => {
-                    return <Userbox key={uid} data={users[uid]} selected={selected} selectUser={selectUser}/>
+                    return <Userbox key={uid} uid={uid} data={users[uid]} selected={selected} selectUser={selectUser}/>
                 })}
             </div>
 
