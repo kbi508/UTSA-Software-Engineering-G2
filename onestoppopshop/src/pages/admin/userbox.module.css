@@ -1,7 +1,6 @@
 .userbox {
     background-color: #FCC68F;
     color: #24252A;
-    height: fit-content;
     display: grid;
     grid-template-columns: 4fr 2fr;
     align-items: center;

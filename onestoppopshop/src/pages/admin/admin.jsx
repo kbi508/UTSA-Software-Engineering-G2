@@ -13,6 +13,7 @@ export const Admin = () => {
   const [users, setUsers] = useState({})
   const [orders, setOrders] = useState([])
   const [selected, setSelected] = useState(null)
+  const [activeOnly, setActiveOnly] = useState(false)
   const { authUser } = useContext(ShopContext)
 
   const selectUser = (selUid) => {
@@ -83,7 +84,7 @@ export const Admin = () => {
     <div className={styles.adminPage}>
         <div className={styles.top}>
             <div className={styles.users}>
-                
+                <button className={activeOnly ? (`${styles.activeBttn} ${styles.activeBttnClcked}`) : (styles.activeBttn)} onClick={() => setActiveOnly(!activeOnly)}>Active Only</button>
                 {Object.keys(users).map((uid) => {
                     return <Userbox key={uid} data={users[uid]} selected={selected} selectUser={selectUser}/>
                 })}
@@ -91,14 +92,33 @@ export const Admin = () => {
 
             <div className={styles.orders}>
                 {orders.map((order) => {
-                    if (selected !== null) {
-                        if (order.email === selected)
-                            return <Orderbox key={order.key} data={order} />
-                        else 
+                    if (activeOnly)
+                    {
+                        if (order.active)
+                        {
+                            if (selected !== null) {
+                                if (order.email === selected)
+                                    return <Orderbox key={order.key} data={order} />
+                                else 
+                                    return <></>
+                            }
+                            else
+                                return <Orderbox key={order.key} data={order} />
+                        }
+                        else
                             return <></>
                     }
                     else
-                        return <Orderbox key={order.key} data={order} />
+                    {
+                        if (selected !== null) {
+                            if (order.email === selected)
+                                return <Orderbox key={order.key} data={order} />
+                            else 
+                                return <></>
+                        }
+                        else
+                            return <Orderbox key={order.key} data={order} />
+                    }
                 })}
             </div>
         </div>
