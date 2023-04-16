@@ -19,11 +19,10 @@
     background-color: #24252A;
     overflow-y: auto;
     gap: .5rem;
+    padding: 1rem;
 }
 
 .activeBttn {
-    position: sticky;
-    top: 0;
     border-style: none;
     border-radius: 1rem;
     font-family: "Fasthand", sans-serif;
@@ -42,6 +41,15 @@
 .activeBttnClcked {
     background-color: #1b4e45;
     color: white;
+}
+
+.activeBttnBG {
+    position: sticky;
+    top: -1rem;
+    background-color: #24252A;
+    width: 100%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    padding-bottom: 1rem;
 }
 
 .orders {
