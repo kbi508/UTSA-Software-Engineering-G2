@@ -63,7 +63,7 @@ export const Admin = () => {
             .then((snapshot) => {
                 if (snapshot.exists()) {
                     const data = snapshot.val()
-                    console.log('Data value:')
+                    console.log('Data value for users:')
                     console.log(data)
                 }
             })
