@@ -12,19 +12,15 @@ import { ShopContext } from '../../context/shop-context'
 export const Admin = () => {
   const [users, setUsers] = useState({})
   const [orders, setOrders] = useState([])
-  const [selected, setSelected] = useState({})
+  const [selected, setSelected] = useState(null)
   const { authUser } = useContext(ShopContext)
 
   const selectUser = (selUid) => {
-    const updateSelected = {...selected}
-    console.log(selUid)
-    Object.keys(selected).forEach((uid) => {
-        if (selUid === uid)
-            updateSelected[uid] = !updateSelected[uid]
-        else
-            updateSelected[uid] = false
-    })
-    setSelected(updateSelected)
+    console.log(users)
+    if (selUid === selected)
+        setSelected(null)
+    else
+        setSelected(selUid)
   }
 
   useEffect(() => {
@@ -72,9 +68,6 @@ export const Admin = () => {
                 if (snapshot.exists()) {
                     // Add selected to users:
                     const data = snapshot.val()
-                    Object.keys(data).forEach((uid) => {
-                        selected[uid] = false
-                    })
                     setUsers(data)
                 }
             })
@@ -97,7 +90,9 @@ export const Admin = () => {
             </div>
 
             <div className={styles.orders}>
-                {orders.map((order) => <Orderbox key={order.key} data={order} />)}
+                {orders.map((order) => {
+                    return <Orderbox key={order.key} data={order} />
+                })}
             </div>
         </div>
 
