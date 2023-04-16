@@ -41,6 +41,7 @@ export const Navbar = () => {
           {location.pathname === '/' &&
           (
           <div className={styles.rightWrapperNav}>
+            <Link className={styles.pageLink} to="/admin"> Admin </Link>
             {authUser && (<Link className={styles.pageLink} to="/account"> {authUser.email} </Link>)}
             <button className={`${styles.loginButton} ${styles.navBttn}`} onClick={authUser ? userLogOut : () => setShowLogin(!showLogin)}>{authUser ? 'Logout' : 'Login'}</button>
             <button className={`${styles.cartButton} ${styles.navBttn}`} onClick={toggleOpen}>
