@@ -80,6 +80,10 @@ export const Admin = () => {
 
   return (
     <div className={styles.adminPage}>
+        <div className={styles.topTitles}>
+            <div className={styles.title}>Users</div>
+            <div className={styles.title}>Orders</div>
+        </div>
         <div className={styles.top}>
             <div className={styles.users}>
                 <div className={styles.activeBttnBG}>

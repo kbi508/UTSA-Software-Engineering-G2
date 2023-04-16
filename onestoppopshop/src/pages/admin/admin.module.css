@@ -2,13 +2,32 @@
     padding: 2rem;
 }
 
+.topTitles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+.title {
+    font-family: "Fasthand", sans-serif;
+    font-size: min(6vw, 4rem);
+    background-color: #24252A;
+    height: 5rem;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+}
+
 .top {
     display: flex;
     flex-direction: row;
     gap: 2rem;
     height: 30rem;
     background-color: #24252A;
-    border-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
     padding: 1rem;
 }
 
