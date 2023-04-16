@@ -12,7 +12,20 @@ import { ShopContext } from '../../context/shop-context'
 export const Admin = () => {
   const [users, setUsers] = useState({})
   const [orders, setOrders] = useState([])
+  const [selected, setSelected] = useState({})
   const { authUser } = useContext(ShopContext)
+
+  const selectUser = (selUid) => {
+    const updateSelected = {...selected}
+    console.log(selUid)
+    Object.keys(selected).forEach((uid) => {
+        if (selUid === uid)
+            updateSelected[uid] = !updateSelected[uid]
+        else
+            updateSelected[uid] = false
+    })
+    setSelected(updateSelected)
+  }
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -57,7 +70,12 @@ export const Admin = () => {
             get(userRef)
             .then((snapshot) => {
                 if (snapshot.exists()) {
-                    setUsers(snapshot.val())
+                    // Add selected to users:
+                    const data = snapshot.val()
+                    Object.keys(data).forEach((uid) => {
+                        selected[uid] = false
+                    })
+                    setUsers(data)
                 }
             })
         }
@@ -74,7 +92,7 @@ export const Admin = () => {
         <div className={styles.top}>
             <div className={styles.users}>
                     {Object.keys(users).map((uid) => {
-                        return <Userbox key={uid} data={users[uid]} />
+                        return <Userbox key={uid} uid={uid} data={users[uid]} selected={selected} selectUser={selectUser}/>
                     })}
             </div>
 

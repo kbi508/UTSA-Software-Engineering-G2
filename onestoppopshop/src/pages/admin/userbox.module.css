@@ -1,4 +1,24 @@
 .userbox {
     background-color: #FCC68F;
     color: #24252A;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+    align-items: center;
+    padding-left: 1rem;
+    font-family: "Fasthand", sans-serif;
+    font-size: min(3vw, 2rem);
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+}
+
+.userbox:hover {
+    background-color: #329885;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.selected {
+    background-color: #1b4e45;
+    color: white;
 }
