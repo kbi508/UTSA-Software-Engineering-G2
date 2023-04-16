@@ -6,7 +6,8 @@ import { database } from '../../firebase'
 export const Userbox = (props) => {
   const [isAdmin, setIsAdmin] = useState(props.data.admin)
 
-  const promoteUser = () => {
+  const promoteUser = (e) => {
+    e.stopPropagation()
     const userRef = ref(database, 'users/' + props.uid)
     if (!isAdmin) {
       update(userRef, {
@@ -31,7 +32,7 @@ export const Userbox = (props) => {
   return (
     <div className={props.selected === props.data.email ? (`${styles.userbox} ${styles.selected}`) : (styles.userbox)} onClick={() => props.selectUser(props.data.email)}>
         <p>{props.data.email}</p>
-        <button className={isAdmin ? (`${styles.promoteBttn} ${styles.selected}`) : (styles.promoteBttn)} onClick={() => promoteUser()}>{isAdmin ? ('Demote') : ('Promote')}</button>
+        <button className={isAdmin ? (`${styles.promoteBttn} ${styles.selected}`) : (styles.promoteBttn)} onClick={(e) => promoteUser(e)}>{isAdmin ? ('Demote') : ('Promote')}</button>
     </div>
   )
 }
