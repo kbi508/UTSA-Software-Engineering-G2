@@ -85,6 +85,7 @@ export const ShopContextProvider = (props) => {
             country:'',
             state: '',
             email: userCredential.user.email,
+            admin: false
         })
         .catch((error) => console.log(error))
         console.log("Initialization complete.")
