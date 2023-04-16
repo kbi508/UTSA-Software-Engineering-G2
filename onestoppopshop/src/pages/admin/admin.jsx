@@ -16,7 +16,6 @@ export const Admin = () => {
   const { authUser } = useContext(ShopContext)
 
   const selectUser = (selUid) => {
-    console.log(users)
     if (selUid === selected)
         setSelected(null)
     else
@@ -84,14 +83,22 @@ export const Admin = () => {
     <div className={styles.adminPage}>
         <div className={styles.top}>
             <div className={styles.users}>
-                    {Object.keys(users).map((uid) => {
-                        return <Userbox key={uid} uid={uid} data={users[uid]} selected={selected} selectUser={selectUser}/>
-                    })}
+                
+                {Object.keys(users).map((uid) => {
+                    return <Userbox key={uid} data={users[uid]} selected={selected} selectUser={selectUser}/>
+                })}
             </div>
 
             <div className={styles.orders}>
                 {orders.map((order) => {
-                    return <Orderbox key={order.key} data={order} />
+                    if (selected !== null) {
+                        if (order.email === selected)
+                            return <Orderbox key={order.key} data={order} />
+                        else 
+                            return <></>
+                    }
+                    else
+                        return <Orderbox key={order.key} data={order} />
                 })}
             </div>
         </div>
