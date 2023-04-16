@@ -3,20 +3,10 @@
     flex-direction: column;
     align-items: center;
     padding: 1rem;
+    height: 85vh;
+    overflow-y: auto;
 }
 
-.accInfo {
-    align-self: flex-start;
-    margin-top: 1rem;
-    margin-left: 3rem;
-    font-family: "Fasthand", sans-serif;
-    font-weight: bold;
-    font-size: 2.5rem;
-}
-
-.accEmail {
-    margin-top: -2rem;
-}
 
 .tabBttns {
     display: flex;
@@ -25,26 +15,26 @@
 }
 
 .tabBttns > button:hover {
-    background-color: #FCC68F;
+    background-color: #236b5e;
     transition: all 0.3s ease;
 }
 
 .tabBttns > button {
-    flex-grow: 1;
-    border-style: solid;
-    border-color: #329885;
+    font-family: "Fasthand", sans-serif;
+    /* font-size: clamp(1.6rem, 3vw, 4rem); */
+    font-size: 4rem;
     background-color: #24252A;
+    flex: 1;
+    border-style: none;
     color: white;
-    font-size: 1.6rem;
-    padding: 1rem;
 }
 
 .orderBttn {
-    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
 }
 
 .shipBttn {
-    border-top-right-radius: 2rem;
+    border-top-left-radius: 2rem;
 }
 
 .tabs {
@@ -52,69 +42,73 @@
     background-color: #24252A;
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
     width: 100%;
-    border-style: solid;
-    border-color: #329885;
+    border-style: none;
     border-bottom-left-radius: 2rem;
     border-bottom-right-radius: 2rem;
     font-size: 2.5rem;
-    padding: 1rem;
+    padding: 2rem;
 }
 
 .tabOrders {
     display: flex;
     flex-direction: column;
-}
-
-.orderHeader {
-    display: flex;
-    gap: 3rem;
-    color: white;
-    background-color: #236b5e;
-    padding-left: 1rem;
-}
-
-.orderHeader > span {
-    flex-grow: 1;
-    text-align: center;
-}
-
-.tabOrders > ul{
-    list-style: none;
-}
-
-.tabOrders > ul > li {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #329885;
-    margin-bottom: 1rem;
-}
-
-.tabSubscripts > ul {
-    display: flex;
-    flex-direction: column;
     gap: 1rem;
 }
 
-.tabSubscripts > ul > div{
-    color: white;
-    background-color: #329885;
-    padding: 2rem;
-    border-radius: 2rem;
-    box-shadow: 2px 2px 10px black;
-}
+/* .tabOrders > ul{
+    list-style: none;;
+} */
 
 .tabShippingInfo {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
-    padding: 1rem;
+    height: fit-content;
 }
 
 .tabShippingInfo > p {
+    font-family: "Fasthand", sans-serif;
     grid-column: 1 / -1;
+}
+
+.accInfo {
+    grid-column: -1/1;
+    display: flex;
+    align-items: baseline;
+    gap: 2rem;
+    flex-direction: row;
+    align-self: flex-start;
+    margin-top: 1rem;
+    padding-left: 1rem;
+    font-family: "Fasthand", sans-serif;
+    font-weight: bold;
+    font-size: 2.5rem;
+    width: 100%;
+}
+
+.accEmail {
+    margin-top: -2rem;
+}
+
+.deleteBttn {
+    border-radius: 1rem;
+    border-style: none;
+    background-color: #FCC68F;
+    color: white;
+    height: 4rem;
+    width: 17%;
+    height: 30%;
+    font-family: "Fasthand", sans-serif;
+    font-size: clamp(1rem, 2vw, 2rem);
+    white-space: nowrap;
+    padding-right: .5rem;
+    transition: all 0.3s ease;
+}
+
+.deleteBttn:hover {
+    background-color: #329885;
+    transition: all 0.3s ease;
 }
 
 .country {
@@ -126,9 +120,38 @@
 }
 
 .tabShippingInfo > input {
-    height: 3rem;
+    height: 2rem;
+    width: 100%;
+    font-size: 1rem;
 }
 
 .tabShippingInfo > input::placeholder {
     font-size: 1rem;
+}
+
+.updateBttn {
+    border-radius: 1rem;
+    border-style: none;
+    background-color: #FCC68F;
+    color: white;
+    height: 3.3rem;
+    width: 35%;
+    font-family: "Fasthand", sans-serif;
+    font-size: 2rem;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.updateBttn:hover {
+    background-color: #329885;
+    transition: all 0.3s ease;
+}
+
+.separator {
+    height: 2px;
+    border: 2px solid #329885;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }

@@ -1,0 +1,57 @@
+.orderBox {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    color: #24252A;
+    font-family: "Fasthand", sans-serif;
+    font-size: 1.3rem;
+    border-radius: .7rem;
+    padding: 1rem;
+    background-color: #FCC68F;
+}
+
+.orderNum {
+    font-size: clamp(1rem, 2vw, 3rem);
+    font-weight: bold;
+    grid-column: 1/3;
+}
+
+.delivery {
+    font-size: min(3rem, 2vw);
+    justify-self: center;
+    grid-column: 3/5;
+}
+
+.delivered {
+    color: #329885;
+}
+
+/* .shipTo {
+    font-weight: bold;
+} */
+
+.add {
+    display: flex;
+    gap: 1rem;
+}
+
+.items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #24252A;
+    color: white;
+    padding: 1rem;
+    padding-left: 2rem;
+    height: 15vh;
+    overflow-y: auto;
+    border-radius: .5rem;
+    box-shadow: 2px 5px 5px black;
+    grid-column: 3/5;
+}
+
+.items > span {
+    white-space: nowrap;
+}
+
+.price {
+    justify-self: right;
+}
