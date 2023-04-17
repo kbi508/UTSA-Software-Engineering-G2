@@ -5,7 +5,7 @@ export const Tag = (props) => {
   return (
     <div className={styles.tag}>
         <p>{props.text}</p>
-        <button>X</button>
+        <button onClick={() => props.removeTag(props.text)}>X</button>
     </div>
   )
 }

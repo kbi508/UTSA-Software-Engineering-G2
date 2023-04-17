@@ -117,7 +117,7 @@ export const Admin = () => {
   }
 
   const addProduct = () => {
-    if (!name || !price || !img || !desc || !weight || !weightUnit || !quantity || (sale && !discount)) {
+    if (!name || !price || !img || !desc || !weight || !weightUnit || !quantity || (tags.length === 0) || (sale && !discount)) {
         setSplashError(true)
         return
     }
@@ -137,6 +137,7 @@ export const Admin = () => {
         weight_Type: weightUnit,
         quantity: Number(quantity)
     }
+    newProduct.hastags = tags
     if (sale)
     {
         newProduct.onsale = true

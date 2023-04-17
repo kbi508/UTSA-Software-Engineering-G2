@@ -6,6 +6,17 @@ export const ProductSplash = (props) => {
   const { desc, price, name, img, weightUnit, weight, quantity, sale, discount, tags, setTags, setDesc, setPrice, setName, setImg, setWeightUnit, setWeight, setQuantity, setSale, setDiscount} = props.data
   const [enteredTag, setEnteredTag] = useState('')
 
+  const addTag = () => {
+    if (enteredTag) {
+      setTags((prev) => [...prev, enteredTag])
+      setEnteredTag('')
+    }
+  }
+
+  const removeTag = (text) => {
+    setTags(tags.filter((tag) => tag !== text))
+  }
+
   return (
     <div className={styles.backdrop}>
       <div className={styles.productSplash}>
@@ -29,10 +40,10 @@ export const ProductSplash = (props) => {
           <div id={styles.tagsTitle}>
             <p>Tags</p>
             <input className={styles.enteredTag} type='text' placeholder='Enter new Tag' value={enteredTag} onChange={(e) => setEnteredTag(e.target.value)} />
-            <button className={`${styles.addTag}`}><p>+</p></button>
+            <button className={`${styles.addTag}`} onClick={() => addTag()}><p>+</p></button>
           </div>
           <div className={styles.tags}>
-            {tags.map((tag) => <Tag text={tag} />)}
+            {tags.map((tag) => <Tag text={tag} removeTag={removeTag}/>)}
           </div>
           <button className={styles.lightBttn} id={styles.submit} onClick={() => props.add()}>Submit</button>
           <button className={desc ? (styles.lightBttn) : (`${styles.lightBttn} ${styles.disabled}`)} disabled={!desc ? true : false} id={styles.delete} onClick={() => props.delete()}>Delete</button>
