@@ -110,6 +110,7 @@ export const Admin = () => {
         setImg(products[productNum].product_Image)
         setWeightUnit(products[productNum].weight_Type)
         setWeight(products[productNum].weight_Amount)
+        setQuantity(products[productNum].quantity)
         setCurProdNum(productNum)
     }
     setShowProductSplash(true)
