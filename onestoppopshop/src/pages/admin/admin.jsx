@@ -76,7 +76,7 @@ export const Admin = () => {
                 setProducts(data)
             }
             else {
-                setProducts({})
+                setProducts([])
             }
         })
     }
