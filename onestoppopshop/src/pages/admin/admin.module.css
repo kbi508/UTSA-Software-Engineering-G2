@@ -137,6 +137,12 @@
     padding: 1rem;
 }
 
+#plusBttn {
+    align-self: flex-end;
+    width: 15%;
+    font-size: min(3vw, 3rem);
+}
+
 .products {
     display: grid;
     grid-template-columns: repeat(5, 1fr);

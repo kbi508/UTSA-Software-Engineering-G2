@@ -72,6 +72,10 @@ export const Admin = () => {
     .catch((error) => console.log(error))
   }
 
+  const productScreen = (productNum=null) => {
+    console.log('Starting product screen')
+  }
+
   useEffect(() => {
     const fetchOrders = async () => {
         try {
@@ -221,9 +225,10 @@ export const Admin = () => {
 
         <div className={styles.items}>
             <div className={styles.title}>Items</div>
+            <button className={styles.lightBttn} id={styles.plusBttn} onClick={() => productScreen()}>+</button>
             <div className={styles.products}>
                 {products.map((product, index) => {
-                    return <Productbox key={index} productNum={index} data={product} />
+                    return <Productbox key={index} productNum={index} data={product} productScreen={productScreen} />
                 })}
             </div>
         </div>
