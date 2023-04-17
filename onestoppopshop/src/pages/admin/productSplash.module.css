@@ -94,8 +94,8 @@
 }
 
 .sale {
-    height: 20%;
-    width: 20%;
+    height: 50%;
+    width: 50%;
     grid-column: 1/2;
 }
 
@@ -120,15 +120,24 @@
     font-family: "Fasthand", sans-serif;
 }
 
+#tagsTitle > p {
+    margin-right: 1rem;
+}
+
+#tagsTitle > input {
+    height: 2rem;
+}
+
 .addTag {
-    /* height: 50%; */
-    /* width: 5%; */
-    border-style: none;
-    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
     font-family: "Fasthand", sans-serif;
+    width: 10%;
+    height: 2rem;
     color: white;
     background-color: #FCC68F;
-    font-size: min(4vw, 2rem);
+    font-size: min(4vw, 3rem);
     transition: all 0.3s ease;
     text-align: center;
 }
@@ -136,6 +145,14 @@
 .addTag:hover {
     background-color: #329885;
     transition: all 0.3s ease;
+}
+
+.tags {
+    display: flex;
+    width: fit-content;
+    grid-row: 7/8;
+    grid-column: 1/-1;
+    margin-bottom: 1rem;
 }
 
 #submit {

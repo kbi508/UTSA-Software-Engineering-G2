@@ -4,7 +4,8 @@ import { Tag } from './tag'
 
 export const ProductSplash = (props) => {
   const { desc, price, name, img, weightUnit, weight, quantity, sale, discount, tags, setTags, setDesc, setPrice, setName, setImg, setWeightUnit, setWeight, setQuantity, setSale, setDiscount} = props.data
-  
+  const [enteredTag, setEnteredTag] = useState('')
+
   return (
     <div className={styles.backdrop}>
       <div className={styles.productSplash}>
@@ -27,7 +28,8 @@ export const ProductSplash = (props) => {
           {sale && <input className={styles.discount} type='number' placeholder='Discount %' value={discount} onChange={(e) => setDiscount(e.target.value)} />}
           <div id={styles.tagsTitle}>
             <p>Tags</p>
-            <button className={`${styles.addTag}`}>+</button>
+            <input className={styles.enteredTag} type='text' placeholder='Enter new Tag' value={enteredTag} onChange={(e) => setEnteredTag(e.target.value)} />
+            <button className={`${styles.addTag}`}><p>+</p></button>
           </div>
           <div className={styles.tags}>
             {tags.map((tag) => <Tag text={tag} />)}
