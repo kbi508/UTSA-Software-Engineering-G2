@@ -53,6 +53,7 @@
     background-color: #FCC68F;
     width: 30%;
     font-size: min(4vw, 2rem);
+    margin-left: auto;
     transition: all 0.3s ease;
 }
 
@@ -66,21 +67,48 @@
     color: white;
 }
 
-.activeBttnBG {
-    position: sticky;
-    top: -1rem;
-    background-color: #24252A;
-    width: 100%;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    padding-bottom: 1rem;
-}
-
 .orders {
     overflow-y: auto;
     display: flex;
     flex-direction: column;
     flex: 1;
     gap: 1rem;
+    padding: 1rem;
+    padding-top: 0;
+}
+
+.orderOptions {
+    width: 100%;
+    background-color: #24252A;
+    padding-bottom: 1rem;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: min(3vw, 2rem);
+    font-family: "Fasthand", sans-serif;
+    gap: 1rem;
+    color: white;
+}
+
+.orderOptions > select {
+    height: 2rem;
+}
+
+.ascendBttn {
+    color: white;
+    background-color: #FCC68F;
+    border-style: none;
+    border-radius: .2rem;
+    padding: .5rem;
+    margin-left: -1rem;
+    transition: all 0.3s ease;
+}
+
+.ascendBttn:hover {
+    background-color: #329885;
+    transition: all 0.3s ease;
 }
 
 .discountCodes {
