@@ -1176,5 +1176,56 @@ PRODUCTS.forEach(function(product){
  
     );
 });
-//addQuantityField(PRODUCTS);  
+// function addQuantityField() {
+//     //const database = firebase.database();
+//     //const ref = database.ref('products/'); // replace 'path/to/list' with your own path
+//     const ref = ref(database, 'products/')
+  
+//     ref.once('value', (snapshot) => {
+//       const list = snapshot.val();
+//       const updatedList = [];
+  
+//       for (const key in list) {
+//         if (Object.prototype.hasOwnProperty.call(list, key)) {
+//           const obj = list[key];
+//           obj.quantity = Math.floor(Math.random() * 100) + 1;
+//           updatedList.push(obj);
+//         }
+//       }
+  
+//       ref.set(updatedList);
+//     });
+//   }
+//   addQuantityField(); 
+ 
 //populateFirebaseDatabase(PRODUCTS);
+// function addQuantityField() {
+//     //const database = firebase.database();
+//     if (!database) {
+//       console.error('Firebase Realtime Database is not initialized');
+//       return;
+//     }
+  
+//     database.ref('products/').once('value', (snapshot) => {
+//       const list = snapshot.val();
+//       const updatedList = [];
+//       const ref = database.ref('products/'); // initialize ref within the callback function
+  
+//       for (const key in list) {
+//         if (Object.prototype.hasOwnProperty.call(list, key)) {
+//           const obj = list[key];
+//           obj.quantity = Math.floor(Math.random() * 100) + 1;
+//           updatedList.push(obj);
+//         }
+//       }
+  
+//       ref.set(updatedList);
+//     });
+//   }
+//   addQuantityField();
+  
+  
+  
+  
+  
+  
