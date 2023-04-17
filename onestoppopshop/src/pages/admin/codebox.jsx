@@ -3,8 +3,11 @@ import styles from './codebox.module.css'
 
 export const Codebox = (props) => {
   return (
-    <div>
+    <>
         <p>{props.codeName}</p>
-    </div>
+        <p>Times Redeemed: {props.data.numRedeemed}</p>
+        <p>Discount: {(props.data.discount)*100}%</p>
+        <button className={styles.lightBttn} onClick={() => props.deleteCode(props.codeName)}>Delete</button>
+    </>
   )
 }

@@ -117,3 +117,13 @@
     border-radius: .5rem;
     font-size: 2rem;
 }
+
+.codes {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    padding: 1rem;
+    background-color: #24252A;
+    color: white;
+    font-size: 2rem;
+}

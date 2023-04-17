@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import styles from './admin.module.css'
-import { get, ref, set } from 'firebase/database'
+import { get, ref, set, remove } from 'firebase/database'
 import { database } from '../../firebase'
 import { PRODUCTS } from '../../products'
 import { Orderbox } from '../account/orderbox'
@@ -36,6 +36,10 @@ export const Admin = () => {
                   const data = snapshot.val()
                   setCodes(data)
               }
+              else
+              {
+                setCodes({})
+              }
           })
       }
       catch (error) {
@@ -55,7 +59,16 @@ export const Admin = () => {
         setCodeNum('')
     })
     .catch((error) => console.log(error))
-}
+  }
+
+  const deleteCode = (codeName) => {
+    const codeRef = ref(database, 'codes/' + codeName.toUpperCase())
+    remove(codeRef)
+    .then(() => {
+        fetchCodes()
+    })
+    .catch((error) => console.log(error))
+  }
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -182,7 +195,7 @@ export const Admin = () => {
             </div>
             <div className={styles.codes}>
                 {Object.keys(codes).map((codeName) => {
-                    return <Codebox key={codeName} codeName={codeName} data={codes[codeName]} />
+                    return <Codebox key={codeName} deleteCode={deleteCode} codeName={codeName} data={codes[codeName]} />
                 })}
             </div>
         </div>

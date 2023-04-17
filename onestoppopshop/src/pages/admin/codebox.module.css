@@ -1,0 +1,19 @@
+.lightBttn {
+    border-style: none;
+    border-radius: 1rem;
+    font-family: "Fasthand", sans-serif;
+    color: white;
+    background-color: #FCC68F;
+    font-size: min(4vw, 2rem);
+    transition: all 0.3s ease;
+}
+
+.lightBttn:hover {
+    background-color: #329885;
+    transition: all 0.3s ease;
+}
+
+.lightBttnClcked {
+    background-color: #1b4e45;
+    color: white;
+}
