@@ -103,7 +103,10 @@ import { ref, set, remove } from "firebase/database";
       num_3_Stars: star3Rate,
       num_4_Stars: star4Rate,
       num_5_Stars: star5Rate,
-      hastags: tags
+      hastags: tags,
+      quantity: 30,
+      onsale: true,
+      salepercent: 50
   
     })
   }
@@ -1158,23 +1161,23 @@ export const PRODUCTS = [
 ]
 
 //Function to populate database with products.
-PRODUCTS.forEach(function(product){
-    writeProductData(
-        product.id,
-        product.productName,
-        product.price,
-        product.productImage,
-        product.weightAmount,
-        product.weightType,
-        product.descript,
-        product.star1Rate,
-        product.star2Rate,
-        product.star3Rate,
-        product.star4Rate,
-        product.star5Rate,
-        product.tags
+// PRODUCTS.forEach(function(product){
+//     writeProductData(
+//         product.id,
+//         product.productName,
+//         product.price,
+//         product.productImage,
+//         product.weightAmount,
+//         product.weightType,
+//         product.descript,
+//         product.star1Rate,
+//         product.star2Rate,
+//         product.star3Rate,
+//         product.star4Rate,
+//         product.star5Rate,
+//         product.tags
  
-    );
-});
+//     );
+// });
 //addQuantityField(PRODUCTS);  
 //populateFirebaseDatabase(PRODUCTS);
