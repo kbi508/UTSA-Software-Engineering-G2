@@ -18,6 +18,14 @@ export const Admin = () => {
   const [activeOnly, setActiveOnly] = useState(false)
   const { authIsAdmin } = useContext(ShopContext)
 
+  // For product splash:
+  const [desc, setDesc] = useState('')
+  const [price, setPrice] = useState('')
+  const [name, setName] = useState('')
+  const [img, setImg] = useState('')
+  const [weightUnit, setWeightUnit] = useState('')
+  const [weight, setWeight] = useState('')
+  const productVals = {desc, price, name, img, weightUnit, weight, setDesc, setPrice, setName, setImg,setWeightUnit, setWeight}
   const [showProductSplash, setShowProductSplash] = useState(false)
 
   // For new codes:
@@ -75,8 +83,28 @@ export const Admin = () => {
   }
 
   const productScreen = (productNum=null) => {
+    if (productNum) { // If this is an edit call, pass in the data:
+        setDesc(products[productNum].prod_description)
+        setPrice(products[productNum].price)
+        setName(products[productNum].name)
+        setImg(products[productNum].product_Image)
+        setWeightUnit(products[productNum].weight_Type)
+        setWeight(products[productNum].weight_Amount)
+    }
     setShowProductSplash(true)
   }
+
+  useEffect(() => {
+    if (!showProductSplash)
+    {
+        setDesc('')
+        setPrice('')
+        setName('')
+        setImg('')
+        setWeightUnit('')
+        setWeight('')
+    }
+  }, [showProductSplash])
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -229,11 +257,11 @@ export const Admin = () => {
             <div className={styles.title}>Items</div>
             <button className={styles.lightBttn} id={styles.plusBttn} onClick={() => productScreen()}>+</button>
             <div className={styles.products}>
-                {products && products.map((product, index) => {
+                {products !== {} && products.map((product, index) => {
                     return <Productbox key={index} productNum={index} data={product} productScreen={productScreen} />
                 })}
             </div>
-            {showProductSplash && <ProductSplash close={setShowProductSplash}/>}
+            {showProductSplash && <ProductSplash data={productVals} close={setShowProductSplash}/>}
         </div>
         </>)}
     </div>
