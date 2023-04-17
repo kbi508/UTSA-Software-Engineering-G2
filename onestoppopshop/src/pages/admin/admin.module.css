@@ -1,17 +1,21 @@
 .adminPage {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
     padding: 2rem;
+    height: 85vh;
+    overflow-y: auto;
 }
 
 .topTitles {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    
     width: 100%;
-    text-align: center;
-    color: white;
 }
 
 .title {
+    text-align: center;
+    color: white;
     font-family: "Fasthand", sans-serif;
     font-size: min(6vw, 4rem);
     background-color: #24252A;
@@ -41,7 +45,7 @@
     padding: 1rem;
 }
 
-.activeBttn {
+.lightBttn {
     border-style: none;
     border-radius: 1rem;
     font-family: "Fasthand", sans-serif;
@@ -52,12 +56,12 @@
     transition: all 0.3s ease;
 }
 
-.activeBttn:hover {
+.lightBttn:hover {
     background-color: #329885;
     transition: all 0.3s ease;
 }
 
-.activeBttnClcked {
+.lightBttnClcked {
     background-color: #1b4e45;
     color: white;
 }
@@ -77,4 +81,39 @@
     flex-direction: column;
     flex: 1;
     gap: 1rem;
+}
+
+.discountCodes {
+    display: flex;
+    flex-direction: column;
+}
+
+.codeHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    background-color: #24252A;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    padding: 1rem;
+}
+
+.codeInputs {
+    display: flex;
+    margin-left: auto;
+    white-space: nowrap;
+    align-items: center;
+}
+.codeInputs > button {
+    width: fit-content;
+    padding: 0 1rem 0 1rem;
+    font-size: min(2vw, 2rem);
+}
+
+.codeInputs > input {
+    height: 100%;
+    width: 100%;
+    border-radius: .5rem;
+    font-size: 2rem;
 }

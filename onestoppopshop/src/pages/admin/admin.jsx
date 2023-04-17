@@ -1,24 +1,38 @@
 import React, { useContext, useEffect, useState } from 'react'
 import styles from './admin.module.css'
-import { get, ref } from 'firebase/database'
+import { get, ref, set } from 'firebase/database'
 import { database } from '../../firebase'
 import { PRODUCTS } from '../../products'
 import { Orderbox } from '../account/orderbox'
 import { Userbox } from './userbox'
+import { Codebox } from './codebox'
 import { ShopContext } from '../../context/shop-context'
 
 export const Admin = () => {
   const [users, setUsers] = useState({})
   const [orders, setOrders] = useState([])
+  const [codes, setCodes] = useState({})
   const [selected, setSelected] = useState(null)
   const [activeOnly, setActiveOnly] = useState(false)
   const { authIsAdmin } = useContext(ShopContext)
+
+  // For new codes:
+  const [codeText, setCodeText] = useState('')
+  const [codeNum, setCodeNum] = useState(null)
 
   const selectUser = (selUid) => {
     if (selUid === selected)
         setSelected(null)
     else
         setSelected(selUid)
+  }
+
+  const addCode = () => {
+    const codeRef = ref(database, 'codes/' + codeText.toUpperCase())
+    set(codeRef, {
+        discount: (codeNum/100)
+    })
+    .catch((error) => console.log(error))
   }
 
   useEffect(() => {
@@ -74,8 +88,25 @@ export const Admin = () => {
             console.log(error)
         }
     }
+
+    const fetchCodes = async () => {
+        try {
+            const codeRef = ref(database, 'codes')
+            get(codeRef)
+            .then((snapshot) => {
+                if (snapshot.exists()) {
+                    const data = snapshot.val()
+                    setCodes(data)
+                }
+            })
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
     fetchUsers()
     fetchOrders()
+    fetchCodes()
   }, [])
 
   return (
@@ -84,6 +115,7 @@ export const Admin = () => {
         (<div>Unauthorized Account!</div>) 
         : 
         (<>
+        <div>
         <div className={styles.topTitles}>
             <div className={styles.title}>Users</div>
             <div className={styles.title}>Orders</div>
@@ -91,7 +123,7 @@ export const Admin = () => {
         <div className={styles.top}>
             <div className={styles.users}>
                 <div className={styles.activeBttnBG}>
-                    <button className={activeOnly ? (`${styles.activeBttn} ${styles.activeBttnClcked}`) : (styles.activeBttn)} onClick={() => setActiveOnly(!activeOnly)}>Active Only</button>
+                    <button className={activeOnly ? (`${styles.lightBttn} ${styles.lightBttnClcked}`) : (styles.lightBttn)} onClick={() => setActiveOnly(!activeOnly)}>Active Only</button>
                 </div>
                 {Object.keys(users).map((uid) => {
                     return <Userbox key={uid} uid={uid} data={users[uid]} selected={selected} selectUser={selectUser}/>
@@ -130,15 +162,28 @@ export const Admin = () => {
                 })}
             </div>
         </div>
+        </div>
 
+        <div className={styles.discountCodes}>
+            <div className={styles.codeHeader}>
+                <div className={styles.title}>Discount Codes</div>
+                <div className={styles.codeInputs}>
+                    <input className={styles.addCodeText} type='text' placeholder='Enter Code Text' value={codeText} onChange={(e) => setCodeText(e.target.value)} />
+                    <input className={styles.addCodeNum} type='number' min={1} max={100} placeholder='Enter Discount %' value={codeNum} onChange={(e) => setCodeNum(e.target.value)} />
+                    <button className={styles.lightBttn} onClick={() => addCode()}>Add Code</button>
+                </div>
+            </div>
+            <div className={styles.codes}>
+                {Object.keys(codes).map((codeName) => {
+                    return <Codebox key={codeName} codeName={codeName} data={codes[codeName]} />
+                })}
+            </div>
+        </div>
 
         <div className={styles.items}>
 
         </div>
 
-        <div className={styles.discountCodes}>
-
-        </div>
         </>)}
     </div>
   )
