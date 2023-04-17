@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import styles from './productSplash.module.css'
+import { Tag } from './tag'
 
 export const ProductSplash = (props) => {
-  const { desc, price, name, img, weightUnit, weight, quantity, sale, discount, setDesc, setPrice, setName, setImg, setWeightUnit, setWeight, setQuantity, setSale, setDiscount} = props.data
+  const { desc, price, name, img, weightUnit, weight, quantity, sale, discount, tags, setTags, setDesc, setPrice, setName, setImg, setWeightUnit, setWeight, setQuantity, setSale, setDiscount} = props.data
   
   return (
     <div className={styles.backdrop}>
@@ -24,6 +25,13 @@ export const ProductSplash = (props) => {
               <input className={styles.sale} type='checkbox' checked={sale} onChange={(e) => setSale(e.target.checked)} />
             </div>
             {sale && <input className={styles.discount} type='number' placeholder='Discount %' value={discount} onChange={(e) => setDiscount(e.target.value)} />}
+            <div id={styles.tagsTitle}>
+              <p>Tags</p>
+              <button className={`${styles.addTag}`}>+</button>
+            </div>
+            <div className={styles.tags}>
+              {tags.map((tag) => <Tag text={tag} />)}
+            </div>
             <button className={styles.lightBttn} id={styles.submit} onClick={() => props.add()}>Submit</button>
             <button className={desc ? (styles.lightBttn) : (`${styles.lightBttn} ${styles.disabled}`)} disabled={!desc ? true : false} id={styles.delete} onClick={() => props.delete()}>Delete</button>
             {props.error && <p>All fields are Required!</p>}

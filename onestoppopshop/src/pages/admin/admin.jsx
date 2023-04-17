@@ -28,7 +28,8 @@ export const Admin = () => {
   const [quantity, setQuantity] = useState('')
   const [sale, setSale] = useState(false)
   const [discount, setDiscount] = useState('')
-  const productVals = {desc, price, name, img, weightUnit, weight, quantity, sale, discount, setSale, setDiscount, setDesc, setPrice, setName, setImg,setWeightUnit, setWeight, setQuantity}
+  const [tags, setTags] = useState([])
+  const productVals = {desc, price, name, img, weightUnit, weight, quantity, sale, discount, tags, setTags, setSale, setDiscount, setDesc, setPrice, setName, setImg,setWeightUnit, setWeight, setQuantity}
   const [showProductSplash, setShowProductSplash] = useState(false)
   const [showSplashError, setSplashError] = useState(false)
   
@@ -129,6 +130,7 @@ export const Admin = () => {
         setQuantity(products[productNum].quantity)
         setSale(products[productNum].onsale)
         setDiscount(Number(products[productNum].salepercent * 100))
+        setTags(products[productNum].hastags)
         setCurProdNum(productNum)
     }
     setShowProductSplash(true)
@@ -184,6 +186,7 @@ export const Admin = () => {
         setQuantity('')
         setSale(false)
         setDiscount('')
+        setTags([])
         setCurProdNum(null)
         setSplashError(false)
     }
