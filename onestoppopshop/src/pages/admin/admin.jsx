@@ -13,10 +13,9 @@ export const Admin = () => {
   const [users, setUsers] = useState({})
   const [orders, setOrders] = useState([])
   const [codes, setCodes] = useState({})
-  const [products, setProducts] = useState({})
   const [selected, setSelected] = useState(null)
   const [activeOnly, setActiveOnly] = useState(false)
-  const { authIsAdmin } = useContext(ShopContext)
+  const { authIsAdmin, products, fetchProducts } = useContext(ShopContext)
 
   // For product splash:
   const [desc, setDesc] = useState('')
@@ -64,25 +63,6 @@ export const Admin = () => {
       catch (error) {
           console.log(error)
       }
-  }
-
-  const fetchProducts = async () => {
-    try {
-        const productsRef = ref(database, 'products')
-        get(productsRef)
-        .then((snapshot) => {
-            if (snapshot.exists()) {
-                const data = snapshot.val()
-                setProducts(data)
-            }
-            else {
-                setProducts([])
-            }
-        })
-    }
-    catch (error) {
-        console.log(error)
-    }
   }
 
   const addCode = () => {

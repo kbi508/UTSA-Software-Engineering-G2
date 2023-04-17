@@ -53,6 +53,8 @@ export const ShopContextProvider = (props) => {
         }
     }
 
+    
+
     const signIn = (e) => {
         e.preventDefault()
         signInWithEmailAndPassword(auth, email, password)
