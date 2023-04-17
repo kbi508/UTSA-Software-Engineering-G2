@@ -27,13 +27,34 @@ export const Admin = () => {
         setSelected(selUid)
   }
 
+  const fetchCodes = async () => {
+      try {
+          const codeRef = ref(database, 'codes')
+          get(codeRef)
+          .then((snapshot) => {
+              if (snapshot.exists()) {
+                  const data = snapshot.val()
+                  setCodes(data)
+              }
+          })
+      }
+      catch (error) {
+          console.log(error)
+      }
+  }
+
   const addCode = () => {
     const codeRef = ref(database, 'codes/' + codeText.toUpperCase())
     set(codeRef, {
         discount: (codeNum/100)
     })
+    .then(() => {
+        fetchCodes()
+        setCodeText('')
+        setCodeNum('')
+    })
     .catch((error) => console.log(error))
-  }
+}
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -89,21 +110,6 @@ export const Admin = () => {
         }
     }
 
-    const fetchCodes = async () => {
-        try {
-            const codeRef = ref(database, 'codes')
-            get(codeRef)
-            .then((snapshot) => {
-                if (snapshot.exists()) {
-                    const data = snapshot.val()
-                    setCodes(data)
-                }
-            })
-        }
-        catch (error) {
-            console.log(error)
-        }
-    }
     fetchUsers()
     fetchOrders()
     fetchCodes()
