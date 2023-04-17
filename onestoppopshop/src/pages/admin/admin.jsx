@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import styles from './admin.module.css'
-import { get, ref, set, remove } from 'firebase/database'
+import { get, ref, set, remove, update } from 'firebase/database'
 import { database } from '../../firebase'
 import { Orderbox } from '../account/orderbox'
 import { Userbox } from './userbox'
@@ -27,6 +27,9 @@ export const Admin = () => {
   const [weight, setWeight] = useState('')
   const productVals = {desc, price, name, img, weightUnit, weight, setDesc, setPrice, setName, setImg,setWeightUnit, setWeight}
   const [showProductSplash, setShowProductSplash] = useState(false)
+  const [showSplashError, setSplashError] = useState(false)
+  
+  const [curProdNum, setCurProdNum] = useState(null)
 
   // For new codes:
   const [codeText, setCodeText] = useState('')
@@ -57,6 +60,22 @@ export const Admin = () => {
       catch (error) {
           console.log(error)
       }
+  }
+
+  const fetchProducts = async () => {
+    try {
+        const productsRef = ref(database, 'products')
+        get(productsRef)
+        .then((snapshot) => {
+            if (snapshot.exists()) {
+                const data = snapshot.val()
+                setProducts(data)
+            }
+        })
+    }
+    catch (error) {
+        console.log(error)
+    }
   }
 
   const addCode = () => {
@@ -90,8 +109,37 @@ export const Admin = () => {
         setImg(products[productNum].product_Image)
         setWeightUnit(products[productNum].weight_Type)
         setWeight(products[productNum].weight_Amount)
+        setCurProdNum(productNum)
     }
     setShowProductSplash(true)
+  }
+
+  const addProduct = () => {
+    if (!name || !price || !img || !desc || !weight || !weightUnit) {
+        setSplashError(true)
+        return
+    }
+    let productRef = null
+    if (curProdNum) {
+        productRef = ref(database, 'products/' + curProdNum)
+    }
+    else {
+        productRef = ref(database, 'products/' + Number(products.length))
+    }
+    update(productRef, {
+        name: name,
+        price: price,
+        product_Image: img,
+        prod_description: desc,
+        weight_Amount: weight,
+        weight_Type: weightUnit
+    })
+    .then(() => {
+        fetchProducts()
+        setShowProductSplash(false)
+        setSplashError(false)
+    })
+    .catch((error) => console.log(error))
   }
 
   useEffect(() => {
@@ -103,6 +151,7 @@ export const Admin = () => {
         setImg('')
         setWeightUnit('')
         setWeight('')
+        setCurProdNum(null)
     }
   }, [showProductSplash])
 
@@ -160,21 +209,6 @@ export const Admin = () => {
         }
     }
 
-    const fetchProducts = async () => {
-        try {
-            const productsRef = ref(database, 'products')
-            get(productsRef)
-            .then((snapshot) => {
-                if (snapshot.exists()) {
-                    const data = snapshot.val()
-                    setProducts(data)
-                }
-            })
-        }
-        catch (error) {
-            console.log(error)
-        }
-    }
 
     fetchUsers()
     fetchOrders()
@@ -261,7 +295,7 @@ export const Admin = () => {
                     return <Productbox key={index} productNum={index} data={product} productScreen={productScreen} />
                 })}
             </div>
-            {showProductSplash && <ProductSplash data={productVals} close={setShowProductSplash}/>}
+            {showProductSplash && <ProductSplash data={productVals} error={showSplashError} add={addProduct} close={setShowProductSplash}/>}
         </div>
         </>)}
     </div>

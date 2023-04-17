@@ -18,7 +18,8 @@ export const ProductSplash = (props) => {
             <input className={styles.price} type='number' placeholder='Price' value={price} onChange={(e) => setPrice(e.target.value)} />
             <input className={styles.weightUnit} type='text' placeholder='Weight Unit (I.E. oz)' value={weightUnit} onChange={(e) => setWeightUnit(e.target.value)} />
             <input className={styles.weight} type='number' placeholder='Weight Amount' value={weight} onChange={(e) => setWeight(e.target.value)} />
-            <button className={styles.lightBttn} id={styles.submit}>Submit</button>
+            <button className={styles.lightBttn} id={styles.submit} onClick={() => props.add()}>Submit</button>
+            {props.error && <p>All fields are Required!</p>}
           </div>
         </div>
     </div>
