@@ -1,15 +1,13 @@
 import React, { useContext, useEffect, useRef } from 'react'
-import { PRODUCTS } from '../products'
 import { CartItem } from './cartItem'
 import {ShopContext} from '../context/shop-context'
 import styles from './cart.module.css'
 import { Link } from 'react-router-dom'
 
-export const Cart = (props) => {
-  const { cartItems, numCartItems, getTotalCartAmount, toggleOpen, resetCart, isOpen} = useContext(ShopContext)
+export const Cart = () => {
+  const { products, cartItems, numCartItems, getTotalCartAmount, toggleOpen, resetCart, isOpen} = useContext(ShopContext)
   const totalAmount = getTotalCartAmount().toFixed(2)
   const cart = useRef(null)
-
 
   useEffect(() => {
     if(cart.current)
@@ -28,9 +26,9 @@ export const Cart = (props) => {
         <div className={styles.xBttn} onClick={toggleOpen}>X</div>
 
         <div className={styles.cartItems}>
-            {PRODUCTS.map((product) => {
-                if (cartItems[product.id] > 0)
-                  return <CartItem key={product.id} data={product}/>
+            {products.map((product, index) => {
+                if (cartItems[index] > 0)
+                  return <CartItem key={index} prodNum={index} data={product}/>
                 return <></>
             })}
         </div>

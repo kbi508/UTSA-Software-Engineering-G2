@@ -1,21 +1,11 @@
 import React, { createContext, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { PRODUCTS } from '../products'
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut, deleteUser, reauthenticateWithCredential, EmailAuthProvider } from 'firebase/auth'
 import { auth, database } from '../firebase'
 import { ref, get, set, remove, push } from 'firebase/database'
 
 
 export const ShopContext = createContext(null)
-
-const getDefaultCart = () => {
-    let cart = {}
-    for (let i = 1; i < PRODUCTS.length + 1; i++)
-    {
-        cart[i] = 0
-    }
-    return cart
-}
 
 export const ShopContextProvider = (props) => {
     const navigator = useNavigate()
@@ -24,7 +14,7 @@ export const ShopContextProvider = (props) => {
     const deliveryTime = 7
 
     // Shop vars:
-    const [cartItems, setCartItems] = useState(getDefaultCart())
+    const [cartItems, setCartItems] = useState({})
     const [isOpen, setIsOpen] = useState(false)
     const [numCartItems, setNumCartItems] = useState(0)
 
@@ -41,6 +31,27 @@ export const ShopContextProvider = (props) => {
     const [userCity, setUserCity] = useState('')
     const [userState, setUserState] = useState('')
     const [userZip, setUserZip] = useState('')
+
+    // Product Fetching:
+    const [products, setProducts] = useState([])
+    const fetchProducts = async () => {
+        try {
+        const productsRef = ref(database, 'products')
+        get(productsRef)
+        .then((snapshot) => {
+            if (snapshot.exists()) {
+                const data = snapshot.val()
+                setProducts(data)
+            }
+            else {
+                setProducts([])
+            }
+        })
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
 
     const signIn = (e) => {
         e.preventDefault()
@@ -116,6 +127,13 @@ export const ShopContextProvider = (props) => {
                 setAuthUser(null)
         })
 
+        // Get products:
+        fetchProducts()
+        .then(() => {
+            setCartItems({})
+        })
+        .catch((error) => console.log(error))
+
         return () => listen()
     }, [])
 
@@ -149,18 +167,9 @@ export const ShopContextProvider = (props) => {
     }
     useEffect(() => {updateUserInfo()}, [authUser])
 
-
     const getTotalCartAmount = () => {
         let totalAmount = 0
-        for (const item in cartItems)
-        {
-            if (cartItems[item] > 0) 
-            {
-                let itemInfo = PRODUCTS.find((product) => product.id === Number(item))
-                totalAmount += cartItems[item] * itemInfo.price
-            }
-        }
-
+        Object.keys(cartItems).forEach((prodNum) => totalAmount += (products[prodNum].price * cartItems[prodNum]))
         return totalAmount
     }
 
@@ -207,7 +216,6 @@ export const ShopContextProvider = (props) => {
 
         const productsRef = ref(database, "products")
         // Get the number of products:
-        console.log(cartItems)
         let numProds = 0
         get(productsRef)
         .then((snapshot) => {
@@ -236,7 +244,10 @@ export const ShopContextProvider = (props) => {
     }
 
     const addToCart = (itemId) => {
-        setCartItems((prev) => ({...prev, [itemId]: prev[itemId]+1}))
+        if (cartItems[itemId]) 
+            setCartItems((prev) => ({...prev, [itemId]: Number(prev[itemId]+1)}))
+        else
+            setCartItems((prev) => ({...prev, [itemId]: Number(1)}))
         setNumCartItems(numCartItems + 1)
     }
 
@@ -255,11 +266,11 @@ export const ShopContextProvider = (props) => {
     }
 
     const resetCart = () => {
-        setCartItems(getDefaultCart())
+        setCartItems({})
         setNumCartItems(0)
     }
 
-    const contextValue = {cartItems, authIsAdmin, authUser, isOpen, numCartItems, email, password, loginError, userAddress, userCity, userCountry, userState, userZip, taxRate, processCheckout, deleteAccount, updateUserInfo, setEmail, setPassword, setCartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, resetCart, signIn, signUp, userLogOut}
+    const contextValue = {products, cartItems, authIsAdmin, authUser, isOpen, numCartItems, email, password, loginError, userAddress, userCity, userCountry, userState, userZip, taxRate, fetchProducts, processCheckout, deleteAccount, updateUserInfo, setEmail, setPassword, setCartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, resetCart, signIn, signUp, userLogOut}
 
     return (
         <ShopContext.Provider value={contextValue}>

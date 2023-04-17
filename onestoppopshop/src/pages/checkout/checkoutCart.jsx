@@ -1,12 +1,11 @@
 import React, { useContext, useState } from 'react'
-import { PRODUCTS } from '../../products'
 import { CheckoutCartItem } from './checkoutCartItem'
 import {ShopContext} from '../../context/shop-context'
 import styles from './checkoutCart.module.css'
 import { useNavigate } from 'react-router-dom'
 
 export const CheckoutCart = (props) => {
-  const { cartItems, getTotalCartAmount, numCartItems, processCheckout, taxRate, resetCart } = useContext(ShopContext)
+  const { products, cartItems, getTotalCartAmount, numCartItems, processCheckout, taxRate, resetCart } = useContext(ShopContext)
   const {country, add, city, state, zip, email, ccNum, ccDate, ccv} = props
   const totalAmount = getTotalCartAmount().toFixed(2)
   const [showConfirm, setShowConfirm] = useState(false)
@@ -58,9 +57,9 @@ export const CheckoutCart = (props) => {
   return (
     <div className={styles.checkoutCart}>
         <div className={styles.cartItems}>
-            {PRODUCTS.map((product) => {
-                if (cartItems[product.id] > 0)
-                  return <CheckoutCartItem data={product} />
+            {products.map((product, index) => {
+                if (cartItems[index] > 0)
+                  return <CheckoutCartItem key={index} prodNum={index} data={product} />
                 return <></>
             })}
         </div>
