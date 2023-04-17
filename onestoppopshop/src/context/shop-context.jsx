@@ -214,32 +214,9 @@ export const ShopContextProvider = (props) => {
         }
         order.email = email
 
-        const productsRef = ref(database, "products")
-        // Get the number of products:
-        let numProds = 0
-        get(productsRef)
-        .then((snapshot) => {
-            if (snapshot.exists()){
-                numProds = Object.keys(snapshot.val()).length
-                if (!order.items) {
-                    order.items = {}; // Make sure order.items is defined
-                }
-                for (let i = 1; i <= numProds; i++)
-                {
-                    if (cartItems[i] > 0) // If this product is in the cart...
-                    {
-                        console.log("Item " + i + " is in cart.")
-                        order.items[String(i)] = cartItems[i]
-                    }
-                }
-                console.log(order.items)
-                set(newOrderRef, order)
-            }
-        })
+        order.items = cartItems
 
-
-        // Check for and set a subscription if it exists.
-        
+        set(newOrderRef, order)        
         return newOrderRef.key
     }
 
