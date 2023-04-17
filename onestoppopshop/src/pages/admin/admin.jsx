@@ -72,6 +72,9 @@ export const Admin = () => {
                 const data = snapshot.val()
                 setProducts(data)
             }
+            else {
+                setProducts({})
+            }
         })
     }
     catch (error) {
@@ -89,6 +92,16 @@ export const Admin = () => {
         fetchCodes()
         setCodeText('')
         setCodeNum('')
+    })
+    .catch((error) => console.log(error))
+  }
+
+  const removeProduct = () => {
+    const productRef = ref(database, 'products/' + curProdNum)
+    remove(productRef)
+    .then((snapshot) => {
+        fetchProducts()
+        setShowProductSplash(false)
     })
     .catch((error) => console.log(error))
   }
@@ -188,7 +201,8 @@ export const Admin = () => {
                 }))
                 setOrders(finalOrders)
             } else {
-            return [] // Return an empty array if snapshot does not exist
+                setOrders([])
+                return [] // Return an empty array if snapshot does not exist
             }
         } catch (error) {
             console.log(error)
@@ -205,6 +219,9 @@ export const Admin = () => {
                     // Add selected to users:
                     const data = snapshot.val()
                     setUsers(data)
+                }
+                else {
+                    setUsers({})
                 }
             })
         }
@@ -299,7 +316,7 @@ export const Admin = () => {
                     return <Productbox key={index} productNum={index} data={product} productScreen={productScreen} />
                 })}
             </div>
-            {showProductSplash && <ProductSplash data={productVals} error={showSplashError} add={addProduct} close={setShowProductSplash}/>}
+            {showProductSplash && <ProductSplash data={productVals} error={showSplashError} delete={removeProduct} add={addProduct} close={setShowProductSplash}/>}
         </div>
         </>)}
     </div>

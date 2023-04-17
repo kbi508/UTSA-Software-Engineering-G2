@@ -87,3 +87,21 @@
     padding-left: 1rem;
     padding-right: 1rem;
 }
+
+#delete {
+    width: fit-content;
+    grid-column: 4/-1;
+    justify-self: end;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.disabled {
+    color: white;
+    background-color: gray;
+    transition: all 0.3s ease;
+}
+
+.disabled:hover{
+    background-color: gray;
+}

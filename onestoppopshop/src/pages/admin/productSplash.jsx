@@ -20,6 +20,7 @@ export const ProductSplash = (props) => {
             <input className={styles.weight} type='number' placeholder='Weight Amount' value={weight} onChange={(e) => setWeight(e.target.value)} />
             <input className={styles.quantity} type='number' placeholder='Quantity' value={quantity} onChange={(e) => setQuantity(e.target.value)} />
             <button className={styles.lightBttn} id={styles.submit} onClick={() => props.add()}>Submit</button>
+            <button className={desc ? (styles.lightBttn) : (`${styles.lightBttn} ${styles.disabled}`)} disabled={!desc ? true : false} id={styles.delete} onClick={() => props.delete()}>Delete</button>
             {props.error && <p>All fields are Required!</p>}
           </div>
         </div>
