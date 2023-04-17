@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styles from './productSplash.module.css'
 
 export const ProductSplash = (props) => {
-  const { desc, price, name, img, weightUnit, weight, quantity, setDesc, setPrice, setName, setImg, setWeightUnit, setWeight, setQuantity } = props.data
+  const { desc, price, name, img, weightUnit, weight, quantity, sale, discount, setDesc, setPrice, setName, setImg, setWeightUnit, setWeight, setQuantity, setSale, setDiscount} = props.data
   
   return (
     <div className={styles.backdrop}>
@@ -19,6 +19,11 @@ export const ProductSplash = (props) => {
             <input className={styles.weightUnit} type='text' placeholder='Weight Unit (I.E. oz)' value={weightUnit} onChange={(e) => setWeightUnit(e.target.value)} />
             <input className={styles.weight} type='number' placeholder='Weight Amount' value={weight} onChange={(e) => setWeight(e.target.value)} />
             <input className={styles.quantity} type='number' placeholder='Quantity' value={quantity} onChange={(e) => setQuantity(e.target.value)} />
+            <div className={styles.saleHolder}>
+              <p id={styles.saleText}>On Sale?</p>
+              <input className={styles.sale} type='checkbox' value={sale} onChange={(e) => setSale(e.target.checked)} />
+            </div>
+            {sale && <input className={styles.discount} type='number' placeholder='Discount %' value={discount} onChange={(e) => setDiscount(e.target.value)} />}
             <button className={styles.lightBttn} id={styles.submit} onClick={() => props.add()}>Submit</button>
             <button className={desc ? (styles.lightBttn) : (`${styles.lightBttn} ${styles.disabled}`)} disabled={!desc ? true : false} id={styles.delete} onClick={() => props.delete()}>Delete</button>
             {props.error && <p>All fields are Required!</p>}

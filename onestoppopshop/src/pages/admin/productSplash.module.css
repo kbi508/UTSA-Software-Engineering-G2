@@ -57,9 +57,11 @@
     height: 100%;
 }
 
-.inputs > input {
+
+/* .inputs > input {
     height: 100%;
-}
+} */
+
 
 .inputs > p {
     color: red;
@@ -72,20 +74,47 @@
 
 .desc {
     grid-column: -1/1;
+    height: 100%;
 }
 
 .name {
     grid-column: -1/1;
+    height: 100%;
 }
 
 .img {
     grid-column: -1/1;
+    height: 100%;
+}
+
+.saleHolder {
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+}
+
+.sale {
+    height: 20%;
+    width: 20%;
+    grid-column: 1/2;
+}
+
+.discount {
+    height: 50%;
+    align-self: center;
+}
+
+#saleText {
+    color: white;
+    font-family: "Fasthand", sans-serif;
+    font-size: min(4vw, 2rem);
 }
 
 #submit {
     width: fit-content;
     padding-left: 1rem;
     padding-right: 1rem;
+    grid-row: 6/7;
 }
 
 #delete {
@@ -94,6 +123,7 @@
     justify-self: end;
     padding-left: 1rem;
     padding-right: 1rem;
+    grid-row: 6/7;
 }
 
 .disabled {

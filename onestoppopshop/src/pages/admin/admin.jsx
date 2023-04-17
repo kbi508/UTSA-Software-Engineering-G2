@@ -26,7 +26,9 @@ export const Admin = () => {
   const [weightUnit, setWeightUnit] = useState('')
   const [weight, setWeight] = useState('')
   const [quantity, setQuantity] = useState('')
-  const productVals = {desc, price, name, img, weightUnit, weight, quantity, setDesc, setPrice, setName, setImg,setWeightUnit, setWeight, setQuantity}
+  const [sale, setSale] = useState(false)
+  const [discount, setDiscount] = useState('')
+  const productVals = {desc, price, name, img, weightUnit, weight, quantity, sale, discount, setSale, setDiscount, setDesc, setPrice, setName, setImg,setWeightUnit, setWeight, setQuantity}
   const [showProductSplash, setShowProductSplash] = useState(false)
   const [showSplashError, setSplashError] = useState(false)
   
