@@ -1,0 +1,20 @@
+.productbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+    background-color: #FCC68F;
+    height: fit-content;
+    border-radius: 1rem;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+.productbox:hover {
+    background-color: #329885;
+    transition: all 0.3s ease;
+}
+
+.productbox > img {
+    height: 25vh;
+}

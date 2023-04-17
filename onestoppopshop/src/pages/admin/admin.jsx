@@ -6,12 +6,14 @@ import { PRODUCTS } from '../../products'
 import { Orderbox } from '../account/orderbox'
 import { Userbox } from './userbox'
 import { Codebox } from './codebox'
+import { Productbox } from './productbox'
 import { ShopContext } from '../../context/shop-context'
 
 export const Admin = () => {
   const [users, setUsers] = useState({})
   const [orders, setOrders] = useState([])
   const [codes, setCodes] = useState({})
+  const [products, setProducts] = useState({})
   const [selected, setSelected] = useState(null)
   const [activeOnly, setActiveOnly] = useState(false)
   const { authIsAdmin } = useContext(ShopContext)
@@ -124,9 +126,26 @@ export const Admin = () => {
         }
     }
 
+    const fetchProducts = async () => {
+        try {
+            const productsRef = ref(database, 'products')
+            get(productsRef)
+            .then((snapshot) => {
+                if (snapshot.exists()) {
+                    const data = snapshot.val()
+                    setProducts(data)
+                }
+            })
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+
     fetchUsers()
     fetchOrders()
     fetchCodes()
+    fetchProducts()
   }, [])
 
   return (
@@ -201,7 +220,12 @@ export const Admin = () => {
         </div>
 
         <div className={styles.items}>
-
+            <div className={styles.title}>Items</div>
+            <div className={styles.products}>
+                {products.map((product, index) => {
+                    return <Productbox key={index} productNum={index} data={product} />
+                })}
+            </div>
         </div>
 
         </>)}

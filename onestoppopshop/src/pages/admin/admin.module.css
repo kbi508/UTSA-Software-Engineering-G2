@@ -127,3 +127,21 @@
     color: white;
     font-size: 2rem;
 }
+
+.items {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: #24252A;
+    border-radius: 2rem;
+    padding: 1rem;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    padding: 2rem;
+    background-color: #444444;
+    border-radius: 1rem;
+}
