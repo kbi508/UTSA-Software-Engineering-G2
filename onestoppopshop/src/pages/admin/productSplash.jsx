@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styles from './productSplash.module.css'
 
 export const ProductSplash = (props) => {
-  const { desc, price, name, img, weightUnit, weight, setDesc, setPrice, setName, setImg, setWeightUnit, setWeight } = props.data
+  const { desc, price, name, img, weightUnit, weight, quantity, setDesc, setPrice, setName, setImg, setWeightUnit, setWeight, setQuantity } = props.data
   
   return (
     <div className={styles.backdrop}>
@@ -18,6 +18,7 @@ export const ProductSplash = (props) => {
             <input className={styles.price} type='number' placeholder='Price' value={price} onChange={(e) => setPrice(e.target.value)} />
             <input className={styles.weightUnit} type='text' placeholder='Weight Unit (I.E. oz)' value={weightUnit} onChange={(e) => setWeightUnit(e.target.value)} />
             <input className={styles.weight} type='number' placeholder='Weight Amount' value={weight} onChange={(e) => setWeight(e.target.value)} />
+            <input className={styles.quantity} type='number' placeholder='Quantity' value={quantity} onChange={(e) => setQuantity(e.target.value)} />
             <button className={styles.lightBttn} id={styles.submit} onClick={() => props.add()}>Submit</button>
             {props.error && <p>All fields are Required!</p>}
           </div>

@@ -25,7 +25,8 @@ export const Admin = () => {
   const [img, setImg] = useState('')
   const [weightUnit, setWeightUnit] = useState('')
   const [weight, setWeight] = useState('')
-  const productVals = {desc, price, name, img, weightUnit, weight, setDesc, setPrice, setName, setImg,setWeightUnit, setWeight}
+  const [quantity, setQuantity] = useState('')
+  const productVals = {desc, price, name, img, weightUnit, weight, quantity, setDesc, setPrice, setName, setImg,setWeightUnit, setWeight, setQuantity}
   const [showProductSplash, setShowProductSplash] = useState(false)
   const [showSplashError, setSplashError] = useState(false)
   
@@ -81,7 +82,7 @@ export const Admin = () => {
   const addCode = () => {
     const codeRef = ref(database, 'codes/' + codeText.toUpperCase())
     set(codeRef, {
-        discount: (codeNum/100),
+        discount: Number(codeNum/100),
         numRedeemed: 0
     })
     .then(() => {
@@ -115,7 +116,7 @@ export const Admin = () => {
   }
 
   const addProduct = () => {
-    if (!name || !price || !img || !desc || !weight || !weightUnit) {
+    if (!name || !price || !img || !desc || !weight || !weightUnit || !quantity) {
         setSplashError(true)
         return
     }
@@ -128,11 +129,12 @@ export const Admin = () => {
     }
     update(productRef, {
         name: name,
-        price: price,
+        price: Number(price),
         product_Image: img,
         prod_description: desc,
-        weight_Amount: weight,
-        weight_Type: weightUnit
+        weight_Amount: Number(weight),
+        weight_Type: weightUnit,
+        quantity: Number(quantity)
     })
     .then(() => {
         fetchProducts()
@@ -150,6 +152,7 @@ export const Admin = () => {
         setImg('')
         setWeightUnit('')
         setWeight('')
+        setQuantity('')
         setCurProdNum(null)
         setSplashError(false)
     }

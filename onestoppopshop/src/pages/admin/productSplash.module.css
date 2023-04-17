@@ -24,7 +24,6 @@
     gap: .5rem;
     flex-direction: column;
     background-color: #24252A;
-    width: 50%;
     height: 50%;
     padding: 1rem;
     padding-top: 0;
@@ -54,7 +53,7 @@
 
 .inputs {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     height: 100%;
 }
 
@@ -68,6 +67,7 @@
     font-size: min(4vw, 2rem);
     white-space: nowrap;
     align-self: flex-end;
+    grid-column: 2/-1;
 }
 
 .desc {
