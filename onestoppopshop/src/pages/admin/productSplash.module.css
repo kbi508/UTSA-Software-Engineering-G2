@@ -69,7 +69,8 @@
     font-size: min(4vw, 2rem);
     white-space: nowrap;
     align-self: flex-end;
-    grid-column: 2/-1;
+    grid-column: 3/-1;
+    margin-left: 1rem;
 }
 
 .desc {

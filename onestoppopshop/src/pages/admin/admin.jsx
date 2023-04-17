@@ -117,6 +117,7 @@ export const Admin = () => {
     .catch((error) => console.log(error))
   }
 
+  // When a product is clicked:
   const productScreen = (productNum=null) => {
     if (productNum) { // If this is an edit call, pass in the data:
         setDesc(products[productNum].prod_description)
@@ -126,13 +127,15 @@ export const Admin = () => {
         setWeightUnit(products[productNum].weight_Type)
         setWeight(products[productNum].weight_Amount)
         setQuantity(products[productNum].quantity)
+        setSale(products[productNum].onsale)
+        setDiscount(Number(products[productNum].salepercent * 100))
         setCurProdNum(productNum)
     }
     setShowProductSplash(true)
   }
 
   const addProduct = () => {
-    if (!name || !price || !img || !desc || !weight || !weightUnit || !quantity) {
+    if (!name || !price || !img || !desc || !weight || !weightUnit || !quantity || (sale && !discount)) {
         setSplashError(true)
         return
     }
@@ -143,7 +146,7 @@ export const Admin = () => {
     else {
         productRef = ref(database, 'products/' + Number(products.length))
     }
-    update(productRef, {
+    let newProduct = {
         name: name,
         price: Number(price),
         product_Image: img,
@@ -151,7 +154,17 @@ export const Admin = () => {
         weight_Amount: Number(weight),
         weight_Type: weightUnit,
         quantity: Number(quantity)
-    })
+    }
+    if (sale)
+    {
+        newProduct.onsale = true
+        newProduct.salepercent = Number(discount/100)
+    }
+    else {
+        newProduct.onsale = false
+        newProduct.salepercent = ''
+    }
+    update(productRef, newProduct)
     .then(() => {
         fetchProducts()
         setShowProductSplash(false)
@@ -169,6 +182,8 @@ export const Admin = () => {
         setWeightUnit('')
         setWeight('')
         setQuantity('')
+        setSale(false)
+        setDiscount('')
         setCurProdNum(null)
         setSplashError(false)
     }
@@ -311,7 +326,7 @@ export const Admin = () => {
         </div>
 
         <div className={styles.items}>
-            <div className={styles.title}>Items</div>
+            <div className={styles.title}>Products</div>
             <button className={styles.lightBttn} id={styles.plusBttn} onClick={() => productScreen()}>+</button>
             <div className={styles.products}>
                 {products !== {} && products.map((product, index) => {

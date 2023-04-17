@@ -12,8 +12,8 @@ export const ProductSplash = (props) => {
             <button className={styles.lightBttn} onClick={() => props.close()}>X</button>
           </div>
           <div className={styles.inputs}>
-            <input className={styles.desc} type='text' placeholder='Description' value={desc} onChange={(e) => setDesc(e.target.value)} />
             <input className={styles.name} type='text' placeholder='Product Name' value={name} onChange={(e) => setName(e.target.value)} />
+            <input className={styles.desc} type='text' placeholder='Description' value={desc} onChange={(e) => setDesc(e.target.value)} />
             <input className={styles.img} type='text' placeholder='Image URL' value={img} onChange={(e) => setImg(e.target.value)} />
             <input className={styles.price} type='number' placeholder='Price' value={price} onChange={(e) => setPrice(e.target.value)} />
             <input className={styles.weightUnit} type='text' placeholder='Weight Unit (I.E. oz)' value={weightUnit} onChange={(e) => setWeightUnit(e.target.value)} />
@@ -21,7 +21,7 @@ export const ProductSplash = (props) => {
             <input className={styles.quantity} type='number' placeholder='Quantity' value={quantity} onChange={(e) => setQuantity(e.target.value)} />
             <div className={styles.saleHolder}>
               <p id={styles.saleText}>On Sale?</p>
-              <input className={styles.sale} type='checkbox' value={sale} onChange={(e) => setSale(e.target.checked)} />
+              <input className={styles.sale} type='checkbox' checked={sale} onChange={(e) => setSale(e.target.checked)} />
             </div>
             {sale && <input className={styles.discount} type='number' placeholder='Discount %' value={discount} onChange={(e) => setDiscount(e.target.value)} />}
             <button className={styles.lightBttn} id={styles.submit} onClick={() => props.add()}>Submit</button>
