@@ -46,7 +46,8 @@ export const Admin = () => {
   const addCode = () => {
     const codeRef = ref(database, 'codes/' + codeText.toUpperCase())
     set(codeRef, {
-        discount: (codeNum/100)
+        discount: (codeNum/100),
+        numRedeemed: 0
     })
     .then(() => {
         fetchCodes()
