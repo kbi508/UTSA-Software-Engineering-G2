@@ -2,12 +2,12 @@ import React, { useContext, useEffect, useState } from 'react'
 import styles from './admin.module.css'
 import { get, ref, set, remove } from 'firebase/database'
 import { database } from '../../firebase'
-import { PRODUCTS } from '../../products'
 import { Orderbox } from '../account/orderbox'
 import { Userbox } from './userbox'
 import { Codebox } from './codebox'
 import { Productbox } from './productbox'
 import { ShopContext } from '../../context/shop-context'
+import { ProductSplash } from './productSplash'
 
 export const Admin = () => {
   const [users, setUsers] = useState({})
@@ -17,6 +17,8 @@ export const Admin = () => {
   const [selected, setSelected] = useState(null)
   const [activeOnly, setActiveOnly] = useState(false)
   const { authIsAdmin } = useContext(ShopContext)
+
+  const [showProductSplash, setShowProductSplash] = useState(false)
 
   // For new codes:
   const [codeText, setCodeText] = useState('')
@@ -73,7 +75,7 @@ export const Admin = () => {
   }
 
   const productScreen = (productNum=null) => {
-    console.log('Starting product screen')
+    setShowProductSplash(true)
   }
 
   useEffect(() => {
@@ -227,12 +229,12 @@ export const Admin = () => {
             <div className={styles.title}>Items</div>
             <button className={styles.lightBttn} id={styles.plusBttn} onClick={() => productScreen()}>+</button>
             <div className={styles.products}>
-                {products.map((product, index) => {
+                {products && products.map((product, index) => {
                     return <Productbox key={index} productNum={index} data={product} productScreen={productScreen} />
                 })}
             </div>
+            {showProductSplash && <ProductSplash close={setShowProductSplash}/>}
         </div>
-
         </>)}
     </div>
   )

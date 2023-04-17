@@ -1,0 +1,50 @@
+.backdrop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+.productSplash {
+    display: flex;
+    gap: .5rem;
+    flex-direction: column;
+    background-color: #24252A;
+    width: 50%;
+    height: 50%;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.productSplash > input {
+    height: 10%;
+}
+
+.lightBttn {
+    border-style: none;
+    border-radius: 1rem;
+    font-family: "Fasthand", sans-serif;
+    color: white;
+    background-color: #FCC68F;
+    width: 10%;
+    font-size: min(4vw, 2rem);
+    align-self: flex-end;
+    transition: all 0.3s ease;
+}
+
+.lightBttn:hover {
+    background-color: #329885;
+    transition: all 0.3s ease;
+}
+
+#submit {
+    width: fit-content;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    align-self: flex-start;
+}
