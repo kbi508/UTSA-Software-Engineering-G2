@@ -137,7 +137,6 @@ export const Admin = () => {
     .then(() => {
         fetchProducts()
         setShowProductSplash(false)
-        setSplashError(false)
     })
     .catch((error) => console.log(error))
   }
@@ -152,6 +151,7 @@ export const Admin = () => {
         setWeightUnit('')
         setWeight('')
         setCurProdNum(null)
+        setSplashError(false)
     }
   }, [showProductSplash])
 
