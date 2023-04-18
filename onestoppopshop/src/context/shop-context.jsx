@@ -41,6 +41,7 @@ export const ShopContextProvider = (props) => {
         .then((snapshot) => {
             if (snapshot.exists()) {
                 const data = snapshot.val()
+                console.log(data)
                 setProducts(data)
             }
             else {
@@ -52,8 +53,6 @@ export const ShopContextProvider = (props) => {
             console.log(error)
         }
     }
-
-    
 
     const signIn = (e) => {
         e.preventDefault()
