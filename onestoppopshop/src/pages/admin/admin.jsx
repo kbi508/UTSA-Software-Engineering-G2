@@ -298,7 +298,7 @@ export const Admin = () => {
                     <button className={styles.ascendBttn} onClick={() => setAscending(!ascending)}>{ascending ? 'Λ' : 'V'}</button>
                     <button className={activeOnly ? (`${styles.lightBttn} ${styles.lightBttnClcked}`) : (styles.lightBttn)} onClick={() => setActiveOnly(!activeOnly)}>Active Only</button>
                 </div>
-                <div className={styles.orderHeader}><p>Order #</p><p>Total</p><p id={styles.orderDate}>Date</p></div>
+                {/* <div className={styles.orderHeader}><p>Order #</p><p>Total</p><p id={styles.orderDate}>Date</p></div> */}
                 {orders.map((order) => {
                     if (activeOnly)
                     {

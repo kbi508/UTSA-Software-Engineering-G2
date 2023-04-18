@@ -116,6 +116,8 @@
 }
 
 .orderHeader {
+    position: sticky;
+    top: 6rem;
     display: grid;
     grid-template-columns: 3fr 1fr 2fr;
     color: white;

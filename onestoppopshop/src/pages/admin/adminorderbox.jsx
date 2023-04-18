@@ -17,6 +17,8 @@ export const Adminorderbox = (props) => {
             )
         })}
         </div>
+        <p>{props.data.add} {props.data.city}, {props.data.state} {props.data.zip} {props.data.country}</p>
+        <p id={styles.delivery}>{props.data.active ? 'Est. Delivery' : 'Delivered'}: {props.data.deliveryDate}</p>
     </div>
   )
 }
