@@ -40,6 +40,7 @@
 
 .xBttn:hover {
     background-color: #329885;
+    cursor: pointer;
 }
 
 .cartItems {

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from 'react'
+import React, { useContext, useRef } from 'react'
 import { CartItem } from './cartItem'
 import {ShopContext} from '../context/shop-context'
 import styles from './cart.module.css'
@@ -9,11 +9,6 @@ export const Cart = () => {
   const totalAmount = getTotalCartAmount().toFixed(2)
   const cart = useRef(null)
 
-  useEffect(() => {
-    if(cart.current)
-      cart.current.classList.toggle(styles.active)
-  }, [isOpen])
-
   if (cart.current)
   {
     const navbar = document.getElementById('navbar')
@@ -22,7 +17,7 @@ export const Cart = () => {
   }
 
   return (
-    <div ref={cart} className={styles.cart}>
+    <div ref={cart} className={isOpen ? (`${styles.cart} ${styles.active}`) : (styles.cart)}>
         <div className={styles.xBttn} onClick={toggleOpen}>X</div>
 
         <div className={styles.cartItems}>
