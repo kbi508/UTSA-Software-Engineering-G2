@@ -67,6 +67,10 @@
     color: white;
 }
 
+#selectedUser {
+    font-size: min(3vw, 2rem);
+}
+
 .orders {
     overflow-y: auto;
     display: flex;
@@ -109,6 +113,19 @@
 .ascendBttn:hover {
     background-color: #329885;
     transition: all 0.3s ease;
+}
+
+.orderHeader {
+    display: grid;
+    grid-template-columns: 3fr 1fr 2fr;
+    color: white;
+    font-size: min(5vw, 1.2rem);
+    background-color: #24252A;
+    padding: .3rem;
+}
+
+#orderDate {
+    justify-self: right;
 }
 
 .discountCodes {

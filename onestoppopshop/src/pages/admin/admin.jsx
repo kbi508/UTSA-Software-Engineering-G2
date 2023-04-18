@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import styles from './admin.module.css'
 import { get, ref, set, remove, update } from 'firebase/database'
 import { database } from '../../firebase'
-import { Orderbox } from '../account/orderbox'
+import { Adminorderbox } from './adminorderbox'
 import { Userbox } from './userbox'
 import { Codebox } from './codebox'
 import { Productbox } from './productbox'
@@ -42,11 +42,11 @@ export const Admin = () => {
   const [codeText, setCodeText] = useState('')
   const [codeNum, setCodeNum] = useState(null)
 
-  const selectUser = (selUid) => {
-    if (selUid === selected)
+  const selectUser = (selEmail) => {
+    if (selEmail === selected)
         setSelected(null)
     else
-        setSelected(selUid)
+        setSelected(selEmail)
   }
 
   const fetchOrders = async () => {
@@ -278,7 +278,7 @@ export const Admin = () => {
         <div>
         <div className={styles.topTitles}>
             <div className={styles.title}>Users</div>
-            <div className={styles.title}>Orders</div>
+            <div className={styles.title}>Orders {selected && <span id={styles.selectedUser}>({selected})</span>}</div>
         </div>
         <div className={styles.top}>
             <div className={styles.users}>
@@ -298,6 +298,7 @@ export const Admin = () => {
                     <button className={styles.ascendBttn} onClick={() => setAscending(!ascending)}>{ascending ? 'Λ' : 'V'}</button>
                     <button className={activeOnly ? (`${styles.lightBttn} ${styles.lightBttnClcked}`) : (styles.lightBttn)} onClick={() => setActiveOnly(!activeOnly)}>Active Only</button>
                 </div>
+                <div className={styles.orderHeader}><p>Order #</p><p>Total</p><p id={styles.orderDate}>Date</p></div>
                 {orders.map((order) => {
                     if (activeOnly)
                     {
@@ -305,12 +306,12 @@ export const Admin = () => {
                         {
                             if (selected !== null) {
                                 if (order.email === selected)
-                                    return <Orderbox key={order.key} data={order} />
+                                    return <Adminorderbox key={order.key} data={order} />
                                 else 
                                     return <></>
                             }
                             else
-                                return <Orderbox key={order.key} data={order} />
+                                return <Adminorderbox key={order.key} data={order} />
                         }
                         else
                             return <></>
@@ -319,12 +320,12 @@ export const Admin = () => {
                     {
                         if (selected !== null) {
                             if (order.email === selected)
-                                return <Orderbox key={order.key} data={order} />
+                                return <Adminorderbox key={order.key} data={order} />
                             else 
                                 return <></>
                         }
                         else
-                            return <Orderbox key={order.key} data={order} />
+                            return <Adminorderbox key={order.key} data={order} />
                     }
                 })}
             </div>
