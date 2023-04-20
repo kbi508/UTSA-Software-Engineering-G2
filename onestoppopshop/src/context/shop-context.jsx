@@ -41,6 +41,9 @@ export const ShopContextProvider = (props) => {
         .then((snapshot) => {
             if (snapshot.exists()) {
                 const data = snapshot.val()
+                Object.keys(data).forEach((prodNum) => {
+                    data[prodNum].prodNum = Number(prodNum)
+                })
                 setProducts(data)
             }
             else {
