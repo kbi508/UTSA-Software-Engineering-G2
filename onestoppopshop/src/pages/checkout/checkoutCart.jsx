@@ -21,7 +21,7 @@ export const CheckoutCart = (props) => {
       else 
         return 0
     }))
-  })
+  }, [])
 
   const checkoutWrapper = (country, add, city, state, zip, email) => {
     let canCheckout = true
