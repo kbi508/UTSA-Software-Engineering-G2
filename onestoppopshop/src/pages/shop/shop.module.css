@@ -55,9 +55,15 @@
     transition: all 0.3s ease;
 }
 
+.noAscending {
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    transition: all 0.3s ease;
+}
+
 .ascendBttn {
     outline: none;
-    color: gray;
+    color: black;
     background-color: white;
     border-radius: 1rem;
     border-top-left-radius: 0;
