@@ -1,3 +1,10 @@
+.loading {
+    font-family: "Fasthand", sans-serif;
+    font-size: 2rem;
+    color: gray;
+    margin-top: 10%;
+    margin-left: 47%;
+}
 
 .shop {
     display: flex;
@@ -6,6 +13,8 @@
 .searchsort {
     position: fixed;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-around;
     top: 15vh;
     left: 0;
@@ -13,19 +22,49 @@
 }
 
 .search {
+    margin-left: 10%;
     margin-top: 1rem;
     border-radius: 1rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
     border-width: 1px;
     height: 2rem;
     width: 20rem;
     text-indent: 5%;
+    transition: all 0.3s ease;
 }
 
 .search:focus,
-.search:hover {
+.search:hover,
+.sort:hover,
+.ascendBttn:hover {
   outline: none;
   border-color: #FCC68F;
   box-shadow: 0 0 10px 0.2rem #FCC68F;
+  transition: all 0.3s ease;
+}
+
+.sort {
+    outline: none;
+    margin-right: 1rem;
+    height: 2rem;
+    border-radius: 0;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.ascendBttn {
+    color: gray;
+    background-color: white;
+    border-radius: 1rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-color: gray;
+    border-width: 1px;
+    height: 2rem;
+    padding: .5rem;
+    margin-left: -1rem;
+    transition: all 0.3s ease;
 }
 
 .shopContent {
