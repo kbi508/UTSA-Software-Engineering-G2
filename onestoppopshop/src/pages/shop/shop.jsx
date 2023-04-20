@@ -6,7 +6,7 @@ import { ShopContext } from '../../context/shop-context'
 
 
 export const Shop = () => {
-  const { products, fetchProducts } = useContext(ShopContext)
+  const { products, fetchProducts, setProducts } = useContext(ShopContext)
   const [searchString, setSearchString] = useState('')
   const [filteredProducts, setFilteredProducts] = useState([])
   const [productSort, setProductSort] = useState(null)
@@ -28,8 +28,7 @@ export const Shop = () => {
     if (searchString) {
       setFilteredProducts(filteredProducts.filter((product) => (product) && (product.prod_description.toUpperCase().search(searchString.toUpperCase()) !== -1 ||
         product.name.toUpperCase().search(searchString.toUpperCase()) !== -1  ||
-        product.hastags.some((tag) => (tag.toUpperCase().search(searchString.toUpperCase()) !== -1)))
-      ))
+        product.hastags.some((tag) => (tag.toUpperCase().search(searchString.toUpperCase()) !== -1)))))
       setEmptyMessage(true)
     }
     else {
@@ -39,15 +38,36 @@ export const Shop = () => {
   }, [searchString])
 
 
+  // const sortProducts = () => {
+  //   if (productSort === 'price') {
+  //     if (ascending) 
+  //       setFilteredProducts([...filteredProducts].sort((a, b) => a.price - b.price))
+  //     else
+  //       setFilteredProducts([...filteredProducts].sort((a, b) => b.price - a.price))
+  //   }
+  //   else if (productSort === 'quantity') {
+  //     setFilteredProducts([...filteredProducts].sort((a, b) => {
+  //         if (ascending)
+  //           return a.quantity - b.quantity
+  //         else
+  //           return b.quantity - a.quantity
+  //       }))
+  //   }
+  //   else {
+  //     setFilteredProducts([...products])
+  //     setSearchString('')
+  //   }
+  // }
+
   const sortProducts = () => {
     if (productSort === 'price') {
       if (ascending) 
-        setFilteredProducts([...filteredProducts].sort((a, b) => a.price - b.price))
+        setProducts([...products].sort((a, b) => a.price - b.price))
       else
-        setFilteredProducts([...filteredProducts].sort((a, b) => b.price - a.price))
+        setProducts([...products].sort((a, b) => b.price - a.price))
     }
     else if (productSort === 'quantity') {
-      setFilteredProducts([...filteredProducts].sort((a, b) => {
+      setProducts([...products].sort((a, b) => {
           if (ascending)
             return a.quantity - b.quantity
           else
@@ -55,8 +75,8 @@ export const Shop = () => {
         }))
     }
     else {
-      setFilteredProducts([...products])
-      setSearchString('')
+      fetchProducts()
+      // setSearchString('')
     }
   }
 
@@ -84,9 +104,23 @@ export const Shop = () => {
       : 
         (<>
         <div className={styles.products}>
-          {filteredProducts.map((product, index) => {
+          {products.map((product, index) => {
             if (product)
-              return (<Product key={index} prodNum={index} data={product}/>)
+            {
+              if (searchString) {
+                if ((product.prod_description.toUpperCase().search(searchString.toUpperCase()) !== -1 ||
+                                      product.name.toUpperCase().search(searchString.toUpperCase()) !== -1  ||
+                                      product.hastags.some((tag) => (tag.toUpperCase().search(searchString.toUpperCase()) !== -1)))) {
+                  return (<Product key={index} prodNum={index} data={product}/>)
+                }
+                else 
+                  return <></>
+              }
+              else
+                return (<Product key={index} prodNum={index} data={product}/>)
+            }
+            else 
+              return <></>
           })}
         </div>
         </>)
