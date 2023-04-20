@@ -9,16 +9,18 @@ export const Cart = () => {
   const totalAmount = getTotalCartAmount().toFixed(2)
   const cart = useRef(null)
 
-  // Makes a deep copy of products and then sort it by product number.
-  const [unsortedProducts, setUnsortedProducts] = useState([...products])  
+  const [unsortedProducts, setUnsortedProducts] = useState([])
+
   useEffect(() => {
-    setUnsortedProducts(JSON.parse(JSON.stringify(products)).sort((a, b) => {
+    setUnsortedProducts([...products].sort((a, b) => {
+
       if (a && b)
         return a.prodNum < b.prodNum
       else 
-        return 0
+        return true
     }))
-  }, [])
+    console.log(unsortedProducts)
+  }, [cartItems])
 
   if (cart.current)
   {
@@ -32,7 +34,7 @@ export const Cart = () => {
         <div className={styles.xBttn} onClick={toggleOpen}>X</div>
 
         <div className={styles.cartItems}>
-            {unsortedProducts.map((product) => {
+            {unsortedProducts && unsortedProducts.map((product) => {
                 if (product && cartItems[product.prodNum] > 0)
                   return <CartItem key={product.prodNum} prodNum={product.prodNum} data={product}/>
                 return <></>
