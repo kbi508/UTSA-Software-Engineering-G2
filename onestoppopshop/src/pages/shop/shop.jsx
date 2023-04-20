@@ -11,7 +11,7 @@ export const Shop = () => {
   const [filteredProducts, setFilteredProducts] = useState([])
   const [productSort, setProductSort] = useState(null)
   const [ascending, setAscending] = useState(false)
-  const [emptyMessage, setEmptyMessage] = useState(false)
+  const [emptyMessage, setEmptyMessage] = useState(false) // Display no content found message?
 
 
   useEffect(() => {
@@ -39,24 +39,29 @@ export const Shop = () => {
   }, [searchString])
 
   useEffect(() => {
-    // if (productSort === 'price') {
-    //   let sortedProducts = null
-    //   if (ascending) 
-    //       sortedProducts = [...filteredProducts].sort((a, b) => a.price - b.price)
-    //   else
-    //       sortedProducts = [...filteredProducts].sort((a, b) => b.price - a.price)
-
-    //   setFilteredProducts(sortedProducts)
-    // }
+    if (productSort === 'price') {
+      if (ascending) 
+        setFilteredProducts(filteredProducts.sort((a, b) => a.price - b.price))
+      else
+        setFilteredProducts(filteredProducts.sort((a, b) => b.price - a.price))
+    }
+    else if (productSort === 'quantity') {
+      setFilteredProducts(filteredProducts.sort((a, b) => {
+          if (ascending)
+            return a.quantity - b.quantity
+          else
+            return b.quantity - a.quantity
+        }))
+    }
     // else if (productSort === 'quantity') {
-    //     const sortedProducts = [...filteredProducts].sort((a, b) => {
-    //       if (ascending)
-    //         return a.quantity - b.quantity
-    //       else
-    //         return b.quantity - a.quantity
-    //     })
-    //     console.log(sortedProducts)
-    //     setFilteredProducts(sortedProducts)
+    //   const sortedProducts = [...filteredProducts].sort((a, b) => {
+    //     if (ascending)
+    //       return a.quantity - b.quantity
+    //     else
+    //       return b.quantity - a.quantity
+    //   })
+    //   console.log(sortedProducts)
+    //   setFilteredProducts(sortedProducts)
     // }
   }, [productSort, ascending])
 
@@ -71,7 +76,7 @@ export const Shop = () => {
               <option value={'quantity'}>Availability</option>
               <option value={'price'}>Price</option>
           </select>
-          <button className={styles.ascendBttn} onClick={() => setAscending(!ascending)}>{ascending ? 'Low...High' : 'High...Low'}</button>
+          <button className={styles.ascendBttn} onClick={() => setAscending(!ascending)}>{ascending ? 'High...Low' : 'Low...High'}</button>
         </div>
       </div>
       <div className={styles.shopContent}>
