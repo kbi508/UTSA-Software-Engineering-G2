@@ -3,6 +3,7 @@ import { Product } from './product'
 import { Cart } from '../../components/cart'
 import styles from './shop.module.css'
 import { ShopContext } from '../../context/shop-context'
+import { shopProductSplash } from './shopProductSplash'
 
 
 export const Shop = () => {
