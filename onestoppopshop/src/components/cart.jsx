@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react'
+import React, { useContext, useRef, useEffect, useState } from 'react'
 import { CartItem } from './cartItem'
 import {ShopContext} from '../context/shop-context'
 import styles from './cart.module.css'
@@ -8,6 +8,17 @@ export const Cart = () => {
   const { products, cartItems, numCartItems, getTotalCartAmount, toggleOpen, resetCart, isOpen} = useContext(ShopContext)
   const totalAmount = getTotalCartAmount().toFixed(2)
   const cart = useRef(null)
+
+  // Makes a deep copy of products and then sort it by product number.
+  const [unsortedProducts, setUnsortedProducts] = useState([...products])  
+  useEffect(() => {
+    setUnsortedProducts(JSON.parse(JSON.stringify(products)).sort((a, b) => {
+      if (a && b)
+        return a.prodNum < b.prodNum
+      else 
+        return 0
+    }))
+  }, [])
 
   if (cart.current)
   {
@@ -21,7 +32,7 @@ export const Cart = () => {
         <div className={styles.xBttn} onClick={toggleOpen}>X</div>
 
         <div className={styles.cartItems}>
-            {products.map((product) => {
+            {unsortedProducts.map((product) => {
                 if (product && cartItems[product.prodNum] > 0)
                   return <CartItem key={product.prodNum} prodNum={product.prodNum} data={product}/>
                 return <></>
