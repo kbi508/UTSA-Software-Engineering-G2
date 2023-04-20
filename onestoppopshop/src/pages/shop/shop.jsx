@@ -11,6 +11,7 @@ export const Shop = () => {
   const [filteredProducts, setFilteredProducts] = useState([])
   const [productSort, setProductSort] = useState(null)
   const [ascending, setAscending] = useState(false)
+  const [emptyMessage, setEmptyMessage] = useState(false)
 
 
   useEffect(() => {
@@ -23,36 +24,40 @@ export const Shop = () => {
 
   // When the search string is updated:
   useEffect(() => {
-    if (searchString)
+    if (searchString) {
       setFilteredProducts(products.filter((product) => 
         product.prod_description.toUpperCase().search(searchString.toUpperCase()) !== -1 ||
         product.name.toUpperCase().search(searchString.toUpperCase()) !== -1  ||
         product.hastags.some((tag) => (tag.toUpperCase().search(searchString.toUpperCase()) !== -1))
       ))
-    else
+      setEmptyMessage(true)
+    }
+    else {
+      setEmptyMessage(false)
       setFilteredProducts(products) // If the string was removed, show all products now.
+    }
   }, [searchString])
 
   useEffect(() => {
-    if (productSort === 'price') {
-      let sortedProducts = null
-      if (ascending) 
-          sortedProducts = [...filteredProducts].sort((a, b) => a.price - b.price)
-      else
-          sortedProducts = [...filteredProducts].sort((a, b) => b.price - a.price)
+    // if (productSort === 'price') {
+    //   let sortedProducts = null
+    //   if (ascending) 
+    //       sortedProducts = [...filteredProducts].sort((a, b) => a.price - b.price)
+    //   else
+    //       sortedProducts = [...filteredProducts].sort((a, b) => b.price - a.price)
 
-      setFilteredProducts(sortedProducts)
-    }
-    else if (productSort === 'quantity') {
-        const sortedProducts = [...filteredProducts].sort((a, b) => {
-          if (ascending)
-            return a.quantity - b.quantity
-          else
-            return b.quantity - a.quantity
-        })
-        console.log(sortedProducts)
-        setFilteredProducts(sortedProducts)
-    }
+    //   setFilteredProducts(sortedProducts)
+    // }
+    // else if (productSort === 'quantity') {
+    //     const sortedProducts = [...filteredProducts].sort((a, b) => {
+    //       if (ascending)
+    //         return a.quantity - b.quantity
+    //       else
+    //         return b.quantity - a.quantity
+    //     })
+    //     console.log(sortedProducts)
+    //     setFilteredProducts(sortedProducts)
+    // }
   }, [productSort, ascending])
 
 
@@ -70,10 +75,14 @@ export const Shop = () => {
         </div>
       </div>
       <div className={styles.shopContent}>
-      {filteredProducts.length === 0 ? (<p className={styles.loading}>Loading...</p>) : 
-        (<><div className={styles.products}>
+      {filteredProducts.length === 0 ? 
+        (<div className={styles.loading}>{!emptyMessage ? ('Loading...') : ('No Items Found')}</div>) 
+      : 
+        (<>
+        <div className={styles.products}>
           {filteredProducts.map((product, index) => (<Product key={index} prodNum={index} data={product}/>))}
-        </div></>)
+        </div>
+        </>)
       }
       </div>
       <Cart />

@@ -1,9 +1,11 @@
 .loading {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
     font-family: "Fasthand", sans-serif;
     font-size: 2rem;
     color: gray;
     margin-top: 10%;
-    margin-left: 47%;
 }
 
 .shop {
