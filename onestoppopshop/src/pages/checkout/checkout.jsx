@@ -8,7 +8,7 @@ export const Checkout = () => {
   const [usingAcc, setUsingAcc] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
 
-  const { authUser, userAddress, userCity, userCountry, userState, userZip } = useContext(ShopContext)
+  const { authUser, userAddress, userCity, userCountry, userState, userZip, fetchProducts } = useContext(ShopContext)
 
   const loginRef = useRef(null)
 
@@ -24,6 +24,8 @@ export const Checkout = () => {
   const [ccNum, setCCNum] = useState('')
   const [ccDate, setCCDate] = useState('')
   const [ccv, setCCV] = useState('')
+
+  useEffect(() => {fetchProducts()}, [])
   
   useEffect(() => {
     const handleClickOutside = (e) =>
