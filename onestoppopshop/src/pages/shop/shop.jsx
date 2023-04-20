@@ -38,27 +38,6 @@ export const Shop = () => {
   }, [searchString])
 
 
-  // const sortProducts = () => {
-  //   if (productSort === 'price') {
-  //     if (ascending) 
-  //       setFilteredProducts([...filteredProducts].sort((a, b) => a.price - b.price))
-  //     else
-  //       setFilteredProducts([...filteredProducts].sort((a, b) => b.price - a.price))
-  //   }
-  //   else if (productSort === 'quantity') {
-  //     setFilteredProducts([...filteredProducts].sort((a, b) => {
-  //         if (ascending)
-  //           return a.quantity - b.quantity
-  //         else
-  //           return b.quantity - a.quantity
-  //       }))
-  //   }
-  //   else {
-  //     setFilteredProducts([...products])
-  //     setSearchString('')
-  //   }
-  // }
-
   const sortProducts = () => {
     if (productSort === 'price') {
       if (ascending) 

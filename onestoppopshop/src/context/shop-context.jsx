@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut, deleteUser, reauthenticateWithCredential, EmailAuthProvider } from 'firebase/auth'
 import { auth, database } from '../firebase'
 import { ref, get, set, remove, push } from 'firebase/database'
@@ -9,6 +9,7 @@ export const ShopContext = createContext(null)
 
 export const ShopContextProvider = (props) => {
     const navigator = useNavigate()
+    const location = useLocation()
 
     const taxRate = 0.0825
     const deliveryTime = 7
@@ -241,6 +242,14 @@ export const ShopContextProvider = (props) => {
         setCartItems((prev) => ({...prev, [itemId]: prev[itemId]-1}))
         setNumCartItems(numCartItems - 1)
     }
+    
+    useEffect(() => {
+        if (numCartItems === 0 && location.pathname === "/checkout") // If they empty their cart at checkout, boot them back to the store.
+        {
+            toggleOpen()
+            navigator('/')
+        }
+    }, [numCartItems])
 
     const updateCartItemCount = (newAmount, itemId) => {
         setCartItems((prev) => ({...prev, [itemId]: newAmount}))
