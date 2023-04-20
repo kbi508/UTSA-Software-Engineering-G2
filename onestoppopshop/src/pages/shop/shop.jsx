@@ -14,13 +14,13 @@ export const Shop = () => {
   }, [])
 
   const searchProducts = (e) => {
-
+    setSearchString(e.target.value)
   }
 
   return (
     <div className={styles.shop}>
       <div className={styles.searchsort}>
-        <input type='text' placeholder='Search' value={searchString} onChange={(e) => searchProducts(e.target.value)} />
+        <input className={styles.search} type='text' placeholder='Search' value={searchString} onChange={(e) => searchProducts(e)} />
       </div>
       <div className={styles.shopContent}>
         <div className={styles.products}>
