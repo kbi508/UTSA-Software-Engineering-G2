@@ -99,6 +99,7 @@ export const Checkout = () => {
           <input className={styles.zip} type={'number'} placeholder='Zip' value={zip} onChange={(e) => setZip(e.target.value)} />
       </div>
       <div className={styles.separator} />
+      <div className={styles.separator} />
       <div className={styles.ccInputs}>
         <p>Payment</p>
         <input className={styles.ccNum} type={'number'} placeholder='Card Number' value={ccNum} onChange={(e) => setCCNum(e.target.value)} />
