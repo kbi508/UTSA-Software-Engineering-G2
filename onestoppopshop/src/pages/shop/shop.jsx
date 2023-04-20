@@ -68,12 +68,12 @@ export const Shop = () => {
       <div className={styles.searchsort}>
         <div style={{whiteSpace: 'nowrap', display: 'flex', alignItems: 'baseline'}}>
           <input className={styles.search} type='text' placeholder='Search' value={searchString} onChange={(e) => setSearchString(e.target.value)} />
-          <select id='sort' className={productSort !== 'Sort by' ? styles.sort : `${styles.sort} ${styles.noAscending}`} onChange={(e) => setProductSort(e.target.value)}>
+          <select id='sort' className={(productSort === 'price' || productSort === 'quantity') ? styles.sort : `${styles.sort} ${styles.noAscending}`} onChange={(e) => setProductSort(e.target.value)}>
               <option value={null}>Sort by</option>
               <option value={'quantity'}>Availability</option>
               <option value={'price'}>Price</option>
           </select>
-          {productSort !== 'Sort by' &&
+          {(productSort === 'price' || productSort === 'quantity') &&
           <button className={styles.ascendBttn} onClick={() => setAscending(!ascending)}>{ascending ? 'Low...High' : 'High...Low'}</button>
           }
           </div>
