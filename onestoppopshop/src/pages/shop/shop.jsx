@@ -104,20 +104,20 @@ export const Shop = () => {
       : 
         (<>
         <div className={styles.products}>
-          {products.map((product, index) => {
+          {products.map((product) => {
             if (product)
             {
               if (searchString) {
                 if ((product.prod_description.toUpperCase().search(searchString.toUpperCase()) !== -1 ||
                                       product.name.toUpperCase().search(searchString.toUpperCase()) !== -1  ||
                                       product.hastags.some((tag) => (tag.toUpperCase().search(searchString.toUpperCase()) !== -1)))) {
-                  return (<Product key={index} prodNum={index} data={product}/>)
+                  return (<Product key={product.prodNum} prodNum={product.prodNum} data={product}/>)
                 }
                 else 
                   return <></>
               }
               else
-                return (<Product key={index} prodNum={index} data={product}/>)
+                return (<Product key={product.prodNum} prodNum={product.prodNum} data={product}/>)
             }
             else 
               return <></>

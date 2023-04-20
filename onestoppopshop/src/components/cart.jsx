@@ -21,9 +21,9 @@ export const Cart = () => {
         <div className={styles.xBttn} onClick={toggleOpen}>X</div>
 
         <div className={styles.cartItems}>
-            {products.map((product, index) => {
-                if (cartItems[index] > 0)
-                  return <CartItem key={index} prodNum={index} data={product}/>
+            {products.map((product) => {
+                if (product && cartItems[product.prodNum] > 0)
+                  return <CartItem key={product.prodNum} prodNum={product.prodNum} data={product}/>
                 return <></>
             })}
         </div>

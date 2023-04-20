@@ -172,7 +172,13 @@ export const ShopContextProvider = (props) => {
 
     const getTotalCartAmount = () => {
         let totalAmount = 0
-        Object.keys(cartItems).forEach((prodNum) => totalAmount += (products[prodNum].price * cartItems[prodNum]))
+        // Need to find proper item since products order is not guaranteed.
+        Object.keys(cartItems).forEach((prodNum) => { 
+            products.forEach((product) => {
+                if (product && product.prodNum === Number(prodNum))
+                    totalAmount += (product.price * cartItems[prodNum])
+            })
+        })
         return totalAmount
     }
 
