@@ -15,62 +15,52 @@ export const Shop = () => {
 
 
   useEffect(() => {
-    console.log('Initial useEffect was called at ' + new Date().getTime())
     fetchProducts()
   }, [])
-
+  
   useEffect(() => {
-    console.log('products useEffect was called at ' + new Date().getTime())
-    setFilteredProducts(products)
+    // console.log(JSON.parse(JSON.stringify(products)))
+    setFilteredProducts([...products])
   }, [products])
 
   // When the search string is updated:
   useEffect(() => {
-    console.log('SearchString useEffect was called at ' + new Date().getTime())
     if (searchString) {
-      setFilteredProducts(products.filter((product) => 
-        product.prod_description.toUpperCase().search(searchString.toUpperCase()) !== -1 ||
+      setFilteredProducts(filteredProducts.filter((product) => (product) && (product.prod_description.toUpperCase().search(searchString.toUpperCase()) !== -1 ||
         product.name.toUpperCase().search(searchString.toUpperCase()) !== -1  ||
-        product.hastags.some((tag) => (tag.toUpperCase().search(searchString.toUpperCase()) !== -1))
+        product.hastags.some((tag) => (tag.toUpperCase().search(searchString.toUpperCase()) !== -1)))
       ))
       setEmptyMessage(true)
     }
     else {
       setEmptyMessage(false)
-      setFilteredProducts(products) // If the string was removed, show all products now.
+      setFilteredProducts([...products]) // If the string was removed, show all products now.
     }
   }, [searchString])
 
 
   const sortProducts = () => {
-    console.log('Sort was ' + productSort + ' was selected...')
-    console.log('Ascending is ' + ascending)
-    console.log('Filtered products:')
-    console.log(filteredProducts)
-    console.log('Products:')
-    console.log(products)
-
     if (productSort === 'price') {
       if (ascending) 
-        filteredProducts.sort((a, b) => a.price - b.price)
+        setFilteredProducts([...filteredProducts].sort((a, b) => a.price - b.price))
       else
-        filteredProducts.sort((a, b) => b.price - a.price)
+        setFilteredProducts([...filteredProducts].sort((a, b) => b.price - a.price))
     }
     else if (productSort === 'quantity') {
-      filteredProducts.sort((a, b) => {
+      setFilteredProducts([...filteredProducts].sort((a, b) => {
           if (ascending)
             return a.quantity - b.quantity
           else
             return b.quantity - a.quantity
-        })
+        }))
     }
     else {
-      setFilteredProducts(products)
+      setFilteredProducts([...products])
+      setSearchString('')
     }
   }
 
   useEffect(() => {
-    console.log('Sort useEffect was called at ' + new Date().getTime())
     sortProducts()
   }, [productSort, ascending])
 
@@ -94,7 +84,10 @@ export const Shop = () => {
       : 
         (<>
         <div className={styles.products}>
-          {filteredProducts.map((product, index) => (<Product key={index} prodNum={index} data={product}/>))}
+          {filteredProducts.map((product, index) => {
+            if (product)
+              return (<Product key={index} prodNum={index} data={product}/>)
+          })}
         </div>
         </>)
       }
