@@ -48,14 +48,15 @@
 
 .sort {
     outline: none;
-    margin-right: 1rem;
     height: 2rem;
     border-radius: 0;
+    border-width: 1px;
     background-color: white;
     transition: all 0.3s ease;
 }
 
 .ascendBttn {
+    outline: none;
     color: gray;
     background-color: white;
     border-radius: 1rem;
@@ -64,8 +65,6 @@
     border-color: gray;
     border-width: 1px;
     height: 2rem;
-    padding: .5rem;
-    margin-left: -1rem;
     transition: all 0.3s ease;
 }
 
