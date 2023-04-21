@@ -104,6 +104,7 @@ export const ShopContextProvider = (props) => {
         })
         console.log('Code is ' + validCode)
         setCodeGood(validCode)
+        return validCode
     }
 
     // Start up:

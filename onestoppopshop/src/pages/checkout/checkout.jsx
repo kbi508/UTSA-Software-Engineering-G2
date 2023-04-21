@@ -8,7 +8,7 @@ export const Checkout = () => {
   const [usingAcc, setUsingAcc] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
 
-  const { code, setCode, codeGood, setCodeGood, checkCode, authUser, userAddress, userCity, userCountry, userState, userZip, fetchProducts } = useContext(ShopContext)
+  const { code, codes, setCode, codeGood, setCodeGood, checkCode, authUser, userAddress, userCity, userCountry, userState, userZip, fetchProducts, fetchCodes } = useContext(ShopContext)
 
   const loginRef = useRef(null)
   const discountRef = useRef(null)
@@ -21,8 +21,8 @@ export const Checkout = () => {
   const [zip, setZip] = useState('')
   const [email, setEmail] = useState('')
 
-  // Code style?
-  const [discountStyle, setDiscountStyle] = useState('')
+  // Discount Code Message?
+  const [codeMessage, setCodeMessage] = useState('')
 
   // Save CC info:
   const [ccNum, setCCNum] = useState('')
@@ -31,6 +31,7 @@ export const Checkout = () => {
 
   useEffect(() => {
     fetchProducts()
+    fetchCodes()
     setCode('')
   }, [])
   
@@ -60,32 +61,44 @@ export const Checkout = () => {
       discountRef.current.classList.remove(styles.good)
       discountRef.current.classList.remove(styles.bad)
       setCodeGood(null)
+      console.log('Clearing message...')
+      setCodeMessage('')
     }
     else {
-      if (authUser)
-          checkCode()
-        else
-          checkCode(email)
+      if (authUser) {
+        checkCode()
+      }
+      else if (email){
+        checkCode(email)
+      }
+      else
+        setCodeMessage('Enter in your email first')
     }
-  }, [code])
+  }, [code, email])
 
   useEffect(() => {
     if (discountRef.current && code) {
-      console.log('CodeGood changed, may need to add styles...')
       if (codeGood === null)
         return
-      if (codeGood) {
-        console.log('Code is good! Commence Green!')
-        discountRef.current.classList.remove(styles.bad)
-        discountRef.current.classList.add(styles.good)
-      }
-      else {
-        console.log('Code is bad! Commence red!')
-        discountRef.current.classList.add(styles.bad)
-        discountRef.current.classList.remove(styles.good)
+      if (email) {
+        if (codeGood) {
+          console.log('Code is good! Commence Green!')
+          setCodeMessage('Valid Code!')
+          discountRef.current.classList.remove(styles.bad)
+          discountRef.current.classList.add(styles.good)
+        }
+        else {
+          console.log('Code is bad! Commence red!')
+          if (Array.isArray(codes[code]?.userRedeemed) && codes[code]?.userRedeemed?.find((user) => user === email))
+            setCodeMessage('Code Used!')
+          else
+            setCodeMessage('Invalid Code!')
+          discountRef.current.classList.add(styles.bad)
+          discountRef.current.classList.remove(styles.good)
+        }
       }
     }
-  }, [codeGood])
+  }, [codeGood, code])
 
   const processUsingCheck = (e) => {
     setUsingAcc(e.target.checked)
@@ -141,6 +154,7 @@ export const Checkout = () => {
       <div className={styles.discount}>
         <p>Discount Code</p>
         <input ref={discountRef} className={`${styles.discountText}`} placeholder='Enter Code if Applicable' value={code} onChange={(e) => setCode((e.target.value).toUpperCase())}/>
+        {codeMessage && <p>{codeMessage}</p>}
       </div>
       <div className={styles.separator} />
       <div className={styles.ccInputs}>
