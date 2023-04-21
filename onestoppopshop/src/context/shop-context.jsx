@@ -60,7 +60,7 @@ export const ShopContextProvider = (props) => {
     // Discount Code saving/checking:
     const [code, setCode] = useState('')
     const [codes, setCodes] = useState({})
-    const [codeGood, setCodeGood] = useState(true)
+    const [codeGood, setCodeGood] = useState(null)
     const fetchCodes = async () => {
         try {
             const codeRef = ref(database, 'codes')
@@ -81,6 +81,32 @@ export const ShopContextProvider = (props) => {
         }
     }
 
+    const checkCode = (email='') => {
+        console.log('Checking code ' + code)
+        if (!email)
+            email = authUser.email
+        let validCode = false
+        Object.keys(codes).forEach((realCode) => {
+            if (code === realCode) {
+                if (realCode.usersRedeemed) {
+                    for (let i = 0; i < realCode.usersRedeemed.length; i++) {
+                        if (realCode.usersRedeemed[i] === email) {
+                            validCode = false
+                            break
+                        }
+                        else
+                            validCode = true
+                    }
+                }
+                else
+                    validCode = true
+            }
+        })
+        console.log('Code is ' + validCode)
+        setCodeGood(validCode)
+    }
+
+    // Start up:
     useEffect(() => {
         const listen = onAuthStateChanged(auth, (user) => {
             console.log("Detected auth change...")
@@ -113,6 +139,7 @@ export const ShopContextProvider = (props) => {
         // Get codes:
         fetchCodes()
         .catch((error) => console.log(error))
+        setCode('')
 
         return () => listen()
     }, [])
@@ -293,7 +320,7 @@ export const ShopContextProvider = (props) => {
         setNumCartItems(0)
     }
 
-    const contextValue = {codeGood, code, codes, products, cartItems, authIsAdmin, authUser, isOpen, numCartItems, email, password, loginError, userAddress, userCity, userCountry, userState, userZip, taxRate, fetchCodes, setCode, setProducts, fetchProducts, processCheckout, deleteAccount, updateUserInfo, setEmail, setPassword, setCartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, resetCart, signIn, signUp, userLogOut}
+    const contextValue = {codeGood, code, codes, products, cartItems, authIsAdmin, authUser, isOpen, numCartItems, email, password, loginError, userAddress, userCity, userCountry, userState, userZip, taxRate, checkCode, setCodeGood, fetchCodes, setCode, setProducts, fetchProducts, processCheckout, deleteAccount, updateUserInfo, setEmail, setPassword, setCartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, resetCart, signIn, signUp, userLogOut}
 
     return (
         <ShopContext.Provider value={contextValue}>
