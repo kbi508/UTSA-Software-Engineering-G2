@@ -57,6 +57,66 @@ export const ShopContextProvider = (props) => {
         }
     }
 
+    // Discount Code saving/checking:
+    const [code, setCode] = useState('')
+    const [codes, setCodes] = useState({})
+    const [codeGood, setCodeGood] = useState(true)
+    const fetchCodes = async () => {
+        try {
+            const codeRef = ref(database, 'codes')
+            get(codeRef)
+            .then((snapshot) => {
+                if (snapshot.exists()) {
+                    const data = snapshot.val()
+                    setCodes(data)
+                }
+                else
+                {
+                  setCodes({})
+                }
+            })
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        const listen = onAuthStateChanged(auth, (user) => {
+            console.log("Detected auth change...")
+            if (user) {
+                setAuthUser(user)
+                const userRef = ref(database, 'users/' + user.uid)
+                get(userRef)
+                .then((snapshot) => {
+                    if (snapshot.exists())
+                    {
+                        const data = snapshot.val()
+                        console.log(data)
+                        setAuthIsAdmin(data.admin)
+                        console.log(data.admin)
+                    }
+                })
+                .catch((error) => console.log(error))
+            }
+            else 
+                setAuthUser(null)
+        })
+
+        // Get products:
+        fetchProducts()
+        .then(() => {
+            setCartItems({})
+        })
+        .catch((error) => console.log(error))
+
+        // Get codes:
+        fetchCodes()
+        .catch((error) => console.log(error))
+
+        return () => listen()
+    }, [])
+
     const signIn = (e) => {
         e.preventDefault()
         signInWithEmailAndPassword(auth, email, password)
@@ -108,38 +168,6 @@ export const ShopContextProvider = (props) => {
         .catch((error) => console.log(error))
         console.log("Initialization complete.")
     }
-
-    useEffect(() => {
-        const listen = onAuthStateChanged(auth, (user) => {
-            console.log("Detected auth change...")
-            if (user) {
-                setAuthUser(user)
-                const userRef = ref(database, 'users/' + user.uid)
-                get(userRef)
-                .then((snapshot) => {
-                    if (snapshot.exists())
-                    {
-                        const data = snapshot.val()
-                        console.log(data)
-                        setAuthIsAdmin(data.admin)
-                        console.log(data.admin)
-                    }
-                })
-                .catch((error) => console.log(error))
-            }
-            else 
-                setAuthUser(null)
-        })
-
-        // Get products:
-        fetchProducts()
-        .then(() => {
-            setCartItems({})
-        })
-        .catch((error) => console.log(error))
-
-        return () => listen()
-    }, [])
 
     // Load in user details when logged in:
     const updateUserInfo = () => {
@@ -265,7 +293,7 @@ export const ShopContextProvider = (props) => {
         setNumCartItems(0)
     }
 
-    const contextValue = {products, cartItems, authIsAdmin, authUser, isOpen, numCartItems, email, password, loginError, userAddress, userCity, userCountry, userState, userZip, taxRate, setProducts, fetchProducts, processCheckout, deleteAccount, updateUserInfo, setEmail, setPassword, setCartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, resetCart, signIn, signUp, userLogOut}
+    const contextValue = {codeGood, code, codes, products, cartItems, authIsAdmin, authUser, isOpen, numCartItems, email, password, loginError, userAddress, userCity, userCountry, userState, userZip, taxRate, fetchCodes, setCode, setProducts, fetchProducts, processCheckout, deleteAccount, updateUserInfo, setEmail, setPassword, setCartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, resetCart, signIn, signUp, userLogOut}
 
     return (
         <ShopContext.Provider value={contextValue}>
