@@ -20,7 +20,7 @@
 }
 
 .tabBttns > button {
-    font-family: "Fasthand", sans-serif;
+    font-family: "Optima", sans-serif;
     /* font-size: clamp(1.6rem, 3vw, 4rem); */
     font-size: 4rem;
     background-color: #24252A;
@@ -68,7 +68,7 @@
 }
 
 .tabShippingInfo > p {
-    font-family: "Fasthand", sans-serif;
+    font-family: "Optima", sans-serif;
     grid-column: 1 / -1;
 }
 
@@ -81,7 +81,7 @@
     align-self: flex-start;
     margin-top: 1rem;
     padding-left: 1rem;
-    font-family: "Fasthand", sans-serif;
+    font-family: "Optima", sans-serif;
     font-weight: bold;
     font-size: 2.5rem;
     width: 100%;
@@ -99,7 +99,7 @@
     height: 4rem;
     width: 17%;
     height: 30%;
-    font-family: "Fasthand", sans-serif;
+    font-family: "Optima", sans-serif;
     font-size: clamp(1rem, 2vw, 2rem);
     white-space: nowrap;
     padding-right: .5rem;
@@ -136,7 +136,7 @@
     color: white;
     height: 3.3rem;
     width: 35%;
-    font-family: "Fasthand", sans-serif;
+    font-family: "Optima", sans-serif;
     font-size: 2rem;
     transition: all 0.3s ease;
     text-align: center;

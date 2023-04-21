@@ -2,7 +2,7 @@
     width: 100%;
     display: flex;
     justify-content: space-around;
-    font-family: "Fasthand", sans-serif;
+    font-family: "Optima", sans-serif;
     font-size: 2rem;
     color: gray;
     margin-top: 10%;
@@ -21,14 +21,20 @@
     top: 15vh;
     left: 0;
     width: 100%;
+	padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 1px;
+    padding-bottom: 5px;
+    border-radius: 15px;
 }
 
 .saleBttn {
+	font-family: "Optima", sans-serif;
     border-radius: 1rem;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     background-color: white;
-    height: 2rem;
+    height: 2.5rem;
     outline: none;
     border-width: 1px;
     border-color: gray;
@@ -48,12 +54,13 @@
 }
 
 .search {
+	font-family: "Optima", sans-serif;
     margin-top: 1rem;
     border-radius: 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-width: 1px;
-    height: 2rem;
+    height: 2.5rem;
     width: 20rem;
     text-indent: 5%;
     transition: all 0.3s ease;
@@ -71,8 +78,13 @@
 }
 
 .sort {
+	font-family: "Optima", sans-serif;
+	align-items: center;
     outline: none;
-    height: 2rem;
+    height: 2.5rem;
+	width: 5.5rem;
+	padding-left: .3rem;
+    padding-right: .3rem;
     border-radius: 0;
     border-width: 1px;
     background-color: white;
@@ -86,15 +98,19 @@
 }
 
 .ascendBttn {
+	font-family: "Optima", sans-serif;
     outline: none;
     color: black;
+	width: 5rem;
+	padding-left: .3rem;
+    padding-right: .3rem;
     background-color: white;
     border-radius: 1rem;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     border-color: gray;
     border-width: 1px;
-    height: 2rem;
+    height: 2.5rem;
     transition: all 0.3s ease;
     animation: fadeIn 0.2s linear;
 }

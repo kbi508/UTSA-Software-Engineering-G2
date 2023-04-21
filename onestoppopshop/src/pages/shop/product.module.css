@@ -30,12 +30,12 @@
 
 .addToCartBttn {
     background-color: #FCC68F;
-    font-family: "Fasthand", sans-serif;
-    font-size: 1vw;
-    height: 8%;
+	font-family: "Optima", sans-serif;
+    font-size: .9vw;
+	font-weight: bold;
     color: white;
     border: none;
-    height: 10%;
+    height: 9%;
     width: fit-content;
     padding-left: 10px;
     padding-right: 10px;
