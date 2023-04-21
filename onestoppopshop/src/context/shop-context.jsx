@@ -83,9 +83,15 @@ export const ShopContextProvider = (props) => {
 
     const checkCode = (email='') => {
         console.log('Checking code ' + code)
-        if (!email)
-            email = authUser.email
         let validCode = false
+        if (!email) {
+            if (authUser)
+                email = authUser.email
+            else {
+                setCodeGood(validCode)
+                return validCode
+            }
+        }
         Object.keys(codes).forEach((realCode) => {
             if (code === realCode) {
                 if (realCode.usersRedeemed) {

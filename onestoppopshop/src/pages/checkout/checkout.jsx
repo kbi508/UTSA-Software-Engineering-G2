@@ -65,14 +65,15 @@ export const Checkout = () => {
       setCodeMessage('')
     }
     else {
-      if (authUser) {
-        checkCode()
-      }
-      else if (email){
-        checkCode(email)
-      }
-      else
-        setCodeMessage('Enter in your email first')
+      checkCode(email)
+      // if (authUser) {
+      //   checkCode()
+      // }
+      // else if (email){
+      //   checkCode(email)
+      // }
+      // else
+      //   setCodeMessage('Enter in your email first')
     }
   }, [code, email])
 
@@ -96,6 +97,9 @@ export const Checkout = () => {
           discountRef.current.classList.add(styles.bad)
           discountRef.current.classList.remove(styles.good)
         }
+      }
+      else {
+        setCodeMessage('Enter in your email first')
       }
     }
   }, [codeGood, code])

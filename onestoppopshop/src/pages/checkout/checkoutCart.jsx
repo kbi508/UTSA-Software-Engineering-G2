@@ -5,9 +5,9 @@ import styles from './checkoutCart.module.css'
 import { useNavigate } from 'react-router-dom'
 
 export const CheckoutCart = (props) => {
-  const { products, setProducts, cartItems, getTotalCartAmount, numCartItems, processCheckout, taxRate, resetCart } = useContext(ShopContext)
+  const { products, setProducts, cartItems, getTotalCartAmount, numCartItems, processCheckout, taxRate, resetCart, codeGood, code, codes } = useContext(ShopContext)
   const {country, add, city, state, zip, email, ccNum, ccDate, ccv} = props
-  const totalAmount = getTotalCartAmount().toFixed(2)
+  const [totalAmount, setTotalAmount] = useState(getTotalCartAmount().toFixed(2))
   const [showConfirm, setShowConfirm] = useState(false)
   const [message, setMessage] = useState('')
   const navigator = useNavigate()
@@ -22,6 +22,14 @@ export const CheckoutCart = (props) => {
         return 0
     }))
   }, [])
+
+  useEffect(() => {
+    if (codeGood) {
+      setTotalAmount(Number(getTotalCartAmount() * (1-codes[code].discount)).toFixed(2))
+    }
+    else
+      setTotalAmount(getTotalCartAmount().toFixed(2))
+  }, [codeGood])
 
   const checkoutWrapper = (country, add, city, state, zip, email) => {
     let canCheckout = true
@@ -75,7 +83,7 @@ export const CheckoutCart = (props) => {
         </div>
 
         <div className={styles.checkout}>
-            <p>Subtotal: ${Number(totalAmount).toFixed(2)}</p>
+            <p>Subtotal: ${totalAmount} {codeGood && '(' + Number(codes[code]?.discount*100) + '% off!)'}</p>
             <p>Sales Tax Added ({Number(taxRate*100).toFixed(2)}%): ${Number(totalAmount*taxRate).toFixed(2)}</p>
             <p>Total: ${Number(totalAmount*(1+taxRate)).toFixed(2)}</p>
             <button className={`${styles.orderBttn} ${styles.cartBttn}`} disabled={numCartItems === 0 ? true : false} onClick={() => checkoutWrapper(country, add, city, state, zip, email)}> Place Order </button>
