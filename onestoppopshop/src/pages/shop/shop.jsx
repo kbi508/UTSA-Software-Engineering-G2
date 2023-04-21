@@ -11,6 +11,7 @@ export const Shop = () => {
   const [filteredProducts, setFilteredProducts] = useState([])
   const [productSort, setProductSort] = useState(null)
   const [ascending, setAscending] = useState(false)
+  const [saleFilter, setSaleFilter] = useState(false)
   const [emptyMessage, setEmptyMessage] = useState(false) // Display no content found message?
 
 
@@ -67,6 +68,7 @@ export const Shop = () => {
     <div className={styles.shop}>
       <div className={styles.searchsort}>
         <div style={{whiteSpace: 'nowrap', display: 'flex', alignItems: 'baseline'}}>
+          <button className={!saleFilter ? styles.saleBttn : `${styles.saleBttn} ${styles.saleBttnActv}`} onClick={() => setSaleFilter(!saleFilter)}>{saleFilter ? 'On Sale' : 'On Sale?'}</button>
           <input className={styles.search} type='text' placeholder='Search' value={searchString} onChange={(e) => setSearchString(e.target.value)} />
           <select id='sort' className={(productSort === 'price' || productSort === 'quantity') ? styles.sort : `${styles.sort} ${styles.noAscending}`} onChange={(e) => setProductSort(e.target.value)}>
               <option value={null}>Sort by</option>
