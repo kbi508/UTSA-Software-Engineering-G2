@@ -25,7 +25,7 @@ export const CheckoutCart = (props) => {
 
   useEffect(() => {
     if (codeGood) {
-      setTotalAmount(Number(getTotalCartAmount() * (1-codes[code].discount)).toFixed(2))
+      setTotalAmount(Number(getTotalCartAmount() * (1-codes[code]?.discount)).toFixed(2))
     }
     else
       setTotalAmount(getTotalCartAmount().toFixed(2))

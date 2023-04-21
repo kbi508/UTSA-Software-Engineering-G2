@@ -2,7 +2,7 @@ import React, { createContext, useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut, deleteUser, reauthenticateWithCredential, EmailAuthProvider } from 'firebase/auth'
 import { auth, database } from '../firebase'
-import { ref, get, set, remove, push } from 'firebase/database'
+import { ref, get, set, remove, push, update } from 'firebase/database'
 
 
 export const ShopContext = createContext(null)
@@ -274,7 +274,6 @@ export const ShopContextProvider = (props) => {
         console.log(deliveryString)
 
         let order = {
-            amount: Number(getTotalCartAmount()*(1+taxRate)),
             date: dateString,
             deliveryDate: deliveryString,
             country: country,
@@ -283,6 +282,27 @@ export const ShopContextProvider = (props) => {
             state: state,
             zip: zip,
             active: true
+        }
+
+        if (codeGood) {
+            console.log("Checking out with discount Code!")
+            order.amount = Number((getTotalCartAmount() * (1-codes[code].discount))*(1+taxRate))
+            // Update code data:
+            const codeRef = ref(database, 'codes/' + code)
+            get(codeRef)
+            .then((snapshot) => {
+                if (snapshot.exists()) {
+                    const data = snapshot.val()
+                    data.numRedeemed++
+                    if (!data.userRedeemed)
+                        data.userRedeemed = []
+                    data.userRedeemed.push(email)
+                    update(codeRef, data)
+                }
+            })
+        }
+        else {
+            order.amount = Number(getTotalCartAmount()*(1+taxRate))
         }
 
         if (authUser){
