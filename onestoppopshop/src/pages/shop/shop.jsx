@@ -89,17 +89,25 @@ export const Shop = () => {
           {products.map((product) => {
             if (product)
             {
+              let showThisProd = true
               if (searchString) {
                 if ((product.prod_description.toUpperCase().search(searchString.toUpperCase()) !== -1 ||
                                       product.name.toUpperCase().search(searchString.toUpperCase()) !== -1  ||
                                       product.hastags.some((tag) => (tag.toUpperCase().search(searchString.toUpperCase()) !== -1)))) {
-                  return (<Product key={product.prodNum} prodNum={product.prodNum} data={product}/>)
+                  showThisProd = true
                 }
                 else 
-                  return <></>
+                  showThisProd = false
               }
-              else
+              if (saleFilter) {
+                if (!(product.onsale) || !(showThisProd))
+                  showThisProd = false
+              }
+              
+              if (showThisProd)
                 return (<Product key={product.prodNum} prodNum={product.prodNum} data={product}/>)
+              else
+                return <></>
             }
             else 
               return <></>
