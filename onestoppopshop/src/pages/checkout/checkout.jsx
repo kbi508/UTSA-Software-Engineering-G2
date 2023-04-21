@@ -8,9 +8,10 @@ export const Checkout = () => {
   const [usingAcc, setUsingAcc] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
 
-  const { authUser, userAddress, userCity, userCountry, userState, userZip, fetchProducts } = useContext(ShopContext)
+  const { code, setCode, codeGood, authUser, userAddress, userCity, userCountry, userState, userZip, fetchProducts } = useContext(ShopContext)
 
   const loginRef = useRef(null)
+  const discountRef = useRef(null)
 
   // Save shipping input values:
   const [country, setCountry] = useState('')
@@ -19,6 +20,8 @@ export const Checkout = () => {
   const [state, setState] = useState('')
   const [zip, setZip] = useState('')
   const [email, setEmail] = useState('')
+
+  
 
   // Save CC info:
   const [ccNum, setCCNum] = useState('')
@@ -48,6 +51,24 @@ export const Checkout = () => {
     }
   }, [authUser])
 
+
+  useEffect(() => {
+    if (discountRef.current && code) {
+      if (codeGood) {
+        discountRef.current.classList.add('good');
+        discountRef.current.classList.remove('bad');
+      }
+      else {
+        discountRef.current.classList.remove('good');
+        discountRef.current.classList.add('bad');
+      }
+    }
+    else if (!code) {
+      discountRef.current.classList.remove('good');
+      discountRef.current.classList.remove('bad');
+    }
+  }, [code])
+
   const processUsingCheck = (e) => {
     setUsingAcc(e.target.checked)
     if (e.target.checked)
@@ -75,8 +96,6 @@ export const Checkout = () => {
       <div className={styles.separator} />
       <div className={styles.orderPanelHeader}>
         <h1>Order Info</h1>        
-        {/* <p>Make this a Subscription?</p>
-        <input type={'checkbox'} /> */}
       </div>
       <div className={styles.account}>
         <div className={styles.loginPrompt}>
@@ -99,6 +118,11 @@ export const Checkout = () => {
           <input className={styles.city} placeholder='City' value={city} onChange={(e) => setCity(e.target.value)} />
           <input className={styles.state} placeholder='State' value={state} onChange={(e) => setState(e.target.value)} />
           <input className={styles.zip} type={'number'} placeholder='Zip' value={zip} onChange={(e) => setZip(e.target.value)} />
+      </div>
+      <div className={styles.separator} />
+      <div className={styles.discount}>
+        <p>Discount Code</p>
+        <input ref={discountRef} className={styles.discountText} placeholder='Enter Code if Applicable' value={code} onChange={(e) => setCode((e.target.value).toUpperCase())}/>
       </div>
       <div className={styles.separator} />
       <div className={styles.ccInputs}>

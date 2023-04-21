@@ -154,6 +154,31 @@
     margin-bottom: 5%;
 }
 
+.discount {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+.discount > p {
+    font-size: 2rem;
+    grid-column: 1/-1;
+}
+
+.discountText {
+    grid-column: 1/-1;
+    height: 2rem;
+    text-indent: 1rem;
+}
+
+.good {
+    outline: green;
+}
+
+.bad {
+    outline: red;
+}
+
 .ccInputs {
     display:grid;
     grid-template-columns: repeat(3, 1fr);
