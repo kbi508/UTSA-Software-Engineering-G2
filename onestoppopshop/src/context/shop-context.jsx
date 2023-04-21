@@ -238,8 +238,12 @@ export const ShopContextProvider = (props) => {
         // Need to find proper item since products order is not guaranteed.
         Object.keys(cartItems).forEach((prodNum) => { 
             products.forEach((product) => {
-                if (product && product.prodNum === Number(prodNum))
-                    totalAmount += (product.price * cartItems[prodNum])
+                if (product && product.prodNum === Number(prodNum)) {
+                    if (product.onsale)
+                        totalAmount += ((product.price * (1-product.salepercent))* cartItems[prodNum])
+                    else
+                        totalAmount += (product.price * cartItems[prodNum])
+                }
             })
         })
         return totalAmount
