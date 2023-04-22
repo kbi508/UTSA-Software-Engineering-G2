@@ -3,7 +3,7 @@ import {ShopContext} from '../../context/shop-context'
 import styles from './product.module.css'
 
 export const Product = (props) => {
-  const {name, price, product_Image, prod_description, hastags, quantity} = props.data
+  const {name, price, product_Image, prod_description, hastags, quantity, onsale} = props.data
   const { addToCart, cartItems } = useContext(ShopContext)
 
   return (

@@ -10,13 +10,12 @@ return (
             <div className={styles.splashHeader}>
                 <button className={styles.lightBttn} onClick={() => props.close()}>X</button>
                 <img src={img} alt='Product'/>
-                <div className={styles.prodName}>
-                    <p>{name}</p>
-                </div>
                 <div className={styles.prodDesc}>
+                    <div className={styles.prodName}>
+                        <p>{name}</p>
+                    </div>
                     <div><p>{desc}</p></div>
-                    <div><p>Price: ${price}</p></div>
-                    
+                    <div><p>Price: ${price}</p></div>                  
                     <div><p>{sale}</p></div>
                     <div> <p>{discount}</p></div>
                     <div className={styles.tags}>

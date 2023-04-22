@@ -84,6 +84,8 @@
     font-family: "Verdana", sans-serif;
     font-size: 1vw;
     text-align: justify;
+    padding-top:2cm;
+    padding-left: .25cm;
 }
 .prodName{
     font-size: 3vw;
