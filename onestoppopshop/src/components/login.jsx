@@ -18,7 +18,7 @@ export const Login = () => {
                 <p>{loginError.message}</p>
             </div>}
             <div className={styles.bttns}>
-                <button className={styles.loginBttn} type='submit'>{isCreating ? ('Create') : ('Log in')}</button>
+                <button className={styles.loginBttn} type='submit'>{isCreating ? ('Create') : ('Log In')}</button>
                 <button className={styles.createBttn} type='button' onClick={() => setIsCreating(!isCreating)}>{!isCreating ? ('Create Account?') : ('Login Account?')}</button>
             </div>
         </form>

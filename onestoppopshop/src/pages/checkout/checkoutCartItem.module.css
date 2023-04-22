@@ -21,7 +21,7 @@
 
 .descriptText {
 	font-family: "Optima", sans-serif;
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 .price {
@@ -34,14 +34,17 @@
 .countHandler {
     white-space: nowrap;
     margin-left: 1.2rem;
+	
 }
 
 .countHandler > *{
 	font-weight: bold;
     text-align: center;
-    width: 25px;
+	width: 1.6rem;
+	height: 1.5rem;
     color: white;
     background-color: #24252A;
+	border-radius: .2rem;
 }
 
 .countHandler > button {
@@ -49,7 +52,6 @@
     padding-left: .3rem;
     padding-right: .3rem;
     transition: all 0.3s ease;
-    /* border-style: none; */
 }
 
 .countHandler > button:hover {
@@ -58,5 +60,6 @@
 }
 
 .countHandler > input {
-    width: 2rem;
+    width: 3rem;
+	height: 1.5rem;
 }

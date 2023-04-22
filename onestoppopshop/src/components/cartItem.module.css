@@ -8,9 +8,9 @@
 .cartItem {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: .3rem;
+    gap: .2rem;
     align-items: center;
-    margin-left: 1rem;
+    margin-left: 1.2rem;
 }
 
 .cartItem > img {
@@ -19,33 +19,35 @@
 }
 
 .descriptText {
-    font-size: clamp(.75rem, 1rem, 1.2rem);
+	font-family: "Optima", sans-serif;
+	font-size: 1.1rem;
 }
 
 .price {
     font-weight: bold;
-    font-size: clamp(.7rem, 1.5rem, 2rem);
+    font-size: 1.5rem;
     white-space: nowrap;
 }
 
 .countHandler {
     white-space: nowrap;
-    margin-left: .1rem;
+    margin-left: .8rem;
 }
 
 .countHandler > *{
     text-align: center;
-    width: 20px;
+    width: 22px;
     color: white;
     background-color: #24252A;
 }
 
 .countHandler > button {
     text-align: center;
-    padding-left: .3rem;
-    padding-right: .3rem;
+    padding-left: .2rem;
+    padding-right: .2rem;
     transition: all 0.3s ease;
-    /* border-style: none; */
+	font-size: 1rem;
+	font-weight: bold;
 }
 
 .countHandler > button:hover {
@@ -54,6 +56,6 @@
 }
 
 .countHandler > input {
-    /* border-style: none; */
-    width: 2rem;
+    width: 2.3rem;
+	font-size: 1rem;
 }

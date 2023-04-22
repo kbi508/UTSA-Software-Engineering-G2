@@ -26,11 +26,11 @@
 .orderPanelHeader {
     display: grid;
     grid-template-columns: 12fr 1fr 1fr;
-    align-items: center;
     margin-top: -2rem;
 }
 
 .orderPanelHeader > h1 {
+	padding-left: 33%;
     font-size: 4.5rem;
     margin-right: auto;
 }
@@ -51,6 +51,10 @@
     flex-direction: column;
     align-items: flex-start;
     font-size: 1.5rem;
+}
+
+.account > h2{
+	padding-left: 9%;
 }
 
 .loginPrompt {
@@ -105,14 +109,16 @@
 
 .sub .shipTitle {
     margin-right: auto;
+	font-size: 2rem;
 }
 
 .sub > input {
-    width: 2rem;
+    width: 1.6rem;
     height: 2rem;
 }
 
 .shippingInputs {
+	padding-top: 1rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
@@ -125,7 +131,7 @@
 }
 
 .shippingInputs input {
-    height: 2rem;
+	height: 2rem;
     width: 100%;
     font-size: 1rem;
 }

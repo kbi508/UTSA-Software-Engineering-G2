@@ -16,6 +16,7 @@
 .checkout{
 	font-family: "Optima", sans-serif;
     font-size: 1.7rem;
+	font-weight: bold;
     color: white;
     background-color: #24252A;
     width: 100%;
@@ -23,6 +24,10 @@
     padding-bottom: 1rem;
     padding-top: 1rem;
     text-align: center;
+}
+
+.checkout > p {
+	padding-bottom: .5rem;
 }
 
 .cartItems {

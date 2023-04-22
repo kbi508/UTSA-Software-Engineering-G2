@@ -5,9 +5,9 @@
 }
 
 .pageLink, .navBttn {
-    font-family: "Fasthand", sans-serif;
-    font-weight: 500;
-    font-size: min(3vw, 2rem);
+    font-family: "Optima", sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
     color: white;
     text-decoration: none;
 }
@@ -45,10 +45,10 @@
 
 .navBttn {
     padding:0px 28px;
-    margin-right: .5rem;
+    margin-right: 1rem;
     background-color: #FCC68F;
     border: none;
-    border-radius: 25px;
+    border-radius: .7rem;
     cursor: pointer;
     transition: all 0.3s ease 0s;
 }
