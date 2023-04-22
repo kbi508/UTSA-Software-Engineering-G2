@@ -163,12 +163,12 @@
 .discount {
     display: grid;
     grid-template-columns: 1fr 1fr;
-
 }
 
 .discount > p {
     font-size: 2rem;
     grid-column: 1/-1;
+	padding-bottom: 1rem;
 }
 
 .discountText {
