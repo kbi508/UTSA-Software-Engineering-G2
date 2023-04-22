@@ -43,8 +43,14 @@
     border-radius: 15px;
     white-space: nowrap;
 }
-
-.addToCartBttn:hover {
+.addToCartBttn:disabled {
+    background-color: gray;
+    color: black;
+    cursor: not-allowed;
+    
+    /* additional styles to indicate disabled state */
+  }
+.addToCartBttn:not([disabled]):hover {
     background-color: #329885;
     color: white;
     cursor: pointer;
