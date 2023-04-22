@@ -56,53 +56,45 @@ export const Checkout = () => {
     }
   }, [authUser])
 
+  // Update discount code section based on if there is a code, if there is an email, and if this code is valid.
   useEffect(() => {
+    if (!email && code) {
+      setCodeGood(null)
+      setCodeMessage('Enter in your email first')
+      return
+    } 
+    else {
+      if (code)
+        checkCode(email)
+    }
     if (!code) {
       discountRef.current.classList.remove(styles.good)
       discountRef.current.classList.remove(styles.bad)
       setCodeGood(null)
       console.log('Clearing message...')
       setCodeMessage('')
+      return
     }
-    else {
-      checkCode(email)
-      // if (authUser) {
-      //   checkCode()
-      // }
-      // else if (email){
-      //   checkCode(email)
-      // }
-      // else
-      //   setCodeMessage('Enter in your email first')
-    }
-  }, [code, email])
-
-  useEffect(() => {
     if (discountRef.current && code) {
       if (codeGood === null)
         return
-      if (email) {
-        if (codeGood) {
-          console.log('Code is good! Commence Green!')
-          setCodeMessage('Valid Code!')
-          discountRef.current.classList.remove(styles.bad)
-          discountRef.current.classList.add(styles.good)
-        }
-        else {
-          console.log('Code is bad! Commence red!')
-          if (Array.isArray(codes[code]?.userRedeemed) && codes[code]?.userRedeemed?.find((user) => user === email))
-            setCodeMessage('Code Used!')
-          else
-            setCodeMessage('Invalid Code!')
-          discountRef.current.classList.add(styles.bad)
-          discountRef.current.classList.remove(styles.good)
-        }
+      if (codeGood) {
+        console.log('Code is good! Commence Green!')
+        setCodeMessage('Valid Code!')
+        discountRef.current.classList.remove(styles.bad)
+        discountRef.current.classList.add(styles.good)
       }
       else {
-        setCodeMessage('Enter in your email first')
+        console.log('Code is bad! Commence red!')
+        if (Array.isArray(codes[code]?.userRedeemed) && codes[code]?.userRedeemed?.find((user) => user === email))
+          setCodeMessage('Code Used!')
+        else
+          setCodeMessage('Invalid Code!')
+        discountRef.current.classList.add(styles.bad)
+        discountRef.current.classList.remove(styles.good)
       }
     }
-  }, [codeGood, code])
+  }, [email, code, codeGood])
 
   const processUsingCheck = (e) => {
     setUsingAcc(e.target.checked)

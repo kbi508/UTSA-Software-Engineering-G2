@@ -94,15 +94,11 @@ export const ShopContextProvider = (props) => {
         }
         Object.keys(codes).forEach((realCode) => {
             if (code === realCode) {
-                if (realCode.usersRedeemed) {
-                    for (let i = 0; i < realCode.usersRedeemed.length; i++) {
-                        if (realCode.usersRedeemed[i] === email) {
-                            validCode = false
-                            break
-                        }
-                        else
-                            validCode = true
-                    }
+                console.log(codes[realCode])
+                if (Array.isArray(codes[realCode]?.userRedeemed)) {
+                    console.log('Checking code users...')
+                    validCode = !codes[realCode].userRedeemed.some((user) => user === email)
+                    console.log('Has the code been used before? Answer: ' + !validCode)
                 }
                 else
                     validCode = true
