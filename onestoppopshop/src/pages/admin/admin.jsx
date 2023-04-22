@@ -12,10 +12,9 @@ import { ProductSplash } from './productSplash'
 export const Admin = () => {
   const [users, setUsers] = useState({})
   const [orders, setOrders] = useState([])
-  const [codes, setCodes] = useState({})
   const [selected, setSelected] = useState(null)
   const [activeOnly, setActiveOnly] = useState(false)
-  const { authIsAdmin, products, fetchProducts } = useContext(ShopContext)
+  const { authIsAdmin, products, fetchProducts, setProducts, codes, fetchCodes } = useContext(ShopContext)
 
   // For product splash:
   const [desc, setDesc] = useState('')
@@ -41,6 +40,39 @@ export const Admin = () => {
   // For new codes:
   const [codeText, setCodeText] = useState('')
   const [codeNum, setCodeNum] = useState(null)
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+        try {
+            const userRef = ref(database, 'users')
+            get(userRef)
+            .then((snapshot) => {
+                if (snapshot.exists()) {
+                    // Add selected to users:
+                    const data = snapshot.val()
+                    setUsers(data)
+                }
+                else {
+                    setUsers({})
+                }
+            })
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+
+    setProducts(products.sort((a, b) => {
+        if (a && b)
+          return a.prodNum < b.prodNum
+        else 
+          return 0
+    }))
+    fetchUsers()
+    fetchOrders()
+    fetchCodes()
+    fetchProducts()
+  }, [])
 
   const selectUser = (selEmail) => {
     if (selEmail === selected)
@@ -109,27 +141,9 @@ export const Admin = () => {
     }
   }
 
-  const fetchCodes = async () => {
-      try {
-          const codeRef = ref(database, 'codes')
-          get(codeRef)
-          .then((snapshot) => {
-              if (snapshot.exists()) {
-                  const data = snapshot.val()
-                  setCodes(data)
-              }
-              else
-              {
-                setCodes({})
-              }
-          })
-      }
-      catch (error) {
-          console.log(error)
-      }
-  }
-
   const addCode = () => {
+    if (!codeText || !codeNum)
+        return
     const codeRef = ref(database, 'codes/' + codeText.toUpperCase())
     set(codeRef, {
         discount: Number(codeNum/100),
@@ -238,34 +252,6 @@ export const Admin = () => {
   }, [showProductSplash])
 
   useEffect(() => {
-    const fetchUsers = async () => {
-        try {
-            const userRef = ref(database, 'users')
-            get(userRef)
-            .then((snapshot) => {
-                if (snapshot.exists()) {
-                    // Add selected to users:
-                    const data = snapshot.val()
-                    setUsers(data)
-                }
-                else {
-                    setUsers({})
-                }
-            })
-        }
-        catch (error) {
-            console.log(error)
-        }
-    }
-
-
-    fetchUsers()
-    fetchOrders()
-    fetchCodes()
-    fetchProducts()
-  }, [])
-
-  useEffect(() => {
     sortOrders()
   }, [orderSort, ascending])
 
@@ -352,8 +338,11 @@ export const Admin = () => {
             <div className={styles.title}>Products</div>
             <button className={styles.lightBttn} id={styles.plusBttn} onClick={() => productScreen()}>+</button>
             <div className={styles.products}>
-                {products !== {} && products.map((product, index) => {
-                    return <Productbox key={index} productNum={index} data={product} productScreen={productScreen} />
+                {products && products.map((product) => {
+                    if (product)
+                        return <Productbox key={product.prodNum} productNum={product.prodNum} data={product} productScreen={productScreen} />
+                    else
+                        return <></>
                 })}
             </div>
             {showProductSplash && <ProductSplash data={productVals} error={showSplashError} delete={removeProduct} add={addProduct} close={setShowProductSplash}/>}

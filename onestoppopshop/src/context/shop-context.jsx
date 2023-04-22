@@ -1,14 +1,15 @@
 import React, { createContext, useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut, deleteUser, reauthenticateWithCredential, EmailAuthProvider } from 'firebase/auth'
 import { auth, database } from '../firebase'
-import { ref, get, set, remove, push } from 'firebase/database'
+import { ref, get, set, remove, push, update } from 'firebase/database'
 
 
 export const ShopContext = createContext(null)
 
 export const ShopContextProvider = (props) => {
     const navigator = useNavigate()
+    const location = useLocation()
 
     const taxRate = 0.0825
     const deliveryTime = 7
@@ -41,7 +42,9 @@ export const ShopContextProvider = (props) => {
         .then((snapshot) => {
             if (snapshot.exists()) {
                 const data = snapshot.val()
-                console.log(data)
+                Object.keys(data).forEach((prodNum) => {
+                    data[prodNum].prodNum = Number(prodNum)
+                })
                 setProducts(data)
             }
             else {
@@ -53,6 +56,96 @@ export const ShopContextProvider = (props) => {
             console.log(error)
         }
     }
+
+    // Discount Code saving/checking:
+    const [code, setCode] = useState('')
+    const [codes, setCodes] = useState({})
+    const [codeGood, setCodeGood] = useState(null)
+    const fetchCodes = async () => {
+        try {
+            const codeRef = ref(database, 'codes')
+            get(codeRef)
+            .then((snapshot) => {
+                if (snapshot.exists()) {
+                    const data = snapshot.val()
+                    setCodes(data)
+                }
+                else
+                {
+                  setCodes({})
+                }
+            })
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+
+    const checkCode = (email='') => {
+        console.log('Checking code ' + code)
+        let validCode = false
+        if (!email) {
+            if (authUser)
+                email = authUser.email
+            else {
+                setCodeGood(validCode)
+                return validCode
+            }
+        }
+        Object.keys(codes).forEach((realCode) => {
+            if (code === realCode) {
+                console.log(codes[realCode])
+                if (Array.isArray(codes[realCode]?.userRedeemed)) {
+                    console.log('Checking code users...')
+                    validCode = !codes[realCode].userRedeemed.some((user) => user === email)
+                    console.log('Has the code been used before? Answer: ' + !validCode)
+                }
+                else
+                    validCode = true
+            }
+        })
+        console.log('Code is ' + validCode)
+        setCodeGood(validCode)
+        return validCode
+    }
+
+    // Start up:
+    useEffect(() => {
+        const listen = onAuthStateChanged(auth, (user) => {
+            console.log("Detected auth change...")
+            if (user) {
+                setAuthUser(user)
+                const userRef = ref(database, 'users/' + user.uid)
+                get(userRef)
+                .then((snapshot) => {
+                    if (snapshot.exists())
+                    {
+                        const data = snapshot.val()
+                        console.log(data)
+                        setAuthIsAdmin(data.admin)
+                        console.log(data.admin)
+                    }
+                })
+                .catch((error) => console.log(error))
+            }
+            else 
+                setAuthUser(null)
+        })
+
+        // Get products:
+        fetchProducts()
+        .then(() => {
+            setCartItems({})
+        })
+        .catch((error) => console.log(error))
+
+        // Get codes:
+        fetchCodes()
+        .catch((error) => console.log(error))
+        setCode('')
+
+        return () => listen()
+    }, [])
 
     const signIn = (e) => {
         e.preventDefault()
@@ -106,38 +199,6 @@ export const ShopContextProvider = (props) => {
         console.log("Initialization complete.")
     }
 
-    useEffect(() => {
-        const listen = onAuthStateChanged(auth, (user) => {
-            console.log("Detected auth change...")
-            if (user) {
-                setAuthUser(user)
-                const userRef = ref(database, 'users/' + user.uid)
-                get(userRef)
-                .then((snapshot) => {
-                    if (snapshot.exists())
-                    {
-                        const data = snapshot.val()
-                        console.log(data)
-                        setAuthIsAdmin(data.admin)
-                        console.log(data.admin)
-                    }
-                })
-                .catch((error) => console.log(error))
-            }
-            else 
-                setAuthUser(null)
-        })
-
-        // Get products:
-        fetchProducts()
-        .then(() => {
-            setCartItems({})
-        })
-        .catch((error) => console.log(error))
-
-        return () => listen()
-    }, [])
-
     // Load in user details when logged in:
     const updateUserInfo = () => {
         if (authUser) 
@@ -170,7 +231,17 @@ export const ShopContextProvider = (props) => {
 
     const getTotalCartAmount = () => {
         let totalAmount = 0
-        Object.keys(cartItems).forEach((prodNum) => totalAmount += (products[prodNum].price * cartItems[prodNum]))
+        // Need to find proper item since products order is not guaranteed.
+        Object.keys(cartItems).forEach((prodNum) => { 
+            products.forEach((product) => {
+                if (product && product.prodNum === Number(prodNum)) {
+                    if (product.onsale)
+                        totalAmount += ((product.price * (1-product.salepercent))* cartItems[prodNum])
+                    else
+                        totalAmount += (product.price * cartItems[prodNum])
+                }
+            })
+        })
         return totalAmount
     }
 
@@ -199,7 +270,6 @@ export const ShopContextProvider = (props) => {
         console.log(deliveryString)
 
         let order = {
-            amount: Number(getTotalCartAmount()*(1+taxRate)),
             date: dateString,
             deliveryDate: deliveryString,
             country: country,
@@ -208,6 +278,27 @@ export const ShopContextProvider = (props) => {
             state: state,
             zip: zip,
             active: true
+        }
+
+        if (codeGood) {
+            console.log("Checking out with discount Code!")
+            order.amount = Number((getTotalCartAmount() * (1-codes[code].discount))*(1+taxRate))
+            // Update code data:
+            const codeRef = ref(database, 'codes/' + code)
+            get(codeRef)
+            .then((snapshot) => {
+                if (snapshot.exists()) {
+                    const data = snapshot.val()
+                    data.numRedeemed++
+                    if (!data.userRedeemed)
+                        data.userRedeemed = []
+                    data.userRedeemed.push(email)
+                    update(codeRef, data)
+                }
+            })
+        }
+        else {
+            order.amount = Number(getTotalCartAmount()*(1+taxRate))
         }
 
         if (authUser){
@@ -233,6 +324,14 @@ export const ShopContextProvider = (props) => {
         setCartItems((prev) => ({...prev, [itemId]: prev[itemId]-1}))
         setNumCartItems(numCartItems - 1)
     }
+    
+    useEffect(() => {
+        if (numCartItems === 0 && location.pathname === "/checkout") // If they empty their cart at checkout, boot them back to the store.
+        {
+            toggleOpen()
+            navigator('/')
+        }
+    }, [numCartItems])
 
     const updateCartItemCount = (newAmount, itemId) => {
         setCartItems((prev) => ({...prev, [itemId]: newAmount}))
@@ -248,7 +347,7 @@ export const ShopContextProvider = (props) => {
         setNumCartItems(0)
     }
 
-    const contextValue = {products, cartItems, authIsAdmin, authUser, isOpen, numCartItems, email, password, loginError, userAddress, userCity, userCountry, userState, userZip, taxRate, fetchProducts, processCheckout, deleteAccount, updateUserInfo, setEmail, setPassword, setCartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, resetCart, signIn, signUp, userLogOut}
+    const contextValue = {codeGood, code, codes, products, cartItems, authIsAdmin, authUser, isOpen, numCartItems, email, password, loginError, userAddress, userCity, userCountry, userState, userZip, taxRate, checkCode, setCodeGood, fetchCodes, setCode, setProducts, fetchProducts, processCheckout, deleteAccount, updateUserInfo, setEmail, setPassword, setCartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, resetCart, signIn, signUp, userLogOut}
 
     return (
         <ShopContext.Provider value={contextValue}>

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from 'react'
+import React, { useContext, useRef, useEffect, useState } from 'react'
 import { CartItem } from './cartItem'
 import {ShopContext} from '../context/shop-context'
 import styles from './cart.module.css'
@@ -9,10 +9,18 @@ export const Cart = () => {
   const totalAmount = getTotalCartAmount().toFixed(2)
   const cart = useRef(null)
 
+  const [unsortedProducts, setUnsortedProducts] = useState([])
+
   useEffect(() => {
-    if(cart.current)
-      cart.current.classList.toggle(styles.active)
-  }, [isOpen])
+    setUnsortedProducts([...products].sort((a, b) => {
+
+      if (a && b)
+        return a.prodNum < b.prodNum
+      else 
+        return true
+    }))
+    console.log(unsortedProducts)
+  }, [cartItems])
 
   if (cart.current)
   {
@@ -22,13 +30,13 @@ export const Cart = () => {
   }
 
   return (
-    <div ref={cart} className={styles.cart}>
+    <div ref={cart} className={isOpen ? (`${styles.cart} ${styles.active}`) : (styles.cart)}>
         <div className={styles.xBttn} onClick={toggleOpen}>X</div>
 
         <div className={styles.cartItems}>
-            {products.map((product, index) => {
-                if (cartItems[index] > 0)
-                  return <CartItem key={index} prodNum={index} data={product}/>
+            {unsortedProducts && unsortedProducts.map((product) => {
+                if (product && cartItems[product.prodNum] > 0)
+                  return <CartItem key={product.prodNum} prodNum={product.prodNum} data={product}/>
                 return <></>
             })}
         </div>

@@ -1,17 +1,35 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { CheckoutCartItem } from './checkoutCartItem'
 import {ShopContext} from '../../context/shop-context'
 import styles from './checkoutCart.module.css'
 import { useNavigate } from 'react-router-dom'
 
 export const CheckoutCart = (props) => {
-  const { products, cartItems, getTotalCartAmount, numCartItems, processCheckout, taxRate, resetCart } = useContext(ShopContext)
+  const { products, setProducts, cartItems, getTotalCartAmount, numCartItems, processCheckout, taxRate, resetCart, codeGood, code, codes } = useContext(ShopContext)
   const {country, add, city, state, zip, email, ccNum, ccDate, ccv} = props
-  const totalAmount = getTotalCartAmount().toFixed(2)
+  const [totalAmount, setTotalAmount] = useState(getTotalCartAmount().toFixed(2))
   const [showConfirm, setShowConfirm] = useState(false)
   const [message, setMessage] = useState('')
   const navigator = useNavigate()
   const [orderSuccess, setOrderSuccess] = useState(false)
+
+  // Sort the products back into by prodNum order.
+  useEffect(() => {
+    setProducts(products.sort((a, b) => {
+      if (a && b)
+        return a.prodNum < b.prodNum
+      else 
+        return 0
+    }))
+  }, [])
+
+  useEffect(() => {
+    if (codeGood) {
+      setTotalAmount(Number(getTotalCartAmount() * (1-codes[code]?.discount)).toFixed(2))
+    }
+    else
+      setTotalAmount(getTotalCartAmount().toFixed(2))
+  }, [codeGood])
 
   const checkoutWrapper = (country, add, city, state, zip, email) => {
     let canCheckout = true
@@ -57,15 +75,15 @@ export const CheckoutCart = (props) => {
   return (
     <div className={styles.checkoutCart}>
         <div className={styles.cartItems}>
-            {products.map((product, index) => {
-                if (cartItems[index] > 0)
-                  return <CheckoutCartItem key={index} prodNum={index} data={product} />
+            {products.map((product) => {
+                if (product && cartItems[product.prodNum] > 0)
+                  return <CheckoutCartItem key={product.prodNum} prodNum={product.prodNum} data={product} />
                 return <></>
             })}
         </div>
 
         <div className={styles.checkout}>
-            <p>Subtotal: ${Number(totalAmount).toFixed(2)}</p>
+            <p>Subtotal: ${totalAmount} {codeGood && '(' + Number(codes[code]?.discount*100) + '% off!)'}</p>
             <p>Sales Tax Added ({Number(taxRate*100).toFixed(2)}%): ${Number(totalAmount*taxRate).toFixed(2)}</p>
             <p>Total: ${Number(totalAmount*(1+taxRate)).toFixed(2)}</p>
             <button className={`${styles.orderBttn} ${styles.cartBttn}`} disabled={numCartItems === 0 ? true : false} onClick={() => checkoutWrapper(country, add, city, state, zip, email)}> Place Order </button>
