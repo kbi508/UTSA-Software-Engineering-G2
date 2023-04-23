@@ -11,15 +11,6 @@
     z-index: 100000;
 }
 
-.splashHeader {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    color: white;
-    font-family: "Fasthand", sans-serif;
-    font-size: min(4vw, 3rem);
-}
-
 .productSplash {
     color: white;
     margin-top: 10%;
@@ -44,10 +35,10 @@
 .lightBttn {
     border-style: none;
     border-radius: 1rem;
-    font-family: "Fasthand", sans-serif;
+    font-family: "Optima", sans-serif;
     color: white;
     background-color: #FCC68F;
-    width: 30%;
+    width: 20%;
     font-size: min(4vw, 2rem);
     align-self: flex-start;
     grid-column: 4/5;
@@ -75,7 +66,7 @@
     gap: 1rem;
     grid-column: 2/-1;
     grid-row: 2/3;
-    font-family: "Verdana", sans-serif;
+    font-family: "Optima", sans-serif;
     font-size: min(1.5vw, 2rem);
     text-align: justify;
 }

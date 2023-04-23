@@ -17,10 +17,6 @@ export const Cart = () => {
     }))
   }, [products, cartItems])
 
-  useEffect(() => {
-    console.log(unsortedProducts)
-  }, [unsortedProducts])
-
   if (cart.current)
   {
     const navbar = document.getElementById('navbar')

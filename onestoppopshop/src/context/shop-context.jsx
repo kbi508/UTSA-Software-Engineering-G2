@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react'
+import React, { createContext, useState, useEffect, useRef } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut, deleteUser, reauthenticateWithCredential, EmailAuthProvider } from 'firebase/auth'
 import { auth, database } from '../firebase'
@@ -18,6 +18,7 @@ export const ShopContextProvider = (props) => {
     const [cartItems, setCartItems] = useState({})
     const [isOpen, setIsOpen] = useState(false)   // Is cart open
     const [numCartItems, setNumCartItems] = useState(0)
+    const prevNumCartItemsRef = useRef(numCartItems)
 
     // Authentication vars:
     const [authUser, setAuthUser] = useState(null)
@@ -358,16 +359,24 @@ export const ShopContextProvider = (props) => {
     useEffect(() => {
         if (numCartItems === 0 && location.pathname === "/checkout") // If they empty their cart at checkout, boot them back to the store.
         {
-            toggleOpen()
+            // toggleOpen()
             navigator('/')
         }
+        console.log('Effect ran ' + numCartItems)
     }, [numCartItems])
 
     const updateCartItemCount = (newAmount, itemId) => {
+        if (!cartItems[itemId])
+            cartItems[itemId] = 0
         if (!Number.isNaN(newAmount)) {
             let curQuan = products.find((product) => product?.prodNum === itemId).quantity
             if (newAmount > curQuan)
                 newAmount = curQuan
+            console.log('Current amount is ' + cartItems[itemId] +' New amount is ' + newAmount)
+            const delta = parseInt(newAmount) - parseInt(cartItems[itemId])
+            setNumCartItems(Number(parseInt(numCartItems) + parseInt(delta)))
+            console.log(numCartItems)
+            prevNumCartItemsRef.current = numCartItems
             setCartItems((prev) => ({...prev, [itemId]: newAmount}))
         }
     }
