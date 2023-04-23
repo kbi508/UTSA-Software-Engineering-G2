@@ -16,7 +16,7 @@ export const ShopContextProvider = (props) => {
 
     // Shop vars:
     const [cartItems, setCartItems] = useState({})
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)   // Is cart open
     const [numCartItems, setNumCartItems] = useState(0)
 
     // Authentication vars:

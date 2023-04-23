@@ -58,6 +58,10 @@
     background-color: #329885;
 }
 
+.navBttnActv {
+    background-color: #246e61;
+}
+
 .rightWrapperNav {
     display: flex;
     gap: 1rem;
