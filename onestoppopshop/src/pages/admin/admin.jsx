@@ -159,7 +159,9 @@ export const Admin = () => {
 
   const removeProduct = () => {
     const productRef = ref(database, 'products/' + curProdNum)
-    remove(productRef)
+    update(productRef, {
+        deleted: true
+    })
     .then((snapshot) => {
         fetchProducts()
         setShowProductSplash(false)
@@ -216,7 +218,8 @@ export const Admin = () => {
         prod_description: desc,
         weight_Amount: Number(weight),
         weight_Type: weightUnit,
-        quantity: Number(quantity)
+        quantity: Number(quantity),
+        deleted: false
     }
     newProduct.hastags = tags
     if (sale)

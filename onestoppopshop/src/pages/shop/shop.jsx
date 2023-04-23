@@ -154,7 +154,7 @@ export const Shop = () => {
         (<>
         <div className={styles.products}>
           {products.map((product) => {
-            if (product)
+            if (product && !product.deleted)
             {
               let showThisProd = true
               if (searchString) {
