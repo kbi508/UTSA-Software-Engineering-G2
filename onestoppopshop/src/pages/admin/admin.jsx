@@ -345,7 +345,7 @@ export const Admin = () => {
             <button className={styles.lightBttn} id={styles.plusBttn} onClick={() => productScreen()}>+</button>
             <div className={styles.products}>
                 {products && products.map((product) => {
-                    if (product)
+                    if (product && !product.deleted)
                         return <Productbox key={product.prodNum} productNum={product.prodNum} data={product} productScreen={productScreen} />
                     else
                         return <></>
