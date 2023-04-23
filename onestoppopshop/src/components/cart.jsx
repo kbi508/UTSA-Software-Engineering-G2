@@ -13,14 +13,13 @@ export const Cart = () => {
 
   useEffect(() => {
     setUnsortedProducts([...products].sort((a, b) => {
-
-      if (a && b)
-        return a.prodNum < b.prodNum
-      else 
-        return true
+        return Number(a?.prodNum) - Number(b?.prodNum)
     }))
+  }, [products, cartItems])
+
+  useEffect(() => {
     console.log(unsortedProducts)
-  }, [cartItems])
+  }, [unsortedProducts])
 
   if (cart.current)
   {

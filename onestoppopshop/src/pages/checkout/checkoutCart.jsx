@@ -13,16 +13,6 @@ export const CheckoutCart = (props) => {
   const navigator = useNavigate()
   const [orderSuccess, setOrderSuccess] = useState(false)
 
-  // Sort the products back into by prodNum order.
-  useEffect(() => {
-    setProducts(products.sort((a, b) => {
-      if (a && b)
-        return a.prodNum < b.prodNum
-      else 
-        return 0
-    }))
-  }, [])
-
   useEffect(() => {
     if (codeGood) {
       setTotalAmount(Number(getTotalCartAmount() * (1-codes[code]?.discount)).toFixed(2))
