@@ -7,30 +7,18 @@ const { desc, price, name, img, weightUnit, weight, quantity, sale, discount, ta
 return (
     <div className={styles.backdrop}>
         <div className={styles.productSplash}>
-            <div className={styles.splashHeader}>
-                <button className={styles.lightBttn} onClick={() => props.close()}>X</button>
-                <img src={img} alt='Product'/>
-                <div className={styles.prodName}>
-                    <p>{name}</p>
-                </div>
-                <div className={styles.prodDesc}>
-                    <div><p>{desc}</p></div>
-                    <div><p>Price: ${price}</p></div>
-                    
-                    <div><p>{sale}</p></div>
-                    <div> <p>{discount}</p></div>
-                    <div className={styles.tags}>
-                    {tags.map((tag) => <Tag text={tag} />)}
-                    </div>
-
-                </div>
-
+            <button className={styles.lightBttn} onClick={() => props.close()}>X</button>
+            <img src={img} alt='Product'/>
+            <p className={styles.prodName}>{name}</p>
+            <div className={styles.prodDesc}>
+                <div><p>{desc}</p></div>
+                <div><p>${sale ? (price * (1-(discount/100))).toFixed(2) : price} {sale && '(' + discount + '% off)'}</p></div>
+                <div>{quantity === 0 ? (<p>Out of Stock</p>) : ('')}</div>
             </div>
-
+            <div className={styles.tags}>
+                {tags.map((tag) => <Tag text={tag} />)}
+            </div>
         </div>
-    </div>    
-
-    
-    
-)    
+    </div>
+    )    
 }
