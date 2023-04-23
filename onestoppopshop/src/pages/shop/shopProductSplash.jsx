@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import styles from './shopProductSplash.module.css'
 import { Tag } from './tag'
 import { ShopContext } from '../../context/shop-context'
