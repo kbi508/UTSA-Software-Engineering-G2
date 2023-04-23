@@ -148,9 +148,9 @@ export const Checkout = () => {
       </div>
       <div className={styles.separator} />
       <div className={styles.discount}>
-        <p>Discount Code</p>
+        <p className={styles.discountTitle}>Discount Code</p>
         <input ref={discountRef} className={`${styles.discountText}`} placeholder='Enter Code if Applicable' value={code} onChange={(e) => setCode((e.target.value).toUpperCase())}/>
-        {codeMessage && <p>{codeMessage}</p>}
+        {codeMessage && <p className={styles.discountMessage}>{codeMessage}</p>}
       </div>
       <div className={styles.separator} />
       <div className={styles.ccInputs}>

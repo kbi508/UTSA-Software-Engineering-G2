@@ -93,6 +93,7 @@ export const CheckoutCart = (props) => {
         {showConfirm &&
         <div className={styles.confirmationBackdrop}>
           <div className={styles.confirmation}>
+            <h1>{orderSuccess ? 'Order Processed' : 'Error'}</h1>
             <p>{message}</p>
             <button className={styles.confirmBttn} onClick={() => confirm()}>Confirm</button>
           </div>

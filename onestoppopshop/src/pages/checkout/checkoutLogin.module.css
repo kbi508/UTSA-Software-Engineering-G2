@@ -7,7 +7,7 @@
     left: 31%;
     width: 20%;
     background-color: #FCC68F;
-    border: .3rem solid #24252A;
+    border-radius: .7rem;
     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.5);
     padding: 1rem;
     animation: fadeIn 0.2s linear;
@@ -41,7 +41,7 @@
     flex-direction: column;
     gap: 1rem;
     margin-top: 1.4rem;
-    align-items: center;
+    align-items: left;
 }
 
 .bttns > button {

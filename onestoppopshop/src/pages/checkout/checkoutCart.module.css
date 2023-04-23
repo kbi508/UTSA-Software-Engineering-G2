@@ -83,18 +83,21 @@
     background-color: #FCC68F;
     height: 40%;
     width: 50%;
-    border-color: #24252A;
-    border-style: solid;
-    border-width: .5rem;
+    border-radius: 1rem;
     padding: 2rem;
 }
 
 .confirmation > p {
     font-family: "Optima", sans-serif;
-	font-size: 2rem;
+	font-size: 1.5rem;
 	align-items: center;
 	font-weight: bold;
+    text-align: center;
     color: #24252A;
+}
+
+.confirmation > h1 {
+    font-size: 4rem;
 }
 
 .confirmBttn {
