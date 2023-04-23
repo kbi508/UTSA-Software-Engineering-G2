@@ -16,7 +16,7 @@ export const Product = (props) => {
         
         <button className={styles.addToCartBttn} onClick={() => addToCart(props.prodNum)} disabled={quantity === 0}>
           {/* Add To Cart {cartItems[props.prodNum] > 0 && <>({cartItems[props.prodNum]})</>} {quantity === 0 ? '(Out of Stock)' : ''} */}
-          {quantity === 0 ? 'Out of Stock' : `Add To Cart ${cartItems[props.prodNum] > 0 && `(${cartItems[props.prodNum]})`}`}
+          {quantity === 0 ? 'Out of Stock' : `Add To Cart ${cartItems[props.prodNum] > 0 ? `(${cartItems[props.prodNum]})` : ('')}`}
         </button>
     </div>
   )
