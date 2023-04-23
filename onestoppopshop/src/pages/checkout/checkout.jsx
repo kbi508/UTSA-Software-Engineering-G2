@@ -8,7 +8,7 @@ export const Checkout = () => {
   const [usingAcc, setUsingAcc] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
 
-  const { code, codes, setCode, codeGood, setCodeGood, checkCode, authUser, userAddress, userCity, userCountry, userState, userZip, fetchProducts, fetchCodes } = useContext(ShopContext)
+  const { products, setProducts, code, codes, setCode, codeGood, setCodeGood, checkCode, authUser, userAddress, userCity, userCountry, userState, userZip, fetchProducts, fetchCodes } = useContext(ShopContext)
 
   const loginRef = useRef(null)
   const discountRef = useRef(null)
@@ -30,7 +30,9 @@ export const Checkout = () => {
   const [ccv, setCCV] = useState('')
 
   useEffect(() => {
-    fetchProducts()
+    setProducts([...products].sort((a, b) => {
+      return Number(a?.prodNum) - Number(b?.prodNum)
+    }))
     fetchCodes()
     setCode('')
   }, [])
