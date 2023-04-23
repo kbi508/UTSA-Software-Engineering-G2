@@ -12,7 +12,7 @@ export const Product = (props) => {
         <img src={product_Image}  onClick={() => props.productScreen(props.prodNum)} alt='Product'/>
         <div className={styles.prodDesc}>
             <p><b>{name}</b></p>
-            <p>Quantity: {quantity}</p>
+            {quantity > 0 && <p>{quantity} On Hand</p>}
             <p>${onsale ? (price * (1-(salepercent))).toFixed(2) : price} {onsale && '(' + salepercent*100 + '% off)'}</p>
         </div>        
         <button className={styles.addToCartBttn} onClick={() => addToCart(props.prodNum)} disabled={quantity === 0}>
