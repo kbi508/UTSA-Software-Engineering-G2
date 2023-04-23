@@ -57,10 +57,28 @@ export const Shop = () => {
 
   const sortProducts = () => {
     if (productSort === 'price') {
-      if (ascending) 
-        setProducts([...products].sort((a, b) => a.price - b.price))
-      else
-        setProducts([...products].sort((a, b) => b.price - a.price))
+      if (ascending) {
+        setProducts([...products].sort((a, b) => {
+          let aAdjusted = a.price
+          let bAdjusted = b.price
+          if (a.onsale)
+            aAdjusted *= (1-a.salepercent)
+          if (b.onsale)
+            bAdjusted *= (1-b.salepercent)
+          return aAdjusted - bAdjusted
+        }))
+      }
+      else {
+        setProducts([...products].sort((a, b) => {
+          let aAdjusted = a.price
+          let bAdjusted = b.price
+          if (a.onsale)
+            aAdjusted *= (1-a.salepercent)
+          if (b.onsale)
+            bAdjusted *= (1-b.salepercent)
+          return bAdjusted - aAdjusted
+        }))
+      }
     }
     else if (productSort === 'quantity') {
       setProducts([...products].sort((a, b) => {
