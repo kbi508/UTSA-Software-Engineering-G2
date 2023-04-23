@@ -6,7 +6,7 @@
     align-items: center;
     padding-left: 1rem;
     font-family: "Optima", sans-serif;
-    font-size: min(3vw, 2rem);
+    font-size: 100%;
     border-radius: 1rem;
     transition: all 0.3s ease;
 }
