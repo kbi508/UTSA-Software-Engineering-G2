@@ -1,14 +1,37 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { ref, get } from 'firebase/database'
 import styles from './orderbox.module.css'
 import { ShopContext } from '../../context/shop-context'
 import { database } from '../../firebase'
 
 export const Orderbox = (props) => {
-  const [orderItems, setOrderItems] = useState(null)
-  const { } = useContext(ShopContext)
+  const { products } = useContext(ShopContext)
+  // const [orderItems, setOrderItems] = useState(null)
 
   useEffect(() => {
+    // ONE TIME - CORRECT OLD ORDERS:
+    // const ordersRef = ref(database, 'orders')
+    // get(ordersRef)
+    // .then ((snapshot) => {
+    //   if (snapshot.exists()){
+    //     const data = snapshot.val()
+    //     Object.keys(data).forEach((orderNum) => {
+    //       Object.keys(data[orderNum].items).forEach((itemNum) => {
+    //         let newItems = {
+    //           numBought: 0,
+    //           price: 0
+    //         }
+    //         const product = products.find((product) => product?.prodNum === Number(itemNum))
+    //         newItems.numBought = data[orderNum].items[itemNum]
+    //         newItems.price = Number(product?.price)
+    //         data[orderNum].items[itemNum] = newItems
+    //       })
+    //     })
+    //     update(ordersRef, data)
+    //   }
+    // })
+
+
     const fetchItems = async () => {
       try {
         const itemsRef = ref(database, 'products')
@@ -22,11 +45,11 @@ export const Orderbox = (props) => {
             product.key = productNumbers[index]
           })
           // Filter items that are in this order:
-          const itemsInOrder = totalProducts.filter((product) => product.numBought = props.data.items[product.key])
+          // const itemsInOrder = totalProducts.filter((product) => Object.keys(props.data.items).some((itemNum) => Number(itemNum) === Number(product?.prodNum)))
           // console.log("Total items in this order:")
           // console.log(itemsInOrder)
           // Add the number of items as a value to each:
-          setOrderItems(itemsInOrder)
+          // setOrderItems(itemsInOrder)
         } else {
           console.log("Snapshot failure...")
           return [] // Return an empty array if snapshot does not exist
@@ -39,6 +62,8 @@ export const Orderbox = (props) => {
 
     fetchItems()
   }, [])
+
+  // useEffect(() => console.log(orderItems), [orderItems])
 
   return (
     <div className={styles.orderBox}>
@@ -64,10 +89,14 @@ export const Orderbox = (props) => {
           </div>
         </div>
         <div className={styles.items}>
-            {orderItems && orderItems.map((item) => {
-              return (
-                <><span>{item.name} ${Number(item.price).toFixed(2)}</span> <span className={styles.price}>x {item.numBought} = {Number(item.price*item.numBought).toFixed(2)}</span></>
-              )
+            {Object.keys(props.data.items).map((itemNum) => {
+              if (itemNum) {
+                console.log('Creating item for ' + itemNum)
+                const product = products.find((product) => product?.prodNum === Number(itemNum))
+                return (
+                  <><span>{product.name}</span> <span className={styles.price}>${Number(props.data.items[itemNum].price).toFixed(2)} x {props.data.items[itemNum].numBought} = ${Number(props.data.items[itemNum].price*props.data.items[itemNum].numBought).toFixed(2)}</span></>
+                )
+              }
             })}
         </div>
     </div>

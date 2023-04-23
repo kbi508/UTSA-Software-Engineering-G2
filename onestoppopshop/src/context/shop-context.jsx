@@ -323,8 +323,20 @@ export const ShopContextProvider = (props) => {
         }
         order.email = email
 
-        order.items = cartItems
+        // Add the price at sale for each item to items:
+        order.items = {}
+        Object.keys(cartItems).forEach((prodNum) => {
+            console.log('Item ' + prodNum)
+            const product = products.find((product) => product?.prodNum === Number(prodNum))
+            order.items[prodNum] = {}
+            if (product.onsale)
+                order.items[prodNum].price = Number((product.price * (1-product.salepercent)).toFixed(2))
+            else 
+                order.items[prodNum].price = product.price
+            order.items[prodNum].numBought = cartItems[prodNum]
+        })
 
+        console.log(order)
         set(newOrderRef, order)
 
         // Subtract ordered quantity from products quantity:
