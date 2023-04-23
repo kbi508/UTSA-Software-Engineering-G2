@@ -3,7 +3,7 @@ import {ShopContext} from '../../context/shop-context'
 import styles from './checkoutCartItem.module.css'
 
 export const CheckoutCartItem = (props) => {
-  const { name, price, product_Image, prodNum } = props.data
+  const { name, price, product_Image, prodNum, onsale, salepercent } = props.data
   const { cartItems, addToCart, removeFromCart, updateCartItemCount } = useContext(ShopContext)
 
   return (
@@ -15,7 +15,7 @@ export const CheckoutCartItem = (props) => {
         <input value={cartItems[prodNum]} onChange={(e) => updateCartItemCount(Number(e.target.value), prodNum)}></input>
         <button onClick={() => addToCart(prodNum)}>+</button>
       </div>
-      <p className={styles.price}>x ${Number(price).toFixed(2)}</p>
+      <p className={styles.price}>x ${onsale ? (Number(price * (1-salepercent)).toFixed(2)) : (Number(price).toFixed(2))}</p>
     </div>
   )
 }
