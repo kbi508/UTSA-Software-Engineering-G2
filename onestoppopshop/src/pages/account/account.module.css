@@ -21,8 +21,9 @@
 
 .tabBttns > button {
     font-family: "Optima", sans-serif;
-    /* font-size: clamp(1.6rem, 3vw, 4rem); */
-    font-size: 4rem;
+    font-size: clamp(1.6rem, 10vw, 4rem);
+    text-align: center;
+    padding: 1rem;
     background-color: #24252A;
     flex: 1;
     border-style: none;
@@ -103,7 +104,7 @@
     font-family: "Optima", sans-serif;
     font-size: clamp(1rem, 2vw, 2rem);
     white-space: nowrap;
-    padding-right: .5rem;
+    padding: .5rem;
     transition: all 0.3s ease;
 }
 

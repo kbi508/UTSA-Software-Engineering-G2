@@ -324,7 +324,7 @@ export const Admin = () => {
                 <div className={styles.codeInputs}>
                     <input className={styles.addCodeText} type='text' placeholder='Enter Code Text' value={codeText} onChange={(e) => setCodeText(e.target.value)} />
                     <input className={styles.addCodeNum} type='number' min={1} max={100} placeholder='Enter Discount %' value={codeNum} onChange={(e) => setCodeNum(e.target.value)} />
-                    <button className={styles.lightBttn} onClick={() => addCode()}>Add Code</button>
+                    <button className={styles.lightBttn} onClick={() => addCode()}>+</button>
                 </div>
             </div>
             <div className={styles.codes}>

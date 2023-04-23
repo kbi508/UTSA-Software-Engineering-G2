@@ -7,7 +7,7 @@
 .pageLink, .navBttn {
     font-family: "Optima", sans-serif;
     font-weight: 600;
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: white;
     text-decoration: none;
 }
@@ -46,7 +46,6 @@
 .navBttn {
     padding-left: 1.8rem;
     padding-right: 1.8rem;
-    margin-right: 1rem;
     height: 3rem;
     background-color: #FCC68F;
     border: none;
@@ -61,7 +60,7 @@
 
 .rightWrapperNav {
     display: flex;
-    
+    gap: 1rem;
     margin-left: auto;
     white-space: nowrap;
     align-items: center;

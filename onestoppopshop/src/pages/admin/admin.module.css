@@ -14,12 +14,16 @@
 }
 
 .title {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     text-align: center;
     color: white;
-    font-family: "Fasthand", sans-serif;
+    font-family: "Optima", sans-serif;
     font-size: min(6vw, 4rem);
     background-color: #24252A;
     height: 5rem;
+    text-align: center;
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
 }
@@ -46,12 +50,16 @@
 }
 
 .lightBttn {
+    padding: .2rem;
+    padding-left: .7rem;
+    padding-right: .7rem;
+    white-space: nowrap;
     border-style: none;
     border-radius: 1rem;
-    font-family: "Fasthand", sans-serif;
+    font-family: "Optima", sans-serif;
     color: white;
     background-color: #FCC68F;
-    width: 30%;
+    width: fit-content;
     font-size: min(4vw, 2rem);
     margin-left: auto;
     transition: all 0.3s ease;
@@ -91,7 +99,7 @@
     justify-content: flex-start;
     align-items: center;
     font-size: min(3vw, 2rem);
-    font-family: "Fasthand", sans-serif;
+    font-family: "Optima", sans-serif;
     gap: 1rem;
     color: white;
 }
@@ -153,22 +161,36 @@
     white-space: nowrap;
     align-items: center;
 }
+
 .codeInputs > button {
     width: fit-content;
     padding: 0 1rem 0 1rem;
     font-size: min(2vw, 2rem);
+    border-radius: .5rem;
+}
+
+.addCodeText {
+    border-radius: .5rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.addCodeNum {
+    border-radius: .5rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 .codeInputs > input {
     height: 100%;
     width: 10rem;
-    border-radius: .5rem;
     font-size: 1rem;
 }
 
 .codes {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: .3rem;
     align-items: center;
     padding: 1rem;
     background-color: #24252A;
