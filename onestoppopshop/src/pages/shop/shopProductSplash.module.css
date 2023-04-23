@@ -8,37 +8,42 @@
     left: 0;
     height: 100vh;
     width: 100vw;
-}
-
-.splashHeader {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    color: white;
-    font-family: "Fasthand", sans-serif;
-    font-size: min(4vw, 3rem);
+    z-index: 100000;
 }
 
 .productSplash {
-    display: flex;
+    color: white;
+    margin-top: 10%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 3fr 1fr;
     max-width: 70%;
     gap: .5rem;
     flex-direction: column;
     background-color: #24252A;
     padding: 1rem;
-    padding-top: 0;
     border-radius: 1rem;
+}
+
+.productSplash > img {
+    height: 65vh;
+    grid-column: 1/2;
+    grid-row: 1/4;
+    margin-right: 1rem;
 }
 
 .lightBttn {
     border-style: none;
     border-radius: 1rem;
-    font-family: "Fasthand", sans-serif;
+    font-family: "Optima", sans-serif;
     color: white;
     background-color: #FCC68F;
-    width: 10%;
+    width: 20%;
     font-size: min(4vw, 2rem);
-    align-self: flex-end;
+    align-self: flex-start;
+    grid-column: 4/5;
+    grid-row: 1/2;
+    justify-self: right;
     transition: all 0.3s ease;
 }
 
@@ -47,132 +52,57 @@
     transition: all 0.3s ease;
 }
 
-.inputs {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    height: 100%;
-}
-
-
-.inputs > input {
-    height: 2rem;
-}
-
-
-.inputs > p {
-    color: red;
-    font-family: "Fasthand", sans-serif;
-    font-size: min(4vw, 2rem);
-    white-space: nowrap;
-    align-self: flex-end;
-    grid-column: 3/-1;
-    margin-left: 1rem;
-}
-
-.desc {
-    grid-column: -1/1;
-    height: 100%;
-}
-.prodDesc {
-    font-size: 1vw;
-    text-align: left;
-}
-
-.name {
-    grid-column: -1/1;
-    height: 100%;
-}
-
-.img {
-    grid-column: -1/1;
-    height: 100%;
-}
-
-.saleHolder {
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-}
-
-.sale {
-    height: 50%;
-    width: 50%;
-    grid-column: 1/2;
-}
-
-.discount {
-    height: 50%;
+.prodName {
+    grid-column: 2/-1;
+    grid-row: 1/2;
+    font-size: 3vw;
+    justify-self: left;
     align-self: center;
 }
 
-#saleText {
-    color: white;
-    font-family: "Fasthand", sans-serif;
-    font-size: min(4vw, 2rem);
-}
-
-#tagsTitle {
+.prodDesc {
     display: flex;
-    align-items: center;
-    color: white;
-    grid-row: 6/7;
-    grid-column: 1/-1;
-    font-size: min(4vw, 2rem);
-    font-family: "Fasthand", sans-serif;
+    flex-direction: column;
+    gap: 1rem;
+    grid-column: 2/-1;
+    grid-row: 2/3;
+    font-family: "Optima", sans-serif;
+    font-size: min(1.5vw, 2rem);
+    text-align: justify;
 }
 
-#tagsTitle > p {
-    margin-right: 1rem;
+.countHandler {
+    width: 100%;
+    height: 100%;
 }
 
-#tagsTitle > input {
-    height: 2rem;
-}
-
-.addTag {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    font-family: "Fasthand", sans-serif;
-    width: 10%;
-    height: 2rem;
-    color: white;
-    background-color: #FCC68F;
-    font-size: min(4vw, 3rem);
-    transition: all 0.3s ease;
+.countHandler > input{
     text-align: center;
+    font-size: 1.5rem;
+    width: 4rem;
+    color: white;
+    background-color: #24252A;
 }
 
-.addTag:hover {
-    background-color: #329885;
-    transition: all 0.3s ease;
+.countHandler > button{
+    text-align: center;
+    font-size: 1.5rem;
+    width: 2rem;
+    color: #24252A;
+    background-color: #FCC68F;
 }
 
 .tags {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     gap: .3rem;
     max-width: 100%;
-    grid-row: 7/8;
-    grid-column: 1/-1;
-    margin-bottom: 1rem;
+    grid-column: 2/-1;
+    grid-row: 3/4;
 }
 
-#submit {
-    width: fit-content;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    grid-row: 8/9;
-}
-
-#delete {
-    width: fit-content;
-    grid-column: 4/-1;
-    justify-self: end;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    grid-row: 8/9;
+.tags > * {
+    height: fit-content;
 }
 
 .disabled {

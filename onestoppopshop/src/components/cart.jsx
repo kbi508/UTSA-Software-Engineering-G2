@@ -13,14 +13,9 @@ export const Cart = () => {
 
   useEffect(() => {
     setUnsortedProducts([...products].sort((a, b) => {
-
-      if (a && b)
-        return a.prodNum < b.prodNum
-      else 
-        return true
+        return Number(a?.prodNum) - Number(b?.prodNum)
     }))
-    console.log(unsortedProducts)
-  }, [cartItems])
+  }, [products, cartItems])
 
   if (cart.current)
   {
@@ -31,7 +26,7 @@ export const Cart = () => {
 
   return (
     <div ref={cart} className={isOpen ? (`${styles.cart} ${styles.active}`) : (styles.cart)}>
-        <div className={styles.xBttn} onClick={toggleOpen}>X</div>
+        {/* <div className={styles.xBttn} onClick={toggleOpen}>X</div> */}
 
         <div className={styles.cartItems}>
             {unsortedProducts && unsortedProducts.map((product) => {

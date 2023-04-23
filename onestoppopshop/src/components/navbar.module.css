@@ -5,9 +5,9 @@
 }
 
 .pageLink, .navBttn {
-    font-family: "Fasthand", sans-serif;
-    font-weight: 500;
-    font-size: min(3vw, 2rem);
+    font-family: "Optima", sans-serif;
+    font-weight: 600;
+    font-size: 1.6rem;
     color: white;
     text-decoration: none;
 }
@@ -44,11 +44,12 @@
 }
 
 .navBttn {
-    padding:0px 28px;
-    margin-right: .5rem;
+    padding-left: 1.8rem;
+    padding-right: 1.8rem;
+    height: 3rem;
     background-color: #FCC68F;
     border: none;
-    border-radius: 25px;
+    border-radius: .7rem;
     cursor: pointer;
     transition: all 0.3s ease 0s;
 }
@@ -57,9 +58,16 @@
     background-color: #329885;
 }
 
+.navBttnActv {
+    background-color: #246e61;
+}
+
 .rightWrapperNav {
+    display: flex;
+    gap: 1rem;
     margin-left: auto;
     white-space: nowrap;
+    align-items: center;
 }
 
 .cartComp {

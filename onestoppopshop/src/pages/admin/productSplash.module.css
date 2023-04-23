@@ -15,7 +15,7 @@
     align-items: flex-start;
     justify-content: space-between;
     color: white;
-    font-family: "Fasthand", sans-serif;
+    font-family: "Optima", sans-serif;
     font-size: min(4vw, 3rem);
 }
 
@@ -33,7 +33,7 @@
 .lightBttn {
     border-style: none;
     border-radius: 1rem;
-    font-family: "Fasthand", sans-serif;
+    font-family: "Optima", sans-serif;
     color: white;
     background-color: #FCC68F;
     width: 10%;
@@ -61,7 +61,7 @@
 
 .inputs > p {
     color: red;
-    font-family: "Fasthand", sans-serif;
+    font-family: "Optima", sans-serif;
     font-size: min(4vw, 2rem);
     white-space: nowrap;
     align-self: flex-end;
@@ -103,7 +103,7 @@
 
 #saleText {
     color: white;
-    font-family: "Fasthand", sans-serif;
+    font-family: "Optima", sans-serif;
     font-size: min(4vw, 2rem);
 }
 
@@ -114,7 +114,7 @@
     grid-row: 6/7;
     grid-column: 1/-1;
     font-size: min(4vw, 2rem);
-    font-family: "Fasthand", sans-serif;
+    font-family: "Optima", sans-serif;
 }
 
 #tagsTitle > p {
@@ -129,7 +129,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    font-family: "Fasthand", sans-serif;
+    font-family: "Optima", sans-serif;
     width: 10%;
     height: 2rem;
     color: white;

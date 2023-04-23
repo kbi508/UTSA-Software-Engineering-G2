@@ -5,8 +5,8 @@
     grid-template-columns: 4fr 2fr;
     align-items: center;
     padding-left: 1rem;
-    font-family: "Fasthand", sans-serif;
-    font-size: min(3vw, 2rem);
+    font-family: "Optima", sans-serif;
+    font-size: 100%;
     border-radius: 1rem;
     transition: all 0.3s ease;
 }
@@ -25,7 +25,7 @@
 .promoteBttn {
     border-style: none;
     border-radius: 1rem;
-    font-family: "Fasthand", sans-serif;
+    font-family: "Optima", sans-serif;
     color: white;
     background-color: #24252A;
     width: fit-content;

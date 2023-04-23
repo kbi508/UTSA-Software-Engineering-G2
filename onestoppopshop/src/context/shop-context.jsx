@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react'
+import React, { createContext, useState, useEffect, useRef } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut, deleteUser, reauthenticateWithCredential, EmailAuthProvider } from 'firebase/auth'
 import { auth, database } from '../firebase'
@@ -16,8 +16,9 @@ export const ShopContextProvider = (props) => {
 
     // Shop vars:
     const [cartItems, setCartItems] = useState({})
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)   // Is cart open
     const [numCartItems, setNumCartItems] = useState(0)
+    const prevNumCartItemsRef = useRef(numCartItems)
 
     // Authentication vars:
     const [authUser, setAuthUser] = useState(null)
@@ -152,21 +153,32 @@ export const ShopContextProvider = (props) => {
         signInWithEmailAndPassword(auth, email, password)
         .then(() => {
             setLoginError(null)
+            setEmail('')
+            setPassword('')
         })
-        .catch((error) => {setLoginError(error)})
+        .catch((error) => {setLoginError(error.message)})
+
     }
 
     const signUp = (e) => {
         e.preventDefault()
         createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {setLoginError(null); initializeNewUser(userCredential)})
-        .catch((error) => {setLoginError(error)})
+        .then((userCredential) => {
+            setLoginError(null); initializeNewUser(userCredential)
+            setEmail('')
+            setPassword('')
+        })
+        .catch((error) => {setLoginError(error.message)})
+
     }
 
     const userLogOut = () => {
         signOut(auth)
-        .then(() => {setLoginError(null)})
-        .catch((error) => {setLoginError(error)})
+        .then(() => {
+            setLoginError(null)
+            setAuthIsAdmin(false)
+        })
+        .catch((error) => {setLoginError(error.message)})
         navigator('/')
     }
 
@@ -180,8 +192,10 @@ export const ShopContextProvider = (props) => {
             deleteUser(authUser).catch((error) => console.log(error))
             navigator('/')
             setLoginError(null)
+            setEmail('')
+            setPassword('')
         })
-        .catch((error) => {setLoginError(error)})
+        .catch((error) => {setLoginError(error.message)})
     }
 
     const initializeNewUser = (userCredential) => {
@@ -308,33 +322,63 @@ export const ShopContextProvider = (props) => {
 
         order.items = cartItems
 
-        set(newOrderRef, order)        
+        set(newOrderRef, order)
+
+        // Subtract ordered quantity from products quantity:
+        Object.keys(cartItems).forEach((prodNum) => {
+            let curProduct = products.find((product) => Number(product?.prodNum) === Number(prodNum))
+            const productRef = ref(database, 'products/' + prodNum)
+            update(productRef, {
+                quantity: Number(curProduct.quantity - cartItems[prodNum])
+            })
+        })
+
+
         return newOrderRef.key
     }
 
     const addToCart = (itemId) => {
-        if (cartItems[itemId]) 
-            setCartItems((prev) => ({...prev, [itemId]: Number(prev[itemId]+1)}))
-        else
-            setCartItems((prev) => ({...prev, [itemId]: Number(1)}))
-        setNumCartItems(numCartItems + 1)
+        if (!cartItems[itemId])
+            cartItems[itemId] = 0
+        if (products.find((product) => product?.prodNum === itemId).quantity >= cartItems[itemId] + 1) {
+            if (cartItems[itemId]) 
+                setCartItems((prev) => ({...prev, [itemId]: Number(prev[itemId]+1)}))
+            else
+                setCartItems((prev) => ({...prev, [itemId]: Number(1)}))
+            setNumCartItems(numCartItems + 1)
+        }
     }
 
     const removeFromCart = (itemId) => {
-        setCartItems((prev) => ({...prev, [itemId]: prev[itemId]-1}))
-        setNumCartItems(numCartItems - 1)
+        if (cartItems[itemId] > 0) {
+            setCartItems((prev) => ({...prev, [itemId]: prev[itemId]-1}))
+            setNumCartItems(numCartItems - 1)
+        }
     }
     
     useEffect(() => {
         if (numCartItems === 0 && location.pathname === "/checkout") // If they empty their cart at checkout, boot them back to the store.
         {
-            toggleOpen()
+            // toggleOpen()
             navigator('/')
         }
+        console.log('Effect ran ' + numCartItems)
     }, [numCartItems])
 
     const updateCartItemCount = (newAmount, itemId) => {
-        setCartItems((prev) => ({...prev, [itemId]: newAmount}))
+        if (!cartItems[itemId])
+            cartItems[itemId] = 0
+        if (!Number.isNaN(newAmount)) {
+            let curQuan = products.find((product) => product?.prodNum === itemId).quantity
+            if (newAmount > curQuan)
+                newAmount = curQuan
+            console.log('Current amount is ' + cartItems[itemId] +' New amount is ' + newAmount)
+            const delta = parseInt(newAmount) - parseInt(cartItems[itemId])
+            setNumCartItems(Number(parseInt(numCartItems) + parseInt(delta)))
+            console.log(numCartItems)
+            prevNumCartItemsRef.current = numCartItems
+            setCartItems((prev) => ({...prev, [itemId]: newAmount}))
+        }
     }
 
     const toggleOpen = () => {
@@ -347,7 +391,7 @@ export const ShopContextProvider = (props) => {
         setNumCartItems(0)
     }
 
-    const contextValue = {codeGood, code, codes, products, cartItems, authIsAdmin, authUser, isOpen, numCartItems, email, password, loginError, userAddress, userCity, userCountry, userState, userZip, taxRate, checkCode, setCodeGood, fetchCodes, setCode, setProducts, fetchProducts, processCheckout, deleteAccount, updateUserInfo, setEmail, setPassword, setCartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, resetCart, signIn, signUp, userLogOut}
+    const contextValue = { codeGood, code, codes, products, cartItems, authIsAdmin, authUser, isOpen, numCartItems, email, password, loginError, userAddress, userCity, userCountry, userState, userZip, taxRate, setLoginError, setIsOpen, setAuthIsAdmin, checkCode, setCodeGood, fetchCodes, setCode, setProducts, fetchProducts, processCheckout, deleteAccount, updateUserInfo, setEmail, setPassword, setCartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, resetCart, signIn, signUp, userLogOut}
 
     return (
         <ShopContext.Provider value={contextValue}>

@@ -3,14 +3,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 1rem;
-    top: 40%;
+    top: 35%;
     left: 31%;
     width: 20%;
     background-color: #FCC68F;
-    border: .5rem solid #24252A;
+    border-radius: .7rem;
     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.5);
-    padding: 1.5rem;
+    padding: 1rem;
     animation: fadeIn 0.2s linear;
 }
 
@@ -26,7 +25,7 @@
 }
 
 .inputs > input {
-    height: 2rem;
+    height: 2.5rem;
     width: 100%;
 }
 
@@ -41,19 +40,18 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    margin-top: 1rem;
-    align-items: center;
+    margin-top: 1.4rem;
+    align-items: left;
 }
 
 .bttns > button {
     background-color: #24252A;
-    font-family: "Fasthand", sans-serif;
+    font-family: "Optima", sans-serif;
     border-style: none;
     color: white;
     padding: .2rem;
-    border-radius: 1rem;
+    border-radius: .6rem;
     transition: all 0.3s ease;
-    height: 100%;
 }
 
 .bttns > button:hover {
@@ -61,13 +59,13 @@
 }
 
 .createBttn {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     white-space: nowrap;
     width: 70%;
 }
 
 .loginBttn {
     font-size: 1.5rem;
-    width: 50%;
-    background-color: purple;
+    width: 45%;
+    background-color: yellow;
 }

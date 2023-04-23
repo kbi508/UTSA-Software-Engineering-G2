@@ -20,9 +20,10 @@
 }
 
 .tabBttns > button {
-    font-family: "Fasthand", sans-serif;
-    /* font-size: clamp(1.6rem, 3vw, 4rem); */
-    font-size: 4rem;
+    font-family: "Optima", sans-serif;
+    font-size: clamp(1.6rem, 10vw, 4rem);
+    text-align: center;
+    padding: 1rem;
     background-color: #24252A;
     flex: 1;
     border-style: none;
@@ -68,7 +69,7 @@
 }
 
 .tabShippingInfo > p {
-    font-family: "Fasthand", sans-serif;
+    font-family: "Optima", sans-serif;
     grid-column: 1 / -1;
 }
 
@@ -81,7 +82,7 @@
     align-self: flex-start;
     margin-top: 1rem;
     padding-left: 1rem;
-    font-family: "Fasthand", sans-serif;
+    font-family: "Optima", sans-serif;
     font-weight: bold;
     font-size: 2.5rem;
     width: 100%;
@@ -89,6 +90,7 @@
 
 .accEmail {
     margin-top: -2rem;
+	margin-left: -1rem;
 }
 
 .deleteBttn {
@@ -99,10 +101,10 @@
     height: 4rem;
     width: 17%;
     height: 30%;
-    font-family: "Fasthand", sans-serif;
+    font-family: "Optima", sans-serif;
     font-size: clamp(1rem, 2vw, 2rem);
     white-space: nowrap;
-    padding-right: .5rem;
+    padding: .5rem;
     transition: all 0.3s ease;
 }
 
@@ -136,7 +138,7 @@
     color: white;
     height: 3.3rem;
     width: 35%;
-    font-family: "Fasthand", sans-serif;
+    font-family: "Optima", sans-serif;
     font-size: 2rem;
     transition: all 0.3s ease;
     text-align: center;

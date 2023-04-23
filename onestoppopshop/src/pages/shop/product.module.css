@@ -1,4 +1,5 @@
 .product {
+    position: relative;
     height: calc(50vh);
     max-width: 20rem;
     border-radius: 15px;
@@ -8,14 +9,26 @@
     justify-content: flex-end;
     align-items: center;
     transition: all 0.1s ease-in;
+    z-index: 0;
 }
 .product:hover {
     box-shadow: -3px 5px 0px #FCC68F;
     transition: all 0.1s ease-out;
 }
 
+.sale {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    font-size: 2rem;
+    color: white;
+    background-color: #329885;
+    border-radius: 1rem;
+    padding: .2rem;
+}
+
 .product img {
-    height: 75%;
+    height: 70%;
 }
 
 .prodDesc {
@@ -30,12 +43,12 @@
 
 .addToCartBttn {
     background-color: #FCC68F;
-    font-family: "Fasthand", sans-serif;
-    font-size: 1vw;
-    height: 8%;
+	font-family: "Optima", sans-serif;
+    font-size: .9vw;
+	font-weight: bold;
     color: white;
     border: none;
-    height: 10%;
+    height: 9%;
     width: fit-content;
     padding-left: 10px;
     padding-right: 10px;
@@ -44,8 +57,14 @@
     border-radius: 15px;
     white-space: nowrap;
 }
-
-.addToCartBttn:hover {
+.addToCartBttn:disabled {
+    background-color: gray;
+    color: black;
+    cursor: not-allowed;
+    
+    /* additional styles to indicate disabled state */
+  }
+.addToCartBttn:not([disabled]):hover {
     background-color: #329885;
     color: white;
     cursor: pointer;

@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { ref, update } from 'firebase/database'
 import styles from './userbox.module.css'
 import { database } from '../../firebase'
+import { ShopContext } from '../../context/shop-context'
 
 export const Userbox = (props) => {
+  const { authUser, authIsAdmin, setAuthIsAdmin } = useContext(ShopContext)
   const [isAdmin, setIsAdmin] = useState(props.data.admin)
 
   const promoteUser = (e) => {
@@ -24,6 +26,8 @@ export const Userbox = (props) => {
       })
       .then(() => {
         setIsAdmin(false)
+        if (authIsAdmin && authUser.email === props.data.email)
+          setAuthIsAdmin(false)
       })
       .catch((error) => console.log(error))
     }

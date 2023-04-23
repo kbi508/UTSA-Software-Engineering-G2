@@ -3,11 +3,11 @@ import { Product } from './product'
 import { Cart } from '../../components/cart'
 import styles from './shop.module.css'
 import { ShopContext } from '../../context/shop-context'
-import { shopProductSplash } from './shopProductSplash'
+import { ShopProductSplash } from './shopProductSplash'
 
 
 export const Shop = () => {
-  const { products, fetchProducts, setProducts } = useContext(ShopContext)
+  const { products, fetchProducts, setProducts, setIsOpen } = useContext(ShopContext)
   const [searchString, setSearchString] = useState('')
   const [filteredProducts, setFilteredProducts] = useState([])
   const [productSort, setProductSort] = useState(null)
@@ -15,9 +15,24 @@ export const Shop = () => {
   const [saleFilter, setSaleFilter] = useState(false)
   const [emptyMessage, setEmptyMessage] = useState(false) // Display no content found message?
 
+  const [desc, setDesc] = useState('')
+  const [price, setPrice] = useState('')
+  const [name, setName] = useState('')
+  const [img, setImg] = useState('')
+  const [weightUnit, setWeightUnit] = useState('')
+  const [weight, setWeight] = useState('')
+  const [quantity, setQuantity] = useState('')
+  const [sale, setSale] = useState(false)
+  const [discount, setDiscount] = useState('')
+  const [tags, setTags] = useState([])
+  const [curProdNum, setCurProdNum] = useState(null)
+  const [showProductSplash, setShowProductSplash] = useState(false)
+  const productVals = {desc, price, name, img, weightUnit, weight, quantity, sale, discount, tags, curProdNum, setTags, setSale, setDiscount, setDesc, setPrice, setName, setImg,setWeightUnit, setWeight, setQuantity}
+
 
   useEffect(() => {
     fetchProducts()
+    setIsOpen(false)
   }, [])
   
   useEffect(() => {
@@ -28,7 +43,7 @@ export const Shop = () => {
   // When the search string is updated:
   useEffect(() => {
     if (searchString) {
-      setFilteredProducts(filteredProducts.filter((product) => (product) && (product.prod_description.toUpperCase().search(searchString.toUpperCase()) !== -1 ||
+      setFilteredProducts(products.filter((product) => (product) && (product.prod_description.toUpperCase().search(searchString.toUpperCase()) !== -1 ||
         product.name.toUpperCase().search(searchString.toUpperCase()) !== -1  ||
         product.hastags.some((tag) => (tag.toUpperCase().search(searchString.toUpperCase()) !== -1)))))
       setEmptyMessage(true)
@@ -64,6 +79,39 @@ export const Shop = () => {
     sortProducts()
   }, [productSort, ascending])
 
+
+  useEffect(() => {
+    if (!showProductSplash)
+    {
+        setDesc('')
+        setPrice('')
+        setName('')
+        setImg('')
+        setWeightUnit('')
+        setWeight('')
+        setQuantity('')
+        setSale(false)
+        setDiscount('')
+        setTags([])
+        setCurProdNum(null)
+    }
+  }, [showProductSplash])
+
+  const productScreen = (productNum) => {
+    let curProduct = products.find((product) => product?.prodNum === productNum)
+    setDesc(curProduct.prod_description)
+    setPrice(curProduct.price)
+    setName(curProduct.name)
+    setImg(curProduct.product_Image)
+    setWeightUnit(curProduct.weight_Type)
+    setWeight(curProduct.weight_Amount)
+    setQuantity(curProduct.quantity)
+    setSale(curProduct.onsale)
+    setDiscount(Number(curProduct.salepercent * 100))
+    setTags(curProduct.hastags)
+    setCurProdNum(productNum)
+    setShowProductSplash(true)
+  }
 
   return (
     <div className={styles.shop}>
@@ -106,7 +154,7 @@ export const Shop = () => {
               }
               
               if (showThisProd)
-                return (<Product key={product.prodNum} prodNum={product.prodNum} data={product}/>)
+                return (<Product key={product.prodNum} prodNum={product.prodNum} data={product} productScreen={productScreen}/>)
               else
                 return <></>
             }
@@ -118,6 +166,7 @@ export const Shop = () => {
       }
       </div>
       <Cart />
+      {showProductSplash && <ShopProductSplash data={productVals} close={setShowProductSplash}/>}
     </div>
   )
 }

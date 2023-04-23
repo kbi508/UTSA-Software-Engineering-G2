@@ -8,7 +8,7 @@ export const Checkout = () => {
   const [usingAcc, setUsingAcc] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
 
-  const { code, codes, setCode, codeGood, setCodeGood, checkCode, authUser, userAddress, userCity, userCountry, userState, userZip, fetchProducts, fetchCodes } = useContext(ShopContext)
+  const { products, setProducts, code, codes, setCode, codeGood, setCodeGood, checkCode, authUser, userAddress, userCity, userCountry, userState, userZip, fetchProducts, fetchCodes } = useContext(ShopContext)
 
   const loginRef = useRef(null)
   const discountRef = useRef(null)
@@ -30,7 +30,9 @@ export const Checkout = () => {
   const [ccv, setCCV] = useState('')
 
   useEffect(() => {
-    fetchProducts()
+    setProducts([...products].sort((a, b) => {
+      return Number(a?.prodNum) - Number(b?.prodNum)
+    }))
     fetchCodes()
     setCode('')
   }, [])
@@ -129,7 +131,7 @@ export const Checkout = () => {
           {!authUser && (<p className={styles.loginBttn} onClick={() => setShowLogin(!showLogin)}>Login?</p>)}
           {showLogin && <div style={{width: "0%"}} ref={loginRef}><CheckoutLogin /></div>}
         </div>
-        {!authUser ? (<input className={styles.email} type={'email'} placeholder='Email' onChange={(e) => setEmail(e.target.value)}/>) : (<h1>Logged in as {authUser.email}</h1>)}
+        {!authUser ? (<input className={styles.email} type={'email'} placeholder='Email' onChange={(e) => setEmail(e.target.value)}/>) : (<h2>Logged in as {authUser.email}</h2>)}
       </div>
       <div className={styles.separator} />
       <span className={styles.sub}>
@@ -148,13 +150,19 @@ export const Checkout = () => {
       </div>
       <div className={styles.separator} />
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b3a6952f9be1ae362c4547772d3da9835739184b
       <div className={styles.discount}>
-        <p>Discount Code</p>
+        <p className={styles.discountTitle}>Discount Code</p>
         <input ref={discountRef} className={`${styles.discountText}`} placeholder='Enter Code if Applicable' value={code} onChange={(e) => setCode((e.target.value).toUpperCase())}/>
-        {codeMessage && <p>{codeMessage}</p>}
+        {codeMessage && <p className={styles.discountMessage}>{codeMessage}</p>}
       </div>
+<<<<<<< HEAD
 >>>>>>> 4c667ef3c0dce4643e426b74746ff7acbbefbc43
+=======
+>>>>>>> b3a6952f9be1ae362c4547772d3da9835739184b
       <div className={styles.separator} />
       <div className={styles.ccInputs}>
         <p>Payment</p>

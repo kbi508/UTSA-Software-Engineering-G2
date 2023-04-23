@@ -5,7 +5,7 @@
 }
 
 .orderPanel {
-    font-family: "Fasthand", sans-serif;
+    font-family: "Optima", sans-serif;
     overflow-y: auto;
     height: 85vh;
     padding-left: 10rem;
@@ -26,13 +26,13 @@
 .orderPanelHeader {
     display: grid;
     grid-template-columns: 12fr 1fr 1fr;
-    align-items: center;
     margin-top: -2rem;
 }
 
 .orderPanelHeader > h1 {
     font-size: 4.5rem;
     margin-right: auto;
+    white-space: nowrap;
 }
 
 .orderPanelHeader > p {
@@ -51,6 +51,12 @@
     flex-direction: column;
     align-items: flex-start;
     font-size: 1.5rem;
+}
+
+.account > h2{
+	padding-left: 9%;
+    margin-top: 1rem;
+    font-size: 1.8rem;
 }
 
 .loginPrompt {
@@ -84,7 +90,7 @@
 }
 
 .email::placeholder {
-    font-family: sans-serif;
+    font-family: "Optima", sans-serif;
     font-size: 1rem;
     text-align: left;
     padding-left: 1rem;
@@ -92,7 +98,7 @@
 }
 
 .sub {
-    font-size: 2rem;
+    font-size: 1rem;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -105,14 +111,16 @@
 
 .sub .shipTitle {
     margin-right: auto;
+	font-size: 2rem;
 }
 
 .sub > input {
-    width: 2rem;
+    width: 1.6rem;
     height: 2rem;
 }
 
 .shippingInputs {
+	padding-top: 1rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
@@ -125,13 +133,13 @@
 }
 
 .shippingInputs input {
-    height: 2rem;
+	height: 2rem;
     width: 100%;
     font-size: 1rem;
 }
 
 .shippingInputs input::placeholder{
-    font-family: sans-serif;
+    font-family: "Optima", sans-serif;
     font-size: 1rem;
     text-align: left;
     padding-left: 1rem;
@@ -160,9 +168,10 @@
 
 }
 
-.discount > p {
+.discountTitle {
     font-size: 2rem;
     grid-column: 1/-1;
+    margin-bottom: 1rem;
 }
 
 .discountText {
@@ -180,6 +189,13 @@
 .bad {
     border-color: red;
     outline: red;
+}
+
+.discountMessage {
+    color: gray;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    font-size: 1rem;
 }
 
 .ccInputs {
