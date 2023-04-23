@@ -313,11 +313,15 @@ export const ShopContextProvider = (props) => {
     }
 
     const addToCart = (itemId) => {
-        if (cartItems[itemId]) 
-            setCartItems((prev) => ({...prev, [itemId]: Number(prev[itemId]+1)}))
-        else
-            setCartItems((prev) => ({...prev, [itemId]: Number(1)}))
-        setNumCartItems(numCartItems + 1)
+        if (!cartItems[itemId])
+            cartItems[itemId] = 0
+        if (products.find((product) => product?.prodNum === itemId).quantity >= cartItems[itemId] + 1) {
+            if (cartItems[itemId]) 
+                setCartItems((prev) => ({...prev, [itemId]: Number(prev[itemId]+1)}))
+            else
+                setCartItems((prev) => ({...prev, [itemId]: Number(1)}))
+            setNumCartItems(numCartItems + 1)
+        }
     }
 
     const removeFromCart = (itemId) => {
@@ -336,7 +340,12 @@ export const ShopContextProvider = (props) => {
     }, [numCartItems])
 
     const updateCartItemCount = (newAmount, itemId) => {
-        setCartItems((prev) => ({...prev, [itemId]: newAmount}))
+        if (!Number.isNaN(newAmount)) {
+            let curQuan = products.find((product) => product?.prodNum === itemId).quantity
+            if (newAmount > curQuan)
+                newAmount = curQuan
+            setCartItems((prev) => ({...prev, [itemId]: newAmount}))
+        }
     }
 
     const toggleOpen = () => {
