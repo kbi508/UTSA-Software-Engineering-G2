@@ -149,20 +149,11 @@ export const Checkout = () => {
           <input className={styles.zip} type={'number'} placeholder='Zip' value={zip} onChange={(e) => setZip(e.target.value)} />
       </div>
       <div className={styles.separator} />
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> b3a6952f9be1ae362c4547772d3da9835739184b
       <div className={styles.discount}>
         <p className={styles.discountTitle}>Discount Code</p>
         <input ref={discountRef} className={`${styles.discountText}`} placeholder='Enter Code if Applicable' value={code} onChange={(e) => setCode((e.target.value).toUpperCase())}/>
         {codeMessage && <p className={styles.discountMessage}>{codeMessage}</p>}
       </div>
-<<<<<<< HEAD
->>>>>>> 4c667ef3c0dce4643e426b74746ff7acbbefbc43
-=======
->>>>>>> b3a6952f9be1ae362c4547772d3da9835739184b
       <div className={styles.separator} />
       <div className={styles.ccInputs}>
         <p>Payment</p>
