@@ -31,7 +31,7 @@ export const Cart = () => {
 
   return (
     <div ref={cart} className={isOpen ? (`${styles.cart} ${styles.active}`) : (styles.cart)}>
-        <div className={styles.xBttn} onClick={toggleOpen}>X</div>
+        {/* <div className={styles.xBttn} onClick={toggleOpen}>X</div> */}
 
         <div className={styles.cartItems}>
             {unsortedProducts && unsortedProducts.map((product) => {
