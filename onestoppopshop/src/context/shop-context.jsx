@@ -321,8 +321,10 @@ export const ShopContextProvider = (props) => {
     }
 
     const removeFromCart = (itemId) => {
-        setCartItems((prev) => ({...prev, [itemId]: prev[itemId]-1}))
-        setNumCartItems(numCartItems - 1)
+        if (cartItems[itemId] > 0) {
+            setCartItems((prev) => ({...prev, [itemId]: prev[itemId]-1}))
+            setNumCartItems(numCartItems - 1)
+        }
     }
     
     useEffect(() => {
