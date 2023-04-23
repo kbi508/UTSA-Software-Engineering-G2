@@ -152,15 +152,23 @@ export const ShopContextProvider = (props) => {
         signInWithEmailAndPassword(auth, email, password)
         .then(() => {
             setLoginError(null)
+            setEmail('')
+            setPassword('')
         })
         .catch((error) => {setLoginError(error)})
+
     }
 
     const signUp = (e) => {
         e.preventDefault()
         createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {setLoginError(null); initializeNewUser(userCredential)})
+        .then((userCredential) => {
+            setLoginError(null); initializeNewUser(userCredential)
+            setEmail('')
+            setPassword('')
+        })
         .catch((error) => {setLoginError(error)})
+
     }
 
     const userLogOut = () => {
@@ -358,7 +366,7 @@ export const ShopContextProvider = (props) => {
         setNumCartItems(0)
     }
 
-    const contextValue = {codeGood, code, codes, products, cartItems, authIsAdmin, authUser, isOpen, numCartItems, email, password, loginError, userAddress, userCity, userCountry, userState, userZip, taxRate, checkCode, setCodeGood, fetchCodes, setCode, setProducts, fetchProducts, processCheckout, deleteAccount, updateUserInfo, setEmail, setPassword, setCartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, resetCart, signIn, signUp, userLogOut}
+    const contextValue = { codeGood, code, codes, products, cartItems, authIsAdmin, authUser, isOpen, numCartItems, email, password, loginError, userAddress, userCity, userCountry, userState, userZip, taxRate, setAuthIsAdmin, checkCode, setCodeGood, fetchCodes, setCode, setProducts, fetchProducts, processCheckout, deleteAccount, updateUserInfo, setEmail, setPassword, setCartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, toggleOpen, resetCart, signIn, signUp, userLogOut}
 
     return (
         <ShopContext.Provider value={contextValue}>
