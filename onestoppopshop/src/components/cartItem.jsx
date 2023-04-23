@@ -12,7 +12,7 @@ export const CartItem = (props) => {
       <p className={styles.descriptText}><b>{name}</b></p>
       <div className={styles.countHandler}>
         <button onClick={() => removeFromCart(props.prodNum)}>-</button>
-        <input value={cartItems[props.prodNum]} onChange={(e) => updateCartItemCount(Number(e.target.value), props.prodNum)} />
+        <input value={cartItems[props.prodNum] ? (cartItems[props.prodNum]) : (0)} onChange={(e) => updateCartItemCount(Number(e.target.value), props.prodNum)} />
         <button onClick={() => addToCart(props.prodNum)}>+</button>
       </div>
       <p className={styles.price}>x ${Number(price).toFixed(2)}</p>
