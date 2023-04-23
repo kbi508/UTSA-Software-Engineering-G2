@@ -191,6 +191,8 @@ export const ShopContextProvider = (props) => {
             deleteUser(authUser).catch((error) => console.log(error))
             navigator('/')
             setLoginError(null)
+            setEmail('')
+            setPassword('')
         })
         .catch((error) => {setLoginError(error.message)})
     }
