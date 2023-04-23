@@ -173,7 +173,10 @@ export const ShopContextProvider = (props) => {
 
     const userLogOut = () => {
         signOut(auth)
-        .then(() => {setLoginError(null)})
+        .then(() => {
+            setLoginError(null)
+            setAuthIsAdmin(false)
+        })
         .catch((error) => {setLoginError(error)})
         navigator('/')
     }
