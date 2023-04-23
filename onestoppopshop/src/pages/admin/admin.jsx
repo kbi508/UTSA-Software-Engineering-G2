@@ -27,11 +27,11 @@ export const Admin = () => {
   const [sale, setSale] = useState(false)
   const [discount, setDiscount] = useState('')
   const [tags, setTags] = useState([])
-  const productVals = {desc, price, name, img, weightUnit, weight, quantity, sale, discount, tags, setTags, setSale, setDiscount, setDesc, setPrice, setName, setImg,setWeightUnit, setWeight, setQuantity}
+  const [curProdNum, setCurProdNum] = useState(null)
+  const productVals = { curProdNum, desc, price, name, img, weightUnit, weight, quantity, sale, discount, tags, setTags, setSale, setDiscount, setDesc, setPrice, setName, setImg,setWeightUnit, setWeight, setQuantity}
   const [showProductSplash, setShowProductSplash] = useState(false)
   const [showSplashError, setSplashError] = useState(false)
   
-  const [curProdNum, setCurProdNum] = useState(null)
 
   // How to sort orders:
   const [orderSort, setOrderSort] = useState(null)
@@ -190,6 +190,9 @@ export const Admin = () => {
         setDiscount(Number(products[productNum].salepercent * 100))
         setTags(products[productNum].hastags)
         setCurProdNum(productNum)
+    }
+    else {
+        setCurProdNum('')
     }
     setShowProductSplash(true)
   }

@@ -3,7 +3,7 @@ import styles from './productSplash.module.css'
 import { Tag } from './tag'
 
 export const ProductSplash = (props) => {
-  const { desc, price, name, img, weightUnit, weight, quantity, sale, discount, tags, setTags, setDesc, setPrice, setName, setImg, setWeightUnit, setWeight, setQuantity, setSale, setDiscount} = props.data
+  const { curProdNum, desc, price, name, img, weightUnit, weight, quantity, sale, discount, tags, setTags, setDesc, setPrice, setName, setImg, setWeightUnit, setWeight, setQuantity, setSale, setDiscount} = props.data
   const [enteredTag, setEnteredTag] = useState('')
 
   const addTag = () => {
@@ -46,7 +46,7 @@ export const ProductSplash = (props) => {
             {tags.map((tag) => <Tag text={tag} removeTag={removeTag}/>)}
           </div>
           <button className={styles.lightBttn} id={styles.submit} onClick={() => props.add()}>Submit</button>
-          <button className={desc ? (styles.lightBttn) : (`${styles.lightBttn} ${styles.disabled}`)} disabled={!desc ? true : false} id={styles.delete} onClick={() => props.delete()}>Delete</button>
+          <button className={curProdNum ? (styles.lightBttn) : (`${styles.lightBttn} ${styles.disabled}`)} disabled={!curProdNum ? true : false} id={styles.delete} onClick={() => props.delete()}>Delete</button>
           {props.error && <p>All fields are Required!</p>}
         </div>
       </div>
