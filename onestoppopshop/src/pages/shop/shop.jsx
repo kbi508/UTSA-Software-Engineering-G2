@@ -27,7 +27,7 @@ export const Shop = () => {
   const [tags, setTags] = useState([])
   const [curProdNum, setCurProdNum] = useState(null)
   const [showProductSplash, setShowProductSplash] = useState(false)
-  const productVals = {desc, price, name, img, weightUnit, weight, quantity, sale, discount, tags, setTags, setSale, setDiscount, setDesc, setPrice, setName, setImg,setWeightUnit, setWeight, setQuantity}
+  const productVals = {desc, price, name, img, weightUnit, weight, quantity, sale, discount, tags, curProdNum, setTags, setSale, setDiscount, setDesc, setPrice, setName, setImg,setWeightUnit, setWeight, setQuantity}
 
 
   useEffect(() => {

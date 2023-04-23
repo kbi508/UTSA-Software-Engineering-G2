@@ -85,30 +85,12 @@
     text-align: justify;
 }
 
-
-/* #saleText {
+.countHandler > *{
+    text-align: center;
+    width: 22px;
     color: white;
-    font-family: "Fasthand", sans-serif;
-    font-size: min(4vw, 2rem);
+    background-color: #24252A;
 }
-
-#tagsTitle {
-    display: flex;
-    align-items: center;
-    color: white;
-    grid-row: 6/7;
-    grid-column: 1/-1;
-    font-size: min(4vw, 2rem);
-    font-family: "Fasthand", sans-serif;
-}
-
-#tagsTitle > p {
-    margin-right: 1rem;
-}
-
-#tagsTitle > input {
-    height: 2rem;
-} */
 
 .tags {
     display: flex;
