@@ -12,9 +12,12 @@ export const Adminorderbox = (props) => {
         <p id={styles.date}>{props.data.date}</p>
         <div className={styles.items}>
         {Object.keys(props.data.items).map((prodNum) => {
-            return (
-            <><span>{products[prodNum].name}</span> <span className={styles.price}>${Number(products[prodNum].price).toFixed(2)} x {props.data.items[prodNum]} = ${Number(products[prodNum].price*props.data.items[prodNum]).toFixed(2)}</span></>
-            )
+            const product = products.find((product) => product?.prodNum === prodNum)
+            if (product) {
+              return (
+              <><span>{product.name}</span> <span className={styles.price}>${Number(product.price).toFixed(2)} x {props.data.items[prodNum]} = ${Number(product.price*props.data.items[prodNum]).toFixed(2)}</span></>
+              )
+            }
         })}
         </div>
         <p>{props.data.add} {props.data.city}, {props.data.state} {props.data.zip} {props.data.country}</p>
