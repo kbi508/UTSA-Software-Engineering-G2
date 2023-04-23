@@ -21,11 +21,10 @@
     top: 10%;
     left: 10%;
     font-size: 2rem;
-    color: #24252A;
-    background-color: #FCC68F;
+    color: white;
+    background-color: #329885;
     border-radius: 1rem;
     padding: .2rem;
-    box-shadow: 0 0 10px #329885;
 }
 
 .product img {
