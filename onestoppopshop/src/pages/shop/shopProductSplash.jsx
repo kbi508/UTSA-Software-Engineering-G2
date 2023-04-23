@@ -20,10 +20,10 @@ export const ShopProductSplash = (props) => {
                     <div>
                     {quantity === 0 ? (<p>Out of Stock</p>) : (
                         <div className={styles.countHandler}>
-                        <button onClick={() => removeFromCart(curProdNum)}>-</button>
-                        <input value={cartItems[curProdNum] ? (cartItems[curProdNum]) : (0)} onChange={(e) => updateCartItemCount(Number(e.target.value), curProdNum)} />
-                        <button onClick={() => addToCart(curProdNum)}>+</button>
-                    </div>
+                            <button onClick={() => removeFromCart(curProdNum)}>-</button>
+                            <input value={cartItems[curProdNum] ? (cartItems[curProdNum]) : (0)} onChange={(e) => updateCartItemCount(Number(e.target.value), curProdNum)} />
+                            <button onClick={() => addToCart(curProdNum)}>+</button>
+                        </div>
                     )}
                     </div>
 

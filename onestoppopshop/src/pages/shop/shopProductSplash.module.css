@@ -85,11 +85,25 @@
     text-align: justify;
 }
 
-.countHandler > *{
+.countHandler {
+    width: 100%;
+    height: 100%;
+}
+
+.countHandler > input{
     text-align: center;
-    width: 22px;
+    font-size: 1.5rem;
+    width: 4rem;
     color: white;
     background-color: #24252A;
+}
+
+.countHandler > button{
+    text-align: center;
+    font-size: 1.5rem;
+    width: 2rem;
+    color: #24252A;
+    background-color: #FCC68F;
 }
 
 .tags {
