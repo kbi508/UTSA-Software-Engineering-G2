@@ -319,7 +319,18 @@ export const ShopContextProvider = (props) => {
 
         order.items = cartItems
 
-        set(newOrderRef, order)        
+        set(newOrderRef, order)
+
+        // Subtract ordered quantity from products quantity:
+        Object.keys(cartItems).forEach((prodNum) => {
+            let curProduct = products.find((product) => Number(product?.prodNum) === Number(prodNum))
+            const productRef = ref(database, 'products/' + prodNum)
+            update(productRef, {
+                quantity: Number(curProduct.quantity - cartItems[prodNum])
+            })
+        })
+
+
         return newOrderRef.key
     }
 
