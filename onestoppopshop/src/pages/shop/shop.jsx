@@ -7,7 +7,7 @@ import { ShopProductSplash } from './shopProductSplash'
 
 
 export const Shop = () => {
-  const { products, fetchProducts, setProducts } = useContext(ShopContext)
+  const { products, fetchProducts, setProducts, setIsOpen } = useContext(ShopContext)
   const [searchString, setSearchString] = useState('')
   const [filteredProducts, setFilteredProducts] = useState([])
   const [productSort, setProductSort] = useState(null)
@@ -32,6 +32,7 @@ export const Shop = () => {
 
   useEffect(() => {
     fetchProducts()
+    setIsOpen(false)
   }, [])
   
   useEffect(() => {
