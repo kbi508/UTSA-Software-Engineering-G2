@@ -110,7 +110,7 @@ export const ShopContextProvider = (props) => {
         return validCode
     }
 
-    // Start up:
+    // Start up and on Authentication change:
     useEffect(() => {
         const listen = onAuthStateChanged(auth, (user) => {
             console.log("Detected auth change...")
@@ -123,7 +123,10 @@ export const ShopContextProvider = (props) => {
                     {
                         const data = snapshot.val()
                         console.log(data)
-                        setAuthIsAdmin(data.admin)
+                        if (data.admin)
+                            setAuthIsAdmin(data.admin)
+                        else
+                            setAuthIsAdmin(false)
                         console.log(data.admin)
                     }
                 })
