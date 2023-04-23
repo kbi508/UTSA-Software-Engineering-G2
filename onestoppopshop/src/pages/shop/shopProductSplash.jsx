@@ -26,7 +26,7 @@ export const ShopProductSplash = (props) => {
                         </div>
                     )}
                     </div>
-
+                    {quantity > 0 && <p>{quantity} On Hand</p>}
                 </div>
                 <div className={styles.tags}>
                     {tags.map((tag) => <Tag text={tag} />)}

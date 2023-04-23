@@ -96,22 +96,20 @@ export const Shop = () => {
     }
   }, [showProductSplash])
 
-  const productScreen = (productNum=null) => {
-    console.log("Attempting" + productNum)
-    if (productNum) { // If this is an edit call, pass in the data:
-        setDesc(products[productNum].prod_description)
-        setPrice(products[productNum].price)
-        setName(products[productNum].name)
-        setImg(products[productNum].product_Image)
-        setWeightUnit(products[productNum].weight_Type)
-        setWeight(products[productNum].weight_Amount)
-        setQuantity(products[productNum].quantity)
-        setSale(products[productNum].onsale)
-        setDiscount(Number(products[productNum].salepercent * 100))
-        setTags(products[productNum].hastags)
-        setCurProdNum(productNum)
-        setShowProductSplash(true)
-    }
+  const productScreen = (productNum) => {
+    let curProduct = products.find((product) => product?.prodNum === productNum)
+    setDesc(curProduct.prod_description)
+    setPrice(curProduct.price)
+    setName(curProduct.name)
+    setImg(curProduct.product_Image)
+    setWeightUnit(curProduct.weight_Type)
+    setWeight(curProduct.weight_Amount)
+    setQuantity(curProduct.quantity)
+    setSale(curProduct.onsale)
+    setDiscount(Number(curProduct.salepercent * 100))
+    setTags(curProduct.hastags)
+    setCurProdNum(productNum)
+    setShowProductSplash(true)
   }
 
   return (
