@@ -42,7 +42,7 @@ export const Shop = () => {
   // When the search string is updated:
   useEffect(() => {
     if (searchString) {
-      setFilteredProducts(filteredProducts.filter((product) => (product) && (product.prod_description.toUpperCase().search(searchString.toUpperCase()) !== -1 ||
+      setFilteredProducts(products.filter((product) => (product) && (product.prod_description.toUpperCase().search(searchString.toUpperCase()) !== -1 ||
         product.name.toUpperCase().search(searchString.toUpperCase()) !== -1  ||
         product.hastags.some((tag) => (tag.toUpperCase().search(searchString.toUpperCase()) !== -1)))))
       setEmptyMessage(true)
